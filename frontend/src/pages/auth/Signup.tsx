@@ -14,7 +14,7 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState<"CLIENT" | "MUSIC_PROFESSIONAL">("CLIENT");
   const [passwordError, setPasswordError] = useState("");
-  const { signUp, error, clearError, loading } = useAuth();
+  const { signUp, loginWithGoogle, error, clearError, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -24,9 +24,9 @@ export default function Signup() {
     setPasswordError("");
     clearError();
 
-    // Validate password strength
-    if (password.length < 8) {
-      setPasswordError("Password must be at least 8 characters long");
+    // Validate password strength (reduced to 6 characters for mock auth)
+    if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters long");
       return;
     }
 
@@ -41,6 +41,15 @@ export default function Signup() {
       navigate("/");
     } catch (error) {
       console.error("Signup failed:", error);
+    }
+  };
+
+  const handleGoogleSignup = async () => {
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (error) {
+      console.error("Google signup failed:", error);
     }
   };
 
@@ -97,7 +106,7 @@ export default function Signup() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Create a password"
+                  placeholder="Create a password (min 6 characters)"
                   required
                   autoComplete="new-password"
                 />
@@ -165,7 +174,8 @@ export default function Signup() {
                   type="button"
                   variant="outline"
                   className="w-full"
-                  onClick={() => navigate("/login")}
+                  onClick={handleGoogleSignup}
+                  disabled={loading}
                 >
                   <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none">
                     <path d="M23.766 12.2764C23.766 11.4607 23.6999 10.6406 23.5588 9.83807H12.24V14.4591H18.7217C18.4528 15.9494 17.5885 17.2678 16.323 18.1056V21.1039H20.19C22.4608 19.0139 23.766 15.9274 23.766 12.2764Z" fill="#4285F4" />

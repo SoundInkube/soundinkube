@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { DevBanner } from "@/components/ui/dev-banner";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ export default function Login() {
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-      // Redirect happens automatically with OAuth
+      navigate(from, { replace: true });
     } catch (error) {
       console.error("Google login failed:", error);
     }
@@ -39,6 +40,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gray-50">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <DevBanner />
         <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
           SoundInkube
         </h1>
@@ -94,7 +96,7 @@ export default function Login() {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
+                  placeholder="Enter your password (6+ characters)"
                   required
                   autoComplete="current-password"
                 />

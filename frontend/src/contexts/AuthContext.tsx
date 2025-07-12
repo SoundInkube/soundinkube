@@ -39,6 +39,27 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+// Mock authentication for development
+const createMockToken = (email: string, role: UserRole): string => {
+  const payload = {
+    sub: "mock-user-id-" + Date.now(),
+    email,
+    role,
+    isEmailVerified: true,
+    iat: Math.floor(Date.now() / 1000),
+    exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60) // 24 hours
+  };
+  
+  // Create a mock JWT (not secure, only for development)
+  const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+  const payloadStr = btoa(JSON.stringify(payload));
+  const signature = "mock-signature";
+  
+  return `${header}.${payloadStr}.${signature}`;
+};
+
+const isMockAuthEnabled = import.meta.env.VITE_ENABLE_MOCK_AUTH === 'true';
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -78,34 +99,63 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const handleLogin = async (email: string, password: string): Promise<void> => {
     setLoading(true);
     setError(null);
+    
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      if (isMockAuthEnabled) {
+        // Mock authentication
+        console.log("Using mock authentication");
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Validate mock credentials (for demo purposes)
+        if (email && password.length >= 6) {
+          const mockToken = createMockToken(email, "CLIENT");
+          localStorage.setItem("token", mockToken);
+          setToken(mockToken);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Login failed");
+          const decodedToken = jwtDecode<JwtPayload>(mockToken);
+          setUser({
+            id: decodedToken.sub,
+            email: decodedToken.email,
+            role: decodedToken.role,
+            isEmailVerified: decodedToken.isEmailVerified,
+          });
+        } else {
+          throw new Error("Invalid credentials. Password must be at least 6 characters.");
+        }
+      } else {
+        // Real API call
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+        const response = await fetch(`${apiUrl}/auth/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Login failed");
+        }
+
+        const data = await response.json();
+        localStorage.setItem("token", data.access_token);
+        setToken(data.access_token);
+
+        const decodedToken = jwtDecode<JwtPayload>(data.access_token);
+        setUser({
+          id: decodedToken.sub,
+          email: decodedToken.email,
+          role: decodedToken.role,
+          isEmailVerified: decodedToken.isEmailVerified,
+        });
       }
-
-      const data = await response.json();
-      localStorage.setItem("token", data.access_token);
-      setToken(data.access_token);
-
-      const decodedToken = jwtDecode<JwtPayload>(data.access_token);
-      setUser({
-        id: decodedToken.sub,
-        email: decodedToken.email,
-        role: decodedToken.role,
-        isEmailVerified: decodedToken.isEmailVerified,
-      });
     } catch (error) {
       setError(error instanceof Error ? error.message : "An error occurred during login");
       console.error("Login error:", error);
+      throw error;
     } finally {
       setLoading(false);
     }
@@ -114,49 +164,85 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const handleSignUp = async (email: string, password: string, role: UserRole): Promise<void> => {
     setLoading(true);
     setError(null);
+    
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password, role }),
-      });
+      if (isMockAuthEnabled) {
+        // Mock signup
+        console.log("Using mock signup");
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Validate mock credentials
+        if (email && password.length >= 6) {
+          const mockToken = createMockToken(email, role);
+          localStorage.setItem("token", mockToken);
+          setToken(mockToken);
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Signup failed");
+          const decodedToken = jwtDecode<JwtPayload>(mockToken);
+          setUser({
+            id: decodedToken.sub,
+            email: decodedToken.email,
+            role: decodedToken.role,
+            isEmailVerified: decodedToken.isEmailVerified,
+          });
+        } else {
+          throw new Error("Invalid credentials. Password must be at least 6 characters.");
+        }
+      } else {
+        // Real API call
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+        const response = await fetch(`${apiUrl}/auth/signup`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password, role }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Signup failed");
+        }
+
+        const data = await response.json();
+        localStorage.setItem("token", data.access_token);
+        setToken(data.access_token);
+
+        const decodedToken = jwtDecode<JwtPayload>(data.access_token);
+        setUser({
+          id: decodedToken.sub,
+          email: decodedToken.email,
+          role: decodedToken.role,
+          isEmailVerified: decodedToken.isEmailVerified,
+        });
       }
-
-      const data = await response.json();
-      localStorage.setItem("token", data.access_token);
-      setToken(data.access_token);
-
-      const decodedToken = jwtDecode<JwtPayload>(data.access_token);
-      setUser({
-        id: decodedToken.sub,
-        email: decodedToken.email,
-        role: decodedToken.role,
-        isEmailVerified: decodedToken.isEmailVerified,
-      });
     } catch (error) {
       setError(error instanceof Error ? error.message : "An error occurred during signup");
       console.error("Signup error:", error);
+      throw error;
     } finally {
       setLoading(false);
     }
   };
 
   const handleLoginWithGoogle = async (): Promise<void> => {
-    // In a real implementation, this would redirect to Google OAuth
-    // For now, we'll just simulate the post-redirect callback
-    window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`;
+    if (isMockAuthEnabled) {
+      // Mock Google login
+      const mockEmail = "user@gmail.com";
+      await handleLogin(mockEmail, "mockpassword123");
+    } else {
+      // In a real implementation, this would redirect to Google OAuth
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+      window.location.href = `${apiUrl}/auth/google`;
+    }
   };
 
   const handleLogout = (): void => {
     localStorage.removeItem("token");
     setUser(null);
     setToken(null);
+    setError(null);
   };
 
   const clearError = (): void => {
@@ -168,7 +254,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     token,
     loading,
     error,
-    isAuthenticated: !!user,
+    isAuthenticated: !!user && !!token,
     login: handleLogin,
     signUp: handleSignUp,
     loginWithGoogle: handleLoginWithGoogle,
