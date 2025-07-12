@@ -3,6 +3,9 @@
   publish = "frontend/dist"
   command = "pnpm run build"
 
+[build.environment]
+  PNPM_VERSION = "10.12.4"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
