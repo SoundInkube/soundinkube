@@ -8,11 +8,13 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { DevBanner } from "@/components/ui/dev-banner";
 
+type UserRole = "CLIENT" | "MUSIC_PROFESSIONAL" | "ARTIST_MANAGER_LABEL";
+
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState<"CLIENT" | "MUSIC_PROFESSIONAL">("CLIENT");
+  const [role, setRole] = useState<UserRole>("CLIENT");
   const [passwordError, setPasswordError] = useState("");
   const { signUp, loginWithGoogle, error, clearError, loading } = useAuth();
   const navigate = useNavigate();
@@ -24,7 +26,13 @@ export default function Signup() {
     setPasswordError("");
     clearError();
 
-    // Validate password strength (reduced to 6 characters for mock auth)
+    // Validate email
+    if (!email || !email.includes('@')) {
+      setPasswordError("Please enter a valid email address");
+      return;
+    }
+
+    // Validate password strength
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters long");
       return;
@@ -135,21 +143,28 @@ export default function Signup() {
               <Label className="netflix-label">Account Type</Label>
               <RadioGroup 
                 value={role} 
-                onValueChange={(value) => setRole(value as "CLIENT" | "MUSIC_PROFESSIONAL")}
+                onValueChange={(value) => setRole(value as UserRole)}
                 className="mt-3"
               >
                 <div className="flex items-center space-x-3 p-4 rounded-lg border border-gray-600 hover:border-gray-500 transition-colors duration-200">
                   <RadioGroupItem value="CLIENT" id="client" className="border-gray-500 text-netflix-red" />
                   <div className="flex-1">
                     <Label htmlFor="client" className="cursor-pointer text-white font-medium">Client</Label>
-                    <p className="text-sm text-gray-400 mt-1">Book jam pads, courses, and connect with professionals</p>
+                    <p className="text-sm text-gray-400 mt-1">Book jam pads, hire professionals, and collaborate on projects</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 p-4 rounded-lg border border-gray-600 hover:border-gray-500 transition-colors duration-200">
                   <RadioGroupItem value="MUSIC_PROFESSIONAL" id="professional" className="border-gray-500 text-netflix-red" />
                   <div className="flex-1">
                     <Label htmlFor="professional" className="cursor-pointer text-white font-medium">Music Professional</Label>
-                    <p className="text-sm text-gray-400 mt-1">Offer services, manage bookings, and grow your business</p>
+                    <p className="text-sm text-gray-400 mt-1">Offer services, manage bookings, teach, and grow your music business</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3 p-4 rounded-lg border border-gray-600 hover:border-gray-500 transition-colors duration-200">
+                  <RadioGroupItem value="ARTIST_MANAGER_LABEL" id="manager" className="border-gray-500 text-netflix-red" />
+                  <div className="flex-1">
+                    <Label htmlFor="manager" className="cursor-pointer text-white font-medium">Artist Manager / Label</Label>
+                    <p className="text-sm text-gray-400 mt-1">Manage talent, scout artists, and oversee music business operations</p>
                   </div>
                 </div>
               </RadioGroup>

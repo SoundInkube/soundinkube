@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { jwtDecode } from "jwt-decode";
 
 // Define types
-type UserRole = "CLIENT" | "MUSIC_PROFESSIONAL" | "ADMIN";
+type UserRole = "CLIENT" | "MUSIC_PROFESSIONAL" | "ARTIST_MANAGER_LABEL" | "ADMIN";
 
 interface User {
   id: string;
@@ -39,7 +39,7 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-// Mock authentication for development
+// Mock authentication for development - always enabled for now
 const createMockToken = (email: string, role: UserRole): string => {
   const payload = {
     sub: "mock-user-id-" + Date.now(),
@@ -58,7 +58,8 @@ const createMockToken = (email: string, role: UserRole): string => {
   return `${header}.${payloadStr}.${signature}`;
 };
 
-const isMockAuthEnabled = import.meta.env.VITE_ENABLE_MOCK_AUTH === 'true';
+// Force mock authentication for development
+const isMockAuthEnabled = true; // Always true for development
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
@@ -68,7 +69,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   // Initialize from localStorage on mount
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
+    const storedToken = localStorage.getItem("soundinkube_token");
     if (storedToken) {
       try {
         setToken(storedToken);
@@ -101,59 +102,45 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setError(null);
     
     try {
-      if (isMockAuthEnabled) {
-        // Mock authentication
-        console.log("Using mock authentication");
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Validate mock credentials (for demo purposes)
-        if (email && password.length >= 6) {
-          const mockToken = createMockToken(email, "CLIENT");
-          localStorage.setItem("token", mockToken);
-          setToken(mockToken);
-
-          const decodedToken = jwtDecode<JwtPayload>(mockToken);
-          setUser({
-            id: decodedToken.sub,
-            email: decodedToken.email,
-            role: decodedToken.role,
-            isEmailVerified: decodedToken.isEmailVerified,
-          });
-        } else {
-          throw new Error("Invalid credentials. Password must be at least 6 characters.");
-        }
-      } else {
-        // Real API call
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-        const response = await fetch(`${apiUrl}/auth/login`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || "Login failed");
-        }
-
-        const data = await response.json();
-        localStorage.setItem("token", data.access_token);
-        setToken(data.access_token);
-
-        const decodedToken = jwtDecode<JwtPayload>(data.access_token);
-        setUser({
-          id: decodedToken.sub,
-          email: decodedToken.email,
-          role: decodedToken.role,
-          isEmailVerified: decodedToken.isEmailVerified,
-        });
+      console.log("Starting login process with mock auth");
+      
+      // Always use mock authentication for development
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Validate mock credentials (for demo purposes)
+      if (!email || !email.includes('@')) {
+        throw new Error("Please enter a valid email address");
       }
+      
+      if (!password || password.length < 6) {
+        throw new Error("Password must be at least 6 characters long");
+      }
+      
+      // Determine role based on email domain or default to CLIENT
+      let role: UserRole = "CLIENT";
+      if (email.includes('professional') || email.includes('musician')) {
+        role = "MUSIC_PROFESSIONAL";
+      } else if (email.includes('manager') || email.includes('label')) {
+        role = "ARTIST_MANAGER_LABEL";
+      }
+      
+      const mockToken = createMockToken(email, role);
+      localStorage.setItem("soundinkube_token", mockToken);
+      setToken(mockToken);
+
+      const decodedToken = jwtDecode<JwtPayload>(mockToken);
+      setUser({
+        id: decodedToken.sub,
+        email: decodedToken.email,
+        role: decodedToken.role,
+        isEmailVerified: decodedToken.isEmailVerified,
+      });
+      
+      console.log("Login successful:", { email, role });
     } catch (error) {
-      setError(error instanceof Error ? error.message : "An error occurred during login");
+      const errorMessage = error instanceof Error ? error.message : "Login failed. Please try again.";
+      setError(errorMessage);
       console.error("Login error:", error);
       throw error;
     } finally {
@@ -166,59 +153,41 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setError(null);
     
     try {
-      if (isMockAuthEnabled) {
-        // Mock signup
-        console.log("Using mock signup");
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Validate mock credentials
-        if (email && password.length >= 6) {
-          const mockToken = createMockToken(email, role);
-          localStorage.setItem("token", mockToken);
-          setToken(mockToken);
-
-          const decodedToken = jwtDecode<JwtPayload>(mockToken);
-          setUser({
-            id: decodedToken.sub,
-            email: decodedToken.email,
-            role: decodedToken.role,
-            isEmailVerified: decodedToken.isEmailVerified,
-          });
-        } else {
-          throw new Error("Invalid credentials. Password must be at least 6 characters.");
-        }
-      } else {
-        // Real API call
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-        const response = await fetch(`${apiUrl}/auth/signup`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password, role }),
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || "Signup failed");
-        }
-
-        const data = await response.json();
-        localStorage.setItem("token", data.access_token);
-        setToken(data.access_token);
-
-        const decodedToken = jwtDecode<JwtPayload>(data.access_token);
-        setUser({
-          id: decodedToken.sub,
-          email: decodedToken.email,
-          role: decodedToken.role,
-          isEmailVerified: decodedToken.isEmailVerified,
-        });
+      console.log("Starting signup process with mock auth");
+      
+      // Always use mock authentication for development
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Validate mock credentials
+      if (!email || !email.includes('@')) {
+        throw new Error("Please enter a valid email address");
       }
+      
+      if (!password || password.length < 6) {
+        throw new Error("Password must be at least 6 characters long");
+      }
+      
+      if (!role) {
+        throw new Error("Please select an account type");
+      }
+      
+      const mockToken = createMockToken(email, role);
+      localStorage.setItem("soundinkube_token", mockToken);
+      setToken(mockToken);
+
+      const decodedToken = jwtDecode<JwtPayload>(mockToken);
+      setUser({
+        id: decodedToken.sub,
+        email: decodedToken.email,
+        role: decodedToken.role,
+        isEmailVerified: decodedToken.isEmailVerified,
+      });
+      
+      console.log("Signup successful:", { email, role });
     } catch (error) {
-      setError(error instanceof Error ? error.message : "An error occurred during signup");
+      const errorMessage = error instanceof Error ? error.message : "Signup failed. Please try again.";
+      setError(errorMessage);
       console.error("Signup error:", error);
       throw error;
     } finally {
@@ -227,22 +196,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const handleLoginWithGoogle = async (): Promise<void> => {
-    if (isMockAuthEnabled) {
-      // Mock Google login
-      const mockEmail = "user@gmail.com";
+    try {
+      // Mock Google login with a professional account
+      const mockEmail = "professional@gmail.com";
       await handleLogin(mockEmail, "mockpassword123");
-    } else {
-      // In a real implementation, this would redirect to Google OAuth
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-      window.location.href = `${apiUrl}/auth/google`;
+    } catch (error) {
+      console.error("Google login error:", error);
+      throw error;
     }
   };
 
   const handleLogout = (): void => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("soundinkube_token");
     setUser(null);
     setToken(null);
     setError(null);
+    console.log("User logged out");
   };
 
   const clearError = (): void => {

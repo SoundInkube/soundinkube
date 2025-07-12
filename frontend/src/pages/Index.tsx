@@ -1,209 +1,303 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import MainLayout from "@/components/layout/MainLayout";
+import { Card, CardContent } from "@/components/ui/card";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { Music, Users, Calendar, GraduationCap, Star, Play, ArrowRight, CheckCircle } from "lucide-react";
 
-export default function Homepage() {
-  const { isAuthenticated } = useAuth();
+export default function Index() {
+  const { user, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  const handleHireProfessionals = () => {
+    if (isAuthenticated && user?.role === "CLIENT") {
+      navigate("/marketplace");
+    } else {
+      navigate("/login?intent=hire");
+    }
+  };
+
+  const handleJoinProfessionals = () => {
+    navigate("/signup?role=professional");
+  };
+
+  const features = [
+    {
+      icon: <Music className="h-8 w-8 text-netflix-red" />,
+      title: "Professional Services",
+      description: "Connect with experienced musicians, producers, and sound engineers for your projects.",
+      gradient: "from-red-600/20 to-orange-600/20"
+    },
+    {
+      icon: <Users className="h-8 w-8 text-netflix-red" />,
+      title: "Collaboration Hub",
+      description: "Work together on projects with real-time collaboration tools and shared workspaces.",
+      gradient: "from-purple-600/20 to-pink-600/20"
+    },
+    {
+      icon: <Calendar className="h-8 w-8 text-netflix-red" />,
+      title: "Jam Pads",
+      description: "Book virtual and physical jam spaces for practice, recording, and live sessions.",
+      gradient: "from-blue-600/20 to-cyan-600/20"
+    },
+    {
+      icon: <GraduationCap className="h-8 w-8 text-netflix-red" />,
+      title: "Music Schools",
+      description: "Learn from industry professionals with structured courses and one-on-one mentoring.",
+      gradient: "from-green-600/20 to-emerald-600/20"
+    }
+  ];
+
+  const stats = [
+    { number: "10K+", label: "Music Professionals" },
+    { number: "50K+", label: "Projects Completed" },
+    { number: "200+", label: "Cities Worldwide" },
+    { number: "95%", label: "Client Satisfaction" }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      role: "Independent Artist",
+      image: "SC",
+      content: "SoundInkube connected me with amazing producers who helped bring my vision to life. The collaboration tools made remote work seamless.",
+      rating: 5
+    },
+    {
+      name: "Marcus Rodriguez",
+      role: "Music Producer",
+      image: "MR",
+      content: "As a professional, this platform has been game-changing. I've expanded my client base globally and the booking system is incredibly efficient.",
+      rating: 5
+    },
+    {
+      name: "Lisa Thompson",
+      role: "Label Manager",
+      image: "LT",
+      content: "Managing our roster of artists became so much easier with SoundInkube's talent management tools. Highly recommended for industry professionals.",
+      rating: 5
+    }
+  ];
 
   return (
-    <MainLayout>
-      {/* Netflix-style Hero Section */}
-      <section className="netflix-hero relative bg-gradient-to-b from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70"></div>
-        <div className="netflix-container relative z-10 py-24 md:py-32">
-          <div className="md:flex md:items-center md:space-x-12">
-            <div className="md:w-1/2 space-y-8 netflix-fade-in">
-              <h1 className="netflix-title">
-                Connect with the <span className="text-netflix-red">Music Community</span>
-              </h1>
-              <p className="netflix-subtitle max-w-2xl">
-                Book jam pads, find music lessons, connect with musicians, and buy/sell gear all in one place. 
-                Your complete music platform awaits.
+    <div className="min-h-screen bg-netflix-black">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black">
+        <div className="absolute inset-0 bg-gradient-to-r from-netflix-red/10 to-transparent"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div className="text-center">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 netflix-fade-in">
+              Your Music.
+              <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+                Your Network.
+              </span>
+              <span className="block">Your Success.</span>
+            </h1>
+            <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed netflix-fade-in-delay">
+              Connect with music professionals, collaborate on projects, book jam spaces, and grow your musical journey. 
+              Join the world's largest community of music creators and industry experts.
+            </p>
+            
+            {/* Call-to-Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 netflix-fade-in-delay-2">
+              <Button
+                onClick={handleHireProfessionals}
+                className="netflix-button-primary netflix-hover-glow text-lg px-8 py-4 h-auto font-semibold"
+              >
+                <Users className="h-5 w-5 mr-2" />
+                Hire Music Professionals
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+              
+              <Button
+                onClick={handleJoinProfessionals}
+                variant="outline"
+                className="netflix-button-secondary netflix-hover-scale text-lg px-8 py-4 h-auto font-semibold"
+              >
+                <Music className="h-5 w-5 mr-2" />
+                Join the Music Professional Community
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center netflix-hover-scale">
+                  <div className="text-3xl lg:text-4xl font-bold text-netflix-red mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-400 text-sm lg:text-base">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div className="py-24 bg-gradient-to-b from-netflix-dark to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Everything You Need to
+              <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+                Create Music
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              From finding the right professionals to collaborative tools and learning resources, 
+              SoundInkube provides a complete ecosystem for music creation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <Card key={index} className={`netflix-card netflix-hover-glow bg-gradient-to-br ${feature.gradient} backdrop-blur-sm`}>
+                <CardContent className="p-8 text-center">
+                  <div className="mb-6 flex justify-center">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* How It Works Section */}
+      <div className="py-24 bg-netflix-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              How SoundInkube Works
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Get started in minutes and connect with the music community worldwide
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center netflix-fade-in">
+              <div className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-white">1</span>
+              </div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Create Your Profile</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Sign up as a Client, Music Professional, or Artist Manager. Showcase your skills, 
+                experience, and what you're looking for in the music industry.
               </p>
-              <div className="flex flex-wrap gap-4">
-                {!isAuthenticated ? (
-                  <>
-                    <Button size="lg" asChild className="netflix-button-primary netflix-hover-glow">
-                      <Link to="/signup">Join Now</Link>
-                    </Button>
-                    <Button size="lg" variant="outline" asChild className="netflix-button-secondary">
-                      <Link to="/login">Sign In</Link>
-                    </Button>
-                  </>
-                ) : (
-                  <Button size="lg" asChild className="netflix-button-primary netflix-hover-glow">
-                    <Link to="/marketplace">Explore Marketplace</Link>
-                  </Button>
-                )}
-              </div>
             </div>
-            <div className="md:w-1/2 mt-12 md:mt-0">
-              <div className="netflix-image-overlay rounded-lg overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                  alt="Musicians jamming together" 
-                  className="w-full h-96 object-cover transform hover:scale-105 transition-transform duration-500"
-                />
+
+            <div className="text-center netflix-fade-in-delay">
+              <div className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-white">2</span>
               </div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Connect & Collaborate</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Browse professionals, post projects, book jam sessions, or join collaborative 
+                workspaces. Our tools make it easy to work together remotely or in person.
+              </p>
+            </div>
+
+            <div className="text-center netflix-fade-in-delay-2">
+              <div className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-white">3</span>
+              </div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Create Amazing Music</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Use our platform's tools to manage projects, track progress, handle payments, 
+                and deliver exceptional musical experiences to your audience.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Netflix-style Features Section */}
-      <section className="netflix-section-dark">
-        <div className="netflix-container">
-          <div className="text-center mb-16 netflix-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-6">Everything You Need in One Place</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">Explore all the features that SoundInkube has to offer</p>
-          </div>
-          
-          <div className="netflix-grid">
-            <div className="netflix-card group">
-              <div className="p-8">
-                <div className="h-16 w-16 rounded-full bg-red-600 flex items-center justify-center mb-6 group-hover:bg-red-500 transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Jam Pad Booking</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">Find and book rehearsal spaces easily with our simple booking system. Perfect for bands and solo artists.</p>
-                <Button variant="link" className="text-netflix-red hover:text-red-400 font-semibold" asChild>
-                  <Link to="/jampads">Explore Jam Pads →</Link>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="netflix-card group">
-              <div className="p-8">
-                <div className="h-16 w-16 rounded-full bg-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Music Schools</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">Discover classes and lessons from top music education providers. Learn from the best instructors.</p>
-                <Button variant="link" className="text-netflix-red hover:text-red-400 font-semibold" asChild>
-                  <Link to="/music-schools">Find Lessons →</Link>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="netflix-card group">
-              <div className="p-8">
-                <div className="h-16 w-16 rounded-full bg-purple-600 flex items-center justify-center mb-6 group-hover:bg-purple-500 transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Collaborations</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">Find other musicians to collaborate with on your next project. Build your network.</p>
-                <Button variant="link" className="text-netflix-red hover:text-red-400 font-semibold" asChild>
-                  <Link to="/collaborations">Find Musicians →</Link>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="netflix-card group">
-              <div className="p-8">
-                <div className="h-16 w-16 rounded-full bg-green-600 flex items-center justify-center mb-6 group-hover:bg-green-500 transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Marketplace</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">Buy and sell music gear from other musicians in your area. Find the perfect equipment.</p>
-                <Button variant="link" className="text-netflix-red hover:text-red-400 font-semibold" asChild>
-                  <Link to="/marketplace">Shop Now →</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Netflix-style Testimonials */}
-      <section className="netflix-section">
-        <div className="netflix-container">
-          <div className="text-center mb-16 netflix-fade-in">
-            <h2 className="text-4xl font-bold text-white mb-6">What Our Users Say</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">Join thousands of musicians who love SoundInkube</p>
+      {/* Testimonials Section */}
+      <div className="py-24 bg-gradient-to-b from-netflix-dark to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Trusted by Music Creators
+              <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+                Worldwide
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              See what our community members say about their SoundInkube experience
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="netflix-card">
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center mr-4">
-                    <span className="text-2xl font-bold text-white">J</span>
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg">James Peterson</h4>
-                    <p className="text-gray-400">Guitarist, London</p>
+                  <p className="text-gray-300 mb-6 leading-relaxed italic">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-netflix-red rounded-full flex items-center justify-center mr-4">
+                      <span className="text-white font-semibold">{testimonial.image}</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-white">{testimonial.name}</div>
+                      <div className="text-gray-400 text-sm">{testimonial.role}</div>
+                    </div>
                   </div>
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  "Finding rehearsal space used to be a nightmare. With SoundInkube, I can book jam pads instantly and focus on what matters - the music."
-                </p>
-              </div>
-            </div>
-            
-            <div className="netflix-card">
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center mr-4">
-                    <span className="text-2xl font-bold text-white">S</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg">Sarah Kim</h4>
-                    <p className="text-gray-400">Piano Teacher, New York</p>
-                  </div>
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  "The music school platform has helped me grow my teaching business enormously. The scheduling and payment system makes everything so much easier."
-                </p>
-              </div>
-            </div>
-            
-            <div className="netflix-card">
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center mr-4">
-                    <span className="text-2xl font-bold text-white">M</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg">Michael Torres</h4>
-                    <p className="text-gray-400">Producer, Los Angeles</p>
-                  </div>
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  "I sold my old synth and found two collaborators through SoundInkube in the same week. It's become an essential tool for my music career."
-                </p>
-              </div>
-            </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Netflix-style CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-red-600 via-red-700 to-red-800">
-        <div className="netflix-container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 netflix-fade-in">Ready to Join the Community?</h2>
-          <p className="text-xl text-red-100 mb-12 max-w-4xl mx-auto leading-relaxed netflix-fade-in">
-            SoundInkube connects you with everything you need for your music journey, all in one place. Start your musical adventure today.
+      {/* Final CTA Section */}
+      <div className="py-24 bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Ready to Transform Your
+            <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+              Music Career?
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+            Join thousands of music professionals and creators who are already using SoundInkube 
+            to grow their careers and create amazing music together.
           </p>
-          {!isAuthenticated ? (
-            <Button size="lg" variant="secondary" asChild className="bg-white text-red-600 hover:bg-gray-100 font-bold py-4 px-8 text-lg netflix-hover-scale">
-              <Link to="/signup">Get Started Today</Link>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button
+              onClick={handleHireProfessionals}
+              className="netflix-button-primary netflix-hover-glow text-lg px-8 py-4 h-auto font-semibold"
+            >
+              <Play className="h-5 w-5 mr-2" />
+              Get Started as Client
             </Button>
-          ) : (
-            <Button size="lg" variant="secondary" asChild className="bg-white text-red-600 hover:bg-gray-100 font-bold py-4 px-8 text-lg netflix-hover-scale">
-              <Link to="/profile">Complete Your Profile</Link>
+            
+            <Button
+              onClick={handleJoinProfessionals}
+              variant="outline"
+              className="netflix-button-secondary netflix-hover-scale text-lg px-8 py-4 h-auto font-semibold"
+            >
+              <CheckCircle className="h-5 w-5 mr-2" />
+              Join as Professional
             </Button>
-          )}
+          </div>
         </div>
-      </section>
-    </MainLayout>
+      </div>
+    </div>
   );
 }

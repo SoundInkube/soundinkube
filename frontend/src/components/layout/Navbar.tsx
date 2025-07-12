@@ -33,6 +33,12 @@ export default function Navbar() {
                 Marketplace
               </Link>
               <Link
+                to="/collaboration"
+                className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
+              >
+                Collaboration
+              </Link>
+              <Link
                 to="/jampads"
                 className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
               >
@@ -43,12 +49,6 @@ export default function Navbar() {
                 className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
               >
                 Music Schools
-              </Link>
-              <Link
-                to="/collaborations"
-                className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
-              >
-                Collaborations
               </Link>
             </div>
           </div>
@@ -146,6 +146,12 @@ export default function Navbar() {
             Marketplace
           </Link>
           <Link
+            to="/collaboration"
+            className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
+          >
+            Collaboration
+          </Link>
+          <Link
             to="/jampads"
             className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
           >
@@ -156,12 +162,6 @@ export default function Navbar() {
             className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
           >
             Music Schools
-          </Link>
-          <Link
-            to="/collaborations"
-            className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
-          >
-            Collaborations
           </Link>
         </div>
         
