@@ -15,28 +15,30 @@ export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Determine navigation items based on user role
+  // Exact navigation items based on user role as specified
   const getNavigationItems = () => {
     if (!isAuthenticated || !user) {
       return [];
     }
 
-    if (user.role === "MUSIC_PROFESSIONAL") {
+    if (user.role === "CLIENT") {
       return [
-        { name: "Marketplace", href: "/marketplace", description: "Buy/sell equipment" },
-        { name: "Jam Pads", href: "/jampads", description: "Book studio spaces" },
-        { name: "Schools", href: "/music-schools", description: "Learn & teach" },
-        { name: "Collaborations", href: "/collaboration", description: "Work together" }
+        { name: "Hire Music Professionals", href: "/hire-professionals", description: "Find music talent" },
+        { name: "Find Music Schools", href: "/find-music-schools", description: "Discover music education" }
       ];
-    } else if (user.role === "CLIENT") {
+    } else if (user.role === "MUSIC_PROFESSIONAL") {
       return [
-        { name: "Hire Professionals", href: "/hire-professionals", description: "Find music talent" }
+        { name: "Collaboration", href: "/collaboration", description: "Work together" },
+        { name: "Marketplace", href: "/marketplace", description: "Buy/sell equipment" },
+        { name: "Jampads", href: "/jampads", description: "Book studio spaces" },
+        { name: "Gigs", href: "/gigs", description: "Find work opportunities" },
+        { name: "Music Schools", href: "/music-schools", description: "Learn & teach" }
       ];
     } else if (user.role === "ARTIST_MANAGER") {
       return [
-        { name: "Hire Professionals", href: "/hire-professionals", description: "Find music talent" },
-        { name: "Marketplace", href: "/marketplace", description: "Buy/sell equipment" },
-        { name: "Collaborations", href: "/collaboration", description: "Manage projects" }
+        { name: "Manage Talent", href: "/manage-talent", description: "Artist management" },
+        { name: "Scout Artists", href: "/scout-artists", description: "Discover new talent" },
+        { name: "Dashboard", href: "/dashboard", description: "Business operations" }
       ];
     }
 
@@ -49,20 +51,20 @@ export default function Navbar() {
       return [];
     }
 
-    if (user.role === "MUSIC_PROFESSIONAL") {
+    if (user.role === "CLIENT") {
+      return [
+        { name: "Profile Settings", href: "/profile" },
+        { name: "My Bookings", href: "/my-bookings" },
+        { name: "Saved Professionals", href: "/saved-professionals" },
+        { name: "Payment History", href: "/payment-history" }
+      ];
+    } else if (user.role === "MUSIC_PROFESSIONAL") {
       return [
         { name: "Profile Settings", href: "/profile" },
         { name: "My Equipment Listings", href: "/my-listings" },
         { name: "My Collaborations", href: "/my-collaborations" },
         { name: "My Students", href: "/my-students" },
         { name: "Analytics", href: "/analytics" }
-      ];
-    } else if (user.role === "CLIENT") {
-      return [
-        { name: "Profile Settings", href: "/profile" },
-        { name: "My Bookings", href: "/my-bookings" },
-        { name: "Saved Professionals", href: "/saved-professionals" },
-        { name: "Payment History", href: "/payment-history" }
       ];
     } else if (user.role === "ARTIST_MANAGER") {
       return [
@@ -90,7 +92,7 @@ export default function Navbar() {
               </span>
             </Link>
             
-            {/* Desktop Navigation - Only show when authenticated */}
+            {/* Desktop Navigation - Role-based navigation items */}
             {isAuthenticated && navigationItems.length > 0 && (
               <div className="hidden sm:ml-8 sm:flex sm:space-x-8">
                 {navigationItems.map((item) => (
@@ -134,7 +136,7 @@ export default function Navbar() {
                     <DropdownMenuLabel className="text-gray-300">
                       My Account
                       <div className="text-xs text-gray-500 mt-1 capitalize">
-                        {user?.role.replace('_', ' ').toLowerCase()}
+                        {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
                       </div>
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator className="bg-gray-700" />
@@ -226,7 +228,7 @@ export default function Navbar() {
                   {user?.email}
                 </div>
                 <div className="text-sm font-medium text-gray-400 capitalize">
-                  {user?.role.replace('_', ' ').toLowerCase()}
+                  {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
                 </div>
               </div>
             </div>

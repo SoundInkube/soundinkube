@@ -7,6 +7,11 @@ import Signup from '@/pages/auth/Signup';
 import Marketplace from '@/pages/Marketplace';
 import HireProfessionals from '@/pages/HireProfessionals';
 import ProfessionalProfile from '@/pages/ProfessionalProfile';
+import FindMusicSchools from '@/pages/FindMusicSchools';
+import Gigs from '@/pages/Gigs';
+import ManageTalent from '@/pages/ManageTalent';
+import ScoutArtists from '@/pages/ScoutArtists';
+import Dashboard from '@/pages/Dashboard';
 import JamPads from '@/pages/JamPads';
 import MusicSchools from '@/pages/MusicSchools';
 import Collaboration from '@/pages/Collaboration';
@@ -25,12 +30,25 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/marketplace" element={<Marketplace />} />
+            
+            {/* Client Routes */}
             <Route path="/hire-professionals" element={<HireProfessionals />} />
-            <Route path="/professional/:id" element={<ProfessionalProfile />} />
-            <Route path="/jampads" element={<JamPads />} />
-            <Route path="/music-schools" element={<MusicSchools />} />
+            <Route path="/find-music-schools" element={<FindMusicSchools />} />
+            
+            {/* Music Professional Routes */}
             <Route path="/collaboration" element={<Collaboration />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/jampads" element={<JamPads />} />
+            <Route path="/gigs" element={<Gigs />} />
+            <Route path="/music-schools" element={<MusicSchools />} />
+            
+            {/* Artist Manager Routes */}
+            <Route path="/manage-talent" element={<ManageTalent />} />
+            <Route path="/scout-artists" element={<ScoutArtists />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            
+            {/* Shared Routes */}
+            <Route path="/professional/:id" element={<ProfessionalProfile />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
