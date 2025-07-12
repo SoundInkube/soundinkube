@@ -42,7 +42,7 @@ export default function ProfessionalProfile() {
     title: "Grammy-Nominated Music Producer & Sound Engineer",
     location: "Los Angeles, CA",
     rating: 4.9,
-    reviews: 127,
+    reviewCount: 127,
     responseTime: "< 1 hour",
     completedProjects: 245,
     verified: true,
@@ -266,7 +266,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
                   <div className="flex items-center space-x-1">
                     <Star className="h-4 w-4 fill-current text-yellow-400" />
                     <span className="text-white">{professional.rating}</span>
-                    <span>({professional.reviews} reviews)</span>
+                    <span>({professional.reviewCount} reviews)</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Clock className="h-4 w-4" />
@@ -451,7 +451,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
                     <div className="flex items-center space-x-2">
                       <Star className="h-5 w-5 fill-current text-yellow-400" />
                       <span className="text-xl font-bold text-white">{professional.rating}</span>
-                      <span className="text-gray-400">({professional.reviews} reviews)</span>
+                      <span className="text-gray-400">({professional.reviewCount} reviews)</span>
                     </div>
                   </div>
                 </div>
