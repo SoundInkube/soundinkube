@@ -15,6 +15,70 @@ export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Determine navigation items based on user role
+  const getNavigationItems = () => {
+    if (!isAuthenticated || !user) {
+      return [];
+    }
+
+    if (user.role === "MUSIC_PROFESSIONAL") {
+      return [
+        { name: "Marketplace", href: "/marketplace", description: "Buy/sell equipment" },
+        { name: "Jam Pads", href: "/jampads", description: "Book studio spaces" },
+        { name: "Schools", href: "/music-schools", description: "Learn & teach" },
+        { name: "Collaborations", href: "/collaboration", description: "Work together" }
+      ];
+    } else if (user.role === "CLIENT") {
+      return [
+        { name: "Hire Professionals", href: "/hire-professionals", description: "Find music talent" }
+      ];
+    } else if (user.role === "ARTIST_MANAGER") {
+      return [
+        { name: "Hire Professionals", href: "/hire-professionals", description: "Find music talent" },
+        { name: "Marketplace", href: "/marketplace", description: "Buy/sell equipment" },
+        { name: "Collaborations", href: "/collaboration", description: "Manage projects" }
+      ];
+    }
+
+    return [];
+  };
+
+  // Get role-specific profile dropdown items
+  const getProfileDropdownItems = () => {
+    if (!isAuthenticated || !user) {
+      return [];
+    }
+
+    if (user.role === "MUSIC_PROFESSIONAL") {
+      return [
+        { name: "Profile Settings", href: "/profile" },
+        { name: "My Equipment Listings", href: "/my-listings" },
+        { name: "My Collaborations", href: "/my-collaborations" },
+        { name: "My Students", href: "/my-students" },
+        { name: "Analytics", href: "/analytics" }
+      ];
+    } else if (user.role === "CLIENT") {
+      return [
+        { name: "Profile Settings", href: "/profile" },
+        { name: "My Bookings", href: "/my-bookings" },
+        { name: "Saved Professionals", href: "/saved-professionals" },
+        { name: "Payment History", href: "/payment-history" }
+      ];
+    } else if (user.role === "ARTIST_MANAGER") {
+      return [
+        { name: "Profile Settings", href: "/profile" },
+        { name: "Manage Artists", href: "/manage-artists" },
+        { name: "Contracts", href: "/contracts" },
+        { name: "Revenue Analytics", href: "/revenue-analytics" }
+      ];
+    }
+
+    return [];
+  };
+
+  const navigationItems = getNavigationItems();
+  const profileDropdownItems = getProfileDropdownItems();
+
   return (
     <nav className="netflix-navbar border-b border-gray-800">
       <div className="netflix-container">
@@ -25,32 +89,23 @@ export default function Navbar() {
                 SoundInkube
               </span>
             </Link>
-            <div className="hidden sm:ml-8 sm:flex sm:space-x-8">
-              <Link
-                to="/marketplace"
-                className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
-              >
-                Marketplace
-              </Link>
-              <Link
-                to="/collaboration"
-                className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
-              >
-                Collaboration
-              </Link>
-              <Link
-                to="/jampads"
-                className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
-              >
-                Jam Pads
-              </Link>
-              <Link
-                to="/music-schools"
-                className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium"
-              >
-                Music Schools
-              </Link>
-            </div>
+            
+            {/* Desktop Navigation - Only show when authenticated */}
+            {isAuthenticated && navigationItems.length > 0 && (
+              <div className="hidden sm:ml-8 sm:flex sm:space-x-8">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium group relative"
+                    title={item.description}
+                  >
+                    {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-netflix-red transition-all duration-200 group-hover:w-full"></span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
           
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -76,17 +131,21 @@ export default function Navbar() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56 bg-gray-900 border-gray-700">
-                    <DropdownMenuLabel className="text-gray-300">My Account</DropdownMenuLabel>
+                    <DropdownMenuLabel className="text-gray-300">
+                      My Account
+                      <div className="text-xs text-gray-500 mt-1 capitalize">
+                        {user?.role.replace('_', ' ').toLowerCase()}
+                      </div>
+                    </DropdownMenuLabel>
                     <DropdownMenuSeparator className="bg-gray-700" />
-                    <DropdownMenuItem asChild className="text-gray-300 hover:bg-gray-800 hover:text-white">
-                      <Link to="/profile">Profile</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="text-gray-300 hover:bg-gray-800 hover:text-white">
-                      <Link to="/bookings">My Bookings</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="text-gray-300 hover:bg-gray-800 hover:text-white">
-                      <Link to="/listings">My Listings</Link>
-                    </DropdownMenuItem>
+                    
+                    {/* Role-specific dropdown items */}
+                    {profileDropdownItems.map((item) => (
+                      <DropdownMenuItem key={item.name} asChild className="text-gray-300 hover:bg-gray-800 hover:text-white">
+                        <Link to={item.href}>{item.name}</Link>
+                      </DropdownMenuItem>
+                    ))}
+                    
                     <DropdownMenuSeparator className="bg-gray-700" />
                     <DropdownMenuItem onClick={logout} className="text-gray-300 hover:bg-gray-800 hover:text-white">
                       Sign out
@@ -106,6 +165,7 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* Mobile menu button */}
           <div className="-mr-2 flex items-center sm:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -138,32 +198,20 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} sm:hidden bg-black border-t border-gray-800`}>
-        <div className="pt-2 pb-3 space-y-1">
-          <Link
-            to="/marketplace"
-            className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
-          >
-            Marketplace
-          </Link>
-          <Link
-            to="/collaboration"
-            className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
-          >
-            Collaboration
-          </Link>
-          <Link
-            to="/jampads"
-            className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
-          >
-            Jam Pads
-          </Link>
-          <Link
-            to="/music-schools"
-            className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
-          >
-            Music Schools
-          </Link>
-        </div>
+        {isAuthenticated && navigationItems.length > 0 && (
+          <div className="pt-2 pb-3 space-y-1">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        )}
         
         {isAuthenticated ? (
           <div className="pt-4 pb-3 border-t border-gray-800">
@@ -177,32 +225,28 @@ export default function Navbar() {
                 <div className="text-base font-medium text-white">
                   {user?.email}
                 </div>
-                <div className="text-sm font-medium text-gray-400">
-                  {user?.role}
+                <div className="text-sm font-medium text-gray-400 capitalize">
+                  {user?.role.replace('_', ' ').toLowerCase()}
                 </div>
               </div>
             </div>
             <div className="mt-3 space-y-1">
-              <Link
-                to="/profile"
-                className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
-              >
-                Profile
-              </Link>
-              <Link
-                to="/bookings"
-                className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
-              >
-                My Bookings
-              </Link>
-              <Link
-                to="/listings"
-                className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
-              >
-                My Listings
-              </Link>
+              {/* Role-specific mobile dropdown items */}
+              {profileDropdownItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <button
-                onClick={logout}
+                onClick={() => {
+                  logout();
+                  setIsMobileMenuOpen(false);
+                }}
                 className="w-full text-left block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
               >
                 Sign out
@@ -213,10 +257,10 @@ export default function Navbar() {
           <div className="pt-4 pb-3 border-t border-gray-800">
             <div className="flex flex-col space-y-2 px-4">
               <Button variant="ghost" asChild className="justify-center text-gray-300 hover:text-white hover:bg-gray-800">
-                <Link to="/login">Login</Link>
+                <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
               </Button>
               <Button asChild className="justify-center netflix-button-primary">
-                <Link to="/signup">Sign up</Link>
+                <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>Sign up</Link>
               </Button>
             </div>
           </div>
