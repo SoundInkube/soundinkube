@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { Eye, EyeOff, Mail, Lock, User, Building } from 'lucide-react';
+import { User, Mail, Lock, Building, Music, Users, Briefcase } from 'lucide-react';
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const { signup } = useAuth();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
     confirmPassword: '',
-    role: 'music_professional'
+    role: ''
   });
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
-  const navigate = useNavigate();
+
+  const roles = [
+    { value: 'record_label', label: 'Record Label', icon: Building, desc: 'Manage artists and releases' },
+    { value: 'artist_manager', label: 'Artist Manager', icon: Users, desc: 'Represent and manage artists' },
+    { value: 'music_professional', label: 'Music Professional', icon: Music, desc: 'Offer music services' },
+    { value: 'client', label: 'Client', icon: Briefcase, desc: 'Hire music professionals' }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
 
@@ -29,74 +35,61 @@ const Signup = () => {
     e.preventDefault();
     setError('');
 
+    // Validation
+    if (!formData.username || !formData.email || !formData.password || !formData.role) {
+      setError('All fields are required');
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
 
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError('Password must be at least 6 characters');
       return;
     }
 
     setLoading(true);
 
     try {
-      await signup(formData.email, formData.password, formData.username, formData.role);
+      await signup(formData.username, formData.email, formData.password, formData.role);
       navigate('/dashboard');
-    } catch (err: any) {
-      setError(err.message || 'Failed to create account');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to create account');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-[#E50914] mb-2">SoundInkube</h1>
-          <h2 className="text-2xl font-semibold text-white">Create your account</h2>
-          <p className="text-gray-400 mt-2">Join the music universe today</p>
+          <img
+            src="/logo.png"
+            alt="SoundInkube"
+            className="mx-auto h-16 w-auto mb-6"
+          />
+          <h2 className="text-3xl font-bold text-white mb-2">Join SoundInkube</h2>
+          <p className="text-gray-400">Create your account to get started</p>
         </div>
-      </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-[#141414] py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-gray-800">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            {error && (
-              <div className="bg-red-900 border border-red-800 text-red-300 px-4 py-3 rounded">
-                {error}
-              </div>
-            )}
-
-            <div>
-              <label htmlFor="role" className="block text-sm font-medium text-white mb-2">
-                I am a
-              </label>
-              <div className="relative">
-                <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <select
-                  id="role"
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-3 bg-black border border-gray-700 rounded-md text-white focus:outline-none focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914]"
-                >
-                  <option value="music_professional">Music Professional</option>
-                  <option value="record_label">Record Label</option>
-                  <option value="artist_manager">Artist Manager</option>
-                  <option value="client">Client</option>
-                </select>
-              </div>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          {error && (
+            <div className="bg-red-900 border border-red-700 text-red-100 px-4 py-3 rounded-lg">
+              {error}
             </div>
-            
+          )}
+
+          <div className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-white mb-2">
+              <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
                 Username
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input
                   id="username"
                   name="username"
@@ -104,113 +97,132 @@ const Signup = () => {
                   required
                   value={formData.username}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-3 bg-black border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914]"
+                  className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E50914] focus:border-transparent"
                   placeholder="Enter your username"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                Email address
+              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-3 py-3 bg-black border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914]"
+                  className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E50914] focus:border-transparent"
                   placeholder="Enter your email"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
-                Password
+              <label className="block text-sm font-medium text-gray-300 mb-3">
+                I am a...
               </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? 'text' : 'password'}
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-3 bg-black border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914]"
-                  placeholder="Enter your password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                </button>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {roles.map((role) => {
+                  const IconComponent = role.icon;
+                  return (
+                    <label
+                      key={role.value}
+                      className={`relative flex items-start p-4 border rounded-lg cursor-pointer transition-all ${
+                        formData.role === role.value
+                          ? 'border-[#E50914] bg-red-900/20'
+                          : 'border-gray-700 bg-gray-900 hover:border-gray-600'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="role"
+                        value={role.value}
+                        checked={formData.role === role.value}
+                        onChange={handleChange}
+                        className="sr-only"
+                      />
+                      <div className="flex items-start space-x-3">
+                        <IconComponent className={`h-5 w-5 mt-0.5 ${
+                          formData.role === role.value ? 'text-[#E50914]' : 'text-gray-400'
+                        }`} />
+                        <div>
+                          <p className={`text-sm font-medium ${
+                            formData.role === role.value ? 'text-white' : 'text-gray-300'
+                          }`}>
+                            {role.label}
+                          </p>
+                          <p className="text-xs text-gray-400 mt-1">
+                            {role.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </label>
+                  );
+                })}
               </div>
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-white mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  value={formData.password}
+                  onChange={handleChange}
+                  className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E50914] focus:border-transparent"
+                  placeholder="Create a password"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
                 Confirm Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input
                   id="confirmPassword"
                   name="confirmPassword"
-                  type={showConfirmPassword ? 'text' : 'password'}
+                  type="password"
                   required
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-3 bg-black border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-[#E50914] focus:ring-1 focus:ring-[#E50914]"
+                  className="w-full pl-10 pr-3 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E50914] focus:border-transparent"
                   placeholder="Confirm your password"
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                >
-                  {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                </button>
               </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#E50914] hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E50914] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            >
-              {loading ? 'Creating account...' : 'Create account'}
-            </button>
-          </form>
-
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-700" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-[#141414] text-gray-400">Already have an account?</span>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <Link
-                to="/login"
-                className="w-full flex justify-center py-3 px-4 border border-gray-700 rounded-md shadow-sm text-sm font-medium text-white bg-transparent hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors"
-              >
-                Sign in instead
-              </Link>
             </div>
           </div>
-        </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="netflix-btn-primary w-full py-3 text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? 'Creating Account...' : 'Sign Up'}
+          </button>
+
+          <div className="text-center">
+            <p className="text-gray-400">
+              Already have an account?{' '}
+              <Link to="/login" className="text-[#E50914] hover:text-red-400 font-medium">
+                Sign in
+              </Link>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   );
