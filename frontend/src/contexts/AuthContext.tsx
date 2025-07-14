@@ -21,12 +21,15 @@ const AuthContext = createContext<AuthContextType>({
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({
+    username: 'Demo Label User',
+    email: 'demo@recordlabel.com',
+    role: 'record_label',
+  });
 
   const login = async (email: string, password: string) => {
-    // Mock login
     setUser({
-      username: 'Demo User',
+      username: 'Demo Label User',
       email: email,
       role: 'record_label',
     });
