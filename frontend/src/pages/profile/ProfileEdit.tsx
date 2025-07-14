@@ -58,7 +58,7 @@ export default function ProfileEdit() {
     }
   };
 
-  const handleSaveProfile = async (profileData: any) => {
+  const handleSaveProfile = async (profileData: Record<string, string>) => {
     setSaving(true);
     try {
       const response = await fetch('/api/users/profile', {
@@ -85,26 +85,22 @@ export default function ProfileEdit() {
     }
   };
 
-  const handleSaveSocialMedia = async (socialMediaData: any) => {
-    try {
-      const response = await fetch('/api/users/profile/social-media', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${user?.token}`,
-        },
-        body: JSON.stringify(socialMediaData),
-      });
+  const handleSaveSocialMedia = async (socialMediaData: Record<string, string>) => {
+    const response = await fetch('/api/users/profile/social-media', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${user?.token}`,
+      },
+      body: JSON.stringify(socialMediaData),
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to update social media profiles');
-      }
-
-      // Update the profile data with new social media links
-      setProfile(prev => prev ? { ...prev, ...socialMediaData } : null);
-    } catch (error) {
-      throw error;
+    if (!response.ok) {
+      throw new Error('Failed to update social media profiles');
     }
+
+    // Update the profile data with new social media links
+    setProfile(prev => prev ? { ...prev, ...socialMediaData } : null);
   };
 
   if (loading) {

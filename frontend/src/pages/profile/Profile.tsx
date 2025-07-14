@@ -227,7 +227,7 @@ export default function Profile() {
     }
   };
 
-  const handleSaveSocialMedia = async (socialMediaData: any) => {
+  const handleSaveSocialMedia = async (socialMediaData: Record<string, string>) => {
     if (!user || !token) return;
     
     setLoading(true);

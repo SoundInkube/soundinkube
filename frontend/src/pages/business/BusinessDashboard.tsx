@@ -39,8 +39,8 @@ interface BusinessProfile {
   averageRating: number;
   totalReviews: number;
   status: string;
-  jampadDetails?: any;
-  schoolDetails?: any;
+  jampadDetails?: Record<string, unknown>;
+  schoolDetails?: Record<string, unknown>;
 }
 
 interface BusinessStats {

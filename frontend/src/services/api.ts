@@ -1,7 +1,7 @@
 // API Configuration and Helper Functions
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   data?: T;
   message?: string;
   error?: string;
@@ -35,7 +35,7 @@ class ApiService {
     this.baseURL = baseURL;
   }
 
-  private async request<T = any>(
+  private async request<T = unknown>(
     endpoint: string,
     options: RequestInit = {}
   ): Promise<T> {
@@ -90,7 +90,7 @@ class ApiService {
   }
 
   // Authenticated request helper
-  async authenticatedRequest<T = any>(
+  async authenticatedRequest<T = unknown>(
     endpoint: string,
     options: RequestInit = {}
   ): Promise<T> {
@@ -104,11 +104,11 @@ class ApiService {
   }
 
   // User profile endpoints (for future use)
-  async getProfile(): Promise<any> {
+  async getProfile(): Promise<Record<string, unknown>> {
     return await this.authenticatedRequest('profile');
   }
 
-  async updateProfile(profileData: any): Promise<any> {
+  async updateProfile(profileData: Record<string, unknown>): Promise<Record<string, unknown>> {
     return await this.authenticatedRequest('profile', {
       method: 'PUT',
       body: JSON.stringify(profileData),

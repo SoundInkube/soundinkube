@@ -25,7 +25,7 @@ interface BusinessFormData {
   country: string;
   zipCode: string;
   amenities: string[];
-  businessHours: any;
+  businessHours: Record<string, unknown>;
 }
 
 export default function BusinessSetup() {
@@ -55,7 +55,7 @@ export default function BusinessSetup() {
     'Refreshments', 'Lounge Area', 'Multiple Rooms'
   ];
 
-  const handleInputChange = (field: keyof BusinessFormData, value: any) => {
+  const handleInputChange = (field: keyof BusinessFormData, value: string | string[] | Record<string, unknown>) => {
     setFormData(prev => ({
       ...prev,
       [field]: value

@@ -260,7 +260,7 @@ export default function Gigs() {
     }
   };
 
-  const getBudgetDisplay = (gig: any) => {
+  const getBudgetDisplay = (gig: { budget: number; budgetType: string }) => {
     if (gig.budgetType === "per-night") {
       return `$${gig.budget}/night`;
     }
