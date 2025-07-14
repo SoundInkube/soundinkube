@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@hapi/hoek':
+    specifier: ^11.0.7
+    version: 11.0.7
   '@hookform/resolvers':
     specifier: ^3.10.0
     version: 3.10.0(react-hook-form@7.56.3)
@@ -798,6 +801,10 @@ packages:
 
   /@floating-ui/utils@0.2.9:
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+    dev: false
+
+  /@hapi/hoek@11.0.7:
+    resolution: {integrity: sha512-HV5undWkKzcB4RZUusqOpcgxOaq6VOAH7zhhIr2g3G8NF/MlFO75SjOr2NfuSx0Mh40+1FqCkagKLJRykUWoFQ==}
     dev: false
 
   /@hookform/resolvers@3.10.0(react-hook-form@7.56.3):
