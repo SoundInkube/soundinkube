@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Search, Menu, X, User, LogOut, Settings, Users, BarChart2, ChevronDown } from 'lucide-react';
 
-export const Navbar = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -30,14 +30,23 @@ export const Navbar = () => {
             <h1 className="text-2xl font-bold text-[#E50914]">SoundInkube</h1>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - ALL ORIGINAL LINKS */}
           <div className="hidden md:flex md:items-center md:space-x-6">
             <Link to="/" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Home</Link>
-            <Link to="/gigs" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Services</Link>
+            <Link to="/gigs" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Gigs</Link>
             <Link to="/marketplace" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Marketplace</Link>
-            {user?.role === 'record_label' || user?.role === 'artist_manager' ? (
-              <Link to="/business" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Dashboard</Link>
-            ) : null}
+            <Link to="/jam-pads" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">JamPads</Link>
+            <Link to="/music-schools" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Music Schools</Link>
+            <Link to="/hire-professionals" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Hire Pros</Link>
+            <Link to="/collaboration" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Collaborate</Link>
+            
+            {/* Role-specific navigation */}
+            {user?.role === 'record_label' && (
+              <Link to="/business" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Label Dashboard</Link>
+            )}
+            {user?.role === 'artist_manager' && (
+              <Link to="/artist-manager/dashboard" className="text-white hover:text-[#E50914] transition-colors px-3 py-2">Manager Dashboard</Link>
+            )}
           </div>
 
           {/* Profile or Login */}
@@ -62,7 +71,7 @@ export const Navbar = () => {
                       <p className="text-xs text-gray-400">{user.email}</p>
                       {user.role && (
                         <span className="inline-block mt-2 px-2 py-1 text-xs font-medium rounded-full bg-red-900 text-red-200">
-                          {user.role === 'record_label' ? 'Record Label' : 'Artist Manager'}
+                          {user.role === 'record_label' ? 'Record Label' : user.role === 'artist_manager' ? 'Artist Manager' : 'Music Professional'}
                         </span>
                       )}
                     </div>
@@ -70,17 +79,37 @@ export const Navbar = () => {
                       <button onClick={() => navigate('/profile')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
                         <User size={16} className="mr-3" />Profile
                       </button>
-                      {(user.role === 'record_label' || user.role === 'artist_manager') && (
+                      <button onClick={() => navigate('/dashboard')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
+                        <BarChart2 size={16} className="mr-3" />Dashboard
+                      </button>
+                      
+                      {/* Role-specific menu items */}
+                      {user.role === 'record_label' && (
                         <>
                           <button onClick={() => navigate('/manage-artists')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
                             <Users size={16} className="mr-3" />Manage Artists
                           </button>
                           <button onClick={() => navigate('/revenue-analytics')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
-                            <BarChart2 size={16} className="mr-3" />Analytics
+                            <BarChart2 size={16} className="mr-3" />Revenue Analytics
                           </button>
                         </>
                       )}
-                      <button onClick={() => navigate('/settings')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
+                      
+                      {user.role === 'artist_manager' && (
+                        <>
+                          <button onClick={() => navigate('/artist-manager/roster')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
+                            <Users size={16} className="mr-3" />Artist Roster
+                          </button>
+                          <button onClick={() => navigate('/artist-manager/revenue')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
+                            <BarChart2 size={16} className="mr-3" />Revenue Tracker
+                          </button>
+                        </>
+                      )}
+                      
+                      <button onClick={() => navigate('/my-bookings')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
+                        <Settings size={16} className="mr-3" />My Bookings
+                      </button>
+                      <button onClick={() => navigate('/profile/settings')} className="flex items-center w-full px-4 py-3 text-sm text-white hover:bg-gray-800 transition-colors">
                         <Settings size={16} className="mr-3" />Settings
                       </button>
                     </div>
@@ -114,14 +143,23 @@ export const Navbar = () => {
         <div className="md:hidden bg-black bg-opacity-95 border-t border-gray-800 fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link to="/" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Home</Link>
-            <Link to="/gigs" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Services</Link>
+            <Link to="/gigs" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Gigs</Link>
             <Link to="/marketplace" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Marketplace</Link>
-            {user?.role === 'record_label' || user?.role === 'artist_manager' ? (
-              <Link to="/business" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Dashboard</Link>
-            ) : null}
+            <Link to="/jam-pads" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">JamPads</Link>
+            <Link to="/music-schools" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Music Schools</Link>
+            <Link to="/hire-professionals" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Hire Professionals</Link>
+            <Link to="/collaboration" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Collaborate</Link>
+            {user && (
+              <>
+                <Link to="/dashboard" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Dashboard</Link>
+                <Link to="/profile" className="block px-3 py-2 text-white hover:bg-gray-800 rounded-md">Profile</Link>
+              </>
+            )}
           </div>
         </div>
       )}
     </nav>
   );
 };
+
+export default Navbar;
