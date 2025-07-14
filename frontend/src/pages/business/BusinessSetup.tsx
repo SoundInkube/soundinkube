@@ -101,7 +101,7 @@ export default function BusinessSetup() {
   };
 
   const renderStep1 = () => (
-    <div className="space-y-6">
+    <div className="text-white space-y-6">
       <div>
         <Label htmlFor="businessName">Business Name *</Label>
         <Input
@@ -144,33 +144,33 @@ export default function BusinessSetup() {
   );
 
   const renderStep2 = () => (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="text-white space-y-6">
+      <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="phone">Phone Number</Label>
-          <div className="relative">
-            <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+          <div className="text-white relative">
+            <Phone className="text-white absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="phone"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
               placeholder="+1 (555) 123-4567"
-              className="pl-10"
+              className="text-white pl-10"
             />
           </div>
         </div>
 
         <div>
           <Label htmlFor="email">Business Email</Label>
-          <div className="relative">
-            <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+          <div className="text-white relative">
+            <Mail className="text-white absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               id="email"
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               placeholder="business@example.com"
-              className="pl-10"
+              className="text-white pl-10"
             />
           </div>
         </div>
@@ -178,14 +178,14 @@ export default function BusinessSetup() {
 
       <div>
         <Label htmlFor="website">Website</Label>
-        <div className="relative">
-          <Globe className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+        <div className="text-white relative">
+          <Globe className="text-white absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
           <Input
             id="website"
             value={formData.website}
             onChange={(e) => handleInputChange('website', e.target.value)}
             placeholder="https://yourbusiness.com"
-            className="pl-10"
+            className="text-white pl-10"
           />
         </div>
       </div>
@@ -194,20 +194,20 @@ export default function BusinessSetup() {
 
       <div>
         <Label htmlFor="address">Street Address *</Label>
-        <div className="relative">
-          <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+        <div className="text-white relative">
+          <MapPin className="text-white absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
           <Input
             id="address"
             value={formData.address}
             onChange={(e) => handleInputChange('address', e.target.value)}
             placeholder="123 Music Street"
-            className="pl-10"
+            className="text-white pl-10"
             required
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="text-white grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <Label htmlFor="city">City *</Label>
           <Input
@@ -255,14 +255,14 @@ export default function BusinessSetup() {
   );
 
   const renderStep3 = () => (
-    <div className="space-y-6">
+    <div className="text-white space-y-6">
       <div>
         <Label>Amenities & Features</Label>
-        <p className="text-sm text-muted-foreground mb-4">
+        <p className="text-white text-sm text-muted-foreground mb-4">
           Select the amenities and features your business offers
         </p>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <div className="text-white grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
           {amenityOptions.map((amenity) => (
             <Button
               key={amenity}
@@ -270,7 +270,7 @@ export default function BusinessSetup() {
               variant={formData.amenities.includes(amenity) ? "default" : "outline"}
               size="sm"
               onClick={() => formData.amenities.includes(amenity) ? removeAmenity(amenity) : addAmenity(amenity)}
-              className="justify-start"
+              className="text-white justify-start"
             >
               {amenity}
             </Button>
@@ -278,14 +278,14 @@ export default function BusinessSetup() {
         </div>
 
         {formData.amenities.length > 0 && (
-          <div className="space-y-2">
+          <div className="text-white space-y-2">
             <Label>Selected Amenities:</Label>
-            <div className="flex flex-wrap gap-2">
+            <div className="text-white flex flex-wrap gap-2">
               {formData.amenities.map((amenity) => (
-                <Badge key={amenity} variant="secondary" className="flex items-center gap-1">
+                <Badge key={amenity} variant="secondary" className="text-white flex items-center gap-1">
                   {amenity}
                   <X 
-                    className="h-3 w-3 cursor-pointer" 
+                    className="text-white h-3 w-3 cursor-pointer" 
                     onClick={() => removeAmenity(amenity)}
                   />
                 </Badge>
@@ -298,18 +298,18 @@ export default function BusinessSetup() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Set Up Your Business Profile</h1>
-        <p className="text-muted-foreground">
+    <div className="text-white max-w-4xl mx-auto p-6">
+      <div className="text-white mb-8">
+        <h1 className="text-white text-3xl font-bold mb-2">Set Up Your Business Profile</h1>
+        <p className="text-white text-muted-foreground">
           Create a comprehensive profile to showcase your {formData.businessType === 'jampad' ? 'jam pad' : 'music school'} to potential customers
         </p>
       </div>
 
       {/* Progress Steps */}
-      <div className="flex items-center justify-center mb-8">
+      <div className="text-white flex items-center justify-center mb-8">
         {[1, 2, 3].map((step) => (
-          <div key={step} className="flex items-center">
+          <div key={step} className="text-white flex items-center">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
               step <= currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
             }`}>
@@ -345,7 +345,7 @@ export default function BusinessSetup() {
             {currentStep === 2 && renderStep2()}
             {currentStep === 3 && renderStep3()}
 
-            <div className="flex justify-between pt-6">
+            <div className="text-white flex justify-between pt-6">
               <Button
                 type="button"
                 variant="outline"

@@ -86,10 +86,10 @@ export default function ContractManagement() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active': return 'bg-red-600';
-      case 'pending': return 'bg-yellow-600';
+      case 'pending': return 'bg-netflix-red';
       case 'expired': return 'bg-red-600';
-      case 'terminated': return 'bg-gray-600';
-      default: return 'bg-gray-600';
+      case 'terminated': return 'bg-netflix-dark';
+      default: return 'bg-netflix-dark';
     }
   };
 
@@ -118,38 +118,38 @@ export default function ContractManagement() {
   });
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
-      <div className="flex justify-between items-center">
+    <div className="text-white container mx-auto p-6 space-y-6">
+      <div className="text-white flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Contract Management</h1>
-          <p className="text-gray-400 mt-2">Manage all artist contracts and agreements</p>
+          <h1 className="text-white text-3xl font-bold text-white">Contract Management</h1>
+          <p className="text-white text-white mt-2">Manage all artist contracts and agreements</p>
         </div>
         <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-red-600 hover:bg-purple-700">
-              <Plus className="h-4 w-4 mr-2" />
+            <Button className="text-white bg-red-600 hover:bg-purple-700">
+              <Plus className="text-white h-4 w-4 mr-2" />
               New Contract
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-gray-900 border-gray-700 max-w-2xl">
+          <DialogContent className="text-white bg-netflix-dark border-gray-700 max-w-2xl">
             <DialogHeader>
-              <DialogTitle className="text-white">Create New Contract</DialogTitle>
-              <DialogDescription className="text-gray-400">
+              <DialogTitle className="text-white text-white">Create New Contract</DialogTitle>
+              <DialogDescription className="text-white text-white">
                 Set up a new contract agreement with an artist
               </DialogDescription>
             </DialogHeader>
-            <div className="grid grid-cols-2 gap-4 py-4">
-              <div className="space-y-2">
-                <Label htmlFor="artist" className="text-white">Artist Name</Label>
-                <Input id="artist" placeholder="Select artist" className="bg-gray-800 border-gray-600 text-white" />
+            <div className="text-white grid grid-cols-2 gap-4 py-4">
+              <div className="text-white space-y-2">
+                <Label htmlFor="artist" className="text-white text-white">Artist Name</Label>
+                <Input id="artist" placeholder="Select artist" className="text-white bg-netflix-dark border-gray-600 text-white" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="type" className="text-white">Contract Type</Label>
+              <div className="text-white space-y-2">
+                <Label htmlFor="type" className="text-white text-white">Contract Type</Label>
                 <Select>
-                  <SelectTrigger className="bg-gray-800 border-gray-600 text-white">
+                  <SelectTrigger className="text-white bg-netflix-dark border-gray-600 text-white">
                     <SelectValue placeholder="Select type" />
                   </SelectTrigger>
-                  <SelectContent className="bg-gray-800 border-gray-600">
+                  <SelectContent className="text-white bg-netflix-dark border-gray-600">
                     <SelectItem value="management">Management</SelectItem>
                     <SelectItem value="recording">Recording</SelectItem>
                     <SelectItem value="publishing">Publishing</SelectItem>
@@ -158,32 +158,32 @@ export default function ContractManagement() {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="start-date" className="text-white">Start Date</Label>
-                <Input id="start-date" type="date" className="bg-gray-800 border-gray-600 text-white" />
+              <div className="text-white space-y-2">
+                <Label htmlFor="start-date" className="text-white text-white">Start Date</Label>
+                <Input id="start-date" type="date" className="text-white bg-netflix-dark border-gray-600 text-white" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="end-date" className="text-white">End Date</Label>
-                <Input id="end-date" type="date" className="bg-gray-800 border-gray-600 text-white" />
+              <div className="text-white space-y-2">
+                <Label htmlFor="end-date" className="text-white text-white">End Date</Label>
+                <Input id="end-date" type="date" className="text-white bg-netflix-dark border-gray-600 text-white" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="value" className="text-white">Contract Value</Label>
-                <Input id="value" type="number" placeholder="0" className="bg-gray-800 border-gray-600 text-white" />
+              <div className="text-white space-y-2">
+                <Label htmlFor="value" className="text-white text-white">Contract Value</Label>
+                <Input id="value" type="number" placeholder="0" className="text-white bg-netflix-dark border-gray-600 text-white" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="commission" className="text-white">Commission (%)</Label>
-                <Input id="commission" type="number" placeholder="15" className="bg-gray-800 border-gray-600 text-white" />
+              <div className="text-white space-y-2">
+                <Label htmlFor="commission" className="text-white text-white">Commission (%)</Label>
+                <Input id="commission" type="number" placeholder="15" className="text-white bg-netflix-dark border-gray-600 text-white" />
               </div>
-              <div className="col-span-2 space-y-2">
-                <Label htmlFor="terms" className="text-white">Contract Terms</Label>
-                <Textarea id="terms" placeholder="Enter contract terms and conditions" className="bg-gray-800 border-gray-600 text-white" />
+              <div className="text-white col-span-2 space-y-2">
+                <Label htmlFor="terms" className="text-white text-white">Contract Terms</Label>
+                <Textarea id="terms" placeholder="Enter contract terms and conditions" className="text-white bg-netflix-dark border-gray-600 text-white" />
               </div>
             </div>
-            <div className="flex justify-end gap-3">
-              <Button variant="outline" onClick={() => setIsCreateModalOpen(false)} className="border-gray-600 text-white">
+            <div className="text-white flex justify-end gap-3">
+              <Button variant="outline" onClick={() => setIsCreateModalOpen(false)} className="text-white border-gray-600 text-white">
                 Cancel
               </Button>
-              <Button className="bg-red-600 hover:bg-purple-700">
+              <Button className="text-white bg-red-600 hover:bg-purple-700">
                 Create Contract
               </Button>
             </div>
@@ -193,22 +193,22 @@ export default function ContractManagement() {
 
       {/* Expiring Contracts Alert */}
       {expiringContracts.length > 0 && (
-        <Card className="bg-yellow-900/20 border-yellow-600">
+        <Card className="text-white bg-netflix-red/20 border-yellow-600">
           <CardHeader>
-            <CardTitle className="text-yellow-400 flex items-center">
-              <AlertTriangle className="h-5 w-5 mr-2" />
+            <CardTitle className="text-white text-netflix-red flex items-center">
+              <AlertTriangle className="text-white h-5 w-5 mr-2" />
               Contracts Expiring Soon
             </CardTitle>
-            <CardDescription className="text-yellow-300">
+            <CardDescription className="text-white text-netflix-red">
               {expiringContracts.length} contract(s) will expire within 30 days
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-2">
+            <div className="text-white space-y-2">
               {expiringContracts.map((contract) => (
-                <div key={contract.id} className="flex justify-between items-center p-2 bg-yellow-800/20 rounded">
-                  <span className="text-white">{contract.artistName} - {contract.type}</span>
-                  <span className="text-yellow-300">{contract.endDate}</span>
+                <div key={contract.id} className="text-white flex justify-between items-center p-2 bg-netflix-red/20 rounded">
+                  <span className="text-white text-white">{contract.artistName} - {contract.type}</span>
+                  <span className="text-white text-netflix-red">{contract.endDate}</span>
                 </div>
               ))}
             </div>
@@ -217,12 +217,12 @@ export default function ContractManagement() {
       )}
 
       {/* Filters */}
-      <div className="flex gap-4">
+      <div className="text-white flex gap-4">
         <Select value={filterStatus} onValueChange={setFilterStatus}>
-          <SelectTrigger className="w-48 bg-gray-800 border-gray-600 text-white">
+          <SelectTrigger className="text-white w-48 bg-netflix-dark border-gray-600 text-white">
             <SelectValue placeholder="Filter by status" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-800 border-gray-600">
+          <SelectContent className="text-white bg-netflix-dark border-gray-600">
             <SelectItem value="all">All Statuses</SelectItem>
             <SelectItem value="active">Active</SelectItem>
             <SelectItem value="pending">Pending</SelectItem>
@@ -232,10 +232,10 @@ export default function ContractManagement() {
         </Select>
 
         <Select value={filterType} onValueChange={setFilterType}>
-          <SelectTrigger className="w-48 bg-gray-800 border-gray-600 text-white">
+          <SelectTrigger className="text-white w-48 bg-netflix-dark border-gray-600 text-white">
             <SelectValue placeholder="Filter by type" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-800 border-gray-600">
+          <SelectContent className="text-white bg-netflix-dark border-gray-600">
             <SelectItem value="all">All Types</SelectItem>
             <SelectItem value="management">Management</SelectItem>
             <SelectItem value="recording">Recording</SelectItem>
@@ -247,61 +247,61 @@ export default function ContractManagement() {
       </div>
 
       {/* Contracts List */}
-      <div className="grid grid-cols-1 gap-4">
+      <div className="text-white grid grid-cols-1 gap-4">
         {filteredContracts.map((contract) => (
-          <Card key={contract.id} className="bg-gray-900 border-gray-700">
-            <CardContent className="p-6">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-2xl">{getTypeIcon(contract.type)}</span>
+          <Card key={contract.id} className="text-white bg-netflix-dark border-gray-700">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex justify-between items-start">
+                <div className="text-white flex-1">
+                  <div className="text-white flex items-center gap-3 mb-2">
+                    <span className="text-white text-2xl">{getTypeIcon(contract.type)}</span>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">{contract.artistName}</h3>
-                      <p className="text-gray-400 capitalize">{contract.type} Contract</p>
+                      <h3 className="text-white text-xl font-semibold text-white">{contract.artistName}</h3>
+                      <p className="text-white text-white capitalize">{contract.type} Contract</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                  <div className="text-white grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                     <div>
-                      <p className="text-gray-400 text-sm">Duration</p>
-                      <p className="text-white font-medium">
+                      <p className="text-white text-white text-sm">Duration</p>
+                      <p className="text-white text-white font-medium">
                         {new Date(contract.startDate).toLocaleDateString()} - {new Date(contract.endDate).toLocaleDateString()}
                       </p>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Value</p>
-                      <p className="text-white font-medium">${contract.value.toLocaleString()}</p>
+                      <p className="text-white text-white text-sm">Value</p>
+                      <p className="text-white text-white font-medium">${contract.value.toLocaleString()}</p>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Commission</p>
-                      <p className="text-white font-medium">{contract.commission}%</p>
+                      <p className="text-white text-white text-sm">Commission</p>
+                      <p className="text-white text-white font-medium">{contract.commission}%</p>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Documents</p>
-                      <p className="text-white font-medium">{contract.documents.length} files</p>
+                      <p className="text-white text-white text-sm">Documents</p>
+                      <p className="text-white text-white font-medium">{contract.documents.length} files</p>
                     </div>
                   </div>
 
-                  <div className="mt-4">
-                    <p className="text-gray-400 text-sm mb-1">Terms</p>
-                    <p className="text-white">{contract.terms}</p>
+                  <div className="text-white mt-4">
+                    <p className="text-white text-white text-sm mb-1">Terms</p>
+                    <p className="text-white text-white">{contract.terms}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-end gap-3">
+                <div className="text-white flex flex-col items-end gap-3">
                   <Badge className={`${getStatusColor(contract.status)} text-white`}>
                     {contract.status.charAt(0).toUpperCase() + contract.status.slice(1)}
                   </Badge>
                   
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="border-gray-600 text-white hover:bg-gray-700">
-                      <Eye className="h-3 w-3" />
+                  <div className="text-white flex gap-2">
+                    <Button size="sm" variant="outline" className="text-white border-gray-600 text-white hover:bg-netflix-dark">
+                      <Eye className="text-white h-3 w-3" />
                     </Button>
-                    <Button size="sm" variant="outline" className="border-gray-600 text-white hover:bg-gray-700">
-                      <Edit className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="text-white border-gray-600 text-white hover:bg-netflix-dark">
+                      <Edit className="text-white h-3 w-3" />
                     </Button>
-                    <Button size="sm" variant="outline" className="border-gray-600 text-white hover:bg-gray-700">
-                      <Download className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="text-white border-gray-600 text-white hover:bg-netflix-dark">
+                      <Download className="text-white h-3 w-3" />
                     </Button>
                   </div>
                 </div>
@@ -312,10 +312,10 @@ export default function ContractManagement() {
       </div>
 
       {filteredContracts.length === 0 && (
-        <Card className="bg-gray-900 border-gray-700">
-          <CardContent className="text-center py-8">
-            <FileText className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-400">No contracts found matching your filters</p>
+        <Card className="text-white bg-netflix-dark border-gray-700">
+          <CardContent className="text-white text-center py-8">
+            <FileText className="text-white h-12 w-12 text-white mx-auto mb-4" />
+            <p className="text-white text-white">No contracts found matching your filters</p>
           </CardContent>
         </Card>
       )}

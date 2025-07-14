@@ -84,44 +84,44 @@ export default function Signup() {
   ];
 
   return (
-    <div className="min-h-screen bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Music className="h-8 w-8 text-red-600" />
-            <span className="text-2xl font-bold text-white">SoundInkube</span>
+    <div className="text-white min-h-screen bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="text-white sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="text-white text-center mb-8">
+          <div className="text-white flex items-center justify-center space-x-2 mb-4">
+            <Music className="text-white h-8 w-8 text-red-600" />
+            <span className="text-white text-2xl font-bold text-white">SoundInkube</span>
           </div>
-          <h2 className="text-3xl font-bold text-white">
+          <h2 className="text-white text-3xl font-bold text-white">
             Join the Community
           </h2>
-          <p className="mt-2 text-gray-300">
+          <p className="text-white mt-2 text-white">
             Already have an account?{" "}
-            <Link to="/login" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
+            <Link to="/login" className="text-white font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
               Sign in here
             </Link>
           </p>
         </div>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <Card className="marketplace-card">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-white">Create Account</CardTitle>
-            <CardDescription className="text-gray-300">
+      <div className="text-white mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <Card className="text-white marketplace-card">
+          <CardHeader className="text-white text-center">
+            <CardTitle className="text-white text-2xl font-bold text-white">Create Account</CardTitle>
+            <CardDescription className="text-white text-white">
               Start your musical journey with SoundInkube
             </CardDescription>
           </CardHeader>
 
           <CardContent>
             {(error || passwordError) && (
-              <Alert className="mb-6 border-red-200 bg-red-50" onClick={clearError}>
-                <AlertDescription className="text-red-800">{error || passwordError}</AlertDescription>
+              <Alert className="text-white mb-6 border-red-200 bg-red-50" onClick={clearError}>
+                <AlertDescription className="text-white text-red-800">{error || passwordError}</AlertDescription>
               </Alert>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="text-white space-y-6">
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-white">
+                <Label htmlFor="email" className="text-white block text-sm font-medium text-white">
                   Email address
                 </Label>
                 <Input
@@ -132,12 +132,12 @@ export default function Signup() {
                   placeholder="Enter your email"
                   required
                   autoComplete="email"
-                  className="marketplace-input mt-1"
+                  className="text-white marketplace-input mt-1"
                 />
               </div>
 
               <div>
-                <Label htmlFor="password" className="block text-sm font-medium text-white">
+                <Label htmlFor="password" className="text-white block text-sm font-medium text-white">
                   Password
                 </Label>
                 <Input
@@ -148,12 +148,12 @@ export default function Signup() {
                   placeholder="Create a password (min 6 characters)"
                   required
                   autoComplete="new-password"
-                  className="marketplace-input mt-1"
+                  className="text-white marketplace-input mt-1"
                 />
               </div>
 
               <div>
-                <Label htmlFor="confirmPassword" className="block text-sm font-medium text-white">
+                <Label htmlFor="confirmPassword" className="text-white block text-sm font-medium text-white">
                   Confirm Password
                 </Label>
                 <Input
@@ -164,31 +164,31 @@ export default function Signup() {
                   placeholder="Confirm your password"
                   required
                   autoComplete="new-password"
-                  className="marketplace-input mt-1"
+                  className="text-white marketplace-input mt-1"
                 />
               </div>
 
               <div>
-                <Label className="block text-sm font-medium text-white mb-3">Account Type</Label>
+                <Label className="text-white block text-sm font-medium text-white mb-3">Account Type</Label>
                 <RadioGroup 
                   value={role} 
                   onValueChange={(value) => setRole(value as UserRole)}
-                  className="space-y-3"
+                  className="text-white space-y-3"
                 >
                   {roleOptions.map((option) => {
                     const IconComponent = option.icon;
                     return (
-                      <div key={option.value} className="flex items-start space-x-3 p-4 rounded-lg border border-zinc-800 hover:border-green-300 hover:bg-green-50/50 transition-all duration-200 cursor-pointer">
-                        <RadioGroupItem value={option.value} id={option.value} className="border-gray-400 text-red-600 mt-1" />
-                        <div className="flex items-start space-x-3 flex-1">
-                          <div className="p-2 rounded-lg bg-green-100">
-                            <IconComponent className="h-5 w-5 text-red-600" />
+                      <div key={option.value} className="text-white flex items-start space-x-3 p-4 rounded-lg border border-zinc-800 hover:border-green-300 hover:bg-green-50/50 transition-all duration-200 cursor-pointer">
+                        <RadioGroupItem value={option.value} id={option.value} className="text-white border-gray-400 text-red-600 mt-1" />
+                        <div className="text-white flex items-start space-x-3 flex-1">
+                          <div className="text-white p-2 rounded-lg bg-netflix-red">
+                            <IconComponent className="text-white h-5 w-5 text-red-600" />
                           </div>
-                          <div className="flex-1">
-                            <Label htmlFor={option.value} className="cursor-pointer text-white font-medium">
+                          <div className="text-white flex-1">
+                            <Label htmlFor={option.value} className="text-white cursor-pointer text-white font-medium">
                               {option.title}
                             </Label>
-                            <p className="text-sm text-gray-300 mt-1">{option.description}</p>
+                            <p className="text-white text-sm text-white mt-1">{option.description}</p>
                           </div>
                         </div>
                       </div>
@@ -199,12 +199,12 @@ export default function Signup() {
 
               <Button
                 type="submit"
-                className="w-full marketplace-button-primary"
+                className="text-white w-full marketplace-button-primary"
                 disabled={loading}
               >
                 {loading ? (
-                  <div className="flex items-center justify-center">
-                    <div className="loading-spinner mr-2"></div>
+                  <div className="text-white flex items-center justify-center">
+                    <div className="text-white loading-spinner mr-2"></div>
                     Creating account...
                   </div>
                 ) : (
@@ -213,27 +213,27 @@ export default function Signup() {
               </Button>
             </form>
 
-            <div className="mt-8">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-zinc-700"></div>
+            <div className="text-white mt-8">
+              <div className="text-white relative">
+                <div className="text-white absolute inset-0 flex items-center">
+                  <div className="text-white w-full border-t border-zinc-700"></div>
                 </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-zinc-900 text-gray-400">
+                <div className="text-white relative flex justify-center text-sm">
+                  <span className="text-white px-4 bg-zinc-900 text-white">
                     Or continue with
                   </span>
                 </div>
               </div>
 
-              <div className="mt-6">
+              <div className="text-white mt-6">
                 <Button
                   type="button"
                   variant="outline"
-                  className="w-full marketplace-button-secondary"
+                  className="text-white w-full marketplace-button-secondary"
                   onClick={handleGoogleSignup}
                   disabled={loading}
                 >
-                  <svg className="h-5 w-5 mr-3" viewBox="0 0 24 24" fill="none">
+                  <svg className="text-white h-5 w-5 mr-3" viewBox="0 0 24 24" fill="none">
                     <path d="M23.766 12.2764C23.766 11.4607 23.6999 10.6406 23.5588 9.83807H12.24V14.4591H18.7217C18.4528 15.9494 17.5885 17.2678 16.323 18.1056V21.1039H20.19C22.4608 19.0139 23.766 15.9274 23.766 12.2764Z" fill="#4285F4" />
                     <path d="M12.2401 24.0008C15.4766 24.0008 18.2059 22.9382 20.1945 21.1039L16.3276 18.1055C15.2517 18.8375 13.8627 19.252 12.2445 19.252C9.11388 19.252 6.45934 17.1399 5.50693 14.3003H1.5166V17.3912C3.55371 21.4434 7.7029 24.0008 12.2401 24.0008Z" fill="#34A853" />
                     <path d="M5.50253 14.3003C4.99987 12.8099 4.99987 11.1961 5.50253 9.70575V6.61481H1.51649C-0.18551 10.0056 -0.18551 14.0004 1.51649 17.3912L5.50253 14.3003Z" fill="#FBBC04" />
@@ -245,14 +245,14 @@ export default function Signup() {
             </div>
           </CardContent>
 
-          <CardFooter className="text-center">
-            <p className="text-sm text-gray-400 w-full">
+          <CardFooter className="text-white text-center">
+            <p className="text-white text-sm text-white w-full">
               By signing up, you agree to our{" "}
-              <Link to="/terms" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
+              <Link to="/terms" className="text-white font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link to="/privacy" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
+              <Link to="/privacy" className="text-white font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                 Privacy Policy
               </Link>
             </p>

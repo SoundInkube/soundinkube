@@ -162,11 +162,11 @@ export default function HireProfessionals() {
   ];
 
   const categories = [
-    { id: "all", name: "All Categories", icon: <Music className="h-4 w-4" /> },
-    { id: "producer", name: "Producers", icon: <Headphones className="h-4 w-4" /> },
-    { id: "vocalist", name: "Vocalists", icon: <Mic className="h-4 w-4" /> },
-    { id: "musician", name: "Musicians", icon: <Guitar className="h-4 w-4" /> },
-    { id: "engineer", name: "Engineers", icon: <SlidersHorizontal className="h-4 w-4" /> },
+    { id: "all", name: "All Categories", icon: <Music className="text-white h-4 w-4" /> },
+    { id: "producer", name: "Producers", icon: <Headphones className="text-white h-4 w-4" /> },
+    { id: "vocalist", name: "Vocalists", icon: <Mic className="text-white h-4 w-4" /> },
+    { id: "musician", name: "Musicians", icon: <Guitar className="text-white h-4 w-4" /> },
+    { id: "engineer", name: "Engineers", icon: <SlidersHorizontal className="text-white h-4 w-4" /> },
   ];
 
   const locations = [
@@ -219,35 +219,35 @@ export default function HireProfessionals() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+        <div className="text-white text-center mb-12">
+          <h1 className="text-white text-4xl lg:text-6xl font-bold text-white mb-6">
             Hire Music
-            <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+            <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
               Professionals
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Connect with talented producers, vocalists, musicians, and engineers to bring your musical vision to life. 
             Browse verified professionals from around the world.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
-          <div className="grid lg:grid-cols-4 gap-4">
+        <div className="text-white bg-netflix-dark/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
+          <div className="text-white grid lg:grid-cols-4 gap-4">
             {/* Search Input */}
-            <div className="lg:col-span-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <div className="text-white lg:col-span-1">
+              <div className="text-white relative">
+                <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
                 <Input
                   type="text"
                   placeholder="Search professionals..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
+                  className="text-white pl-10 bg-netflix-dark border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
                 />
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function HireProfessionals() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -272,7 +272,7 @@ export default function HireProfessionals() {
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {locations.map(location => (
                   <option key={location.id} value={location.id}>
@@ -287,7 +287,7 @@ export default function HireProfessionals() {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {priceRanges.map(range => (
                   <option key={range.id} value={range.id}>
@@ -300,15 +300,15 @@ export default function HireProfessionals() {
         </div>
 
         {/* Results Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-white">
-            <span className="text-lg font-medium">
+        <div className="text-white flex justify-between items-center mb-6">
+          <div className="text-white text-white">
+            <span className="text-white text-lg font-medium">
               {filteredProfessionals.length} professional{filteredProfessionals.length !== 1 ? 's' : ''} found
             </span>
           </div>
           {!isAuthenticated && (
-            <div className="text-sm text-gray-400">
-              <Link to="/login" className="text-netflix-red hover:text-red-400 transition-colors">
+            <div className="text-white text-sm text-white">
+              <Link to="/login" className="text-white text-netflix-red hover:text-red-400 transition-colors">
                 Sign in
               </Link> to contact professionals
             </div>
@@ -316,70 +316,70 @@ export default function HireProfessionals() {
         </div>
 
         {/* Professionals Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="text-white grid lg:grid-cols-2 gap-8 mb-12">
           {filteredProfessionals.map((professional) => (
-            <Card key={professional.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-xl">
+            <Card key={professional.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardHeader className="text-white pb-4">
+                <div className="text-white flex items-start justify-between">
+                  <div className="text-white flex items-center space-x-4">
+                    <div className="text-white w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-xl">
                       {professional.avatar}
                     </div>
                     <div>
-                      <div className="flex items-center space-x-2">
-                        <CardTitle className="text-white text-xl">
+                      <div className="text-white flex items-center space-x-2">
+                        <CardTitle className="text-white text-white text-xl">
                           <Link 
                             to={`/professional/${professional.id}`}
-                            className="hover:text-netflix-red transition-colors"
+                            className="text-white hover:text-netflix-red transition-colors"
                           >
                             {professional.name}
                           </Link>
                         </CardTitle>
                         {professional.verified && (
-                          <Badge className="bg-red-600 text-white text-xs">
+                          <Badge className="text-white bg-red-600 text-white text-xs">
                             Verified
                           </Badge>
                         )}
                       </div>
-                      <p className="text-gray-300 text-sm font-medium">
+                      <p className="text-white text-white text-sm font-medium">
                         {professional.title}
                       </p>
-                      <div className="flex items-center space-x-4 mt-2 text-sm text-gray-400">
-                        <div className="flex items-center space-x-1">
-                          <MapPin className="h-4 w-4" />
+                      <div className="text-white flex items-center space-x-4 mt-2 text-sm text-white">
+                        <div className="text-white flex items-center space-x-1">
+                          <MapPin className="text-white h-4 w-4" />
                           <span>{professional.location}</span>
                         </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="h-4 w-4" />
+                        <div className="text-white flex items-center space-x-1">
+                          <Clock className="text-white h-4 w-4" />
                           <span>Responds in {professional.responseTime}</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="flex items-center space-x-1 text-yellow-400 mb-1">
-                      <Star className="h-4 w-4 fill-current" />
-                      <span className="text-white font-medium">{professional.rating}</span>
-                      <span className="text-gray-400 text-sm">({professional.reviews})</span>
+                  <div className="text-white text-right">
+                    <div className="text-white flex items-center space-x-1 text-netflix-red mb-1">
+                      <Star className="text-white h-4 w-4 fill-current" />
+                      <span className="text-white text-white font-medium">{professional.rating}</span>
+                      <span className="text-white text-white text-sm">({professional.reviews})</span>
                     </div>
-                    <div className="flex items-center space-x-1 text-netflix-red font-bold">
-                      <DollarSign className="h-4 w-4" />
+                    <div className="text-white flex items-center space-x-1 text-netflix-red font-bold">
+                      <DollarSign className="text-white h-4 w-4" />
                       <span>{professional.hourlyRate}/hr</span>
                     </div>
                   </div>
                 </div>
               </CardHeader>
               
-              <CardContent className="space-y-4">
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <CardContent className="text-white space-y-4">
+                <p className="text-white text-white text-sm leading-relaxed">
                   {professional.description}
                 </p>
 
                 {/* Specialties */}
                 <div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="text-white flex flex-wrap gap-2">
                     {professional.specialties.map((specialty, index) => (
-                      <Badge key={index} variant="secondary" className="bg-gray-800 text-gray-300 hover:bg-gray-700">
+                      <Badge key={index} variant="secondary" className="text-white bg-netflix-dark text-white hover:bg-netflix-dark">
                         {specialty}
                       </Badge>
                     ))}
@@ -387,53 +387,53 @@ export default function HireProfessionals() {
                 </div>
 
                 {/* Stats */}
-                <div className="flex items-center space-x-6 text-sm text-gray-400">
-                  <div className="flex items-center space-x-1">
-                    <User className="h-4 w-4" />
+                <div className="text-white flex items-center space-x-6 text-sm text-white">
+                  <div className="text-white flex items-center space-x-1">
+                    <User className="text-white h-4 w-4" />
                     <span>{professional.completedProjects} projects</span>
                   </div>
                 </div>
 
                 {/* Portfolio Preview */}
                 <div>
-                  <h4 className="text-white font-medium mb-2">Recent Work</h4>
-                  <div className="space-y-2">
+                  <h4 className="text-white text-white font-medium mb-2">Recent Work</h4>
+                  <div className="text-white space-y-2">
                     {professional.portfolio.slice(0, 2).map((work, index) => (
-                      <div key={index} className="flex justify-between items-center text-sm">
+                      <div key={index} className="text-white flex justify-between items-center text-sm">
                         <div>
-                          <span className="text-gray-300">"{work.title}"</span>
-                          <span className="text-gray-400 ml-2">by {work.artist}</span>
+                          <span className="text-white text-white">"{work.title}"</span>
+                          <span className="text-white text-white ml-2">by {work.artist}</span>
                         </div>
-                        <span className="text-gray-400">{work.plays} plays</span>
+                        <span className="text-white text-white">{work.plays} plays</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-4 pt-4">
+                <div className="text-white flex space-x-4 pt-4">
                   <Button
                     asChild
-                    className="flex-1 netflix-button-primary"
+                    className="text-white flex-1 netflix-button-primary"
                   >
                     <Link to={`/professional/${professional.id}`}>
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="text-white h-4 w-4 mr-2" />
                       View Profile
                     </Link>
                   </Button>
                   <Button
                     onClick={() => handleContactProfessional(professional.id)}
                     variant="outline"
-                    className="flex-1 border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
+                    className="text-white flex-1 border-gray-700 text-white hover:bg-netflix-dark hover:text-white"
                   >
-                    <MessageCircle className="h-4 w-4 mr-2" />
+                    <MessageCircle className="text-white h-4 w-4 mr-2" />
                     Contact
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
+                    className="text-white border-gray-700 text-white hover:bg-netflix-dark hover:text-white"
                   >
-                    <Calendar className="h-4 w-4 mr-2" />
+                    <Calendar className="text-white h-4 w-4 mr-2" />
                     Book
                   </Button>
                 </div>
@@ -443,15 +443,15 @@ export default function HireProfessionals() {
         </div>
 
         {/* Call-to-Action for Professionals */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Are you a music professional?
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Join our platform to connect with clients worldwide. Showcase your skills, 
             build your portfolio, and grow your music business.
           </p>
-          <Button asChild className="netflix-button-primary text-lg px-8 py-3">
+          <Button asChild className="text-white netflix-button-primary text-lg px-8 py-3">
             <Link to="/signup?role=professional">
               Join as Professional
             </Link>

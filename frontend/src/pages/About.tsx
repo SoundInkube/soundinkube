@@ -31,48 +31,48 @@ export default function About() {
   ];
 
   const stats = [
-    { number: "10K+", label: "Music Professionals", icon: <Users className="h-8 w-8 text-netflix-red" /> },
-    { number: "50K+", label: "Projects Completed", icon: <Music className="h-8 w-8 text-netflix-red" /> },
-    { number: "200+", label: "Cities Worldwide", icon: <Globe className="h-8 w-8 text-netflix-red" /> },
-    { number: "95%", label: "Client Satisfaction", icon: <Award className="h-8 w-8 text-netflix-red" /> }
+    { number: "10K+", label: "Music Professionals", icon: <Users className="text-white h-8 w-8 text-netflix-red" /> },
+    { number: "50K+", label: "Projects Completed", icon: <Music className="text-white h-8 w-8 text-netflix-red" /> },
+    { number: "200+", label: "Cities Worldwide", icon: <Globe className="text-white h-8 w-8 text-netflix-red" /> },
+    { number: "95%", label: "Client Satisfaction", icon: <Award className="text-white h-8 w-8 text-netflix-red" /> }
   ];
 
   const values = [
     {
-      icon: <Music className="h-8 w-8 text-netflix-red" />,
+      icon: <Music className="text-white h-8 w-8 text-netflix-red" />,
       title: "Music First",
       description: "Every decision we make is guided by what's best for the music and the artists who create it."
     },
     {
-      icon: <Users className="h-8 w-8 text-netflix-red" />,
+      icon: <Users className="text-white h-8 w-8 text-netflix-red" />,
       title: "Community Driven",
       description: "We believe in the power of collaboration and building meaningful connections between creators."
     },
     {
-      icon: <Zap className="h-8 w-8 text-netflix-red" />,
+      icon: <Zap className="text-white h-8 w-8 text-netflix-red" />,
       title: "Innovation",
       description: "We continuously push the boundaries of what's possible in music technology and collaboration."
     },
     {
-      icon: <Heart className="h-8 w-8 text-netflix-red" />,
+      icon: <Heart className="text-white h-8 w-8 text-netflix-red" />,
       title: "Passion & Purpose",
       description: "We're driven by our love for music and the desire to empower every artist's creative journey."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-20">
+    <div className="text-white min-h-screen bg-netflix-black pt-20">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+      <div className="text-white bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10 py-16">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-white text-center">
+            <h1 className="text-white text-4xl lg:text-5xl font-bold text-white mb-6">
               About
-              <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+              <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
                 SoundInkube
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-white text-xl text-white max-w-3xl mx-auto">
               We're on a mission to democratize music creation by connecting talented professionals 
               with artists and creators worldwide. Building the future of collaborative music-making.
             </p>
@@ -81,15 +81,15 @@ export default function About() {
       </div>
 
       {/* Mission Section */}
-      <div className="py-16 bg-netflix-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">Our Mission</h2>
-          <p className="text-lg text-gray-300 leading-relaxed mb-8">
+      <div className="text-white py-16 bg-netflix-black">
+        <div className="text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-white text-3xl lg:text-4xl font-bold text-white mb-8">Our Mission</h2>
+          <p className="text-white text-lg text-white leading-relaxed mb-8">
             SoundInkube was born from a simple belief: great music happens when talented people collaborate. 
             We've built a platform that breaks down geographical barriers, connects diverse musical talents, 
             and provides the tools needed to create, learn, and grow in the music industry.
           </p>
-          <p className="text-lg text-gray-300 leading-relaxed">
+          <p className="text-white text-lg text-white leading-relaxed">
             Whether you're an independent artist looking for production help, a music professional 
             seeking new opportunities, or a label searching for the next big talent, SoundInkube 
             provides the ecosystem where musical dreams become reality.
@@ -98,21 +98,21 @@ export default function About() {
       </div>
 
       {/* Stats Section */}
-      <div className="py-16 bg-gradient-to-b from-netflix-dark to-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Our Impact</h2>
-            <p className="text-gray-400 text-lg">The numbers that show our growing community</p>
+      <div className="text-white py-16 bg-gradient-to-b from-netflix-dark to-black">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-white text-center mb-12">
+            <h2 className="text-white text-3xl lg:text-4xl font-bold text-white mb-4">Our Impact</h2>
+            <p className="text-white text-white text-lg">The numbers that show our growing community</p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-white grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <Card key={index} className="netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 flex justify-center">
+              <Card key={index} className="text-white netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+                <CardContent className="text-white p-6 text-center">
+                  <div className="text-white mb-4 flex justify-center">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl font-bold text-netflix-red mb-2">{stat.number}</div>
-                  <div className="text-gray-400">{stat.label}</div>
+                  <div className="text-white text-3xl font-bold text-netflix-red mb-2">{stat.number}</div>
+                  <div className="text-white text-white">{stat.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -121,21 +121,21 @@ export default function About() {
       </div>
 
       {/* Values Section */}
-      <div className="py-16 bg-netflix-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Our Values</h2>
-            <p className="text-gray-400 text-lg">The principles that guide everything we do</p>
+      <div className="text-white py-16 bg-netflix-black">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-white text-center mb-16">
+            <h2 className="text-white text-3xl lg:text-4xl font-bold text-white mb-4">Our Values</h2>
+            <p className="text-white text-white text-lg">The principles that guide everything we do</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-white grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 flex justify-center">
+              <Card key={index} className="text-white netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+                <CardContent className="text-white p-6 text-center">
+                  <div className="text-white mb-4 flex justify-center">
                     {value.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">{value.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{value.description}</p>
+                  <h3 className="text-white text-lg font-semibold text-white mb-3">{value.title}</h3>
+                  <p className="text-white text-white text-sm leading-relaxed">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -144,22 +144,22 @@ export default function About() {
       </div>
 
       {/* Team Section */}
-      <div className="py-16 bg-gradient-to-b from-netflix-dark to-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Meet Our Team</h2>
-            <p className="text-gray-400 text-lg">The passionate individuals building the future of music collaboration</p>
+      <div className="text-white py-16 bg-gradient-to-b from-netflix-dark to-black">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-white text-center mb-16">
+            <h2 className="text-white text-3xl lg:text-4xl font-bold text-white mb-4">Meet Our Team</h2>
+            <p className="text-white text-white text-lg">The passionate individuals building the future of music collaboration</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-white grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 bg-netflix-red rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white text-xl font-bold">{member.avatar}</span>
+              <Card key={index} className="text-white netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+                <CardContent className="text-white p-6 text-center">
+                  <div className="text-white w-20 h-20 bg-netflix-red rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white text-white text-xl font-bold">{member.avatar}</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{member.name}</h3>
-                  <p className="text-netflix-red text-sm font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-400 text-sm leading-relaxed">{member.bio}</p>
+                  <h3 className="text-white text-lg font-semibold text-white mb-1">{member.name}</h3>
+                  <p className="text-white text-netflix-red text-sm font-medium mb-3">{member.role}</p>
+                  <p className="text-white text-white text-sm leading-relaxed">{member.bio}</p>
                 </CardContent>
               </Card>
             ))}
@@ -168,25 +168,25 @@ export default function About() {
       </div>
 
       {/* Story Section */}
-      <div className="py-16 bg-netflix-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Our Story</h2>
+      <div className="text-white py-16 bg-netflix-black">
+        <div className="text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-white text-center mb-12">
+            <h2 className="text-white text-3xl lg:text-4xl font-bold text-white mb-4">Our Story</h2>
           </div>
-          <div className="space-y-8 text-gray-300">
-            <div className="text-lg leading-relaxed">
-              <p className="mb-6">
+          <div className="text-white space-y-8 text-white">
+            <div className="text-white text-lg leading-relaxed">
+              <p className="text-white mb-6">
                 SoundInkube was founded in 2023 by a group of music industry veterans who experienced 
                 firsthand the challenges of connecting with the right collaborators. As independent 
                 artists and producers, we often struggled to find skilled professionals who could 
                 bring our creative visions to life.
               </p>
-              <p className="mb-6">
+              <p className="text-white mb-6">
                 Traditional networking methods were time-consuming and often ineffective. Geographic 
                 limitations meant missing out on incredible talent from around the world. We knew 
                 there had to be a better way to connect music creators and professionals.
               </p>
-              <p className="mb-6">
+              <p className="text-white mb-6">
                 That's when we decided to build SoundInkube - a platform that would eliminate 
                 geographical barriers, streamline the collaboration process, and provide all the 
                 tools needed for successful music projects. From our headquarters in Los Angeles, 
@@ -204,26 +204,26 @@ export default function About() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+      <div className="text-white py-16 bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10">
+        <div className="text-white max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-white text-3xl lg:text-4xl font-bold text-white mb-6">
             Join Our Mission
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-white text-xl text-white mb-8">
             Be part of the revolution that's changing how music gets made. 
             Connect with our global community of creators and professionals.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="text-white flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               onClick={() => window.location.href = "/signup?role=client"}
-              className="netflix-button-primary text-lg px-8 py-3"
+              className="text-white netflix-button-primary text-lg px-8 py-3"
             >
               Join as Client
             </Button>
             <Button
               onClick={() => window.location.href = "/signup?role=professional"}
               variant="outline"
-              className="netflix-button-secondary text-lg px-8 py-3"
+              className="text-white netflix-button-secondary text-lg px-8 py-3"
             >
               Join as Professional
             </Button>

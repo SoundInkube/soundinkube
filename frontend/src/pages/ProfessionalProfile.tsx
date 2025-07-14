@@ -222,67 +222,67 @@ I specialize in bringing artists' visions to life through meticulous attention t
   };
 
   const socialMediaLinks = [
-    { name: "Instagram", url: professional.socialMedia.instagram, icon: <Instagram className="h-5 w-5" />, color: "hover:text-red-600" },
-    { name: "Twitter", url: professional.socialMedia.twitter, icon: <Twitter className="h-5 w-5" />, color: "hover:text-blue-400" },
-    { name: "YouTube", url: professional.socialMedia.youtube, icon: <Youtube className="h-5 w-5" />, color: "hover:text-red-500" },
-    { name: "Website", url: professional.website, icon: <Globe className="h-5 w-5" />, color: "hover:text-green-400" }
+    { name: "Instagram", url: professional.socialMedia.instagram, icon: <Instagram className="text-white h-5 w-5" />, color: "hover:text-red-600" },
+    { name: "Twitter", url: professional.socialMedia.twitter, icon: <Twitter className="text-white h-5 w-5" />, color: "hover:text-netflix-red" },
+    { name: "YouTube", url: professional.socialMedia.youtube, icon: <Youtube className="text-white h-5 w-5" />, color: "hover:text-red-500" },
+    { name: "Website", url: professional.website, icon: <Globe className="text-white h-5 w-5" />, color: "hover:text-netflix-red" }
   ];
 
   return (
-    <div className="min-h-screen bg-netflix-black">
+    <div className="text-white min-h-screen bg-netflix-black">
       {/* Header Section */}
-      <div className="relative">
+      <div className="text-white relative">
         {/* Cover Image */}
-        <div className="h-64 bg-gradient-to-r from-netflix-red/20 via-gray-900 to-netflix-red/20 relative">
-          <div className="absolute inset-0 bg-black/40"></div>
-          <div className="absolute bottom-6 left-6 right-6">
-            <div className="flex items-end space-x-6">
+        <div className="text-white h-64 bg-gradient-to-r from-netflix-red/20 via-gray-900 to-netflix-red/20 relative">
+          <div className="text-white absolute inset-0 bg-black/40"></div>
+          <div className="text-white absolute bottom-6 left-6 right-6">
+            <div className="text-white flex items-end space-x-6">
               {/* Profile Avatar */}
-              <div className="relative">
-                <div className="w-32 h-32 bg-netflix-red rounded-full flex items-center justify-center text-4xl font-bold text-white border-4 border-gray-900">
+              <div className="text-white relative">
+                <div className="text-white w-32 h-32 bg-netflix-red rounded-full flex items-center justify-center text-4xl font-bold text-white border-4 border-gray-900">
                   {professional.avatar}
                 </div>
                 {professional.verified && (
-                  <div className="absolute -bottom-2 -right-2 bg-red-600 rounded-full p-2">
-                    <CheckCircle className="h-6 w-6 text-white" />
+                  <div className="text-white absolute -bottom-2 -right-2 bg-red-600 rounded-full p-2">
+                    <CheckCircle className="text-white h-6 w-6 text-white" />
                   </div>
                 )}
               </div>
               
               {/* Basic Info */}
-              <div className="flex-1 text-white">
-                <div className="flex items-center space-x-3 mb-2">
-                  <h1 className="text-3xl font-bold">{professional.name}</h1>
+              <div className="text-white flex-1 text-white">
+                <div className="text-white flex items-center space-x-3 mb-2">
+                  <h1 className="text-white text-3xl font-bold">{professional.name}</h1>
                   {professional.featured && (
-                    <Badge className="bg-yellow-600 text-yellow-100">Featured</Badge>
+                    <Badge className="text-white bg-netflix-red text-netflix-red">Featured</Badge>
                   )}
                 </div>
-                <p className="text-xl text-gray-300 mb-2">{professional.title}</p>
-                <div className="flex items-center space-x-6 text-sm text-gray-400">
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="h-4 w-4" />
+                <p className="text-white text-xl text-white mb-2">{professional.title}</p>
+                <div className="text-white flex items-center space-x-6 text-sm text-white">
+                  <div className="text-white flex items-center space-x-1">
+                    <MapPin className="text-white h-4 w-4" />
                     <span>{professional.location}</span>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 fill-current text-yellow-400" />
-                    <span className="text-white">{professional.rating}</span>
+                  <div className="text-white flex items-center space-x-1">
+                    <Star className="text-white h-4 w-4 fill-current text-netflix-red" />
+                    <span className="text-white text-white">{professional.rating}</span>
                     <span>({professional.reviewCount} reviews)</span>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Clock className="h-4 w-4" />
+                  <div className="text-white flex items-center space-x-1">
+                    <Clock className="text-white h-4 w-4" />
                     <span>Responds in {professional.responseTime}</span>
                   </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col space-y-3">
-                <Button onClick={handleBookNow} className="netflix-button-primary px-8">
-                  <Calendar className="h-4 w-4 mr-2" />
+              <div className="text-white flex flex-col space-y-3">
+                <Button onClick={handleBookNow} className="text-white netflix-button-primary px-8">
+                  <Calendar className="text-white h-4 w-4 mr-2" />
                   Book Now
                 </Button>
-                <Button onClick={handleContact} variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8">
-                  <MessageCircle className="h-4 w-4 mr-2" />
+                <Button onClick={handleContact} variant="outline" className="text-white border-gray-600 text-white hover:bg-netflix-dark px-8">
+                  <MessageCircle className="text-white h-4 w-4 mr-2" />
                   Contact
                 </Button>
               </div>
@@ -292,12 +292,12 @@ I specialize in bringing artists' visions to life through meticulous attention t
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid lg:grid-cols-3 gap-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="text-white lg:col-span-2 space-y-8">
             {/* Navigation Tabs */}
-            <div className="flex space-x-1 bg-gray-900/50 backdrop-blur-sm rounded-lg p-1">
+            <div className="text-white flex space-x-1 bg-netflix-dark/50 backdrop-blur-sm rounded-lg p-1">
               {["about", "portfolio", "reviews", "services"].map((tab) => (
                 <button
                   key={tab}
@@ -305,7 +305,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
                   className={`flex-1 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                     activeTab === tab
                       ? "bg-netflix-red text-white"
-                      : "text-gray-400 hover:text-white hover:bg-gray-800"
+                      : "text-white hover:text-white hover:bg-netflix-dark"
                   }`}
                 >
                   {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -315,29 +315,29 @@ I specialize in bringing artists' visions to life through meticulous attention t
 
             {/* Tab Content */}
             {activeTab === "about" && (
-              <div className="space-y-6">
+              <div className="text-white space-y-6">
                 {/* Bio */}
-                <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+                <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
                   <CardHeader>
-                    <CardTitle className="text-white">About</CardTitle>
+                    <CardTitle className="text-white text-white">About</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                    <p className="text-white text-white leading-relaxed whitespace-pre-line">
                       {professional.bio}
                     </p>
                   </CardContent>
                 </Card>
 
                 {/* Specialties & Genres */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+                <div className="text-white grid md:grid-cols-2 gap-6">
+                  <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
                     <CardHeader>
-                      <CardTitle className="text-white">Specialties</CardTitle>
+                      <CardTitle className="text-white text-white">Specialties</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="text-white flex flex-wrap gap-2">
                         {professional.specialties.map((specialty, index) => (
-                          <Badge key={index} className="bg-netflix-red/20 text-netflix-red border-netflix-red/30">
+                          <Badge key={index} className="text-white bg-netflix-red/20 text-netflix-red border-netflix-red/30">
                             {specialty}
                           </Badge>
                         ))}
@@ -345,14 +345,14 @@ I specialize in bringing artists' visions to life through meticulous attention t
                     </CardContent>
                   </Card>
 
-                  <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+                  <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
                     <CardHeader>
-                      <CardTitle className="text-white">Genres</CardTitle>
+                      <CardTitle className="text-white text-white">Genres</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="text-white flex flex-wrap gap-2">
                         {professional.genres.map((genre, index) => (
-                          <Badge key={index} variant="secondary" className="bg-gray-800 text-gray-300">
+                          <Badge key={index} variant="secondary" className="text-white bg-netflix-dark text-white">
                             {genre}
                           </Badge>
                         ))}
@@ -362,15 +362,15 @@ I specialize in bringing artists' visions to life through meticulous attention t
                 </div>
 
                 {/* Equipment */}
-                <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+                <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
                   <CardHeader>
-                    <CardTitle className="text-white">Studio Equipment</CardTitle>
+                    <CardTitle className="text-white text-white">Studio Equipment</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid md:grid-cols-2 gap-2">
+                    <div className="text-white grid md:grid-cols-2 gap-2">
                       {professional.equipment.map((item, index) => (
-                        <div key={index} className="flex items-center space-x-2 text-gray-300">
-                          <CheckCircle className="h-4 w-4 text-green-400" />
+                        <div key={index} className="text-white flex items-center space-x-2 text-white">
+                          <CheckCircle className="text-white h-4 w-4 text-netflix-red" />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -379,18 +379,18 @@ I specialize in bringing artists' visions to life through meticulous attention t
                 </Card>
 
                 {/* Achievements */}
-                <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+                <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
                   <CardHeader>
-                    <CardTitle className="text-white flex items-center space-x-2">
-                      <Award className="h-5 w-5 text-yellow-400" />
+                    <CardTitle className="text-white text-white flex items-center space-x-2">
+                      <Award className="text-white h-5 w-5 text-netflix-red" />
                       <span>Achievements</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
+                    <div className="text-white space-y-2">
                       {professional.achievements.map((achievement, index) => (
-                        <div key={index} className="flex items-center space-x-2 text-gray-300">
-                          <Star className="h-4 w-4 text-yellow-400" />
+                        <div key={index} className="text-white flex items-center space-x-2 text-white">
+                          <Star className="text-white h-4 w-4 text-netflix-red" />
                           <span>{achievement}</span>
                         </div>
                       ))}
@@ -401,34 +401,34 @@ I specialize in bringing artists' visions to life through meticulous attention t
             )}
 
             {activeTab === "portfolio" && (
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white">Recent Work</h3>
-                <div className="space-y-6">
+              <div className="text-white space-y-6">
+                <h3 className="text-white text-2xl font-bold text-white">Recent Work</h3>
+                <div className="text-white space-y-6">
                   {professional.portfolio.map((track) => (
-                    <Card key={track.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                      <CardContent className="p-6">
-                        <div className="flex items-center space-x-4">
+                    <Card key={track.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                      <CardContent className="text-white p-6">
+                        <div className="text-white flex items-center space-x-4">
                           {/* Play Button */}
                           <button
                             onClick={() => toggleAudioPlay(track.id.toString())}
-                            className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                            className="text-white w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
                           >
                             {isPlaying === track.id.toString() ? (
-                              <Pause className="h-6 w-6 text-white" />
+                              <Pause className="text-white h-6 w-6 text-white" />
                             ) : (
-                              <Play className="h-6 w-6 text-white ml-1" />
+                              <Play className="text-white h-6 w-6 text-white ml-1" />
                             )}
                           </button>
 
                           {/* Track Info */}
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-white">"{track.title}"</h4>
-                            <p className="text-gray-400">by {track.artist} • {track.genre} • {track.year}</p>
-                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-400">
+                          <div className="text-white flex-1">
+                            <h4 className="text-white text-lg font-semibold text-white">"{track.title}"</h4>
+                            <p className="text-white text-white">by {track.artist} • {track.genre} • {track.year}</p>
+                            <div className="text-white flex items-center space-x-4 mt-2 text-sm text-white">
                               <span>{track.plays} plays</span>
-                              <div className="flex flex-wrap gap-2">
+                              <div className="text-white flex flex-wrap gap-2">
                                 {track.achievements.map((achievement, index) => (
-                                  <Badge key={index} className="bg-yellow-600/20 text-yellow-400 text-xs">
+                                  <Badge key={index} className="text-white bg-netflix-red/20 text-netflix-red text-xs">
                                     {achievement}
                                   </Badge>
                                 ))}
@@ -444,48 +444,48 @@ I specialize in bringing artists' visions to life through meticulous attention t
             )}
 
             {activeTab === "reviews" && (
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-bold text-white">Client Reviews</h3>
-                  <div className="text-right">
-                    <div className="flex items-center space-x-2">
-                      <Star className="h-5 w-5 fill-current text-yellow-400" />
-                      <span className="text-xl font-bold text-white">{professional.rating}</span>
-                      <span className="text-gray-400">({professional.reviewCount} reviews)</span>
+              <div className="text-white space-y-6">
+                <div className="text-white flex items-center justify-between">
+                  <h3 className="text-white text-2xl font-bold text-white">Client Reviews</h3>
+                  <div className="text-white text-right">
+                    <div className="text-white flex items-center space-x-2">
+                      <Star className="text-white h-5 w-5 fill-current text-netflix-red" />
+                      <span className="text-white text-xl font-bold text-white">{professional.rating}</span>
+                      <span className="text-white text-white">({professional.reviewCount} reviews)</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   {professional.reviews.map((review) => (
-                    <Card key={review.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                      <CardContent className="p-6">
-                        <div className="flex items-start space-x-4">
-                          <div className="w-12 h-12 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold">
+                    <Card key={review.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                      <CardContent className="text-white p-6">
+                        <div className="text-white flex items-start space-x-4">
+                          <div className="text-white w-12 h-12 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold">
                             {review.client.charAt(0)}
                           </div>
-                          <div className="flex-1">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <h4 className="font-semibold text-white">{review.client}</h4>
+                          <div className="text-white flex-1">
+                            <div className="text-white flex items-center space-x-2 mb-2">
+                              <h4 className="text-white font-semibold text-white">{review.client}</h4>
                               {review.verified && (
-                                <Badge className="bg-red-600/20 text-green-400 text-xs">Verified</Badge>
+                                <Badge className="text-white bg-red-600/20 text-netflix-red text-xs">Verified</Badge>
                               )}
                             </div>
-                            <div className="flex items-center space-x-2 mb-2">
-                              <div className="flex">
+                            <div className="text-white flex items-center space-x-2 mb-2">
+                              <div className="text-white flex">
                                 {[...Array(5)].map((_, i) => (
                                   <Star
                                     key={i}
                                     className={`h-4 w-4 ${
-                                      i < review.rating ? "fill-current text-yellow-400" : "text-gray-300"
+                                      i < review.rating ? "fill-current text-netflix-red" : "text-white"
                                     }`}
                                   />
                                 ))}
                               </div>
-                              <span className="text-sm text-gray-400">{review.date}</span>
+                              <span className="text-white text-sm text-white">{review.date}</span>
                             </div>
-                            <p className="text-sm text-gray-400 mb-2">{review.project}</p>
-                            <p className="text-gray-300 leading-relaxed">{review.review}</p>
+                            <p className="text-white text-sm text-white mb-2">{review.project}</p>
+                            <p className="text-white text-white leading-relaxed">{review.review}</p>
                           </div>
                         </div>
                       </CardContent>
@@ -496,43 +496,43 @@ I specialize in bringing artists' visions to life through meticulous attention t
             )}
 
             {activeTab === "services" && (
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white">Services & Pricing</h3>
-                <div className="grid gap-6">
+              <div className="text-white space-y-6">
+                <h3 className="text-white text-2xl font-bold text-white">Services & Pricing</h3>
+                <div className="text-white grid gap-6">
                   {professional.services.map((service, index) => (
-                    <Card key={index} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
+                    <Card key={index} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                      <CardContent className="text-white p-6">
+                        <div className="text-white flex items-start justify-between mb-4">
                           <div>
-                            <h4 className="text-lg font-semibold text-white mb-2">{service.name}</h4>
-                            <p className="text-gray-300 mb-2">{service.description}</p>
-                            <div className="flex items-center space-x-4 text-sm text-gray-400">
-                              <div className="flex items-center space-x-1">
-                                <Clock className="h-4 w-4" />
+                            <h4 className="text-white text-lg font-semibold text-white mb-2">{service.name}</h4>
+                            <p className="text-white text-white mb-2">{service.description}</p>
+                            <div className="text-white flex items-center space-x-4 text-sm text-white">
+                              <div className="text-white flex items-center space-x-1">
+                                <Clock className="text-white h-4 w-4" />
                                 <span>{service.duration}</span>
                               </div>
                             </div>
                           </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold text-netflix-red">
+                          <div className="text-white text-right">
+                            <div className="text-white text-2xl font-bold text-netflix-red">
                               ${service.price}
                             </div>
                           </div>
                         </div>
                         
-                        <div className="mb-4">
-                          <h5 className="text-sm font-medium text-white mb-2">Includes:</h5>
-                          <div className="grid grid-cols-2 gap-1">
+                        <div className="text-white mb-4">
+                          <h5 className="text-white text-sm font-medium text-white mb-2">Includes:</h5>
+                          <div className="text-white grid grid-cols-2 gap-1">
                             {service.includes.map((item, i) => (
-                              <div key={i} className="flex items-center space-x-2 text-sm text-gray-300">
-                                <CheckCircle className="h-3 w-3 text-green-400" />
+                              <div key={i} className="text-white flex items-center space-x-2 text-sm text-white">
+                                <CheckCircle className="text-white h-3 w-3 text-netflix-red" />
                                 <span>{item}</span>
                               </div>
                             ))}
                           </div>
                         </div>
 
-                        <Button onClick={handleBookNow} className="w-full netflix-button-primary">
+                        <Button onClick={handleBookNow} className="text-white w-full netflix-button-primary">
                           Book This Service
                         </Button>
                       </CardContent>
@@ -544,43 +544,43 @@ I specialize in bringing artists' visions to life through meticulous attention t
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="text-white space-y-6">
             {/* Contact & Social Media */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Contact & Social</CardTitle>
+                <CardTitle className="text-white text-white">Contact & Social</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="text-white space-y-4">
                 {/* Contact Info */}
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3 text-gray-300">
-                    <Mail className="h-4 w-4" />
-                    <a href={`mailto:${professional.email}`} className="hover:text-white transition-colors">
+                <div className="text-white space-y-3">
+                  <div className="text-white flex items-center space-x-3 text-white">
+                    <Mail className="text-white h-4 w-4" />
+                    <a href={`mailto:${professional.email}`} className="text-white hover:text-white transition-colors">
                       {professional.email}
                     </a>
                   </div>
-                  <div className="flex items-center space-x-3 text-gray-300">
-                    <Phone className="h-4 w-4" />
-                    <a href={`tel:${professional.phone}`} className="hover:text-white transition-colors">
+                  <div className="text-white flex items-center space-x-3 text-white">
+                    <Phone className="text-white h-4 w-4" />
+                    <a href={`tel:${professional.phone}`} className="text-white hover:text-white transition-colors">
                       {professional.phone}
                     </a>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-700 pt-4">
-                  <h4 className="text-white font-medium mb-3">Social Media</h4>
-                  <div className="grid grid-cols-2 gap-3">
+                <div className="text-white border-t border-gray-700 pt-4">
+                  <h4 className="text-white text-white font-medium mb-3">Social Media</h4>
+                  <div className="text-white grid grid-cols-2 gap-3">
                     {socialMediaLinks.map((social) => (
                       <a
                         key={social.name}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center space-x-2 p-2 rounded-lg border border-gray-700 text-gray-300 ${social.color} hover:border-gray-600 transition-colors`}
+                        className={`flex items-center space-x-2 p-2 rounded-lg border border-gray-700 text-white ${social.color} hover:border-gray-600 transition-colors`}
                       >
                         {social.icon}
-                        <span className="text-sm">{social.name}</span>
-                        <ExternalLink className="h-3 w-3 ml-auto" />
+                        <span className="text-white text-sm">{social.name}</span>
+                        <ExternalLink className="text-white h-3 w-3 ml-auto" />
                       </a>
                     ))}
                   </div>
@@ -589,16 +589,16 @@ I specialize in bringing artists' visions to life through meticulous attention t
             </Card>
 
             {/* Availability */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Availability</CardTitle>
+                <CardTitle className="text-white text-white">Availability</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  <span className="text-green-400 font-medium">{professional.availability.status}</span>
+              <CardContent className="text-white space-y-3">
+                <div className="text-white flex items-center space-x-2">
+                  <div className="text-white w-3 h-3 bg-netflix-red rounded-full"></div>
+                  <span className="text-white text-netflix-red font-medium">{professional.availability.status}</span>
                 </div>
-                <div className="text-sm text-gray-400 space-y-1">
+                <div className="text-white text-sm text-white space-y-1">
                   <div>Next available: {professional.availability.nextAvailable}</div>
                   <div>Working hours: {professional.availability.workingHours}</div>
                   <div>Timezone: {professional.availability.timezone}</div>
@@ -607,26 +607,26 @@ I specialize in bringing artists' visions to life through meticulous attention t
             </Card>
 
             {/* Quick Stats */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Quick Stats</CardTitle>
+                <CardTitle className="text-white text-white">Quick Stats</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Completed Projects</span>
-                  <span className="text-white font-medium">{professional.completedProjects}</span>
+              <CardContent className="text-white space-y-3">
+                <div className="text-white flex items-center justify-between">
+                  <span className="text-white text-white">Completed Projects</span>
+                  <span className="text-white text-white font-medium">{professional.completedProjects}</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Response Time</span>
-                  <span className="text-white font-medium">{professional.responseTime}</span>
+                <div className="text-white flex items-center justify-between">
+                  <span className="text-white text-white">Response Time</span>
+                  <span className="text-white text-white font-medium">{professional.responseTime}</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Member Since</span>
-                  <span className="text-white font-medium">{professional.joinedDate}</span>
+                <div className="text-white flex items-center justify-between">
+                  <span className="text-white text-white">Member Since</span>
+                  <span className="text-white text-white font-medium">{professional.joinedDate}</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Last Seen</span>
-                  <span className="text-white font-medium">{professional.lastSeen}</span>
+                <div className="text-white flex items-center justify-between">
+                  <span className="text-white text-white">Last Seen</span>
+                  <span className="text-white text-white font-medium">{professional.lastSeen}</span>
                 </div>
               </CardContent>
             </Card>

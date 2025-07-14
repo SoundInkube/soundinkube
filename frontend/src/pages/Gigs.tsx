@@ -254,9 +254,9 @@ export default function Gigs() {
   const getUrgencyColor = (urgency: string) => {
     switch (urgency) {
       case 'high': return 'text-red-400 bg-red-400/10';
-      case 'medium': return 'text-yellow-400 bg-yellow-400/10';
-      case 'low': return 'text-green-400 bg-green-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      case 'medium': return 'text-netflix-red bg-netflix-red/10';
+      case 'low': return 'text-netflix-red bg-netflix-red/10';
+      default: return 'text-white bg-netflix-dark/10';
     }
   };
 
@@ -276,35 +276,35 @@ export default function Gigs() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+        <div className="text-white text-center mb-12">
+          <h1 className="text-white text-4xl lg:text-6xl font-bold text-white mb-6">
             Available
-            <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+            <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
               Gigs
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Discover music gigs and project opportunities from clients worldwide. 
             Find your next collaboration and grow your music career.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
-          <div className="grid lg:grid-cols-4 gap-4">
+        <div className="text-white bg-netflix-dark/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
+          <div className="text-white grid lg:grid-cols-4 gap-4">
             {/* Search Input */}
-            <div className="lg:col-span-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <div className="text-white lg:col-span-1">
+              <div className="text-white relative">
+                <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
                 <Input
                   type="text"
                   placeholder="Search gigs..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
+                  className="text-white pl-10 bg-netflix-dark border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
                 />
               </div>
             </div>
@@ -314,7 +314,7 @@ export default function Gigs() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -329,7 +329,7 @@ export default function Gigs() {
               <select
                 value={selectedBudget}
                 onChange={(e) => setSelectedBudget(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {budgetRanges.map(range => (
                   <option key={range.id} value={range.id}>
@@ -344,7 +344,7 @@ export default function Gigs() {
               <select
                 value={selectedDuration}
                 onChange={(e) => setSelectedDuration(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {durations.map(duration => (
                   <option key={duration.id} value={duration.id}>
@@ -357,72 +357,72 @@ export default function Gigs() {
         </div>
 
         {/* Results Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-white">
-            <span className="text-lg font-medium">
+        <div className="text-white flex justify-between items-center mb-6">
+          <div className="text-white text-white">
+            <span className="text-white text-lg font-medium">
               {filteredGigs.length} gig{filteredGigs.length !== 1 ? 's' : ''} available
             </span>
           </div>
         </div>
 
         {/* Gigs Grid */}
-        <div className="space-y-6 mb-12">
+        <div className="text-white space-y-6 mb-12">
           {filteredGigs.map((gig) => (
-            <Card key={gig.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="grid lg:grid-cols-3 gap-6">
+            <Card key={gig.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-6">
+                <div className="text-white grid lg:grid-cols-3 gap-6">
                   {/* Main Content */}
-                  <div className="lg:col-span-2 space-y-4">
+                  <div className="text-white lg:col-span-2 space-y-4">
                     {/* Header */}
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="text-xl font-bold text-white">{gig.title}</h3>
+                    <div className="text-white flex items-start justify-between">
+                      <div className="text-white flex-1">
+                        <div className="text-white flex items-center space-x-3 mb-2">
+                          <h3 className="text-white text-xl font-bold text-white">{gig.title}</h3>
                           <Badge className={`text-xs ${getUrgencyColor(gig.urgency)}`}>
                             {gig.urgency.toUpperCase()} PRIORITY
                           </Badge>
                         </div>
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
-                          <div className="flex items-center space-x-1">
-                            <MapPin className="h-4 w-4" />
+                        <div className="text-white flex items-center space-x-4 text-sm text-white">
+                          <div className="text-white flex items-center space-x-1">
+                            <MapPin className="text-white h-4 w-4" />
                             <span>{gig.location}</span>
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <Clock className="h-4 w-4" />
+                          <div className="text-white flex items-center space-x-1">
+                            <Clock className="text-white h-4 w-4" />
                             <span>{gig.duration}</span>
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <Calendar className="h-4 w-4" />
+                          <div className="text-white flex items-center space-x-1">
+                            <Calendar className="text-white h-4 w-4" />
                             <span>Due: {gig.deadline}</span>
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <User className="h-4 w-4" />
+                          <div className="text-white flex items-center space-x-1">
+                            <User className="text-white h-4 w-4" />
                             <span>{gig.applicants} applicants</span>
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-netflix-red">
+                      <div className="text-white text-right">
+                        <div className="text-white text-2xl font-bold text-netflix-red">
                           {getBudgetDisplay(gig)}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-white text-sm text-white">
                           {gig.budgetType === "fixed" ? "Fixed Price" : "Per Night"}
                         </div>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-white text-white leading-relaxed">
                       {gig.description}
                     </p>
 
                     {/* Requirements */}
                     <div>
-                      <h4 className="text-white font-medium mb-2">Requirements:</h4>
-                      <ul className="space-y-1">
+                      <h4 className="text-white text-white font-medium mb-2">Requirements:</h4>
+                      <ul className="text-white space-y-1">
                         {gig.requirements.map((req, index) => (
-                          <li key={index} className="flex items-center space-x-2 text-gray-300 text-sm">
-                            <CheckCircle className="h-3 w-3 text-green-400" />
+                          <li key={index} className="text-white flex items-center space-x-2 text-white text-sm">
+                            <CheckCircle className="text-white h-3 w-3 text-netflix-red" />
                             <span>{req}</span>
                           </li>
                         ))}
@@ -431,9 +431,9 @@ export default function Gigs() {
 
                     {/* Skills */}
                     <div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="text-white flex flex-wrap gap-2">
                         {gig.skills.map((skill, index) => (
-                          <Badge key={index} variant="secondary" className="bg-gray-800 text-gray-300">
+                          <Badge key={index} variant="secondary" className="text-white bg-netflix-dark text-white">
                             {skill}
                           </Badge>
                         ))}
@@ -442,57 +442,57 @@ export default function Gigs() {
                   </div>
 
                   {/* Sidebar */}
-                  <div className="space-y-4">
+                  <div className="text-white space-y-4">
                     {/* Client Info */}
-                    <Card className="bg-gray-800/50 border-gray-700">
-                      <CardContent className="p-4">
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className="w-12 h-12 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold">
+                    <Card className="text-white bg-netflix-dark/50 border-gray-700">
+                      <CardContent className="text-white p-4">
+                        <div className="text-white flex items-center space-x-3 mb-3">
+                          <div className="text-white w-12 h-12 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold">
                             {gig.client.avatar}
                           </div>
                           <div>
-                            <div className="flex items-center space-x-2">
-                              <h4 className="text-white font-medium">{gig.client.name}</h4>
+                            <div className="text-white flex items-center space-x-2">
+                              <h4 className="text-white text-white font-medium">{gig.client.name}</h4>
                               {gig.client.verified && (
-                                <Badge className="bg-red-600/20 text-green-400 text-xs">
+                                <Badge className="text-white bg-red-600/20 text-netflix-red text-xs">
                                   Verified
                                 </Badge>
                               )}
                             </div>
-                            <div className="flex items-center space-x-1 text-xs text-gray-400">
-                              <Star className="h-3 w-3 fill-current text-yellow-400" />
+                            <div className="text-white flex items-center space-x-1 text-xs text-white">
+                              <Star className="text-white h-3 w-3 fill-current text-netflix-red" />
                               <span>{gig.client.rating} ({gig.client.reviews} reviews)</span>
                             </div>
                           </div>
                         </div>
-                        <div className="text-xs text-gray-400 mb-3">
+                        <div className="text-white text-xs text-white mb-3">
                           Posted {gig.postedDate}
                         </div>
                       </CardContent>
                     </Card>
 
                     {/* Actions */}
-                    <div className="space-y-3">
+                    <div className="text-white space-y-3">
                       <Button
                         onClick={() => handleApplyToGig(gig.id)}
-                        className="w-full netflix-button-primary"
+                        className="text-white w-full netflix-button-primary"
                       >
-                        <Briefcase className="h-4 w-4 mr-2" />
+                        <Briefcase className="text-white h-4 w-4 mr-2" />
                         Apply to Gig
                       </Button>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="text-white grid grid-cols-2 gap-2">
                         <Button
                           variant="outline"
-                          className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                          className="text-white border-gray-700 text-white hover:bg-netflix-dark"
                         >
-                          <Heart className="h-4 w-4 mr-1" />
+                          <Heart className="text-white h-4 w-4 mr-1" />
                           Save
                         </Button>
                         <Button
                           variant="outline"
-                          className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                          className="text-white border-gray-700 text-white hover:bg-netflix-dark"
                         >
-                          <Share2 className="h-4 w-4 mr-1" />
+                          <Share2 className="text-white h-4 w-4 mr-1" />
                           Share
                         </Button>
                       </div>
@@ -505,21 +505,21 @@ export default function Gigs() {
         </div>
 
         {/* Call-to-Action */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Not finding the right gigs?
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Create a standout profile to attract more clients and get invited to exclusive projects. 
             Showcase your skills and build your reputation in the music industry.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="netflix-button-primary text-lg px-8 py-3">
+          <div className="text-white flex justify-center space-x-4">
+            <Button className="text-white netflix-button-primary text-lg px-8 py-3">
               Improve Your Profile
             </Button>
             <Button 
               variant="outline" 
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 text-lg px-8 py-3"
+              className="text-white border-gray-700 text-white hover:bg-netflix-dark text-lg px-8 py-3"
             >
               Browse Professionals
             </Button>

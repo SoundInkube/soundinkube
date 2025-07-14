@@ -128,20 +128,20 @@ export default function MyEquipmentListings() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Active': return 'bg-red-600/20 text-green-400';
-      case 'Sold': return 'bg-red-600/20 text-blue-400';
-      case 'Pending': return 'bg-yellow-600/20 text-yellow-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      case 'Active': return 'bg-red-600/20 text-netflix-red';
+      case 'Sold': return 'bg-red-600/20 text-netflix-red';
+      case 'Pending': return 'bg-netflix-red/20 text-netflix-red';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
   const getConditionColor = (condition: string) => {
     switch (condition) {
-      case 'Excellent': return 'bg-red-600/20 text-green-400';
-      case 'Very Good': return 'bg-red-600/20 text-blue-400';
-      case 'Good': return 'bg-yellow-600/20 text-yellow-400';
+      case 'Excellent': return 'bg-red-600/20 text-netflix-red';
+      case 'Very Good': return 'bg-red-600/20 text-netflix-red';
+      case 'Good': return 'bg-netflix-red/20 text-netflix-red';
       case 'Like New': return 'bg-red-600/20 text-purple-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
@@ -151,101 +151,101 @@ export default function MyEquipmentListings() {
   );
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">My Equipment Listings</h1>
-            <p className="text-gray-400">Manage your equipment sales and track performance</p>
+            <h1 className="text-white text-3xl font-bold text-white mb-2">My Equipment Listings</h1>
+            <p className="text-white text-white">Manage your equipment sales and track performance</p>
           </div>
-          <Button className="netflix-button-primary">
-            <Plus className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Plus className="text-white h-4 w-4 mr-2" />
             Add New Listing
           </Button>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid lg:grid-cols-6 gap-4 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Package className="h-5 w-5 text-blue-400" />
+        <div className="text-white grid lg:grid-cols-6 gap-4 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <Package className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.totalListings}</p>
-                  <p className="text-gray-400 text-sm">Total Listings</p>
+                  <p className="text-white text-white font-semibold">{stats.totalListings}</p>
+                  <p className="text-white text-white text-sm">Total Listings</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <TrendingUp className="h-5 w-5 text-green-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <TrendingUp className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.activeListings}</p>
-                  <p className="text-gray-400 text-sm">Active</p>
+                  <p className="text-white text-white font-semibold">{stats.activeListings}</p>
+                  <p className="text-white text-white text-sm">Active</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Star className="h-5 w-5 text-purple-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <Star className="text-white h-5 w-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.soldItems}</p>
-                  <p className="text-gray-400 text-sm">Sold</p>
+                  <p className="text-white text-white font-semibold">{stats.soldItems}</p>
+                  <p className="text-white text-white text-sm">Sold</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-netflix-red/20 rounded-lg">
-                  <DollarSign className="h-5 w-5 text-netflix-red" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${stats.totalEarnings}</p>
-                  <p className="text-gray-400 text-sm">Earned</p>
+                  <p className="text-white text-white font-semibold">${stats.totalEarnings}</p>
+                  <p className="text-white text-white text-sm">Earned</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-600/20 rounded-lg">
-                  <Eye className="h-5 w-5 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <Eye className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.totalViews}</p>
-                  <p className="text-gray-400 text-sm">Total Views</p>
+                  <p className="text-white text-white font-semibold">{stats.totalViews}</p>
+                  <p className="text-white text-white text-sm">Total Views</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gray-600/20 rounded-lg">
-                  <TrendingUp className="h-5 w-5 text-gray-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-dark/20 rounded-lg">
+                  <TrendingUp className="text-white h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${stats.averagePrice}</p>
-                  <p className="text-gray-400 text-sm">Avg Price</p>
+                  <p className="text-white text-white font-semibold">${stats.averagePrice}</p>
+                  <p className="text-white text-white text-sm">Avg Price</p>
                 </div>
               </div>
             </CardContent>
@@ -253,29 +253,29 @@ export default function MyEquipmentListings() {
         </div>
 
         {/* Search and Filter */}
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+          <div className="text-white relative flex-1">
+            <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
             <Input
               placeholder="Search your listings..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-gray-800 border-gray-700 text-white"
+              className="text-white pl-10 bg-netflix-dark border-gray-700 text-white"
             />
           </div>
-          <Button variant="outline" className="border-gray-700 text-gray-300">
-            <Filter className="h-4 w-4 mr-2" />
+          <Button variant="outline" className="text-white border-gray-700 text-white">
+            <Filter className="text-white h-4 w-4 mr-2" />
             Filter
           </Button>
         </div>
 
         {/* Equipment Listings */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="text-white grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredListings.map((item) => (
-            <Card key={item.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <div className="relative">
-                <div className="h-48 bg-gray-800 rounded-t-lg flex items-center justify-center">
-                  <Package className="h-16 w-16 text-gray-300" />
+            <Card key={item.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <div className="text-white relative">
+                <div className="text-white h-48 bg-netflix-dark rounded-t-lg flex items-center justify-center">
+                  <Package className="text-white h-16 w-16 text-white" />
                 </div>
                 <Badge 
                   className={`absolute top-3 left-3 ${getStatusColor(item.status)}`}
@@ -289,58 +289,58 @@ export default function MyEquipmentListings() {
                 </Badge>
               </div>
 
-              <CardContent className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm mb-3">{item.description}</p>
+              <CardContent className="text-white p-6">
+                <div className="text-white mb-4">
+                  <h3 className="text-white text-white font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-white text-white text-sm mb-3">{item.description}</p>
                   
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center space-x-2">
-                      <span className="text-2xl font-bold text-white">${item.price}</span>
+                  <div className="text-white flex items-center justify-between mb-3">
+                    <div className="text-white flex items-center space-x-2">
+                      <span className="text-white text-2xl font-bold text-white">${item.price}</span>
                       {item.originalPrice > item.price && (
-                        <span className="text-gray-400 line-through">${item.originalPrice}</span>
+                        <span className="text-white text-white line-through">${item.originalPrice}</span>
                       )}
                     </div>
-                    <Badge variant="secondary" className="bg-gray-800 text-gray-300">
+                    <Badge variant="secondary" className="text-white bg-netflix-dark text-white">
                       {item.category}
                     </Badge>
                   </div>
 
-                  <div className="flex items-center space-x-1 text-gray-400 text-sm mb-4">
-                    <MapPin className="h-3 w-3" />
+                  <div className="text-white flex items-center space-x-1 text-white text-sm mb-4">
+                    <MapPin className="text-white h-3 w-3" />
                     <span>{item.location}</span>
                     <span>•</span>
-                    <Calendar className="h-3 w-3" />
+                    <Calendar className="text-white h-3 w-3" />
                     <span>Posted {new Date(item.datePosted).toLocaleDateString()}</span>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex items-center space-x-1">
-                        <Eye className="h-3 w-3" />
+                  <div className="text-white flex items-center justify-between text-sm text-white mb-4">
+                    <div className="text-white flex items-center space-x-4">
+                      <div className="text-white flex items-center space-x-1">
+                        <Eye className="text-white h-3 w-3" />
                         <span>{item.views}</span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <Heart className="h-3 w-3" />
+                      <div className="text-white flex items-center space-x-1">
+                        <Heart className="text-white h-3 w-3" />
                         <span>{item.saves}</span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <MessageCircle className="h-3 w-3" />
+                      <div className="text-white flex items-center space-x-1">
+                        <MessageCircle className="text-white h-3 w-3" />
                         <span>{item.messages}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                      <Edit className="h-3 w-3 mr-1" />
+                  <div className="text-white flex space-x-2">
+                    <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                      <Edit className="text-white h-3 w-3 mr-1" />
                       Edit
                     </Button>
-                    <Button size="sm" variant="outline" className="border-gray-700 text-gray-300">
-                      <Share className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="text-white border-gray-700 text-white">
+                      <Share className="text-white h-3 w-3" />
                     </Button>
-                    <Button size="sm" variant="outline" className="border-red-700 text-red-400 hover:bg-red-900/20">
-                      <Trash2 className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="text-white border-red-700 text-red-400 hover:bg-red-900/20">
+                      <Trash2 className="text-white h-3 w-3" />
                     </Button>
                   </div>
                 </div>
@@ -350,12 +350,12 @@ export default function MyEquipmentListings() {
         </div>
 
         {filteredListings.length === 0 && (
-          <div className="text-center py-12">
-            <Package className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">No listings found</h3>
-            <p className="text-gray-400 mb-6">Try adjusting your search terms or add a new listing</p>
-            <Button className="netflix-button-primary">
-              <Plus className="h-4 w-4 mr-2" />
+          <div className="text-white text-center py-12">
+            <Package className="text-white h-16 w-16 text-white mx-auto mb-4" />
+            <h3 className="text-white text-xl font-semibold text-white mb-2">No listings found</h3>
+            <p className="text-white text-white mb-6">Try adjusting your search terms or add a new listing</p>
+            <Button className="text-white netflix-button-primary">
+              <Plus className="text-white h-4 w-4 mr-2" />
               Add Your First Listing
             </Button>
           </div>

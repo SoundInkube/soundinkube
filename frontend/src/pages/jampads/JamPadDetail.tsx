@@ -227,8 +227,8 @@ export default function JamPadDetail() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="text-white flex justify-center items-center h-64">
+          <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       </MainLayout>
     );
@@ -237,10 +237,10 @@ export default function JamPadDetail() {
   if (error || !jamPad) {
     return (
       <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error || "Jam pad not found"}</p>
-            <Button onClick={() => navigate("/jampads")} className="mt-4">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error || "Jam pad not found"}</p>
+            <Button onClick={() => navigate("/jampads")} className="text-white mt-4">
               Back to Jam Pads
             </Button>
           </div>
@@ -251,84 +251,84 @@ export default function JamPadDetail() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Button
           variant="ghost"
           onClick={() => navigate("/jampads")}
-          className="mb-4"
+          className="text-white mb-4"
         >
-          <ChevronLeft className="h-4 w-4 mr-2" />
+          <ChevronLeft className="text-white h-4 w-4 mr-2" />
           Back to Jam Pads
         </Button>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <h1 className="text-3xl font-bold text-white mb-2">{jamPad.name}</h1>
-            <div className="flex items-center text-gray-400 mb-4">
-              <MapPin className="h-4 w-4 mr-1" />
+        <div className="text-white grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="text-white lg:col-span-2">
+            <h1 className="text-white text-3xl font-bold text-white mb-2">{jamPad.name}</h1>
+            <div className="text-white flex items-center text-white mb-4">
+              <MapPin className="text-white h-4 w-4 mr-1" />
               <span>{jamPad.address}, {jamPad.city}</span>
-              <div className="ml-4 flex items-center">
-                <Star className="h-4 w-4 mr-1 text-amber-500" />
+              <div className="text-white ml-4 flex items-center">
+                <Star className="text-white h-4 w-4 mr-1 text-amber-500" />
                 <span>{jamPad.rating} ({jamPad.reviewCount} reviews)</span>
               </div>
             </div>
             
             {/* Image carousel */}
-            <Carousel className="w-full mb-8">
+            <Carousel className="text-white w-full mb-8">
               <CarouselContent>
                 {jamPad.images.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="h-96 rounded-lg overflow-hidden">
+                    <div className="text-white h-96 rounded-lg overflow-hidden">
                       <img
                         src={image}
                         alt={`${jamPad.name} - Image ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="text-white w-full h-full object-cover"
                       />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious className="text-white left-2" />
+              <CarouselNext className="text-white right-2" />
             </Carousel>
             
-            <Tabs defaultValue="details" className="mb-8">
+            <Tabs defaultValue="details" className="text-white mb-8">
               <TabsList>
                 <TabsTrigger value="details">Details</TabsTrigger>
                 <TabsTrigger value="equipment">Equipment</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews</TabsTrigger>
               </TabsList>
-              <TabsContent value="details" className="pt-4">
+              <TabsContent value="details" className="text-white pt-4">
                 <Card>
                   <CardHeader>
                     <CardTitle>About this space</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-white mb-6">{jamPad.description}</p>
+                    <p className="text-white text-white mb-6">{jamPad.description}</p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       <div>
-                        <h3 className="text-lg font-medium mb-2">Capacity & Size</h3>
-                        <div className="flex items-center">
-                          <Users className="h-5 w-5 mr-2 text-gray-400" />
+                        <h3 className="text-white text-lg font-medium mb-2">Capacity & Size</h3>
+                        <div className="text-white flex items-center">
+                          <Users className="text-white h-5 w-5 mr-2 text-white" />
                           <span>Up to {jamPad.capacity} people</span>
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-medium mb-2">Rate</h3>
-                        <div className="flex items-center">
-                          <DollarSign className="h-5 w-5 mr-2 text-gray-400" />
+                        <h3 className="text-white text-lg font-medium mb-2">Rate</h3>
+                        <div className="text-white flex items-center">
+                          <DollarSign className="text-white h-5 w-5 mr-2 text-white" />
                           <span>${jamPad.hourlyRate}/hour</span>
                         </div>
                       </div>
                     </div>
                     
-                    <h3 className="text-lg font-medium mb-2">Amenities</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2">
+                    <h3 className="text-white text-lg font-medium mb-2">Amenities</h3>
+                    <div className="text-white grid grid-cols-2 md:grid-cols-3 gap-y-2">
                       {jamPad.amenities.map((amenity, index) => (
-                        <div key={index} className="flex items-center">
-                          <div className="h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center mr-2">
-                            <span className="text-red-600">✓</span>
+                        <div key={index} className="text-white flex items-center">
+                          <div className="text-white h-4 w-4 rounded-full bg-netflix-red flex items-center justify-center mr-2">
+                            <span className="text-white text-red-600">✓</span>
                           </div>
                           <span>{amenity}</span>
                         </div>
@@ -338,7 +338,7 @@ export default function JamPadDetail() {
                 </Card>
               </TabsContent>
               
-              <TabsContent value="equipment" className="pt-4">
+              <TabsContent value="equipment" className="text-white pt-4">
                 <Card>
                   <CardHeader>
                     <CardTitle>Available Equipment</CardTitle>
@@ -347,10 +347,10 @@ export default function JamPadDetail() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4">
                       {jamPad.equipment.map((item, index) => (
-                        <div key={index} className="flex items-center">
-                          <Music className="h-5 w-5 mr-2 text-gray-400" />
+                        <div key={index} className="text-white flex items-center">
+                          <Music className="text-white h-5 w-5 mr-2 text-white" />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -359,7 +359,7 @@ export default function JamPadDetail() {
                 </Card>
               </TabsContent>
               
-              <TabsContent value="reviews" className="pt-4">
+              <TabsContent value="reviews" className="text-white pt-4">
                 <Card>
                   <CardHeader>
                     <CardTitle>Reviews</CardTitle>
@@ -368,33 +368,33 @@ export default function JamPadDetail() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-6">
+                    <div className="text-white space-y-6">
                       {jamPad.reviews.map((review) => (
-                        <div key={review.id} className="pb-6 border-b border-zinc-800 last:border-b-0 last:pb-0">
-                          <div className="flex items-center mb-2">
-                            <div className="h-10 w-10 rounded-full overflow-hidden mr-3">
+                        <div key={review.id} className="text-white pb-6 border-b border-zinc-800 last:border-b-0 last:pb-0">
+                          <div className="text-white flex items-center mb-2">
+                            <div className="text-white h-10 w-10 rounded-full overflow-hidden mr-3">
                               <img
                                 src={review.userImage}
                                 alt={review.user}
-                                className="w-full h-full object-cover"
+                                className="text-white w-full h-full object-cover"
                               />
                             </div>
                             <div>
-                              <p className="font-medium">{review.user}</p>
-                              <p className="text-sm text-gray-400">{review.date}</p>
+                              <p className="text-white font-medium">{review.user}</p>
+                              <p className="text-white text-sm text-white">{review.date}</p>
                             </div>
-                            <div className="ml-auto flex items-center">
-                              <Star className="h-4 w-4 text-amber-500" />
-                              <span className="ml-1">{review.rating}</span>
+                            <div className="text-white ml-auto flex items-center">
+                              <Star className="text-white h-4 w-4 text-amber-500" />
+                              <span className="text-white ml-1">{review.rating}</span>
                             </div>
                           </div>
-                          <p className="text-white">{review.comment}</p>
+                          <p className="text-white text-white">{review.comment}</p>
                         </div>
                       ))}
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full" disabled={!isAuthenticated}>
+                    <Button variant="outline" className="text-white w-full" disabled={!isAuthenticated}>
                       {isAuthenticated ? "Write a Review" : "Login to Write a Review"}
                     </Button>
                   </CardFooter>
@@ -405,32 +405,32 @@ export default function JamPadDetail() {
           
           {/* Booking card */}
           <div>
-            <Card className="sticky top-4">
+            <Card className="text-white sticky top-4">
               <CardHeader>
-                <CardTitle>${jamPad.hourlyRate} <span className="text-base font-normal text-gray-400">/hour</span></CardTitle>
+                <CardTitle>${jamPad.hourlyRate} <span className="text-white text-base font-normal text-white">/hour</span></CardTitle>
                 <CardDescription>
-                  <div className="flex items-center">
-                    <Star className="h-4 w-4 mr-1 text-amber-500" />
+                  <div className="text-white flex items-center">
+                    <Star className="text-white h-4 w-4 mr-1 text-amber-500" />
                     <span>{jamPad.rating} • {jamPad.reviewCount} reviews</span>
                   </div>
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   <div>
                     <Label htmlFor="booking-date">Date</Label>
-                    <div className="mt-1">
+                    <div className="text-white mt-1">
                       <Dialog>
                         <DialogTrigger asChild>
                           <Button
                             variant="outline"
-                            className="w-full justify-start text-left font-normal"
+                            className="text-white w-full justify-start text-left font-normal"
                           >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            <CalendarIcon className="text-white mr-2 h-4 w-4" />
                             {selectedDate ? format(selectedDate, "PPP") : "Pick a date"}
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px]">
+                        <DialogContent className="text-white sm:max-w-[425px]">
                           <DialogHeader>
                             <DialogTitle>Select Date</DialogTitle>
                             <DialogDescription>
@@ -441,7 +441,7 @@ export default function JamPadDetail() {
                             mode="single"
                             selected={selectedDate}
                             onSelect={setSelectedDate}
-                            className="mx-auto"
+                            className="text-white mx-auto"
                             disabled={(date) => date < new Date()}
                           />
                           <DialogFooter>
@@ -458,7 +458,7 @@ export default function JamPadDetail() {
                       id="start-time"
                       value={startTime}
                       onChange={(e) => setStartTime(e.target.value)}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="text-white flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="09:00">9:00 AM</option>
                       <option value="10:00">10:00 AM</option>
@@ -481,7 +481,7 @@ export default function JamPadDetail() {
                       id="duration"
                       value={duration}
                       onChange={(e) => setDuration(Number(e.target.value))}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="text-white flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="1">1 hour</option>
                       <option value="2">2 hours</option>
@@ -493,26 +493,26 @@ export default function JamPadDetail() {
                   </div>
 
                   {start && end && (
-                    <div className="mt-2 py-2 px-3 bg-blue-50 rounded-md">
-                      <div className="flex items-center text-blue-700">
-                        <CalendarCheck className="h-4 w-4 mr-2" />
-                        <span className="text-sm font-medium">
+                    <div className="text-white mt-2 py-2 px-3 bg-blue-50 rounded-md">
+                      <div className="text-white flex items-center text-netflix-red">
+                        <CalendarCheck className="text-white h-4 w-4 mr-2" />
+                        <span className="text-white text-sm font-medium">
                           {format(selectedDate!, "MMM d")} · {start} - {end}
                         </span>
                       </div>
                     </div>
                   )}
 
-                  <div className="pt-4 space-y-2 border-t border-zinc-800">
-                    <div className="flex justify-between">
+                  <div className="text-white pt-4 space-y-2 border-t border-zinc-800">
+                    <div className="text-white flex justify-between">
                       <span>${jamPad.hourlyRate} × {duration} hours</span>
                       <span>${jamPad.hourlyRate * duration}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="text-white flex justify-between">
                       <span>Service fee</span>
                       <span>${Math.round(jamPad.hourlyRate * duration * 0.1)}</span>
                     </div>
-                    <div className="flex justify-between font-bold pt-2">
+                    <div className="text-white flex justify-between font-bold pt-2">
                       <span>Total</span>
                       <span>${jamPad.hourlyRate * duration + Math.round(jamPad.hourlyRate * duration * 0.1)}</span>
                     </div>
@@ -520,34 +520,34 @@ export default function JamPadDetail() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button onClick={handleBooking} className="w-full">
+                <Button onClick={handleBooking} className="text-white w-full">
                   {isAuthenticated ? "Book Now" : "Sign in to Book"}
                 </Button>
               </CardFooter>
             </Card>
             
-            <Card className="mt-6">
+            <Card className="text-white mt-6">
               <CardHeader>
-                <CardTitle className="text-lg">About the host</CardTitle>
+                <CardTitle className="text-white text-lg">About the host</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full overflow-hidden mr-4">
+                <div className="text-white flex items-center">
+                  <div className="text-white h-12 w-12 rounded-full overflow-hidden mr-4">
                     <img
                       src={jamPad.host.image}
                       alt={jamPad.host.name}
-                      className="w-full h-full object-cover"
+                      className="text-white w-full h-full object-cover"
                     />
                   </div>
                   <div>
-                    <h3 className="font-medium">{jamPad.host.name}</h3>
-                    <div className="flex items-center text-sm text-gray-400">
-                      <Star className="h-3 w-3 mr-1 text-amber-500" />
+                    <h3 className="text-white font-medium">{jamPad.host.name}</h3>
+                    <div className="text-white flex items-center text-sm text-white">
+                      <Star className="text-white h-3 w-3 mr-1 text-amber-500" />
                       <span>{jamPad.host.rating} • {jamPad.host.responseRate}% response rate</span>
                     </div>
                   </div>
                 </div>
-                <Button variant="outline" className="w-full mt-4">
+                <Button variant="outline" className="text-white w-full mt-4">
                   Contact Host
                 </Button>
               </CardContent>

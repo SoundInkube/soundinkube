@@ -109,11 +109,11 @@ export default function ArtistRoster() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'Active':
-        return <Badge className="netflix-badge-success">{status}</Badge>;
+        return <Badge className="text-white netflix-badge-success">{status}</Badge>;
       case 'On Tour':
-        return <Badge className="netflix-badge-warning">{status}</Badge>;
+        return <Badge className="text-white netflix-badge-warning">{status}</Badge>;
       case 'Inactive':
-        return <Badge className="netflix-badge-error">{status}</Badge>;
+        return <Badge className="text-white netflix-badge-error">{status}</Badge>;
       default:
         return <Badge>{status}</Badge>;
     }
@@ -121,80 +121,80 @@ export default function ArtistRoster() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="netflix-loading"></div>
+      <div className="text-white flex items-center justify-center min-h-screen">
+        <div className="text-white netflix-loading"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
+      <div className="text-white max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
             Artist Roster
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-white text-white text-lg">
             Manage your talented artists and track their performance
           </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Artists</CardTitle>
-              <Music className="h-4 w-4 text-netflix-red" />
+        <div className="text-white grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Total Artists</CardTitle>
+              <Music className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{artists.length}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{artists.length}</div>
+              <p className="text-white text-xs text-white">
                 {artists.filter(a => a.status === 'Active').length} active
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">On Tour</CardTitle>
-              <Calendar className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">On Tour</CardTitle>
+              <Calendar className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 {artists.filter(a => a.status === 'On Tour').length}
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-white text-xs text-white">
                 Currently performing
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Monthly Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Monthly Revenue</CardTitle>
+              <DollarSign className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 ${artists.reduce((sum, artist) => sum + artist.monthlyRevenue, 0).toLocaleString()}
               </div>
-              <p className="text-xs text-green-400">
+              <p className="text-white text-xs text-netflix-red">
                 +8.2% from last month
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Avg Rating</CardTitle>
-              <Award className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Avg Rating</CardTitle>
+              <Award className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 {(artists.reduce((sum, artist) => sum + artist.rating, 0) / artists.length).toFixed(1)}
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-white text-xs text-white">
                 Across all artists
               </p>
             </CardContent>
@@ -202,86 +202,86 @@ export default function ArtistRoster() {
         </div>
 
         {/* Search and Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row gap-4 mb-6">
+          <div className="text-white flex-1">
+            <div className="text-white relative">
+              <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
               <Input
                 placeholder="Search artists by name or genre..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 netflix-input"
+                className="text-white pl-10 netflix-input"
               />
             </div>
           </div>
-          <Button className="netflix-button-primary">
-            <Plus className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Plus className="text-white h-4 w-4 mr-2" />
             Add Artist
           </Button>
         </div>
 
         {/* Artists Table */}
-        <Card className="netflix-card">
+        <Card className="text-white netflix-card">
           <CardHeader>
-            <CardTitle className="text-white">Artist Portfolio</CardTitle>
-            <CardDescription className="text-gray-400">
+            <CardTitle className="text-white text-white">Artist Portfolio</CardTitle>
+            <CardDescription className="text-white text-white">
               Complete overview of your managed artists
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
-                <TableRow className="border-gray-700">
-                  <TableHead className="text-gray-300">Artist</TableHead>
-                  <TableHead className="text-gray-300">Genre</TableHead>
-                  <TableHead className="text-gray-300">Status</TableHead>
-                  <TableHead className="text-gray-300">Monthly Revenue</TableHead>
-                  <TableHead className="text-gray-300">Shows</TableHead>
-                  <TableHead className="text-gray-300">Rating</TableHead>
-                  <TableHead className="text-gray-300">Contract Ends</TableHead>
-                  <TableHead className="text-gray-300">Actions</TableHead>
+                <TableRow className="text-white border-gray-700">
+                  <TableHead className="text-white text-white">Artist</TableHead>
+                  <TableHead className="text-white text-white">Genre</TableHead>
+                  <TableHead className="text-white text-white">Status</TableHead>
+                  <TableHead className="text-white text-white">Monthly Revenue</TableHead>
+                  <TableHead className="text-white text-white">Shows</TableHead>
+                  <TableHead className="text-white text-white">Rating</TableHead>
+                  <TableHead className="text-white text-white">Contract Ends</TableHead>
+                  <TableHead className="text-white text-white">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {filteredArtists.map((artist) => (
-                  <TableRow key={artist.id} className="border-gray-700 hover:bg-gray-800/50">
-                    <TableCell className="font-medium">
-                      <div className="flex items-center space-x-3">
+                  <TableRow key={artist.id} className="text-white border-gray-700 hover:bg-netflix-dark/50">
+                    <TableCell className="text-white font-medium">
+                      <div className="text-white flex items-center space-x-3">
                         <Avatar>
-                          <AvatarFallback className="bg-netflix-red text-white">
+                          <AvatarFallback className="text-white bg-netflix-red text-white">
                             {artist.name.split(' ').map(n => n[0]).join('')}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <div className="text-white font-medium">{artist.name}</div>
-                          <div className="text-xs text-gray-400">
+                          <div className="text-white text-white font-medium">{artist.name}</div>
+                          <div className="text-white text-xs text-white">
                             Joined {new Date(artist.joinDate).toLocaleDateString()}
                           </div>
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell className="text-gray-300">{artist.genre}</TableCell>
+                    <TableCell className="text-white text-white">{artist.genre}</TableCell>
                     <TableCell>{getStatusBadge(artist.status)}</TableCell>
-                    <TableCell className="text-green-400 font-medium">
+                    <TableCell className="text-white text-netflix-red font-medium">
                       ${artist.monthlyRevenue.toLocaleString()}
                     </TableCell>
-                    <TableCell className="text-gray-300">{artist.totalShows}</TableCell>
-                    <TableCell className="text-gray-300">
-                      <div className="flex items-center space-x-1">
-                        <Award className="h-4 w-4 text-yellow-400" />
+                    <TableCell className="text-white text-white">{artist.totalShows}</TableCell>
+                    <TableCell className="text-white text-white">
+                      <div className="text-white flex items-center space-x-1">
+                        <Award className="text-white h-4 w-4 text-netflix-red" />
                         <span>{artist.rating}</span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-gray-300">
+                    <TableCell className="text-white text-white">
                       {new Date(artist.contractEnd).toLocaleDateString()}
                     </TableCell>
                     <TableCell>
-                      <div className="flex space-x-2">
-                        <Button size="sm" variant="outline" className="netflix-button-secondary">
-                          <Eye className="h-4 w-4" />
+                      <div className="text-white flex space-x-2">
+                        <Button size="sm" variant="outline" className="text-white netflix-button-secondary">
+                          <Eye className="text-white h-4 w-4" />
                         </Button>
-                        <Button size="sm" variant="outline" className="netflix-button-secondary">
-                          <Edit className="h-4 w-4" />
+                        <Button size="sm" variant="outline" className="text-white netflix-button-secondary">
+                          <Edit className="text-white h-4 w-4" />
                         </Button>
                       </div>
                     </TableCell>

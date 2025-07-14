@@ -109,12 +109,12 @@ export default function ProfileEdit() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="animate-pulse space-y-4">
-            <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-            <div className="h-32 bg-gray-200 rounded"></div>
-            <div className="h-32 bg-gray-200 rounded"></div>
+      <div className="text-white container mx-auto px-4 py-8">
+        <div className="text-white max-w-2xl mx-auto">
+          <div className="text-white animate-pulse space-y-4">
+            <div className="text-white h-8 bg-netflix-dark rounded w-1/3"></div>
+            <div className="text-white h-32 bg-netflix-dark rounded"></div>
+            <div className="text-white h-32 bg-netflix-dark rounded"></div>
           </div>
         </div>
       </div>
@@ -122,17 +122,17 @@ export default function ProfileEdit() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto space-y-8">
+    <div className="text-white container mx-auto px-4 py-8">
+      <div className="text-white max-w-2xl mx-auto space-y-8">
         {/* Header */}
-        <div className="flex items-center gap-4">
+        <div className="text-white flex items-center gap-4">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => navigate('/profile')}
-            className="flex items-center gap-2"
+            className="text-white flex items-center gap-2"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="text-white h-4 w-4" />
             Back to Profile
           </Button>
         </div>
@@ -158,9 +158,9 @@ export default function ProfileEdit() {
                 website: formData.get('website') as string,
               };
               handleSaveProfile(profileData);
-            }} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+            }} className="text-white space-y-4">
+              <div className="text-white grid grid-cols-2 gap-4">
+                <div className="text-white space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
                   <Input
                     id="firstName"
@@ -169,7 +169,7 @@ export default function ProfileEdit() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="lastName">Last Name</Label>
                   <Input
                     id="lastName"
@@ -180,7 +180,7 @@ export default function ProfileEdit() {
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="text-white space-y-2">
                 <Label htmlFor="displayName">Display Name</Label>
                 <Input
                   id="displayName"
@@ -190,7 +190,7 @@ export default function ProfileEdit() {
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="text-white space-y-2">
                 <Label htmlFor="bio">Bio</Label>
                 <Textarea
                   id="bio"
@@ -201,8 +201,8 @@ export default function ProfileEdit() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="text-white grid grid-cols-2 gap-4">
+                <div className="text-white space-y-2">
                   <Label htmlFor="phone">Phone</Label>
                   <Input
                     id="phone"
@@ -211,7 +211,7 @@ export default function ProfileEdit() {
                     defaultValue={profile?.phone || ''}
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="website">Website</Label>
                   <Input
                     id="website"
@@ -223,7 +223,7 @@ export default function ProfileEdit() {
                 </div>
               </div>
 
-              <div className="flex justify-end pt-4">
+              <div className="text-white flex justify-end pt-4">
                 <Button type="submit" disabled={saving}>
                   {saving ? 'Saving...' : 'Save Basic Info'}
                 </Button>

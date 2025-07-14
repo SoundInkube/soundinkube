@@ -197,16 +197,16 @@ export default function MyStudents() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Beginner': return 'bg-red-600/20 text-green-400';
-      case 'Intermediate': return 'bg-yellow-600/20 text-yellow-400';
+      case 'Beginner': return 'bg-red-600/20 text-netflix-red';
+      case 'Intermediate': return 'bg-netflix-red/20 text-netflix-red';
       case 'Advanced': return 'bg-red-600/20 text-red-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
   const getSkillColor = (score: number) => {
     if (score >= 80) return 'bg-red-600';
-    if (score >= 60) return 'bg-yellow-600';
+    if (score >= 60) return 'bg-netflix-red';
     return 'bg-red-600';
   };
 
@@ -233,108 +233,108 @@ export default function MyStudents() {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">My Students</h1>
-            <p className="text-gray-400">Manage your teaching roster and track student progress</p>
+            <h1 className="text-white text-3xl font-bold text-white mb-2">My Students</h1>
+            <p className="text-white text-white">Manage your teaching roster and track student progress</p>
           </div>
-          <Button className="netflix-button-primary">
-            <Plus className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Plus className="text-white h-4 w-4 mr-2" />
             Add New Student
           </Button>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid lg:grid-cols-5 gap-4 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Users className="h-5 w-5 text-blue-400" />
+        <div className="text-white grid lg:grid-cols-5 gap-4 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <Users className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.totalStudents}</p>
-                  <p className="text-gray-400 text-sm">Total Students</p>
+                  <p className="text-white text-white font-semibold">{stats.totalStudents}</p>
+                  <p className="text-white text-white text-sm">Total Students</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <BookOpen className="h-5 w-5 text-green-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <BookOpen className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.activeStudents}</p>
-                  <p className="text-gray-400 text-sm">Active</p>
+                  <p className="text-white text-white font-semibold">{stats.activeStudents}</p>
+                  <p className="text-white text-white text-sm">Active</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-netflix-red/20 rounded-lg">
-                  <DollarSign className="h-5 w-5 text-netflix-red" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${stats.monthlyRevenue}</p>
-                  <p className="text-gray-400 text-sm">Monthly Revenue</p>
+                  <p className="text-white text-white font-semibold">${stats.monthlyRevenue}</p>
+                  <p className="text-white text-white text-sm">Monthly Revenue</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-600/20 rounded-lg">
-                  <TrendingUp className="h-5 w-5 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <TrendingUp className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.averageProgress}%</p>
-                  <p className="text-gray-400 text-sm">Avg Progress</p>
+                  <p className="text-white text-white font-semibold">{stats.averageProgress}%</p>
+                  <p className="text-white text-white text-sm">Avg Progress</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Calendar className="h-5 w-5 text-purple-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <Calendar className="text-white h-5 w-5 text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.averageAttendance}%</p>
-                  <p className="text-gray-400 text-sm">Attendance</p>
+                  <p className="text-white text-white font-semibold">{stats.averageAttendance}%</p>
+                  <p className="text-white text-white text-sm">Attendance</p>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="text-white grid lg:grid-cols-4 gap-8">
           {/* Main Students List */}
-          <div className="lg:col-span-3">
+          <div className="text-white lg:col-span-3">
             {/* Search and Filter */}
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <div className="text-white flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+              <div className="text-white relative flex-1">
+                <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
                 <Input
                   placeholder="Search students..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white"
+                  className="text-white pl-10 bg-netflix-dark border-gray-700 text-white"
                 />
               </div>
-              <div className="flex space-x-2">
+              <div className="text-white flex space-x-2">
                 {[
                   { key: 'all', label: 'All Levels' },
                   { key: 'beginner', label: 'Beginner' },
@@ -346,7 +346,7 @@ export default function MyStudents() {
                     variant={filterLevel === filter.key ? "default" : "outline"}
                     size="sm"
                     onClick={() => setFilterLevel(filter.key)}
-                    className={filterLevel === filter.key ? "netflix-button-primary" : "border-gray-700 text-gray-300"}
+                    className={filterLevel === filter.key ? "netflix-button-primary" : "border-gray-700 text-white"}
                   >
                     {filter.label}
                   </Button>
@@ -355,21 +355,21 @@ export default function MyStudents() {
             </div>
 
             {/* Students Grid */}
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="text-white grid md:grid-cols-2 gap-6">
               {filteredStudents.map((student) => (
-                <Card key={student.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-                  <CardContent className="p-6">
+                <Card key={student.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+                  <CardContent className="text-white p-6">
                     {/* Student Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <Avatar className="w-12 h-12">
-                          <AvatarFallback className="bg-netflix-red text-white">
+                    <div className="text-white flex items-center justify-between mb-4">
+                      <div className="text-white flex items-center space-x-3">
+                        <Avatar className="text-white w-12 h-12">
+                          <AvatarFallback className="text-white bg-netflix-red text-white">
                             {student.avatar}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <h3 className="text-white font-bold text-lg">{student.name}</h3>
-                          <p className="text-gray-400">{student.instrument}</p>
+                          <h3 className="text-white text-white font-bold text-lg">{student.name}</h3>
+                          <p className="text-white text-white">{student.instrument}</p>
                         </div>
                       </div>
                       <Badge className={getLevelColor(student.level)}>
@@ -378,41 +378,41 @@ export default function MyStudents() {
                     </div>
 
                     {/* Progress */}
-                    <div className="mb-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-gray-400 text-sm">Course Progress</span>
-                        <span className="text-white font-semibold">{student.progress}%</span>
+                    <div className="text-white mb-4">
+                      <div className="text-white flex justify-between items-center mb-2">
+                        <span className="text-white text-white text-sm">Course Progress</span>
+                        <span className="text-white text-white font-semibold">{student.progress}%</span>
                       </div>
-                      <Progress value={student.progress} className="h-2" />
+                      <Progress value={student.progress} className="text-white h-2" />
                     </div>
 
                     {/* Lessons Info */}
-                    <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="text-white grid grid-cols-2 gap-4 mb-4">
                       <div>
-                        <p className="text-gray-400 text-sm">Lessons</p>
-                        <p className="text-white font-semibold">{student.lessonsCompleted}/{student.totalLessons}</p>
+                        <p className="text-white text-white text-sm">Lessons</p>
+                        <p className="text-white text-white font-semibold">{student.lessonsCompleted}/{student.totalLessons}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm">Attendance</p>
-                        <p className="text-white font-semibold">{student.attendance}%</p>
+                        <p className="text-white text-white text-sm">Attendance</p>
+                        <p className="text-white text-white font-semibold">{student.attendance}%</p>
                       </div>
                     </div>
 
                     {/* Skills Breakdown */}
-                    <div className="mb-4">
-                      <h4 className="text-white font-medium mb-2">Skills Assessment</h4>
-                      <div className="space-y-2">
+                    <div className="text-white mb-4">
+                      <h4 className="text-white text-white font-medium mb-2">Skills Assessment</h4>
+                      <div className="text-white space-y-2">
                         {Object.entries(student.skills).map(([skill, score]) => (
-                          <div key={skill} className="flex items-center justify-between">
-                            <span className="text-gray-300 text-sm capitalize">{skill}</span>
-                            <div className="flex items-center space-x-2">
-                              <div className="w-16 bg-gray-800 rounded-full h-1.5">
+                          <div key={skill} className="text-white flex items-center justify-between">
+                            <span className="text-white text-white text-sm capitalize">{skill}</span>
+                            <div className="text-white flex items-center space-x-2">
+                              <div className="text-white w-16 bg-netflix-dark rounded-full h-1.5">
                                 <div 
                                   className={`${getSkillColor(score)} h-1.5 rounded-full transition-all duration-500`}
                                   style={{ width: `${score}%` }}
                                 ></div>
                               </div>
-                              <span className="text-white text-xs font-medium w-8">{score}</span>
+                              <span className="text-white text-white text-xs font-medium w-8">{score}</span>
                             </div>
                           </div>
                         ))}
@@ -421,11 +421,11 @@ export default function MyStudents() {
 
                     {/* Achievements */}
                     {student.achievements.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-white font-medium mb-2">Achievements</h4>
-                        <div className="flex flex-wrap gap-1">
+                      <div className="text-white mb-4">
+                        <h4 className="text-white text-white font-medium mb-2">Achievements</h4>
+                        <div className="text-white flex flex-wrap gap-1">
                           {student.achievements.map((achievement, index) => (
-                            <Badge key={index} variant="secondary" className="bg-yellow-600/20 text-yellow-400 text-xs">
+                            <Badge key={index} variant="secondary" className="text-white bg-netflix-red/20 text-netflix-red text-xs">
                               {achievement}
                             </Badge>
                           ))}
@@ -434,38 +434,38 @@ export default function MyStudents() {
                     )}
 
                     {/* Next Lesson */}
-                    <div className="mb-4 p-3 bg-gray-800/50 rounded-lg">
-                      <div className="flex items-center justify-between">
+                    <div className="text-white mb-4 p-3 bg-netflix-dark/50 rounded-lg">
+                      <div className="text-white flex items-center justify-between">
                         <div>
-                          <p className="text-gray-400 text-sm">Next Lesson</p>
-                          <p className="text-white font-medium">
+                          <p className="text-white text-white text-sm">Next Lesson</p>
+                          <p className="text-white text-white font-medium">
                             {new Date(student.nextLesson).toLocaleDateString()} at{' '}
                             {new Date(student.nextLesson).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </p>
                         </div>
-                        <div className="text-right">
-                          <p className="text-gray-400 text-sm">Monthly Rate</p>
-                          <p className="text-green-400 font-semibold">${student.monthlyRate}</p>
+                        <div className="text-white text-right">
+                          <p className="text-white text-white text-sm">Monthly Rate</p>
+                          <p className="text-white text-netflix-red font-semibold">${student.monthlyRate}</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Notes */}
-                    <div className="mb-4">
-                      <p className="text-gray-300 text-sm italic">"{student.notes}"</p>
+                    <div className="text-white mb-4">
+                      <p className="text-white text-white text-sm italic">"{student.notes}"</p>
                     </div>
 
                     {/* Actions */}
-                    <div className="flex space-x-2">
-                      <Button size="sm" className="flex-1 netflix-button-primary">
-                        <Eye className="h-3 w-3 mr-2" />
+                    <div className="text-white flex space-x-2">
+                      <Button size="sm" className="text-white flex-1 netflix-button-primary">
+                        <Eye className="text-white h-3 w-3 mr-2" />
                         View Details
                       </Button>
-                      <Button size="sm" variant="outline" className="border-gray-700 text-gray-300">
-                        <MessageCircle className="h-3 w-3" />
+                      <Button size="sm" variant="outline" className="text-white border-gray-700 text-white">
+                        <MessageCircle className="text-white h-3 w-3" />
                       </Button>
-                      <Button size="sm" variant="outline" className="border-gray-700 text-gray-300">
-                        <Video className="h-3 w-3" />
+                      <Button size="sm" variant="outline" className="text-white border-gray-700 text-white">
+                        <Video className="text-white h-3 w-3" />
                       </Button>
                     </div>
                   </CardContent>
@@ -475,35 +475,35 @@ export default function MyStudents() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="text-white space-y-6">
             {/* Upcoming Lessons */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white flex items-center space-x-2">
-                  <Clock className="h-5 w-5 text-netflix-red" />
+                <CardTitle className="text-white text-white flex items-center space-x-2">
+                  <Clock className="text-white h-5 w-5 text-netflix-red" />
                   <span>Upcoming Lessons</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="text-white space-y-3">
                   {upcomingLessons.map((student) => (
-                    <div key={student.id} className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
-                      <div className="flex items-center space-x-2">
-                        <Avatar className="w-8 h-8">
-                          <AvatarFallback className="bg-netflix-red text-white text-xs">
+                    <div key={student.id} className="text-white flex items-center justify-between p-3 bg-netflix-dark/50 rounded-lg">
+                      <div className="text-white flex items-center space-x-2">
+                        <Avatar className="text-white w-8 h-8">
+                          <AvatarFallback className="text-white bg-netflix-red text-white text-xs">
                             {student.avatar}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="text-white text-sm font-medium">{student.name}</p>
-                          <p className="text-gray-400 text-xs">{student.instrument}</p>
+                          <p className="text-white text-white text-sm font-medium">{student.name}</p>
+                          <p className="text-white text-white text-xs">{student.instrument}</p>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <p className="text-white text-xs">
+                      <div className="text-white text-right">
+                        <p className="text-white text-white text-xs">
                           {new Date(student.nextLesson).toLocaleDateString()}
                         </p>
-                        <p className="text-gray-400 text-xs">
+                        <p className="text-white text-white text-xs">
                           {new Date(student.nextLesson).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </p>
                       </div>
@@ -514,55 +514,55 @@ export default function MyStudents() {
             </Card>
 
             {/* Quick Stats */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Teaching Summary</CardTitle>
+                <CardTitle className="text-white text-white">Teaching Summary</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">This Week's Lessons</span>
-                    <span className="text-white font-semibold">12</span>
+                <div className="text-white space-y-4">
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">This Week's Lessons</span>
+                    <span className="text-white text-white font-semibold">12</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Hours Taught</span>
-                    <span className="text-white font-semibold">18h</span>
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">Hours Taught</span>
+                    <span className="text-white text-white font-semibold">18h</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Avg Rating</span>
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-3 w-3 text-yellow-400 fill-current" />
-                      <span className="text-white font-semibold">4.9</span>
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">Avg Rating</span>
+                    <div className="text-white flex items-center space-x-1">
+                      <Star className="text-white h-3 w-3 text-netflix-red fill-current" />
+                      <span className="text-white text-white font-semibold">4.9</span>
                     </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Completion Rate</span>
-                    <span className="text-green-400 font-semibold">94%</span>
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">Completion Rate</span>
+                    <span className="text-white text-netflix-red font-semibold">94%</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Teaching Resources */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Quick Actions</CardTitle>
+                <CardTitle className="text-white text-white">Quick Actions</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <BookOpen className="h-3 w-3 mr-2" />
+              <CardContent className="text-white space-y-3">
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <BookOpen className="text-white h-3 w-3 mr-2" />
                   Lesson Plans
                 </Button>
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <Award className="h-3 w-3 mr-2" />
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <Award className="text-white h-3 w-3 mr-2" />
                   Student Progress Reports
                 </Button>
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <Calendar className="h-3 w-3 mr-2" />
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <Calendar className="text-white h-3 w-3 mr-2" />
                   Schedule Management
                 </Button>
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <Music className="h-3 w-3 mr-2" />
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <Music className="text-white h-3 w-3 mr-2" />
                   Practice Materials
                 </Button>
               </CardContent>
@@ -571,12 +571,12 @@ export default function MyStudents() {
         </div>
 
         {filteredStudents.length === 0 && (
-          <div className="text-center py-12">
-            <GraduationCap className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">No students found</h3>
-            <p className="text-gray-400 mb-6">Start building your student roster</p>
-            <Button className="netflix-button-primary">
-              <Plus className="h-4 w-4 mr-2" />
+          <div className="text-white text-center py-12">
+            <GraduationCap className="text-white h-16 w-16 text-white mx-auto mb-4" />
+            <h3 className="text-white text-xl font-semibold text-white mb-2">No students found</h3>
+            <p className="text-white text-white mb-6">Start building your student roster</p>
+            <Button className="text-white netflix-button-primary">
+              <Plus className="text-white h-4 w-4 mr-2" />
               Add Your First Student
             </Button>
           </div>

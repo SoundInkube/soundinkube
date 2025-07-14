@@ -225,22 +225,22 @@ export default function MyBookings() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'bg-red-600/20 text-green-400';
-      case 'In Progress': return 'bg-red-600/20 text-blue-400';
+      case 'Completed': return 'bg-red-600/20 text-netflix-red';
+      case 'In Progress': return 'bg-red-600/20 text-netflix-red';
       case 'Confirmed': return 'bg-red-600/20 text-purple-400';
       case 'Cancelled': return 'bg-red-600/20 text-red-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
   const getMilestoneStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'text-green-400';
-      case 'In Progress': return 'text-blue-400';
+      case 'Completed': return 'text-netflix-red';
+      case 'In Progress': return 'text-netflix-red';
       case 'Scheduled': return 'text-purple-400';
-      case 'Pending': return 'text-gray-400';
+      case 'Pending': return 'text-white';
       case 'Cancelled': return 'text-red-400';
-      default: return 'text-gray-400';
+      default: return 'text-white';
     }
   };
 
@@ -273,87 +273,87 @@ export default function MyBookings() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">My Bookings</h1>
-            <p className="text-gray-400">Track your hired professionals and project progress</p>
+            <h1 className="text-white text-3xl font-bold text-white mb-2">My Bookings</h1>
+            <p className="text-white text-white">Track your hired professionals and project progress</p>
           </div>
-          <Button className="netflix-button-primary">
-            <Plus className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Plus className="text-white h-4 w-4 mr-2" />
             New Booking
           </Button>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid lg:grid-cols-5 gap-4 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Users className="h-5 w-5 text-blue-400" />
+        <div className="text-white grid lg:grid-cols-5 gap-4 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <Users className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.totalBookings}</p>
-                  <p className="text-gray-400 text-sm">Total Bookings</p>
+                  <p className="text-white text-white font-semibold">{stats.totalBookings}</p>
+                  <p className="text-white text-white text-sm">Total Bookings</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-600/20 rounded-lg">
-                  <Clock className="h-5 w-5 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <Clock className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.activeBookings}</p>
-                  <p className="text-gray-400 text-sm">Active</p>
+                  <p className="text-white text-white font-semibold">{stats.activeBookings}</p>
+                  <p className="text-white text-white text-sm">Active</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <CheckCircle className="h-5 w-5 text-green-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <CheckCircle className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.completedBookings}</p>
-                  <p className="text-gray-400 text-sm">Completed</p>
+                  <p className="text-white text-white font-semibold">{stats.completedBookings}</p>
+                  <p className="text-white text-white text-sm">Completed</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-netflix-red/20 rounded-lg">
-                  <DollarSign className="h-5 w-5 text-netflix-red" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${stats.totalSpent}</p>
-                  <p className="text-gray-400 text-sm">Total Spent</p>
+                  <p className="text-white text-white font-semibold">${stats.totalSpent}</p>
+                  <p className="text-white text-white text-sm">Total Spent</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-600/20 rounded-lg">
-                  <Star className="h-5 w-5 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <Star className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.averageRating.toFixed(1)}</p>
-                  <p className="text-gray-400 text-sm">Avg Rating</p>
+                  <p className="text-white text-white font-semibold">{stats.averageRating.toFixed(1)}</p>
+                  <p className="text-white text-white text-sm">Avg Rating</p>
                 </div>
               </div>
             </CardContent>
@@ -361,17 +361,17 @@ export default function MyBookings() {
         </div>
 
         {/* Search and Filter */}
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+          <div className="text-white relative flex-1">
+            <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
             <Input
               placeholder="Search bookings..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-gray-800 border-gray-700 text-white"
+              className="text-white pl-10 bg-netflix-dark border-gray-700 text-white"
             />
           </div>
-          <div className="flex space-x-2">
+          <div className="text-white flex space-x-2">
             {[
               { key: 'all', label: 'All' },
               { key: 'in_progress', label: 'Active' },
@@ -384,7 +384,7 @@ export default function MyBookings() {
                 variant={filterStatus === filter.key ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilterStatus(filter.key)}
-                className={filterStatus === filter.key ? "netflix-button-primary" : "border-gray-700 text-gray-300"}
+                className={filterStatus === filter.key ? "netflix-button-primary" : "border-gray-700 text-white"}
               >
                 {filter.label}
               </Button>
@@ -393,28 +393,28 @@ export default function MyBookings() {
         </div>
 
         {/* Bookings List */}
-        <div className="space-y-6">
+        <div className="text-white space-y-6">
           {filteredBookings.map((booking) => (
-            <Card key={booking.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="grid lg:grid-cols-3 gap-6">
+            <Card key={booking.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-6">
+                <div className="text-white grid lg:grid-cols-3 gap-6">
                   {/* Main Info */}
-                  <div className="lg:col-span-2">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-4">
-                        <Avatar className="w-16 h-16">
-                          <AvatarFallback className="bg-netflix-red text-white text-lg">
+                  <div className="text-white lg:col-span-2">
+                    <div className="text-white flex items-center justify-between mb-4">
+                      <div className="text-white flex items-center space-x-4">
+                        <Avatar className="text-white w-16 h-16">
+                          <AvatarFallback className="text-white bg-netflix-red text-white text-lg">
                             {booking.professional.avatar}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <h3 className="text-xl font-bold text-white">{booking.professional.name}</h3>
-                          <p className="text-gray-400">{booking.professional.specialty}</p>
-                          <div className="flex items-center space-x-2 mt-1">
-                            <div className="flex items-center space-x-1">
-                              <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                              <span className="text-white font-medium">{booking.professional.rating}</span>
-                              <span className="text-gray-400 text-sm">({booking.professional.totalReviews} reviews)</span>
+                          <h3 className="text-white text-xl font-bold text-white">{booking.professional.name}</h3>
+                          <p className="text-white text-white">{booking.professional.specialty}</p>
+                          <div className="text-white flex items-center space-x-2 mt-1">
+                            <div className="text-white flex items-center space-x-1">
+                              <Star className="text-white h-4 w-4 text-netflix-red fill-current" />
+                              <span className="text-white text-white font-medium">{booking.professional.rating}</span>
+                              <span className="text-white text-white text-sm">({booking.professional.totalReviews} reviews)</span>
                             </div>
                           </div>
                         </div>
@@ -424,26 +424,26 @@ export default function MyBookings() {
                       </Badge>
                     </div>
 
-                    <div className="mb-4">
-                      <h4 className="text-white font-semibold text-lg mb-2">{booking.project.title}</h4>
-                      <p className="text-gray-300 mb-2">{booking.project.description}</p>
-                      <Badge variant="secondary" className="bg-gray-800 text-gray-300">
+                    <div className="text-white mb-4">
+                      <h4 className="text-white text-white font-semibold text-lg mb-2">{booking.project.title}</h4>
+                      <p className="text-white text-white mb-2">{booking.project.description}</p>
+                      <Badge variant="secondary" className="text-white bg-netflix-dark text-white">
                         {booking.project.category}
                       </Badge>
                     </div>
 
                     {/* Milestones */}
-                    <div className="mb-4">
-                      <h4 className="text-white font-medium mb-3">Project Milestones</h4>
-                      <div className="space-y-2">
+                    <div className="text-white mb-4">
+                      <h4 className="text-white text-white font-medium mb-3">Project Milestones</h4>
+                      <div className="text-white space-y-2">
                         {booking.milestones.map((milestone, index) => {
                           const IconComponent = getMilestoneIcon(milestone.status);
                           return (
-                            <div key={index} className="flex items-center space-x-3 p-2 bg-gray-800/30 rounded-lg">
+                            <div key={index} className="text-white flex items-center space-x-3 p-2 bg-netflix-dark/30 rounded-lg">
                               <IconComponent className={`h-4 w-4 ${getMilestoneStatusColor(milestone.status)}`} />
-                              <div className="flex-1">
-                                <p className="text-white text-sm font-medium">{milestone.name}</p>
-                                <p className="text-gray-400 text-xs">{new Date(milestone.date).toLocaleDateString()}</p>
+                              <div className="text-white flex-1">
+                                <p className="text-white text-white text-sm font-medium">{milestone.name}</p>
+                                <p className="text-white text-white text-xs">{new Date(milestone.date).toLocaleDateString()}</p>
                               </div>
                               <Badge variant="secondary" className={`text-xs ${getMilestoneStatusColor(milestone.status)} bg-transparent border-0`}>
                                 {milestone.status}
@@ -455,11 +455,11 @@ export default function MyBookings() {
                     </div>
 
                     {/* Deliverables */}
-                    <div className="mb-4">
-                      <h4 className="text-white font-medium mb-2">Expected Deliverables</h4>
-                      <div className="flex flex-wrap gap-2">
+                    <div className="text-white mb-4">
+                      <h4 className="text-white text-white font-medium mb-2">Expected Deliverables</h4>
+                      <div className="text-white flex flex-wrap gap-2">
                         {booking.deliverables.map((deliverable, index) => (
-                          <Badge key={index} variant="outline" className="border-gray-600 text-gray-300">
+                          <Badge key={index} variant="outline" className="text-white border-gray-600 text-white">
                             {deliverable}
                           </Badge>
                         ))}
@@ -468,26 +468,26 @@ export default function MyBookings() {
 
                     {/* Review & Rating */}
                     {booking.rating && booking.review && (
-                      <div className="mb-4 p-4 bg-gray-800/50 rounded-lg">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="flex items-center space-x-1">
+                      <div className="text-white mb-4 p-4 bg-netflix-dark/50 rounded-lg">
+                        <div className="text-white flex items-center space-x-2 mb-2">
+                          <div className="text-white flex items-center space-x-1">
                             {[...Array(5)].map((_, i) => (
                               <Star 
                                 key={i} 
-                                className={`h-4 w-4 ${i < booking.rating! ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} 
+                                className={`h-4 w-4 ${i < booking.rating! ? 'text-netflix-red fill-current' : 'text-white'}`} 
                               />
                             ))}
                           </div>
-                          <span className="text-white font-medium">Your Rating: {booking.rating}/5</span>
+                          <span className="text-white text-white font-medium">Your Rating: {booking.rating}/5</span>
                         </div>
-                        <p className="text-gray-300 italic">"{booking.review}"</p>
+                        <p className="text-white text-white italic">"{booking.review}"</p>
                       </div>
                     )}
 
                     {/* Cancellation Reason */}
                     {booking.booking.status === "Cancelled" && booking.cancellationReason && (
-                      <div className="mb-4 p-4 bg-red-900/20 border border-red-800 rounded-lg">
-                        <p className="text-red-400 text-sm">
+                      <div className="text-white mb-4 p-4 bg-red-900/20 border border-red-800 rounded-lg">
+                        <p className="text-white text-red-400 text-sm">
                           <strong>Cancellation Reason:</strong> {booking.cancellationReason}
                         </p>
                       </div>
@@ -495,95 +495,95 @@ export default function MyBookings() {
                   </div>
 
                   {/* Sidebar Info */}
-                  <div className="space-y-4">
+                  <div className="text-white space-y-4">
                     {/* Project Details */}
-                    <div className="bg-gray-800/50 rounded-lg p-4">
-                      <h4 className="text-white font-medium mb-3">Project Details</h4>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center space-x-2">
-                          <Calendar className="h-4 w-4 text-gray-400" />
-                          <span className="text-gray-400">Duration:</span>
-                          <span className="text-white">{booking.booking.duration}</span>
+                    <div className="text-white bg-netflix-dark/50 rounded-lg p-4">
+                      <h4 className="text-white text-white font-medium mb-3">Project Details</h4>
+                      <div className="text-white space-y-2 text-sm">
+                        <div className="text-white flex items-center space-x-2">
+                          <Calendar className="text-white h-4 w-4 text-white" />
+                          <span className="text-white text-white">Duration:</span>
+                          <span className="text-white text-white">{booking.booking.duration}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <MapPin className="h-4 w-4 text-gray-400" />
-                          <span className="text-gray-400">Location:</span>
-                          <span className="text-white">{booking.booking.location}</span>
+                        <div className="text-white flex items-center space-x-2">
+                          <MapPin className="text-white h-4 w-4 text-white" />
+                          <span className="text-white text-white">Location:</span>
+                          <span className="text-white text-white">{booking.booking.location}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Start Date:</span>
-                          <span className="text-white">{new Date(booking.booking.startDate).toLocaleDateString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Start Date:</span>
+                          <span className="text-white text-white">{new Date(booking.booking.startDate).toLocaleDateString()}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">End Date:</span>
-                          <span className="text-white">{new Date(booking.booking.endDate).toLocaleDateString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">End Date:</span>
+                          <span className="text-white text-white">{new Date(booking.booking.endDate).toLocaleDateString()}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Payment Info */}
-                    <div className="bg-gray-800/50 rounded-lg p-4">
-                      <h4 className="text-white font-medium mb-3">Payment</h4>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Total Cost:</span>
-                          <span className="text-white font-semibold">${booking.booking.totalCost}</span>
+                    <div className="text-white bg-netflix-dark/50 rounded-lg p-4">
+                      <h4 className="text-white text-white font-medium mb-3">Payment</h4>
+                      <div className="text-white space-y-2 text-sm">
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Total Cost:</span>
+                          <span className="text-white text-white font-semibold">${booking.booking.totalCost}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Paid:</span>
-                          <span className="text-green-400 font-semibold">${booking.booking.paidAmount}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Paid:</span>
+                          <span className="text-white text-netflix-red font-semibold">${booking.booking.paidAmount}</span>
                         </div>
                         {booking.booking.remainingAmount > 0 && (
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Remaining:</span>
-                            <span className="text-yellow-400 font-semibold">${booking.booking.remainingAmount}</span>
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Remaining:</span>
+                            <span className="text-white text-netflix-red font-semibold">${booking.booking.remainingAmount}</span>
                           </div>
                         )}
                       </div>
                     </div>
 
                     {/* Communication */}
-                    <div className="bg-gray-800/50 rounded-lg p-4">
-                      <h4 className="text-white font-medium mb-3">Communication</h4>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Messages:</span>
-                          <span className="text-white">{booking.communication.totalMessages}</span>
+                    <div className="text-white bg-netflix-dark/50 rounded-lg p-4">
+                      <h4 className="text-white text-white font-medium mb-3">Communication</h4>
+                      <div className="text-white space-y-2 text-sm">
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Messages:</span>
+                          <span className="text-white text-white">{booking.communication.totalMessages}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Response Time:</span>
-                          <span className="text-white">{booking.communication.responseTime}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Response Time:</span>
+                          <span className="text-white text-white">{booking.communication.responseTime}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Last Contact:</span>
-                          <span className="text-white">{new Date(booking.communication.lastMessage).toLocaleDateString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Last Contact:</span>
+                          <span className="text-white text-white">{new Date(booking.communication.lastMessage).toLocaleDateString()}</span>
                         </div>
                       </div>
-                      <Button size="sm" variant="outline" className="w-full mt-3 border-gray-700 text-gray-300">
-                        <MessageCircle className="h-3 w-3 mr-2" />
+                      <Button size="sm" variant="outline" className="text-white w-full mt-3 border-gray-700 text-white">
+                        <MessageCircle className="text-white h-3 w-3 mr-2" />
                         Open Chat
                       </Button>
                     </div>
 
                     {/* Actions */}
-                    <div className="space-y-2">
-                      <Button size="sm" className="w-full netflix-button-primary">
-                        <Eye className="h-3 w-3 mr-2" />
+                    <div className="text-white space-y-2">
+                      <Button size="sm" className="text-white w-full netflix-button-primary">
+                        <Eye className="text-white h-3 w-3 mr-2" />
                         View Details
                       </Button>
-                      <div className="flex space-x-2">
-                        <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                          <Phone className="h-3 w-3 mr-1" />
+                      <div className="text-white flex space-x-2">
+                        <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                          <Phone className="text-white h-3 w-3 mr-1" />
                           Call
                         </Button>
-                        <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                          <Mail className="h-3 w-3 mr-1" />
+                        <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                          <Mail className="text-white h-3 w-3 mr-1" />
                           Email
                         </Button>
                       </div>
                       {booking.booking.status === "Completed" && !booking.rating && (
-                        <Button size="sm" variant="outline" className="w-full border-yellow-700 text-yellow-400">
-                          <Star className="h-3 w-3 mr-2" />
+                        <Button size="sm" variant="outline" className="text-white w-full border-yellow-700 text-netflix-red">
+                          <Star className="text-white h-3 w-3 mr-2" />
                           Leave Review
                         </Button>
                       )}
@@ -596,12 +596,12 @@ export default function MyBookings() {
         </div>
 
         {filteredBookings.length === 0 && (
-          <div className="text-center py-12">
-            <Music className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">No bookings found</h3>
-            <p className="text-gray-400 mb-6">Start hiring music professionals for your projects</p>
-            <Button className="netflix-button-primary">
-              <Plus className="h-4 w-4 mr-2" />
+          <div className="text-white text-center py-12">
+            <Music className="text-white h-16 w-16 text-white mx-auto mb-4" />
+            <h3 className="text-white text-xl font-semibold text-white mb-2">No bookings found</h3>
+            <p className="text-white text-white mb-6">Start hiring music professionals for your projects</p>
+            <Button className="text-white netflix-button-primary">
+              <Plus className="text-white h-4 w-4 mr-2" />
               Find Professionals
             </Button>
           </div>

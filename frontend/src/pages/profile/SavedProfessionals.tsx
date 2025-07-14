@@ -281,10 +281,10 @@ export default function SavedProfessionals() {
 
   const getAvailabilityColor = (availability: string) => {
     switch (availability) {
-      case 'Available': return 'bg-red-600/20 text-green-400';
-      case 'Busy': return 'bg-yellow-600/20 text-yellow-400';
+      case 'Available': return 'bg-red-600/20 text-netflix-red';
+      case 'Busy': return 'bg-netflix-red/20 text-netflix-red';
       case 'Unavailable': return 'bg-red-600/20 text-red-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
@@ -306,73 +306,73 @@ export default function SavedProfessionals() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Saved Professionals</h1>
-            <p className="text-gray-400">Your favorite music professionals for quick access</p>
+            <h1 className="text-white text-3xl font-bold text-white mb-2">Saved Professionals</h1>
+            <p className="text-white text-white">Your favorite music professionals for quick access</p>
           </div>
-          <Button className="netflix-button-primary">
-            <Search className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Search className="text-white h-4 w-4 mr-2" />
             Discover More
           </Button>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid lg:grid-cols-4 gap-4 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-netflix-red/20 rounded-lg">
-                  <Heart className="h-5 w-5 text-netflix-red" />
+        <div className="text-white grid lg:grid-cols-4 gap-4 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <Heart className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.totalSaved}</p>
-                  <p className="text-gray-400 text-sm">Saved Professionals</p>
+                  <p className="text-white text-white font-semibold">{stats.totalSaved}</p>
+                  <p className="text-white text-white text-sm">Saved Professionals</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <Users className="h-5 w-5 text-green-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <Users className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.availableNow}</p>
-                  <p className="text-gray-400 text-sm">Available Now</p>
+                  <p className="text-white text-white font-semibold">{stats.availableNow}</p>
+                  <p className="text-white text-white text-sm">Available Now</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-600/20 rounded-lg">
-                  <Star className="h-5 w-5 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <Star className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.averageRating.toFixed(1)}</p>
-                  <p className="text-gray-400 text-sm">Avg Rating</p>
+                  <p className="text-white text-white font-semibold">{stats.averageRating.toFixed(1)}</p>
+                  <p className="text-white text-white text-sm">Avg Rating</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <DollarSign className="h-5 w-5 text-blue-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${stats.averageHourlyRate}</p>
-                  <p className="text-gray-400 text-sm">Avg Hourly Rate</p>
+                  <p className="text-white text-white font-semibold">${stats.averageHourlyRate}</p>
+                  <p className="text-white text-white text-sm">Avg Hourly Rate</p>
                 </div>
               </div>
             </CardContent>
@@ -380,17 +380,17 @@ export default function SavedProfessionals() {
         </div>
 
         {/* Search and Filter */}
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+          <div className="text-white relative flex-1">
+            <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
             <Input
               placeholder="Search saved professionals..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-gray-800 border-gray-700 text-white"
+              className="text-white pl-10 bg-netflix-dark border-gray-700 text-white"
             />
           </div>
-          <div className="flex space-x-2">
+          <div className="text-white flex space-x-2">
             {[
               { key: 'all', label: 'All' },
               { key: 'producer', label: 'Producers' },
@@ -403,7 +403,7 @@ export default function SavedProfessionals() {
                 variant={filterSpecialty === filter.key ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilterSpecialty(filter.key)}
-                className={filterSpecialty === filter.key ? "netflix-button-primary" : "border-gray-700 text-gray-300"}
+                className={filterSpecialty === filter.key ? "netflix-button-primary" : "border-gray-700 text-white"}
               >
                 {filter.label}
               </Button>
@@ -412,40 +412,40 @@ export default function SavedProfessionals() {
         </div>
 
         {/* Professionals Grid */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="text-white grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredProfessionals.map((professional) => (
-            <Card key={professional.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-6">
+            <Card key={professional.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-6">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <Avatar className="w-14 h-14">
-                      <AvatarFallback className="bg-netflix-red text-white text-lg">
+                <div className="text-white flex items-start justify-between mb-4">
+                  <div className="text-white flex items-center space-x-3">
+                    <Avatar className="text-white w-14 h-14">
+                      <AvatarFallback className="text-white bg-netflix-red text-white text-lg">
                         {professional.avatar}
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="text-white font-bold text-lg">{professional.name}</h3>
-                      <p className="text-gray-400">{professional.specialty}</p>
-                      <div className="flex items-center space-x-1 mt-1">
-                        <Star className="h-3 w-3 text-yellow-400 fill-current" />
-                        <span className="text-white text-sm font-medium">{professional.rating}</span>
-                        <span className="text-gray-400 text-xs">({professional.totalReviews})</span>
+                      <h3 className="text-white text-white font-bold text-lg">{professional.name}</h3>
+                      <p className="text-white text-white">{professional.specialty}</p>
+                      <div className="text-white flex items-center space-x-1 mt-1">
+                        <Star className="text-white h-3 w-3 text-netflix-red fill-current" />
+                        <span className="text-white text-white text-sm font-medium">{professional.rating}</span>
+                        <span className="text-white text-white text-xs">({professional.totalReviews})</span>
                       </div>
                     </div>
                   </div>
-                  <Button size="sm" variant="ghost" className="text-netflix-red hover:text-red-400">
-                    <Heart className="h-4 w-4 fill-current" />
+                  <Button size="sm" variant="ghost" className="text-white text-netflix-red hover:text-red-400">
+                    <Heart className="text-white h-4 w-4 fill-current" />
                   </Button>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm mb-4 line-clamp-2">{professional.description}</p>
+                <p className="text-white text-white text-sm mb-4 line-clamp-2">{professional.description}</p>
 
                 {/* Location & Availability */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-1 text-gray-400 text-sm">
-                    <MapPin className="h-3 w-3" />
+                <div className="text-white flex items-center justify-between mb-4">
+                  <div className="text-white flex items-center space-x-1 text-white text-sm">
+                    <MapPin className="text-white h-3 w-3" />
                     <span>{professional.location}</span>
                   </div>
                   <Badge className={getAvailabilityColor(professional.availability)}>
@@ -454,10 +454,10 @@ export default function SavedProfessionals() {
                 </div>
 
                 {/* Genres */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-1">
+                <div className="text-white mb-4">
+                  <div className="text-white flex flex-wrap gap-1">
                     {professional.genres.slice(0, 3).map((genre) => (
-                      <Badge key={genre} variant="secondary" className="bg-gray-800 text-gray-300 text-xs">
+                      <Badge key={genre} variant="secondary" className="text-white bg-netflix-dark text-white text-xs">
                         {genre}
                       </Badge>
                     ))}
@@ -465,68 +465,68 @@ export default function SavedProfessionals() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                <div className="text-white grid grid-cols-2 gap-4 mb-4 text-sm">
                   <div>
-                    <p className="text-gray-400">Projects</p>
-                    <p className="text-white font-semibold">{professional.totalProjects}</p>
+                    <p className="text-white text-white">Projects</p>
+                    <p className="text-white text-white font-semibold">{professional.totalProjects}</p>
                   </div>
                   <div>
-                    <p className="text-gray-400">Response Time</p>
-                    <p className="text-white font-semibold">{professional.responseTime}</p>
+                    <p className="text-white text-white">Response Time</p>
+                    <p className="text-white text-white font-semibold">{professional.responseTime}</p>
                   </div>
                 </div>
 
                 {/* Pricing */}
-                <div className="mb-4 p-3 bg-gray-800/50 rounded-lg">
-                  <div className="flex items-center justify-between">
+                <div className="text-white mb-4 p-3 bg-netflix-dark/50 rounded-lg">
+                  <div className="text-white flex items-center justify-between">
                     <div>
-                      <p className="text-gray-400 text-sm">Starting at</p>
-                      <p className="text-white font-bold text-lg">${professional.hourlyRate}/hr</p>
+                      <p className="text-white text-white text-sm">Starting at</p>
+                      <p className="text-white text-white font-bold text-lg">${professional.hourlyRate}/hr</p>
                     </div>
-                    <div className="text-right">
-                      <p className="text-gray-400 text-sm">Projects from</p>
-                      <p className="text-green-400 font-semibold">{professional.pricing.projectBased}</p>
+                    <div className="text-white text-right">
+                      <p className="text-white text-white text-sm">Projects from</p>
+                      <p className="text-white text-netflix-red font-semibold">{professional.pricing.projectBased}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Social Proof */}
-                <div className="mb-4">
-                  <div className="flex items-center justify-between text-xs text-gray-400">
-                    <div className="flex items-center space-x-1">
-                      <TrendingUp className="h-3 w-3" />
+                <div className="text-white mb-4">
+                  <div className="text-white flex items-center justify-between text-xs text-white">
+                    <div className="text-white flex items-center space-x-1">
+                      <TrendingUp className="text-white h-3 w-3" />
                       <span>{professional.socialProof.repeatClients}% repeat clients</span>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-3 w-3" />
+                    <div className="text-white flex items-center space-x-1">
+                      <Clock className="text-white h-3 w-3" />
                       <span>{professional.socialProof.onTimeDelivery}% on time</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Last Activity */}
-                <div className="mb-4 text-xs text-gray-400">
+                <div className="text-white mb-4 text-xs text-white">
                   <p>Saved on {new Date(professional.savedDate).toLocaleDateString()}</p>
                   <p>Last active: {new Date(professional.lastActive).toLocaleDateString()}</p>
                 </div>
 
                 {/* Actions */}
-                <div className="space-y-2">
-                  <Button className="w-full netflix-button-primary">
-                    <Eye className="h-3 w-3 mr-2" />
+                <div className="text-white space-y-2">
+                  <Button className="text-white w-full netflix-button-primary">
+                    <Eye className="text-white h-3 w-3 mr-2" />
                     View Profile
                   </Button>
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                      <MessageCircle className="h-3 w-3 mr-1" />
+                  <div className="text-white flex space-x-2">
+                    <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                      <MessageCircle className="text-white h-3 w-3 mr-1" />
                       Message
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                      <Calendar className="h-3 w-3 mr-1" />
+                    <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                      <Calendar className="text-white h-3 w-3 mr-1" />
                       Book Now
                     </Button>
-                    <Button size="sm" variant="outline" className="border-gray-700 text-gray-300">
-                      <HeartOff className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="text-white border-gray-700 text-white">
+                      <HeartOff className="text-white h-3 w-3" />
                     </Button>
                   </div>
                 </div>
@@ -536,12 +536,12 @@ export default function SavedProfessionals() {
         </div>
 
         {filteredProfessionals.length === 0 && (
-          <div className="text-center py-12">
-            <Heart className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">No saved professionals found</h3>
-            <p className="text-gray-400 mb-6">Start saving your favorite music professionals</p>
-            <Button className="netflix-button-primary">
-              <Search className="h-4 w-4 mr-2" />
+          <div className="text-white text-center py-12">
+            <Heart className="text-white h-16 w-16 text-white mx-auto mb-4" />
+            <h3 className="text-white text-xl font-semibold text-white mb-2">No saved professionals found</h3>
+            <p className="text-white text-white mb-6">Start saving your favorite music professionals</p>
+            <Button className="text-white netflix-button-primary">
+              <Search className="text-white h-4 w-4 mr-2" />
               Discover Professionals
             </Button>
           </div>

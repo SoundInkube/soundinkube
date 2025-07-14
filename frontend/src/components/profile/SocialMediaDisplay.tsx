@@ -34,7 +34,7 @@ const platformConfig = {
   appleMusic: {
     name: 'Apple Music',
     icon: Music2,
-    color: 'bg-gray-800 hover:bg-gray-900',
+    color: 'bg-netflix-dark hover:bg-netflix-dark',
     textColor: 'text-white'
   },
   soundcloud: {
@@ -46,7 +46,7 @@ const platformConfig = {
   facebook: {
     name: 'Facebook',
     icon: Facebook,
-    color: 'bg-red-600 hover:bg-blue-700',
+    color: 'bg-red-600 hover:bg-netflix-red',
     textColor: 'text-red-600'
   }
 };
@@ -67,7 +67,7 @@ export const SocialMediaDisplay: React.FC<SocialMediaDisplayProps> = ({
 
   if (compact) {
     return (
-      <div className="flex flex-wrap gap-2">
+      <div className="text-white flex flex-wrap gap-2">
         {socialLinks.map(([key, config]) => {
           const Icon = config.icon;
           const url = data[`${key}Url` as keyof SocialMediaData]!;
@@ -78,19 +78,19 @@ export const SocialMediaDisplay: React.FC<SocialMediaDisplayProps> = ({
               variant="outline"
               size="sm"
               asChild
-              className="h-8"
+              className="text-white h-8"
             >
               <a
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1"
+                className="text-white flex items-center gap-1"
               >
                 <div className={`p-1 rounded ${config.color} text-white`}>
-                  <Icon className="h-3 w-3" />
+                  <Icon className="text-white h-3 w-3" />
                 </div>
-                <span className="hidden sm:inline">{config.name}</span>
-                <ExternalLink className="h-3 w-3" />
+                <span className="text-white hidden sm:inline">{config.name}</span>
+                <ExternalLink className="text-white h-3 w-3" />
               </a>
             </Button>
           );
@@ -102,16 +102,16 @@ export const SocialMediaDisplay: React.FC<SocialMediaDisplayProps> = ({
   return (
     <Card>
       {showTitle && (
-        <CardHeader className="pb-4">
-          <CardTitle className="flex items-center gap-2">
-            <Music className="h-5 w-5" />
+        <CardHeader className="text-white pb-4">
+          <CardTitle className="text-white flex items-center gap-2">
+            <Music className="text-white h-5 w-5" />
             Music Profiles
             <Badge variant="secondary">{socialLinks.length}</Badge>
           </CardTitle>
         </CardHeader>
       )}
       <CardContent className={showTitle ? '' : 'pt-6'}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="text-white grid grid-cols-1 sm:grid-cols-2 gap-3">
           {socialLinks.map(([key, config]) => {
             const Icon = config.icon;
             const url = data[`${key}Url` as keyof SocialMediaData]!;
@@ -122,24 +122,24 @@ export const SocialMediaDisplay: React.FC<SocialMediaDisplayProps> = ({
                 variant="outline"
                 size="lg"
                 asChild
-                className="h-12 justify-start"
+                className="text-white h-12 justify-start"
               >
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 w-full"
+                  className="text-white flex items-center gap-3 w-full"
                 >
                   <div className={`p-2 rounded ${config.color} text-white transition-colors`}>
-                    <Icon className="h-4 w-4" />
+                    <Icon className="text-white h-4 w-4" />
                   </div>
-                  <div className="flex-1 text-left">
-                    <div className="font-medium">{config.name}</div>
-                    <div className="text-sm text-muted-foreground truncate">
+                  <div className="text-white flex-1 text-left">
+                    <div className="text-white font-medium">{config.name}</div>
+                    <div className="text-white text-sm text-muted-foreground truncate">
                       {url.replace(/^https?:\/\//, '')}
                     </div>
                   </div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                  <ExternalLink className="text-white h-4 w-4 text-muted-foreground" />
                 </a>
               </Button>
             );

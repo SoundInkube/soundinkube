@@ -246,20 +246,20 @@ export default function ManageTalent() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'text-green-400 bg-green-400/10';
-      case 'developing': return 'text-blue-400 bg-blue-400/10';
-      case 'hiatus': return 'text-yellow-400 bg-yellow-400/10';
+      case 'active': return 'text-netflix-red bg-netflix-red/10';
+      case 'developing': return 'text-netflix-red bg-netflix-red/10';
+      case 'hiatus': return 'text-netflix-red bg-netflix-red/10';
       case 'negotiating': return 'text-orange-400 bg-orange-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      default: return 'text-white bg-netflix-dark/10';
     }
   };
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high': return 'text-red-400 bg-red-400/10';
-      case 'medium': return 'text-yellow-400 bg-yellow-400/10';
-      case 'low': return 'text-green-400 bg-green-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      case 'medium': return 'text-netflix-red bg-netflix-red/10';
+      case 'low': return 'text-netflix-red bg-netflix-red/10';
+      default: return 'text-white bg-netflix-dark/10';
     }
   };
 
@@ -277,80 +277,80 @@ export default function ManageTalent() {
   const activeArtists = managedArtists.filter(artist => artist.status === 'active').length;
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="text-white flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <h1 className="text-white text-4xl font-bold text-white mb-2">
               Manage
-              <span className="bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent ml-3">
+              <span className="text-white bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent ml-3">
                 Talent
               </span>
             </h1>
-            <p className="text-gray-300">
+            <p className="text-white text-white">
               Oversee your artist roster, track performance, and manage contracts
             </p>
           </div>
-          <Button className="netflix-button-primary">
-            <Plus className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Plus className="text-white h-4 w-4 mr-2" />
             Add New Artist
           </Button>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid lg:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-netflix-red/20 rounded-lg">
-                  <Users className="h-6 w-6 text-netflix-red" />
+        <div className="text-white grid lg:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center space-x-4">
+                <div className="text-white p-3 bg-netflix-red/20 rounded-lg">
+                  <Users className="text-white h-6 w-6 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Active Artists</p>
-                  <p className="text-2xl font-bold text-white">{activeArtists}</p>
+                  <p className="text-white text-white text-sm">Active Artists</p>
+                  <p className="text-white text-2xl font-bold text-white">{activeArtists}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-red-600/20 rounded-lg">
-                  <DollarSign className="h-6 w-6 text-green-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center space-x-4">
+                <div className="text-white p-3 bg-red-600/20 rounded-lg">
+                  <DollarSign className="text-white h-6 w-6 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Monthly Revenue</p>
-                  <p className="text-2xl font-bold text-white">${totalRevenue.toLocaleString()}</p>
+                  <p className="text-white text-white text-sm">Monthly Revenue</p>
+                  <p className="text-white text-2xl font-bold text-white">${totalRevenue.toLocaleString()}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-red-600/20 rounded-lg">
-                  <Activity className="h-6 w-6 text-blue-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center space-x-4">
+                <div className="text-white p-3 bg-red-600/20 rounded-lg">
+                  <Activity className="text-white h-6 w-6 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Monthly Streams</p>
-                  <p className="text-2xl font-bold text-white">{formatNumber(totalStreams)}</p>
+                  <p className="text-white text-white text-sm">Monthly Streams</p>
+                  <p className="text-white text-2xl font-bold text-white">{formatNumber(totalStreams)}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-yellow-600/20 rounded-lg">
-                  <TrendingUp className="h-6 w-6 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center space-x-4">
+                <div className="text-white p-3 bg-netflix-red/20 rounded-lg">
+                  <TrendingUp className="text-white h-6 w-6 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm">Growth Rate</p>
-                  <p className="text-2xl font-bold text-white">+12.5%</p>
+                  <p className="text-white text-white text-sm">Growth Rate</p>
+                  <p className="text-white text-2xl font-bold text-white">+12.5%</p>
                 </div>
               </div>
             </CardContent>
@@ -358,23 +358,23 @@ export default function ManageTalent() {
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
-          <div className="grid lg:grid-cols-3 gap-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+        <div className="text-white bg-netflix-dark/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
+          <div className="text-white grid lg:grid-cols-3 gap-4">
+            <div className="text-white relative">
+              <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
               <Input
                 type="text"
                 placeholder="Search artists..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
+                className="text-white pl-10 bg-netflix-dark border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
               />
             </div>
 
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+              className="text-white px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
             >
               {statusOptions.map(option => (
                 <option key={option.id} value={option.id}>
@@ -386,7 +386,7 @@ export default function ManageTalent() {
             <select
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
-              className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+              className="text-white px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
             >
               {genreOptions.map(option => (
                 <option key={option.id} value={option.id}>
@@ -398,22 +398,22 @@ export default function ManageTalent() {
         </div>
 
         {/* Artists List */}
-        <div className="space-y-6 mb-12">
+        <div className="text-white space-y-6 mb-12">
           {filteredArtists.map((artist) => (
-            <Card key={artist.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="grid lg:grid-cols-4 gap-6">
+            <Card key={artist.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-6">
+                <div className="text-white grid lg:grid-cols-4 gap-6">
                   {/* Artist Info */}
-                  <div className="lg:col-span-1">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="text-white lg:col-span-1">
+                    <div className="text-white flex items-center space-x-4 mb-4">
+                      <div className="text-white w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-xl">
                         {artist.avatar}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white">{artist.stageName}</h3>
-                        <p className="text-gray-400">{artist.name}</p>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <Badge variant="secondary" className="bg-gray-800 text-gray-300 text-xs">
+                        <h3 className="text-white text-xl font-bold text-white">{artist.stageName}</h3>
+                        <p className="text-white text-white">{artist.name}</p>
+                        <div className="text-white flex items-center space-x-2 mt-1">
+                          <Badge variant="secondary" className="text-white bg-netflix-dark text-white text-xs">
                             {artist.genre}
                           </Badge>
                           <Badge className={`text-xs ${getStatusColor(artist.status)}`}>
@@ -422,7 +422,7 @@ export default function ManageTalent() {
                         </div>
                       </div>
                     </div>
-                    <div className="space-y-2 text-sm text-gray-400">
+                    <div className="text-white space-y-2 text-sm text-white">
                       <div>Joined: {new Date(artist.joinDate).toLocaleDateString()}</div>
                       <div>Contract: {artist.contractStatus}</div>
                       <Badge className={`text-xs ${getPriorityColor(artist.priority)}`}>
@@ -432,59 +432,59 @@ export default function ManageTalent() {
                   </div>
 
                   {/* Performance Stats */}
-                  <div className="lg:col-span-1">
-                    <h4 className="text-white font-medium mb-3">Performance</h4>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Monthly Streams</span>
-                        <span className="text-white font-medium">{formatNumber(artist.stats.monthlyStreams)}</span>
+                  <div className="text-white lg:col-span-1">
+                    <h4 className="text-white text-white font-medium mb-3">Performance</h4>
+                    <div className="text-white space-y-3">
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Monthly Streams</span>
+                        <span className="text-white text-white font-medium">{formatNumber(artist.stats.monthlyStreams)}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Total Followers</span>
-                        <span className="text-white font-medium">{formatNumber(artist.stats.followers)}</span>
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Total Followers</span>
+                        <span className="text-white text-white font-medium">{formatNumber(artist.stats.followers)}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Monthly Revenue</span>
-                        <span className="text-green-400 font-medium">${artist.stats.revenue.toLocaleString()}</span>
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Monthly Revenue</span>
+                        <span className="text-white text-netflix-red font-medium">${artist.stats.revenue.toLocaleString()}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Shows (YTD)</span>
-                        <span className="text-white font-medium">{artist.stats.shows}</span>
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Shows (YTD)</span>
+                        <span className="text-white text-white font-medium">{artist.stats.shows}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Recent Activity */}
-                  <div className="lg:col-span-1">
-                    <h4 className="text-white font-medium mb-3">Recent Activity</h4>
-                    <div className="space-y-2">
+                  <div className="text-white lg:col-span-1">
+                    <h4 className="text-white text-white font-medium mb-3">Recent Activity</h4>
+                    <div className="text-white space-y-2">
                       {artist.recentActivity.slice(0, 3).map((activity, index) => (
-                        <div key={index} className="text-sm">
-                          <p className="text-gray-300">{activity.description}</p>
-                          <p className="text-gray-400 text-xs">{activity.date}</p>
+                        <div key={index} className="text-white text-sm">
+                          <p className="text-white text-white">{activity.description}</p>
+                          <p className="text-white text-white text-xs">{activity.date}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="lg:col-span-1">
-                    <h4 className="text-white font-medium mb-3">Quick Actions</h4>
-                    <div className="space-y-2">
-                      <Button variant="outline" className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm">
-                        <Eye className="h-4 w-4 mr-2" />
+                  <div className="text-white lg:col-span-1">
+                    <h4 className="text-white text-white font-medium mb-3">Quick Actions</h4>
+                    <div className="text-white space-y-2">
+                      <Button variant="outline" className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm">
+                        <Eye className="text-white h-4 w-4 mr-2" />
                         View Profile
                       </Button>
-                      <Button variant="outline" className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm">
-                        <BarChart3 className="h-4 w-4 mr-2" />
+                      <Button variant="outline" className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm">
+                        <BarChart3 className="text-white h-4 w-4 mr-2" />
                         Analytics
                       </Button>
-                      <Button variant="outline" className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm">
-                        <FileText className="h-4 w-4 mr-2" />
+                      <Button variant="outline" className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm">
+                        <FileText className="text-white h-4 w-4 mr-2" />
                         Contracts
                       </Button>
-                      <Button variant="outline" className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm">
-                        <MessageCircle className="h-4 w-4 mr-2" />
+                      <Button variant="outline" className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm">
+                        <MessageCircle className="text-white h-4 w-4 mr-2" />
                         Contact
                       </Button>
                     </div>
@@ -496,21 +496,21 @@ export default function ManageTalent() {
         </div>
 
         {/* Call-to-Action */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Grow Your Artist Roster
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Discover new talent and expand your management portfolio. Use our scouting tools 
             to find the next big artists in the music industry.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="netflix-button-primary text-lg px-8 py-3">
+          <div className="text-white flex justify-center space-x-4">
+            <Button className="text-white netflix-button-primary text-lg px-8 py-3">
               Scout New Artists
             </Button>
             <Button 
               variant="outline" 
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 text-lg px-8 py-3"
+              className="text-white border-gray-700 text-white hover:bg-netflix-dark text-lg px-8 py-3"
             >
               View Analytics
             </Button>

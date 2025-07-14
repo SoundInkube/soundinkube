@@ -101,10 +101,10 @@ export default function MyManagers() {
 
   if (user?.role !== 'MUSIC_PROFESSIONAL') {
     return (
-      <div className="max-w-4xl mx-auto p-6">
+      <div className="text-white max-w-4xl mx-auto p-6">
         <Card>
-          <CardHeader className="text-center">
-            <Users className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+          <CardHeader className="text-white text-center">
+            <Users className="text-white h-12 w-12 mx-auto mb-4 text-muted-foreground" />
             <CardTitle>Access Denied</CardTitle>
             <CardDescription>
               This page is only accessible to Music Professionals.
@@ -117,38 +117,38 @@ export default function MyManagers() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      <div className="text-white flex items-center justify-center min-h-[400px]">
+        <div className="text-white animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">My Managers</h1>
-        <p className="text-muted-foreground">
+    <div className="text-white max-w-6xl mx-auto p-6">
+      <div className="text-white mb-8">
+        <h1 className="text-white text-3xl font-bold mb-2">My Managers</h1>
+        <p className="text-white text-muted-foreground">
           View and manage your artist management relationships
         </p>
       </div>
 
       {managers.length === 0 ? (
         <Card>
-          <CardContent className="text-center py-8">
-            <Users className="h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-50" />
-            <h3 className="text-lg font-semibold mb-2">No Managers Yet</h3>
-            <p className="text-muted-foreground mb-4">
+          <CardContent className="text-white text-center py-8">
+            <Users className="text-white h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-50" />
+            <h3 className="text-white text-lg font-semibold mb-2">No Managers Yet</h3>
+            <p className="text-white text-muted-foreground mb-4">
               You don't have any artist managers yet. When managers send you requests, they'll appear here.
             </p>
           </CardContent>
         </Card>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-6">
           {managers.map((managerRelation) => (
             <Card key={managerRelation.id}>
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <Avatar className="h-12 w-12">
+              <CardContent className="text-white p-6">
+                <div className="text-white flex items-start gap-4">
+                  <Avatar className="text-white h-12 w-12">
                     <AvatarImage src={managerRelation.manager.profile.avatar} />
                     <AvatarFallback>
                       {managerRelation.manager.profile.firstName[0]}
@@ -156,15 +156,15 @@ export default function MyManagers() {
                     </AvatarFallback>
                   </Avatar>
                   
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between">
+                  <div className="text-white flex-1">
+                    <div className="text-white flex items-start justify-between">
                       <div>
-                        <h3 className="font-semibold">
+                        <h3 className="text-white font-semibold">
                           {managerRelation.manager.profile.firstName} {managerRelation.manager.profile.lastName}
                         </h3>
                         
                         {managerRelation.manager.profile.company && (
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-white text-sm text-muted-foreground">
                             {managerRelation.manager.profile.company}
                           </p>
                         )}
@@ -172,50 +172,50 @@ export default function MyManagers() {
                       
                       <Badge 
                         variant={isContractActive(managerRelation.contractEnd) ? "default" : "secondary"}
-                        className="ml-2"
+                        className="text-white ml-2"
                       >
                         {isContractActive(managerRelation.contractEnd) ? (
                           <>
-                            <CheckCircle className="h-3 w-3 mr-1" />
+                            <CheckCircle className="text-white h-3 w-3 mr-1" />
                             Active
                           </>
                         ) : (
                           <>
-                            <AlertCircle className="h-3 w-3 mr-1" />
+                            <AlertCircle className="text-white h-3 w-3 mr-1" />
                             Expired
                           </>
                         )}
                       </Badge>
                     </div>
                     
-                    <div className="mt-3 space-y-1 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Mail className="h-3 w-3" />
+                    <div className="text-white mt-3 space-y-1 text-sm text-muted-foreground">
+                      <div className="text-white flex items-center gap-1">
+                        <Mail className="text-white h-3 w-3" />
                         <span>{managerRelation.manager.email}</span>
                       </div>
                       
                       {managerRelation.manager.profile.location && (
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3" />
+                        <div className="text-white flex items-center gap-1">
+                          <MapPin className="text-white h-3 w-3" />
                           <span>{managerRelation.manager.profile.location}</span>
                         </div>
                       )}
                       
                       {managerRelation.commissionRate && (
-                        <div className="flex items-center gap-1">
-                          <DollarSign className="h-3 w-3" />
+                        <div className="text-white flex items-center gap-1">
+                          <DollarSign className="text-white h-3 w-3" />
                           <span>{managerRelation.commissionRate}% commission rate</span>
                         </div>
                       )}
                       
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
+                      <div className="text-white flex items-center gap-1">
+                        <Calendar className="text-white h-3 w-3" />
                         <span>Partnership since {new Date(managerRelation.createdAt).toLocaleDateString()}</span>
                       </div>
                       
                       {managerRelation.contractEnd && (
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
+                        <div className="text-white flex items-center gap-1">
+                          <Calendar className="text-white h-3 w-3" />
                           <span>
                             Contract {isContractActive(managerRelation.contractEnd) ? 'ends' : 'ended'} on{' '}
                             {new Date(managerRelation.contractEnd).toLocaleDateString()}
@@ -225,23 +225,23 @@ export default function MyManagers() {
                     </div>
                     
                     {managerRelation.manager.profile.bio && (
-                      <div className="mt-3">
-                        <p className="text-sm text-muted-foreground">
+                      <div className="text-white mt-3">
+                        <p className="text-white text-sm text-muted-foreground">
                           {managerRelation.manager.profile.bio.substring(0, 100)}
                           {managerRelation.manager.profile.bio.length > 100 && '...'}
                         </p>
                       </div>
                     )}
                     
-                    <div className="mt-4 flex gap-2">
+                    <div className="text-white mt-4 flex gap-2">
                       <Button size="sm" variant="outline">
                         View Details
                       </Button>
                       
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button size="sm" variant="outline" className="text-red-600 hover:text-red-700">
-                            <X className="h-3 w-3 mr-1" />
+                          <Button size="sm" variant="outline" className="text-white text-red-600 hover:text-red-700">
+                            <X className="text-white h-3 w-3 mr-1" />
                             End Partnership
                           </Button>
                         </DialogTrigger>
@@ -254,7 +254,7 @@ export default function MyManagers() {
                               This action cannot be undone.
                             </DialogDescription>
                           </DialogHeader>
-                          <div className="flex justify-end gap-2">
+                          <div className="text-white flex justify-end gap-2">
                             <Button variant="outline">Cancel</Button>
                             <Button 
                               variant="destructive"

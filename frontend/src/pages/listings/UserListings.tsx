@@ -165,9 +165,9 @@ export default function UserListings() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "active":
-        return "bg-green-100 text-green-800";
+        return "bg-netflix-red text-netflix-red";
       case "sold":
-        return "bg-blue-100 text-blue-800";
+        return "bg-netflix-red text-netflix-red";
       case "draft":
         return "bg-zinc-900 text-white";
       default:
@@ -185,8 +185,8 @@ export default function UserListings() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="text-white flex justify-center items-center h-64">
+          <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       </MainLayout>
     );
@@ -195,9 +195,9 @@ export default function UserListings() {
   if (error) {
     return (
       <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error}</p>
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error}</p>
           </div>
         </div>
       </MainLayout>
@@ -206,20 +206,20 @@ export default function UserListings() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-between items-center mb-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">My Listings</h1>
-            <p className="mt-2 text-gray-300">Manage your marketplace items and jam pads</p>
+            <h1 className="text-white text-3xl font-bold text-white">My Listings</h1>
+            <p className="text-white mt-2 text-white">Manage your marketplace items and jam pads</p>
           </div>
           <Button onClick={() => handleCreateNew("marketplace")}>
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="text-white h-4 w-4 mr-2" />
             Create New Listing
           </Button>
         </div>
 
-        <Tabs defaultValue="marketplace" className="w-full">
-          <TabsList className="mb-6">
+        <Tabs defaultValue="marketplace" className="text-white w-full">
+          <TabsList className="text-white mb-6">
             <TabsTrigger value="marketplace">Marketplace</TabsTrigger>
             <TabsTrigger value="jampads">Jam Pads</TabsTrigger>
           </TabsList>
@@ -227,82 +227,82 @@ export default function UserListings() {
           {/* Marketplace Tab */}
           <TabsContent value="marketplace">
             {marketplaceListings.length === 0 ? (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300 mb-4">You don't have any marketplace listings yet.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white mb-4">You don't have any marketplace listings yet.</p>
                 <Button onClick={() => handleCreateNew("marketplace")}>
-                  <Plus className="h-4 w-4 mr-2" />
+                  <Plus className="text-white h-4 w-4 mr-2" />
                   Create Marketplace Listing
                 </Button>
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                  <Card className="bg-green-50 border-green-100">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Active</CardTitle>
+                <div className="text-white grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                  <Card className="text-white bg-green-50 border-green-100">
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Active</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-red-600">{activeMarketplace}</p>
+                      <p className="text-white text-3xl font-bold text-red-600">{activeMarketplace}</p>
                     </CardContent>
                   </Card>
                   
-                  <Card className="bg-blue-50 border-blue-100">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Sold</CardTitle>
+                  <Card className="text-white bg-blue-50 border-blue-100">
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Sold</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-blue-700">{soldMarketplace}</p>
+                      <p className="text-white text-3xl font-bold text-netflix-red">{soldMarketplace}</p>
                     </CardContent>
                   </Card>
                   
-                  <Card className="bg-black border-gray-100">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Drafts</CardTitle>
+                  <Card className="text-white bg-black border-gray-100">
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Drafts</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-white">{draftMarketplace}</p>
+                      <p className="text-white text-3xl font-bold text-white">{draftMarketplace}</p>
                     </CardContent>
                   </Card>
                   
                   <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Total</CardTitle>
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Total</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold">{marketplaceListings.length}</p>
+                      <p className="text-white text-3xl font-bold">{marketplaceListings.length}</p>
                     </CardContent>
                   </Card>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   {marketplaceListings.map((listing) => (
-                    <div key={listing.id} className="bg-zinc-900 p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                      <div className="h-20 w-20 rounded overflow-hidden flex-shrink-0">
+                    <div key={listing.id} className="text-white bg-zinc-900 p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="text-white h-20 w-20 rounded overflow-hidden flex-shrink-0">
                         <img
                           src={listing.imageUrl}
                           alt={listing.title}
-                          className="h-full w-full object-cover"
+                          className="text-white h-full w-full object-cover"
                         />
                       </div>
                       
-                      <div className="flex-grow">
-                        <h3 className="font-medium text-lg">{listing.title}</h3>
-                        <div className="flex flex-wrap gap-2 mt-1">
-                          <Badge variant="outline" className="text-xs">
+                      <div className="text-white flex-grow">
+                        <h3 className="text-white font-medium text-lg">{listing.title}</h3>
+                        <div className="text-white flex flex-wrap gap-2 mt-1">
+                          <Badge variant="outline" className="text-white text-xs">
                             {listing.category}
                           </Badge>
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="text-white text-xs">
                             {listing.condition}
                           </Badge>
-                          <Badge variant={listing.type === "Sale" ? "default" : "secondary"} className="text-xs">
+                          <Badge variant={listing.type === "Sale" ? "default" : "secondary"} className="text-white text-xs">
                             {listing.type}
                           </Badge>
                         </div>
                       </div>
                       
-                      <div className="flex flex-col items-end gap-2">
-                        <div className="flex items-center text-lg font-semibold">
-                          <DollarSign className="h-4 w-4 text-gray-400" />
+                      <div className="text-white flex flex-col items-end gap-2">
+                        <div className="text-white flex items-center text-lg font-semibold">
+                          <DollarSign className="text-white h-4 w-4 text-white" />
                           {listing.price}
                         </div>
                         
@@ -310,13 +310,13 @@ export default function UserListings() {
                           {listing.status}
                         </span>
                         
-                        <div className="text-sm text-gray-400 flex items-center gap-2">
-                          <span className="flex items-center">
-                            <Eye className="h-3 w-3 mr-1" />
+                        <div className="text-white text-sm text-white flex items-center gap-2">
+                          <span className="text-white flex items-center">
+                            <Eye className="text-white h-3 w-3 mr-1" />
                             {listing.views}
                           </span>
-                          <span className="flex items-center">
-                            <CalendarIcon className="h-3 w-3 mr-1" />
+                          <span className="text-white flex items-center">
+                            <CalendarIcon className="text-white h-3 w-3 mr-1" />
                             {new Date(listing.createdAt).toLocaleDateString()}
                           </span>
                         </div>
@@ -335,82 +335,82 @@ export default function UserListings() {
           {/* Jam Pads Tab */}
           <TabsContent value="jampads">
             {jampadListings.length === 0 ? (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300 mb-4">You don't have any jam pads listed yet.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white mb-4">You don't have any jam pads listed yet.</p>
                 <Button onClick={() => handleCreateNew("jampad")}>
-                  <Plus className="h-4 w-4 mr-2" />
+                  <Plus className="text-white h-4 w-4 mr-2" />
                   List a Jam Pad
                 </Button>
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
-                  <Card className="bg-green-50 border-green-100">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Active Venues</CardTitle>
+                <div className="text-white grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+                  <Card className="text-white bg-green-50 border-green-100">
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Active Venues</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-red-600">{activeJampads}</p>
+                      <p className="text-white text-3xl font-bold text-red-600">{activeJampads}</p>
                     </CardContent>
                   </Card>
                   
-                  <Card className="bg-blue-50 border-blue-100">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Total Bookings</CardTitle>
+                  <Card className="text-white bg-blue-50 border-blue-100">
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Total Bookings</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-blue-700">{jampadListings.reduce((sum, jp) => sum + jp.bookings, 0)}</p>
+                      <p className="text-white text-3xl font-bold text-netflix-red">{jampadListings.reduce((sum, jp) => sum + jp.bookings, 0)}</p>
                     </CardContent>
                   </Card>
                   
                   <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">Total</CardTitle>
+                    <CardHeader className="text-white pb-2">
+                      <CardTitle className="text-white text-lg">Total</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold">{jampadListings.length}</p>
+                      <p className="text-white text-3xl font-bold">{jampadListings.length}</p>
                     </CardContent>
                   </Card>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   {jampadListings.map((listing) => (
-                    <div key={listing.id} className="bg-zinc-900 p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                      <div className="h-20 w-20 rounded overflow-hidden flex-shrink-0">
+                    <div key={listing.id} className="text-white bg-zinc-900 p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="text-white h-20 w-20 rounded overflow-hidden flex-shrink-0">
                         <img
                           src={listing.imageUrl}
                           alt={listing.name}
-                          className="h-full w-full object-cover"
+                          className="text-white h-full w-full object-cover"
                         />
                       </div>
                       
-                      <div className="flex-grow">
-                        <h3 className="font-medium text-lg">{listing.name}</h3>
-                        <div className="flex items-center text-sm text-gray-400 mt-1">
-                          <MapPin className="h-4 w-4 mr-1" />
+                      <div className="text-white flex-grow">
+                        <h3 className="text-white font-medium text-lg">{listing.name}</h3>
+                        <div className="text-white flex items-center text-sm text-white mt-1">
+                          <MapPin className="text-white h-4 w-4 mr-1" />
                           {listing.city}
                         </div>
                       </div>
                       
-                      <div className="flex flex-col items-end gap-2">
-                        <div className="flex items-center text-lg font-semibold">
-                          <DollarSign className="h-4 w-4 text-gray-400" />
+                      <div className="text-white flex flex-col items-end gap-2">
+                        <div className="text-white flex items-center text-lg font-semibold">
+                          <DollarSign className="text-white h-4 w-4 text-white" />
                           {listing.hourlyRate}
-                          <span className="text-sm text-gray-400 ml-1">/hour</span>
+                          <span className="text-white text-sm text-white ml-1">/hour</span>
                         </div>
                         
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(listing.status)} capitalize`}>
                           {listing.status}
                         </span>
                         
-                        <div className="text-sm text-gray-400 flex items-center gap-2">
-                          <span className="flex items-center">
-                            <Music className="h-3 w-3 mr-1" />
+                        <div className="text-white text-sm text-white flex items-center gap-2">
+                          <span className="text-white flex items-center">
+                            <Music className="text-white h-3 w-3 mr-1" />
                             {listing.bookings} bookings
                           </span>
                           {listing.rating && (
-                            <span className="flex items-center">
-                              <Star className="h-3 w-3 mr-1 text-amber-500" />
+                            <span className="text-white flex items-center">
+                              <Star className="text-white h-3 w-3 mr-1 text-amber-500" />
                               {listing.rating} ({listing.reviewCount})
                             </span>
                           )}

@@ -94,10 +94,10 @@ export default function BookingCalendar() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'confirmed': return 'bg-red-600';
-      case 'pending': return 'bg-yellow-600';
+      case 'pending': return 'bg-netflix-red';
       case 'cancelled': return 'bg-red-600';
       case 'completed': return 'bg-red-600';
-      default: return 'bg-gray-600';
+      default: return 'bg-netflix-dark';
     }
   };
 
@@ -123,14 +123,14 @@ export default function BookingCalendar() {
     .reduce((sum, booking) => sum + booking.fee, 0);
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
-      <div className="flex justify-between items-center">
+    <div className="text-white container mx-auto p-6 space-y-6">
+      <div className="text-white flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Booking Calendar</h1>
-          <p className="text-muted-foreground mt-2">Manage artist bookings and schedule</p>
+          <h1 className="text-white text-3xl font-bold">Booking Calendar</h1>
+          <p className="text-white text-muted-foreground mt-2">Manage artist bookings and schedule</p>
         </div>
-        <div className="flex gap-3">
-          <div className="flex bg-muted rounded-lg p-1">
+        <div className="text-white flex gap-3">
+          <div className="text-white flex bg-muted rounded-lg p-1">
             <Button
               variant={viewMode === 'list' ? 'default' : 'ghost'}
               size="sm"
@@ -148,20 +148,20 @@ export default function BookingCalendar() {
           </div>
           <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-red-600 hover:bg-red-700">
-                <Plus className="h-4 w-4 mr-2" />
+              <Button className="text-white bg-red-600 hover:bg-red-700">
+                <Plus className="text-white h-4 w-4 mr-2" />
                 New Booking
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl">
+            <DialogContent className="text-white max-w-2xl">
               <DialogHeader>
                 <DialogTitle>Schedule New Booking</DialogTitle>
                 <DialogDescription>
                   Create a new booking event for an artist
                 </DialogDescription>
               </DialogHeader>
-              <div className="grid grid-cols-2 gap-4 py-4">
-                <div className="space-y-2">
+              <div className="text-white grid grid-cols-2 gap-4 py-4">
+                <div className="text-white space-y-2">
                   <Label htmlFor="artist">Artist</Label>
                   <Select>
                     <SelectTrigger>
@@ -174,39 +174,39 @@ export default function BookingCalendar() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="event-title">Event Title</Label>
                   <Input id="event-title" placeholder="Enter event name" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="venue">Venue</Label>
                   <Input id="venue" placeholder="Venue name" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="location">Location</Label>
                   <Input id="location" placeholder="City, State/Country" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="date">Date</Label>
                   <Input id="date" type="date" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="time">Time</Label>
                   <Input id="time" type="time" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="duration">Duration (minutes)</Label>
                   <Input id="duration" type="number" placeholder="90" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="fee">Performance Fee</Label>
                   <Input id="fee" type="number" placeholder="5000" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="capacity">Venue Capacity</Label>
                   <Input id="capacity" type="number" placeholder="500" />
                 </div>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   <Label htmlFor="type">Event Type</Label>
                   <Select>
                     <SelectTrigger>
@@ -221,24 +221,24 @@ export default function BookingCalendar() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="col-span-2 space-y-2">
+                <div className="text-white col-span-2 space-y-2">
                   <Label htmlFor="contact-person">Contact Person</Label>
                   <Input id="contact-person" placeholder="Event organizer name" />
                 </div>
-                <div className="col-span-2 space-y-2">
+                <div className="text-white col-span-2 space-y-2">
                   <Label htmlFor="contact-email">Contact Email</Label>
                   <Input id="contact-email" type="email" placeholder="organizer@email.com" />
                 </div>
-                <div className="col-span-2 space-y-2">
+                <div className="text-white col-span-2 space-y-2">
                   <Label htmlFor="notes">Notes</Label>
                   <Textarea id="notes" placeholder="Additional details, requirements, etc." />
                 </div>
               </div>
-              <div className="flex justify-end gap-3">
+              <div className="text-white flex justify-end gap-3">
                 <Button variant="outline" onClick={() => setIsCreateModalOpen(false)}>
                   Cancel
                 </Button>
-                <Button className="bg-red-600 hover:bg-red-700">
+                <Button className="text-white bg-red-600 hover:bg-red-700">
                   Create Booking
                 </Button>
               </div>
@@ -248,55 +248,55 @@ export default function BookingCalendar() {
       </div>
 
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="text-white grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Upcoming Bookings</CardTitle>
-            <Calendar className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-white text-sm font-medium">Upcoming Bookings</CardTitle>
+            <Calendar className="text-white h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{upcomingBookings.length}</div>
-            <p className="text-xs text-muted-foreground">
+            <div className="text-white text-2xl font-bold">{upcomingBookings.length}</div>
+            <p className="text-white text-xs text-muted-foreground">
               Next 30 days
             </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-white text-sm font-medium">Total Revenue</CardTitle>
+            <DollarSign className="text-white h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalRevenue.toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground">
+            <div className="text-white text-2xl font-bold">${totalRevenue.toLocaleString()}</div>
+            <p className="text-white text-xs text-muted-foreground">
               Confirmed bookings
             </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Contracts</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-white text-sm font-medium">Pending Contracts</CardTitle>
+            <Users className="text-white h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-white text-2xl font-bold">
               {bookings.filter(b => !b.contractSigned).length}
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-white text-xs text-muted-foreground">
               Need signatures
             </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">This Month</CardTitle>
-            <Clock className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-white text-sm font-medium">This Month</CardTitle>
+            <Clock className="text-white h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-white text-2xl font-bold">
               {bookings.filter(b => {
                 const bookingDate = new Date(b.date);
                 const now = new Date();
@@ -304,7 +304,7 @@ export default function BookingCalendar() {
                        bookingDate.getFullYear() === now.getFullYear();
               }).length}
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-white text-xs text-muted-foreground">
               Events scheduled
             </p>
           </CardContent>
@@ -312,83 +312,83 @@ export default function BookingCalendar() {
       </div>
 
       {viewMode === 'list' && (
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Upcoming Events</h2>
+        <div className="text-white space-y-4">
+          <h2 className="text-white text-xl font-semibold">Upcoming Events</h2>
           
           {upcomingBookings.map((booking) => (
             <Card key={booking.id}>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl">{getTypeIcon(booking.type)}</span>
+              <CardContent className="text-white p-6">
+                <div className="text-white flex justify-between items-start">
+                  <div className="text-white flex-1">
+                    <div className="text-white flex items-center gap-3 mb-2">
+                      <span className="text-white text-2xl">{getTypeIcon(booking.type)}</span>
                       <div>
-                        <h3 className="text-xl font-semibold">{booking.eventTitle}</h3>
-                        <p className="text-muted-foreground">{booking.artistName}</p>
+                        <h3 className="text-white text-xl font-semibold">{booking.eventTitle}</h3>
+                        <p className="text-white text-muted-foreground">{booking.artistName}</p>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                    <div className="text-white grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                      <div className="text-white flex items-center gap-2">
+                        <MapPin className="text-white h-4 w-4 text-muted-foreground" />
                         <div>
-                          <p className="font-medium">{booking.venue}</p>
-                          <p className="text-sm text-muted-foreground">{booking.location}</p>
+                          <p className="text-white font-medium">{booking.venue}</p>
+                          <p className="text-white text-sm text-muted-foreground">{booking.location}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-muted-foreground" />
+                      <div className="text-white flex items-center gap-2">
+                        <Calendar className="text-white h-4 w-4 text-muted-foreground" />
                         <div>
-                          <p className="font-medium">{new Date(booking.date).toLocaleDateString()}</p>
-                          <p className="text-sm text-muted-foreground">{booking.time}</p>
+                          <p className="text-white font-medium">{new Date(booking.date).toLocaleDateString()}</p>
+                          <p className="text-white text-sm text-muted-foreground">{booking.time}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <DollarSign className="h-4 w-4 text-muted-foreground" />
+                      <div className="text-white flex items-center gap-2">
+                        <DollarSign className="text-white h-4 w-4 text-muted-foreground" />
                         <div>
-                          <p className="font-medium">${booking.fee.toLocaleString()}</p>
-                          <p className="text-sm text-muted-foreground">{booking.duration} minutes</p>
+                          <p className="text-white font-medium">${booking.fee.toLocaleString()}</p>
+                          <p className="text-white text-sm text-muted-foreground">{booking.duration} minutes</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="h-4 w-4 text-muted-foreground" />
+                      <div className="text-white flex items-center gap-2">
+                        <Users className="text-white h-4 w-4 text-muted-foreground" />
                         <div>
-                          <p className="font-medium">{booking.capacity} capacity</p>
-                          <p className="text-sm text-muted-foreground">{booking.type}</p>
+                          <p className="text-white font-medium">{booking.capacity} capacity</p>
+                          <p className="text-white text-sm text-muted-foreground">{booking.type}</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-4">
-                      <p className="text-sm text-muted-foreground mb-1">Contact</p>
-                      <p className="text-sm">{booking.contactPerson} - {booking.contactEmail}</p>
+                    <div className="text-white mt-4">
+                      <p className="text-white text-sm text-muted-foreground mb-1">Contact</p>
+                      <p className="text-white text-sm">{booking.contactPerson} - {booking.contactEmail}</p>
                     </div>
 
                     {booking.notes && (
-                      <div className="mt-2">
-                        <p className="text-sm text-muted-foreground mb-1">Notes</p>
-                        <p className="text-sm">{booking.notes}</p>
+                      <div className="text-white mt-2">
+                        <p className="text-white text-sm text-muted-foreground mb-1">Notes</p>
+                        <p className="text-white text-sm">{booking.notes}</p>
                       </div>
                     )}
                   </div>
 
-                  <div className="flex flex-col items-end gap-3">
+                  <div className="text-white flex flex-col items-end gap-3">
                     <Badge className={getStatusColor(booking.status)}>
                       {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
                     </Badge>
                     
                     {!booking.contractSigned && (
-                      <Badge variant="outline" className="border-yellow-500 text-white">
+                      <Badge variant="outline" className="text-white border-yellow-500 text-white">
                         Contract Pending
                       </Badge>
                     )}
                     
-                    <div className="flex gap-2">
+                    <div className="text-white flex gap-2">
                       <Button size="sm" variant="outline">
-                        <Edit className="h-3 w-3" />
+                        <Edit className="text-white h-3 w-3" />
                       </Button>
-                      <Button size="sm" variant="outline" className="text-red-500 hover:text-red-600">
-                        <Trash2 className="h-3 w-3" />
+                      <Button size="sm" variant="outline" className="text-white text-red-500 hover:text-red-600">
+                        <Trash2 className="text-white h-3 w-3" />
                       </Button>
                     </div>
                   </div>
@@ -399,10 +399,10 @@ export default function BookingCalendar() {
 
           {upcomingBookings.length === 0 && (
             <Card>
-              <CardContent className="text-center py-8">
-                <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground">No upcoming bookings scheduled</p>
-                <Button className="mt-4 bg-red-600 hover:bg-red-700" onClick={() => setIsCreateModalOpen(true)}>
+              <CardContent className="text-white text-center py-8">
+                <Calendar className="text-white h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                <p className="text-white text-muted-foreground">No upcoming bookings scheduled</p>
+                <Button className="text-white mt-4 bg-red-600 hover:bg-red-700" onClick={() => setIsCreateModalOpen(true)}>
                   Schedule First Booking
                 </Button>
               </CardContent>
@@ -418,10 +418,10 @@ export default function BookingCalendar() {
             <CardDescription>Visual calendar representation of all bookings</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-center py-8">
-              <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">Calendar view coming soon</p>
-              <p className="text-sm text-muted-foreground mt-2">
+            <div className="text-white text-center py-8">
+              <Calendar className="text-white h-12 w-12 text-muted-foreground mx-auto mb-4" />
+              <p className="text-white text-muted-foreground">Calendar view coming soon</p>
+              <p className="text-white text-sm text-muted-foreground mt-2">
                 This will show a visual calendar with all bookings plotted by date
               </p>
             </div>

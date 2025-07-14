@@ -181,13 +181,13 @@ export default function JamPadsList() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">Jam Pads</h1>
-            <p className="mt-2 text-gray-300">Find and book the perfect rehearsal space for your music</p>
+            <h1 className="text-white text-3xl font-bold text-white">Jam Pads</h1>
+            <p className="text-white mt-2 text-white">Find and book the perfect rehearsal space for your music</p>
           </div>
-          <div className="mt-4 md:mt-0">
+          <div className="text-white mt-4 md:mt-0">
             <Button asChild>
               <Link to="/jampads/map">View on Map</Link>
             </Button>
@@ -195,10 +195,10 @@ export default function JamPadsList() {
         </div>
 
         {/* Filters */}
-        <div className="bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="text-white bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
+          <div className="text-white grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="search" className="text-white block text-sm font-medium text-white mb-1">
                 Search
               </label>
               <Input
@@ -210,7 +210,7 @@ export default function JamPadsList() {
             </div>
             
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="city" className="text-white block text-sm font-medium text-white mb-1">
                 City
               </label>
               <Select value={selectedCity} onValueChange={setSelectedCity}>
@@ -231,7 +231,7 @@ export default function JamPadsList() {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="text-white block text-sm font-medium text-white mb-1">
                 Price Range: ${priceRange[0]} - ${priceRange[1]}
               </label>
               <Slider
@@ -240,15 +240,15 @@ export default function JamPadsList() {
                 max={200}
                 step={5}
                 onValueChange={(value) => setPriceRange(value as number[])}
-                className="mt-2"
+                className="text-white mt-2"
               />
             </div>
             
-            <div className="flex items-end">
+            <div className="text-white flex items-end">
               <Button
                 variant={availableOnly ? "default" : "outline"}
                 onClick={() => setAvailableOnly(!availableOnly)}
-                className="w-full"
+                className="text-white w-full"
               >
                 {availableOnly ? "Available Now ✓" : "Show All"}
               </Button>
@@ -258,83 +258,83 @@ export default function JamPadsList() {
 
         {/* Results */}
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="text-white flex justify-center items-center h-64">
+            <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
           </div>
         ) : error ? (
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error}</p>
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error}</p>
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-white text-sm text-white mb-4">
               {filteredJamPads.length} {filteredJamPads.length === 1 ? "jam pad" : "jam pads"} found
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredJamPads.map((jamPad) => (
                 <Link 
                   to={`/jampads/${jamPad.id}`} 
                   key={jamPad.id}
-                  className="transition-transform hover:-translate-y-1"
+                  className="text-white transition-transform hover:-translate-y-1"
                 >
-                  <Card className="h-full overflow-hidden hover:shadow-md">
-                    <div className="h-48 overflow-hidden">
+                  <Card className="text-white h-full overflow-hidden hover:shadow-md">
+                    <div className="text-white h-48 overflow-hidden">
                       <img
                         src={jamPad.imageUrl}
                         alt={jamPad.name}
-                        className="w-full h-full object-cover"
+                        className="text-white w-full h-full object-cover"
                       />
                     </div>
-                    <CardHeader className="pb-2">
-                      <div className="flex justify-between">
-                        <CardTitle className="text-xl">{jamPad.name}</CardTitle>
+                    <CardHeader className="text-white pb-2">
+                      <div className="text-white flex justify-between">
+                        <CardTitle className="text-white text-xl">{jamPad.name}</CardTitle>
                         <Badge variant={jamPad.availableNow ? "default" : "outline"}>
                           {jamPad.availableNow ? "Available Now" : "Book Ahead"}
                         </Badge>
                       </div>
-                      <div className="flex items-center text-gray-400 text-sm">
-                        <MapPin className="h-4 w-4 mr-1" />
+                      <div className="text-white flex items-center text-white text-sm">
+                        <MapPin className="text-white h-4 w-4 mr-1" />
                         <span>{jamPad.city}</span>
                       </div>
                     </CardHeader>
-                    <CardContent className="pb-2">
-                      <p className="text-gray-300 line-clamp-2">{jamPad.description}</p>
+                    <CardContent className="text-white pb-2">
+                      <p className="text-white text-white line-clamp-2">{jamPad.description}</p>
                       
-                      <div className="flex items-center mt-2 space-x-4">
-                        <div className="flex items-center">
-                          <Users className="h-4 w-4 mr-1 text-gray-400" />
-                          <span className="text-sm">{jamPad.capacity}</span>
+                      <div className="text-white flex items-center mt-2 space-x-4">
+                        <div className="text-white flex items-center">
+                          <Users className="text-white h-4 w-4 mr-1 text-white" />
+                          <span className="text-white text-sm">{jamPad.capacity}</span>
                         </div>
-                        <div className="flex items-center">
-                          <Star className="h-4 w-4 mr-1 text-amber-500" />
-                          <span className="text-sm">{jamPad.rating} ({jamPad.reviewCount})</span>
+                        <div className="text-white flex items-center">
+                          <Star className="text-white h-4 w-4 mr-1 text-amber-500" />
+                          <span className="text-white text-sm">{jamPad.rating} ({jamPad.reviewCount})</span>
                         </div>
                       </div>
                       
-                      <div className="mt-3">
-                        <div className="flex flex-wrap gap-1">
+                      <div className="text-white mt-3">
+                        <div className="text-white flex flex-wrap gap-1">
                           {jamPad.equipment.slice(0, 3).map((item, index) => (
-                            <Badge key={index} variant="secondary" className="text-xs">
-                              <Music className="h-3 w-3 mr-1" />
+                            <Badge key={index} variant="secondary" className="text-white text-xs">
+                              <Music className="text-white h-3 w-3 mr-1" />
                               {item}
                             </Badge>
                           ))}
                           {jamPad.equipment.length > 3 && (
-                            <Badge variant="secondary" className="text-xs">
+                            <Badge variant="secondary" className="text-white text-xs">
                               +{jamPad.equipment.length - 3} more
                             </Badge>
                           )}
                         </div>
                       </div>
                     </CardContent>
-                    <CardFooter className="pt-2 flex justify-between">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1 text-gray-400" />
-                        <span className="text-sm">Book now</span>
+                    <CardFooter className="text-white pt-2 flex justify-between">
+                      <div className="text-white flex items-center">
+                        <Calendar className="text-white h-4 w-4 mr-1 text-white" />
+                        <span className="text-white text-sm">Book now</span>
                       </div>
-                      <div className="font-semibold text-lg">
-                        ${jamPad.hourlyRate}<span className="text-sm font-normal text-gray-400">/hour</span>
+                      <div className="text-white font-semibold text-lg">
+                        ${jamPad.hourlyRate}<span className="text-white text-sm font-normal text-white">/hour</span>
                       </div>
                     </CardFooter>
                   </Card>
@@ -343,8 +343,8 @@ export default function JamPadsList() {
             </div>
             
             {filteredJamPads.length === 0 && (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300">No jam pads found matching your criteria. Try adjusting your filters.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white">No jam pads found matching your criteria. Try adjusting your filters.</p>
               </div>
             )}
           </>

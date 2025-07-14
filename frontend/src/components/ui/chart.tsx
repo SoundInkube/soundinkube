@@ -156,7 +156,7 @@ const ChartTooltipContent = React.forwardRef<
         )}
       >
         {!nestLabel ? tooltipLabel : null}
-        <div className="grid gap-1.5">
+        <div className="text-white grid gap-1.5">
           {payload.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || 'value'}`;
             const itemConfig = getPayloadConfigFromPayload(config, item, key);
@@ -195,12 +195,12 @@ const ChartTooltipContent = React.forwardRef<
                       )
                     )}
                     <div className={cn('flex flex-1 justify-between leading-none', nestLabel ? 'items-end' : 'items-center')}>
-                      <div className="grid gap-1.5">
+                      <div className="text-white grid gap-1.5">
                         {nestLabel ? tooltipLabel : null}
-                        <span className="text-muted-foreground">{itemConfig?.label || item.name}</span>
+                        <span className="text-white text-muted-foreground">{itemConfig?.label || item.name}</span>
                       </div>
                       {item.value && (
-                        <span className="font-mono font-medium tabular-nums text-foreground">{item.value.toLocaleString()}</span>
+                        <span className="text-white font-mono font-medium tabular-nums text-foreground">{item.value.toLocaleString()}</span>
                       )}
                     </div>
                   </>
@@ -243,7 +243,7 @@ const ChartLegendContent = React.forwardRef<
               <itemConfig.icon />
             ) : (
               <div
-                className="h-2 w-2 shrink-0 rounded-[2px]"
+                className="text-white h-2 w-2 shrink-0 rounded-[2px]"
                 style={{
                   backgroundColor: item.color,
                 }}

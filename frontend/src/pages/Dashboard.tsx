@@ -100,9 +100,9 @@ export default function Dashboard() {
     ],
     
     contractsStatus: [
-      { status: "Active", count: 6, color: "text-green-400 bg-green-400/10" },
-      { status: "Expiring Soon", count: 2, color: "text-yellow-400 bg-yellow-400/10" },
-      { status: "Under Negotiation", count: 1, color: "text-blue-400 bg-blue-400/10" },
+      { status: "Active", count: 6, color: "text-netflix-red bg-netflix-red/10" },
+      { status: "Expiring Soon", count: 2, color: "text-netflix-red bg-netflix-red/10" },
+      { status: "Under Negotiation", count: 1, color: "text-netflix-red bg-netflix-red/10" },
       { status: "Expired", count: 1, color: "text-red-400 bg-red-400/10" }
     ],
     
@@ -122,12 +122,12 @@ export default function Dashboard() {
 
   const getActivityIcon = (type: string) => {
     switch (type) {
-      case "contract": return <FileText className="h-4 w-4 text-blue-400" />;
-      case "milestone": return <Award className="h-4 w-4 text-yellow-400" />;
-      case "payment": return <DollarSign className="h-4 w-4 text-green-400" />;
-      case "meeting": return <Calendar className="h-4 w-4 text-purple-400" />;
-      case "release": return <Music className="h-4 w-4 text-netflix-red" />;
-      default: return <Activity className="h-4 w-4 text-gray-400" />;
+      case "contract": return <FileText className="text-white h-4 w-4 text-netflix-red" />;
+      case "milestone": return <Award className="text-white h-4 w-4 text-netflix-red" />;
+      case "payment": return <DollarSign className="text-white h-4 w-4 text-netflix-red" />;
+      case "meeting": return <Calendar className="text-white h-4 w-4 text-purple-400" />;
+      case "release": return <Music className="text-white h-4 w-4 text-netflix-red" />;
+      default: return <Activity className="text-white h-4 w-4 text-white" />;
     }
   };
 
@@ -135,20 +135,20 @@ export default function Dashboard() {
     switch (status) {
       case "completed":
       case "achieved":
-        return <CheckCircle className="h-4 w-4 text-green-400" />;
+        return <CheckCircle className="text-white h-4 w-4 text-netflix-red" />;
       case "scheduled":
-        return <Clock className="h-4 w-4 text-yellow-400" />;
+        return <Clock className="text-white h-4 w-4 text-netflix-red" />;
       default:
-        return <AlertCircle className="h-4 w-4 text-gray-400" />;
+        return <AlertCircle className="text-white h-4 w-4 text-white" />;
     }
   };
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high': return 'text-red-400 bg-red-400/10';
-      case 'medium': return 'text-yellow-400 bg-yellow-400/10';
-      case 'low': return 'text-green-400 bg-green-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      case 'medium': return 'text-netflix-red bg-netflix-red/10';
+      case 'low': return 'text-netflix-red bg-netflix-red/10';
+      default: return 'text-white bg-netflix-dark/10';
     }
   };
 
@@ -171,26 +171,26 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="text-white flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <h1 className="text-white text-4xl font-bold text-white mb-2">
               Business
-              <span className="bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent ml-3">
+              <span className="text-white bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent ml-3">
                 Dashboard
               </span>
             </h1>
-            <p className="text-gray-300">
+            <p className="text-white text-white">
               Overview of your music business operations and performance metrics
             </p>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="text-white flex items-center space-x-4">
             <select
               value={selectedPeriod}
               onChange={(e) => setSelectedPeriod(e.target.value)}
-              className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+              className="text-white px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
             >
               {periodOptions.map(option => (
                 <option key={option.id} value={option.id}>
@@ -198,102 +198,102 @@ export default function Dashboard() {
                 </option>
               ))}
             </select>
-            <Button variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-800">
-              <Download className="h-4 w-4 mr-2" />
+            <Button variant="outline" className="text-white border-gray-700 text-white hover:bg-netflix-dark">
+              <Download className="text-white h-4 w-4 mr-2" />
               Export Report
             </Button>
           </div>
         </div>
 
         {/* Key Metrics Overview */}
-        <div className="grid lg:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
+        <div className="text-white grid lg:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Total Revenue</p>
-                  <p className="text-2xl font-bold text-white">{formatCurrency(dashboardData.overview.totalRevenue)}</p>
-                  <div className="flex items-center space-x-1 text-sm">
-                    <TrendingUp className="h-4 w-4 text-green-400" />
-                    <span className="text-green-400">+{dashboardData.overview.revenueGrowth}%</span>
+                  <p className="text-white text-white text-sm">Total Revenue</p>
+                  <p className="text-white text-2xl font-bold text-white">{formatCurrency(dashboardData.overview.totalRevenue)}</p>
+                  <div className="text-white flex items-center space-x-1 text-sm">
+                    <TrendingUp className="text-white h-4 w-4 text-netflix-red" />
+                    <span className="text-white text-netflix-red">+{dashboardData.overview.revenueGrowth}%</span>
                   </div>
                 </div>
-                <div className="p-3 bg-red-600/20 rounded-lg">
-                  <DollarSign className="h-6 w-6 text-green-400" />
+                <div className="text-white p-3 bg-red-600/20 rounded-lg">
+                  <DollarSign className="text-white h-6 w-6 text-netflix-red" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Active Artists</p>
-                  <p className="text-2xl font-bold text-white">{dashboardData.overview.activeArtists}</p>
-                  <p className="text-gray-400 text-sm">of {dashboardData.overview.totalArtists} total</p>
+                  <p className="text-white text-white text-sm">Active Artists</p>
+                  <p className="text-white text-2xl font-bold text-white">{dashboardData.overview.activeArtists}</p>
+                  <p className="text-white text-white text-sm">of {dashboardData.overview.totalArtists} total</p>
                 </div>
-                <div className="p-3 bg-red-600/20 rounded-lg">
-                  <Users className="h-6 w-6 text-blue-400" />
+                <div className="text-white p-3 bg-red-600/20 rounded-lg">
+                  <Users className="text-white h-6 w-6 text-netflix-red" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Total Streams</p>
-                  <p className="text-2xl font-bold text-white">{formatNumber(dashboardData.overview.totalStreams)}</p>
-                  <div className="flex items-center space-x-1 text-sm">
-                    <TrendingUp className="h-4 w-4 text-green-400" />
-                    <span className="text-green-400">+{dashboardData.overview.streamsGrowth}%</span>
+                  <p className="text-white text-white text-sm">Total Streams</p>
+                  <p className="text-white text-2xl font-bold text-white">{formatNumber(dashboardData.overview.totalStreams)}</p>
+                  <div className="text-white flex items-center space-x-1 text-sm">
+                    <TrendingUp className="text-white h-4 w-4 text-netflix-red" />
+                    <span className="text-white text-netflix-red">+{dashboardData.overview.streamsGrowth}%</span>
                   </div>
                 </div>
-                <div className="p-3 bg-netflix-red/20 rounded-lg">
-                  <Activity className="h-6 w-6 text-netflix-red" />
+                <div className="text-white p-3 bg-netflix-red/20 rounded-lg">
+                  <Activity className="text-white h-6 w-6 text-netflix-red" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
+              <div className="text-white flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Avg. Engagement</p>
-                  <p className="text-2xl font-bold text-white">{dashboardData.overview.averageEngagement}%</p>
-                  <p className="text-gray-400 text-sm">Across all artists</p>
+                  <p className="text-white text-white text-sm">Avg. Engagement</p>
+                  <p className="text-white text-2xl font-bold text-white">{dashboardData.overview.averageEngagement}%</p>
+                  <p className="text-white text-white text-sm">Across all artists</p>
                 </div>
-                <div className="p-3 bg-yellow-600/20 rounded-lg">
-                  <Target className="h-6 w-6 text-yellow-400" />
+                <div className="text-white p-3 bg-netflix-red/20 rounded-lg">
+                  <Target className="text-white h-6 w-6 text-netflix-red" />
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-8">
+        <div className="text-white grid lg:grid-cols-3 gap-8 mb-8">
           {/* Recent Activity */}
-          <div className="lg:col-span-1">
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <div className="text-white lg:col-span-1">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white flex items-center justify-between">
+                <CardTitle className="text-white text-white flex items-center justify-between">
                   Recent Activity
-                  <RefreshCw className="h-4 w-4 text-gray-400" />
+                  <RefreshCw className="text-white h-4 w-4 text-white" />
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="text-white space-y-4">
                 {dashboardData.recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="mt-1">
+                  <div key={index} className="text-white flex items-start space-x-3">
+                    <div className="text-white mt-1">
                       {getActivityIcon(activity.type)}
                     </div>
-                    <div className="flex-1">
-                      <p className="text-gray-300 text-sm">{activity.description}</p>
-                      <div className="flex items-center space-x-2 mt-1">
-                        <span className="text-gray-400 text-xs">{activity.date}</span>
+                    <div className="text-white flex-1">
+                      <p className="text-white text-white text-sm">{activity.description}</p>
+                      <div className="text-white flex items-center space-x-2 mt-1">
+                        <span className="text-white text-white text-xs">{activity.date}</span>
                         {getStatusIcon(activity.status)}
                       </div>
                     </div>
@@ -304,28 +304,28 @@ export default function Dashboard() {
           </div>
 
           {/* Top Performers */}
-          <div className="lg:col-span-1">
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <div className="text-white lg:col-span-1">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Top Performers</CardTitle>
+                <CardTitle className="text-white text-white">Top Performers</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="text-white space-y-4">
                 {dashboardData.topPerformers.map((artist, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div key={index} className="text-white flex items-center justify-between">
+                    <div className="text-white flex items-center space-x-3">
+                      <div className="text-white w-10 h-10 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-sm">
                         {artist.avatar}
                       </div>
                       <div>
-                        <p className="text-white font-medium">{artist.name}</p>
-                        <p className="text-gray-400 text-sm">{formatNumber(artist.streams)} streams</p>
+                        <p className="text-white text-white font-medium">{artist.name}</p>
+                        <p className="text-white text-white text-sm">{formatNumber(artist.streams)} streams</p>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-green-400 font-medium">{formatCurrency(artist.revenue)}</p>
-                      <div className="flex items-center space-x-1 text-xs">
-                        <TrendingUp className="h-3 w-3 text-green-400" />
-                        <span className="text-green-400">+{artist.growth}%</span>
+                    <div className="text-white text-right">
+                      <p className="text-white text-netflix-red font-medium">{formatCurrency(artist.revenue)}</p>
+                      <div className="text-white flex items-center space-x-1 text-xs">
+                        <TrendingUp className="text-white h-3 w-3 text-netflix-red" />
+                        <span className="text-white text-netflix-red">+{artist.growth}%</span>
                       </div>
                     </div>
                   </div>
@@ -335,17 +335,17 @@ export default function Dashboard() {
           </div>
 
           {/* Upcoming Events */}
-          <div className="lg:col-span-1">
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <div className="text-white lg:col-span-1">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Upcoming Events</CardTitle>
+                <CardTitle className="text-white text-white">Upcoming Events</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="text-white space-y-4">
                 {dashboardData.upcomingEvents.slice(0, 5).map((event, index) => (
-                  <div key={index} className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <p className="text-white font-medium text-sm">{event.event}</p>
-                      <p className="text-gray-400 text-xs">{event.date}</p>
+                  <div key={index} className="text-white flex items-start justify-between">
+                    <div className="text-white flex-1">
+                      <p className="text-white text-white font-medium text-sm">{event.event}</p>
+                      <p className="text-white text-white text-xs">{event.date}</p>
                     </div>
                     <Badge className={`text-xs ${getPriorityColor(event.priority)}`}>
                       {event.priority.toUpperCase()}
@@ -357,27 +357,27 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+        <div className="text-white grid lg:grid-cols-2 gap-8 mb-8">
           {/* Revenue Breakdown */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white">Revenue Breakdown</CardTitle>
+              <CardTitle className="text-white text-white">Revenue Breakdown</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="text-white space-y-4">
               {dashboardData.financialBreakdown.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">{item.category}</span>
-                    <span className="text-white font-medium">{formatCurrency(item.amount)}</span>
+                <div key={index} className="text-white space-y-2">
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">{item.category}</span>
+                    <span className="text-white text-white font-medium">{formatCurrency(item.amount)}</span>
                   </div>
-                  <div className="w-full bg-gray-700 rounded-full h-2">
+                  <div className="text-white w-full bg-netflix-dark rounded-full h-2">
                     <div 
-                      className="bg-netflix-red h-2 rounded-full" 
+                      className="text-white bg-netflix-red h-2 rounded-full" 
                       style={{ width: `${item.percentage}%` }}
                     ></div>
                   </div>
-                  <div className="text-right">
-                    <span className="text-gray-400 text-sm">{item.percentage}%</span>
+                  <div className="text-white text-right">
+                    <span className="text-white text-white text-sm">{item.percentage}%</span>
                   </div>
                 </div>
               ))}
@@ -385,25 +385,25 @@ export default function Dashboard() {
           </Card>
 
           {/* Contracts Status */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white">Contract Status Overview</CardTitle>
+              <CardTitle className="text-white text-white">Contract Status Overview</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="text-white space-y-4">
               {dashboardData.contractsStatus.map((contract, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <span className="text-gray-300">{contract.status}</span>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-white font-medium">{contract.count}</span>
+                <div key={index} className="text-white flex items-center justify-between">
+                  <span className="text-white text-white">{contract.status}</span>
+                  <div className="text-white flex items-center space-x-2">
+                    <span className="text-white text-white font-medium">{contract.count}</span>
                     <Badge className={`text-xs ${contract.color}`}>
                       {contract.status.toUpperCase()}
                     </Badge>
                   </div>
                 </div>
               ))}
-              <div className="pt-4 border-t border-gray-700">
-                <Button variant="outline" className="w-full border-gray-700 text-gray-300 hover:bg-gray-800">
-                  <FileText className="h-4 w-4 mr-2" />
+              <div className="text-white pt-4 border-t border-gray-700">
+                <Button variant="outline" className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark">
+                  <FileText className="text-white h-4 w-4 mr-2" />
                   Manage All Contracts
                 </Button>
               </div>
@@ -412,52 +412,52 @@ export default function Dashboard() {
         </div>
 
         {/* Marketing Campaigns */}
-        <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 mb-8">
+        <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 mb-8">
           <CardHeader>
-            <CardTitle className="text-white">Active Marketing Campaigns</CardTitle>
+            <CardTitle className="text-white text-white">Active Marketing Campaigns</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full">
+            <div className="text-white overflow-x-auto">
+              <table className="text-white w-full">
                 <thead>
-                  <tr className="border-b border-gray-700">
-                    <th className="text-left text-gray-400 text-sm py-3">Campaign</th>
-                    <th className="text-left text-gray-400 text-sm py-3">Status</th>
-                    <th className="text-left text-gray-400 text-sm py-3">Budget</th>
-                    <th className="text-left text-gray-400 text-sm py-3">Spent</th>
-                    <th className="text-left text-gray-400 text-sm py-3">Performance</th>
-                    <th className="text-left text-gray-400 text-sm py-3">Actions</th>
+                  <tr className="text-white border-b border-gray-700">
+                    <th className="text-white text-left text-white text-sm py-3">Campaign</th>
+                    <th className="text-white text-left text-white text-sm py-3">Status</th>
+                    <th className="text-white text-left text-white text-sm py-3">Budget</th>
+                    <th className="text-white text-left text-white text-sm py-3">Spent</th>
+                    <th className="text-white text-left text-white text-sm py-3">Performance</th>
+                    <th className="text-white text-left text-white text-sm py-3">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {dashboardData.marketingCampaigns.map((campaign, index) => (
-                    <tr key={index} className="border-b border-gray-800">
-                      <td className="text-white py-4">{campaign.campaign}</td>
-                      <td className="py-4">
+                    <tr key={index} className="text-white border-b border-gray-800">
+                      <td className="text-white text-white py-4">{campaign.campaign}</td>
+                      <td className="text-white py-4">
                         <Badge className={
                           campaign.status === 'Active' 
-                            ? 'text-green-400 bg-green-400/10' 
-                            : 'text-yellow-400 bg-yellow-400/10'
+                            ? 'text-netflix-red bg-netflix-red/10' 
+                            : 'text-netflix-red bg-netflix-red/10'
                         }>
                           {campaign.status}
                         </Badge>
                       </td>
-                      <td className="text-gray-300 py-4">{formatCurrency(campaign.budget)}</td>
-                      <td className="text-gray-300 py-4">{formatCurrency(campaign.spent)}</td>
-                      <td className="py-4">
+                      <td className="text-white text-white py-4">{formatCurrency(campaign.budget)}</td>
+                      <td className="text-white text-white py-4">{formatCurrency(campaign.spent)}</td>
+                      <td className="text-white py-4">
                         <Badge className={
                           campaign.performance === 'Above Target' 
-                            ? 'text-green-400 bg-green-400/10' 
+                            ? 'text-netflix-red bg-netflix-red/10' 
                             : campaign.performance === 'On Track'
-                            ? 'text-blue-400 bg-blue-400/10'
-                            : 'text-gray-400 bg-gray-400/10'
+                            ? 'text-netflix-red bg-netflix-red/10'
+                            : 'text-white bg-netflix-dark/10'
                         }>
                           {campaign.performance}
                         </Badge>
                       </td>
-                      <td className="py-4">
-                        <Button variant="outline" size="sm" className="border-gray-700 text-gray-300 hover:bg-gray-800">
-                          <Eye className="h-3 w-3 mr-1" />
+                      <td className="text-white py-4">
+                        <Button variant="outline" size="sm" className="text-white border-gray-700 text-white hover:bg-netflix-dark">
+                          <Eye className="text-white h-3 w-3 mr-1" />
                           View
                         </Button>
                       </td>
@@ -470,24 +470,24 @@ export default function Dashboard() {
         </Card>
 
         {/* Quick Actions */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Quick Business Actions
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Streamline your music business operations with quick access to essential tools and reports.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="netflix-button-primary">
-              <Plus className="h-4 w-4 mr-2" />
+          <div className="text-white flex justify-center space-x-4">
+            <Button className="text-white netflix-button-primary">
+              <Plus className="text-white h-4 w-4 mr-2" />
               Add New Artist
             </Button>
-            <Button variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-800">
-              <BarChart3 className="h-4 w-4 mr-2" />
+            <Button variant="outline" className="text-white border-gray-700 text-white hover:bg-netflix-dark">
+              <BarChart3 className="text-white h-4 w-4 mr-2" />
               Detailed Analytics
             </Button>
-            <Button variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-800">
-              <FileText className="h-4 w-4 mr-2" />
+            <Button variant="outline" className="text-white border-gray-700 text-white hover:bg-netflix-dark">
+              <FileText className="text-white h-4 w-4 mr-2" />
               Generate Report
             </Button>
           </div>

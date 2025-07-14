@@ -329,8 +329,8 @@ export default function MessagesList() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="text-white flex justify-center items-center h-64">
+          <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       </MainLayout>
     );
@@ -339,9 +339,9 @@ export default function MessagesList() {
   if (error) {
     return (
       <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error}</p>
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error}</p>
           </div>
         </div>
       </MainLayout>
@@ -350,16 +350,16 @@ export default function MessagesList() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Messages</h1>
-          <p className="mt-2 text-gray-300">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-3xl font-bold text-white">Messages</h1>
+          <p className="text-white mt-2 text-white">
             Communicate with venue owners, instructors, and marketplace sellers
           </p>
         </div>
 
-        <Tabs defaultValue="all" className="w-full">
-          <TabsList className="mb-6">
+        <Tabs defaultValue="all" className="text-white w-full">
+          <TabsList className="text-white mb-6">
             <TabsTrigger value="all">All</TabsTrigger>
             <TabsTrigger value="marketplace">Marketplace</TabsTrigger>
             <TabsTrigger value="venues">Venues</TabsTrigger>
@@ -367,24 +367,24 @@ export default function MessagesList() {
           </TabsList>
           
           <TabsContent value="all">
-            <Card className="shadow-none">
-              <div className="grid grid-cols-1 lg:grid-cols-3 h-[70vh]">
+            <Card className="text-white shadow-none">
+              <div className="text-white grid grid-cols-1 lg:grid-cols-3 h-[70vh]">
                 {/* Conversations List */}
-                <div className="border-r border-zinc-800 h-full">
-                  <CardHeader className="px-4 py-4">
-                    <div className="relative">
-                      <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                <div className="text-white border-r border-zinc-800 h-full">
+                  <CardHeader className="text-white px-4 py-4">
+                    <div className="text-white relative">
+                      <Search className="text-white absolute left-3 top-3 h-4 w-4 text-white" />
                       <Input
                         placeholder="Search conversations..."
-                        className="pl-10"
+                        className="text-white pl-10"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                       />
                     </div>
                   </CardHeader>
-                  <div className="overflow-y-auto h-[calc(70vh-5rem)]">
+                  <div className="text-white overflow-y-auto h-[calc(70vh-5rem)]">
                     {filteredConversations.length === 0 ? (
-                      <div className="px-4 py-10 text-center text-gray-400">
+                      <div className="text-white px-4 py-10 text-center text-white">
                         {searchTerm
                           ? "No conversations match your search"
                           : "No conversations yet"}
@@ -401,30 +401,30 @@ export default function MessagesList() {
                             }`}
                             onClick={() => selectConversation(conversation.id)}
                           >
-                            <div className="flex items-center">
-                              <Avatar className="h-10 w-10 mr-3">
+                            <div className="text-white flex items-center">
+                              <Avatar className="text-white h-10 w-10 mr-3">
                                 <AvatarImage src={otherUser.imageUrl} alt={otherUser.name} />
                                 <AvatarFallback>{otherUser.name[0]}</AvatarFallback>
                               </Avatar>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center justify-between">
-                                  <p className="text-sm font-medium truncate">
+                              <div className="text-white flex-1 min-w-0">
+                                <div className="text-white flex items-center justify-between">
+                                  <p className="text-white text-sm font-medium truncate">
                                     {otherUser.name}
                                   </p>
-                                  <p className="text-xs text-gray-400">
+                                  <p className="text-white text-xs text-white">
                                     {format(new Date(conversation.lastMessage.createdAt), "p")}
                                   </p>
                                 </div>
                                 <p
                                   className={`text-xs truncate mt-1 ${
-                                    conversation.unreadCount > 0 ? "font-semibold" : "text-gray-400"
+                                    conversation.unreadCount > 0 ? "font-semibold" : "text-white"
                                   }`}
                                 >
                                   {conversation.lastMessage.content}
                                 </p>
                               </div>
                               {conversation.unreadCount > 0 && (
-                                <Badge className="ml-2">{conversation.unreadCount}</Badge>
+                                <Badge className="text-white ml-2">{conversation.unreadCount}</Badge>
                               )}
                             </div>
                           </div>
@@ -435,12 +435,12 @@ export default function MessagesList() {
                 </div>
                 
                 {/* Messages Area */}
-                <div className="lg:col-span-2 h-full flex flex-col">
+                <div className="text-white lg:col-span-2 h-full flex flex-col">
                   {activeConversation ? (
                     <>
-                      <CardHeader className="border-b border-zinc-800 px-6 py-4">
-                        <div className="flex items-center">
-                          <Avatar className="h-10 w-10 mr-3">
+                      <CardHeader className="text-white border-b border-zinc-800 px-6 py-4">
+                        <div className="text-white flex items-center">
+                          <Avatar className="text-white h-10 w-10 mr-3">
                             <AvatarImage 
                               src={getOtherParticipant(activeConversation).imageUrl} 
                               alt={getOtherParticipant(activeConversation).name} 
@@ -450,14 +450,14 @@ export default function MessagesList() {
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <CardTitle className="text-lg">
+                            <CardTitle className="text-white text-lg">
                               {getOtherParticipant(activeConversation).name}
                             </CardTitle>
                           </div>
                         </div>
                       </CardHeader>
                       
-                      <div className="flex-1 overflow-y-auto p-4 bg-black">
+                      <div className="text-white flex-1 overflow-y-auto p-4 bg-black">
                         {messages.map((message) => {
                           const isCurrentUser = message.senderId === mockCurrentUser.id;
                           return (
@@ -472,10 +472,10 @@ export default function MessagesList() {
                                     : "bg-zinc-900 border border-zinc-800"
                                 }`}
                               >
-                                <p className="text-sm">{message.content}</p>
+                                <p className="text-white text-sm">{message.content}</p>
                                 <p
                                   className={`text-xs mt-1 ${
-                                    isCurrentUser ? "text-blue-100" : "text-gray-400"
+                                    isCurrentUser ? "text-netflix-red" : "text-white"
                                   }`}
                                 >
                                   {format(new Date(message.createdAt), "p")}
@@ -486,13 +486,13 @@ export default function MessagesList() {
                         })}
                       </div>
                       
-                      <CardContent className="border-t border-zinc-800 p-4">
+                      <CardContent className="text-white border-t border-zinc-800 p-4">
                         <form
                           onSubmit={(e) => {
                             e.preventDefault();
                             handleSendMessage();
                           }}
-                          className="flex space-x-2"
+                          className="text-white flex space-x-2"
                         >
                           <Input
                             placeholder="Type a message..."
@@ -500,19 +500,19 @@ export default function MessagesList() {
                             onChange={(e) => setNewMessage(e.target.value)}
                           />
                           <Button type="submit" disabled={!newMessage.trim()}>
-                            <Send className="h-4 w-4 mr-2" />
+                            <Send className="text-white h-4 w-4 mr-2" />
                             Send
                           </Button>
                         </form>
                       </CardContent>
                     </>
                   ) : (
-                    <div className="flex-1 flex items-center justify-center bg-black">
-                      <div className="text-center">
-                        <h3 className="text-lg font-medium text-white mb-1">
+                    <div className="text-white flex-1 flex items-center justify-center bg-black">
+                      <div className="text-white text-center">
+                        <h3 className="text-white text-lg font-medium text-white mb-1">
                           Select a conversation
                         </h3>
-                        <p className="text-gray-400">
+                        <p className="text-white text-white">
                           Choose a conversation from the list to start messaging
                         </p>
                       </div>
@@ -525,12 +525,12 @@ export default function MessagesList() {
           
           {/* These tabs would have filtered content in a real app */}
           <TabsContent value="marketplace">
-            <Card className="shadow-none">
+            <Card className="text-white shadow-none">
               <CardHeader>
                 <CardTitle>Marketplace Messages</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">
+                <p className="text-white text-white">
                   This tab would show only your marketplace-related conversations.
                 </p>
               </CardContent>
@@ -538,12 +538,12 @@ export default function MessagesList() {
           </TabsContent>
           
           <TabsContent value="venues">
-            <Card className="shadow-none">
+            <Card className="text-white shadow-none">
               <CardHeader>
                 <CardTitle>Venue Messages</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">
+                <p className="text-white text-white">
                   This tab would show only your jam pad and studio-related conversations.
                 </p>
               </CardContent>
@@ -551,12 +551,12 @@ export default function MessagesList() {
           </TabsContent>
           
           <TabsContent value="schools">
-            <Card className="shadow-none">
+            <Card className="text-white shadow-none">
               <CardHeader>
                 <CardTitle>Music School Messages</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">
+                <p className="text-white text-white">
                   This tab would show only your music school and instructor-related conversations.
                 </p>
               </CardContent>

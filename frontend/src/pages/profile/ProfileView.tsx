@@ -83,12 +83,12 @@ export default function ProfileView() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="animate-pulse space-y-6">
-            <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-            <div className="h-48 bg-gray-200 rounded"></div>
-            <div className="h-32 bg-gray-200 rounded"></div>
+      <div className="text-white container mx-auto px-4 py-8">
+        <div className="text-white max-w-4xl mx-auto">
+          <div className="text-white animate-pulse space-y-6">
+            <div className="text-white h-8 bg-netflix-dark rounded w-1/3"></div>
+            <div className="text-white h-48 bg-netflix-dark rounded"></div>
+            <div className="text-white h-32 bg-netflix-dark rounded"></div>
           </div>
         </div>
       </div>
@@ -97,10 +97,10 @@ export default function ProfileView() {
 
   if (!profile) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl font-bold text-white">Profile not found</h1>
-          <p className="text-gray-300 mt-2">The profile you're looking for doesn't exist.</p>
+      <div className="text-white container mx-auto px-4 py-8">
+        <div className="text-white max-w-4xl mx-auto text-center">
+          <h1 className="text-white text-2xl font-bold text-white">Profile not found</h1>
+          <p className="text-white text-white mt-2">The profile you're looking for doesn't exist.</p>
         </div>
       </div>
     );
@@ -110,37 +110,37 @@ export default function ProfileView() {
   const initials = displayName.split(' ').map(n => n[0]).join('').toUpperCase();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="text-white container mx-auto px-4 py-8">
+      <div className="text-white max-w-4xl mx-auto space-y-8">
         {/* Profile Header */}
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Avatar className="h-24 w-24 mx-auto sm:mx-0">
+          <CardContent className="text-white pt-6">
+            <div className="text-white flex flex-col sm:flex-row gap-6">
+              <Avatar className="text-white h-24 w-24 mx-auto sm:mx-0">
                 <AvatarImage src={profile.avatar} alt={displayName} />
-                <AvatarFallback className="text-lg">{initials}</AvatarFallback>
+                <AvatarFallback className="text-white text-lg">{initials}</AvatarFallback>
               </Avatar>
 
-              <div className="flex-1 text-center sm:text-left">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+              <div className="text-white flex-1 text-center sm:text-left">
+                <div className="text-white flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                   <div>
-                    <h1 className="text-3xl font-bold text-white">{displayName}</h1>
+                    <h1 className="text-white text-3xl font-bold text-white">{displayName}</h1>
                     {profile.user?.role === 'MUSIC_PROFESSIONAL' && (
-                      <Badge variant="secondary" className="mt-1">
+                      <Badge variant="secondary" className="text-white mt-1">
                         Music Professional
                       </Badge>
                     )}
                   </div>
 
-                  <div className="flex gap-2 justify-center sm:justify-start">
+                  <div className="text-white flex gap-2 justify-center sm:justify-start">
                     {isOwnProfile ? (
                       <Button onClick={() => navigate('/profile/edit')}>
-                        <Edit className="h-4 w-4 mr-2" />
+                        <Edit className="text-white h-4 w-4 mr-2" />
                         Edit Profile
                       </Button>
                     ) : (
                       <Button variant="outline">
-                        <MessageCircle className="h-4 w-4 mr-2" />
+                        <MessageCircle className="text-white h-4 w-4 mr-2" />
                         Message
                       </Button>
                     )}
@@ -148,25 +148,25 @@ export default function ProfileView() {
                 </div>
 
                 {profile.bio && (
-                  <p className="text-white mb-4">{profile.bio}</p>
+                  <p className="text-white text-white mb-4">{profile.bio}</p>
                 )}
 
-                <div className="flex flex-wrap gap-4 text-sm text-gray-300">
+                <div className="text-white flex flex-wrap gap-4 text-sm text-white">
                   {profile.city && profile.state && (
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-4 w-4" />
+                    <div className="text-white flex items-center gap-1">
+                      <MapPin className="text-white h-4 w-4" />
                       {profile.city}, {profile.state}
                     </div>
                   )}
 
                   {profile.website && (
-                    <div className="flex items-center gap-1">
-                      <Globe className="h-4 w-4" />
+                    <div className="text-white flex items-center gap-1">
+                      <Globe className="text-white h-4 w-4" />
                       <a
                         href={profile.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-red-600 hover:underline"
+                        className="text-white text-red-600 hover:underline"
                       >
                         Website
                       </a>
@@ -174,15 +174,15 @@ export default function ProfileView() {
                   )}
 
                   {profile.phone && isOwnProfile && (
-                    <div className="flex items-center gap-1">
-                      <Phone className="h-4 w-4" />
+                    <div className="text-white flex items-center gap-1">
+                      <Phone className="text-white h-4 w-4" />
                       {profile.phone}
                     </div>
                   )}
 
                   {profile.user?.createdAt && (
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
+                    <div className="text-white flex items-center gap-1">
+                      <Calendar className="text-white h-4 w-4" />
                       Joined {new Date(profile.user.createdAt).toLocaleDateString()}
                     </div>
                   )}
@@ -194,17 +194,17 @@ export default function ProfileView() {
 
         {/* Professional Details */}
         {profile.user?.role === 'MUSIC_PROFESSIONAL' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Specialties & Experience */}
             <Card>
               <CardHeader>
                 <CardTitle>Professional Details</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="text-white space-y-4">
                 {profile.specialties && profile.specialties.length > 0 && (
                   <div>
-                    <h4 className="font-medium mb-2">Specialties</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <h4 className="text-white font-medium mb-2">Specialties</h4>
+                    <div className="text-white flex flex-wrap gap-2">
                       {profile.specialties.map((specialty, index) => (
                         <Badge key={index} variant="outline">
                           {specialty}
@@ -216,15 +216,15 @@ export default function ProfileView() {
 
                 {profile.yearsExperience && (
                   <div>
-                    <h4 className="font-medium mb-1">Experience</h4>
-                    <p className="text-gray-300">{profile.yearsExperience} years</p>
+                    <h4 className="text-white font-medium mb-1">Experience</h4>
+                    <p className="text-white text-white">{profile.yearsExperience} years</p>
                   </div>
                 )}
 
                 {profile.hourlyRate && (
                   <div>
-                    <h4 className="font-medium mb-1">Hourly Rate</h4>
-                    <p className="text-gray-300">${profile.hourlyRate}/hour</p>
+                    <h4 className="text-white font-medium mb-1">Hourly Rate</h4>
+                    <p className="text-white text-white">${profile.hourlyRate}/hour</p>
                   </div>
                 )}
               </CardContent>
@@ -236,14 +236,14 @@ export default function ProfileView() {
                 <CardTitle>Reviews</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    <span className="text-xl font-bold">
+                <div className="text-white flex items-center gap-4">
+                  <div className="text-white flex items-center gap-1">
+                    <Star className="text-white h-5 w-5 fill-yellow-400 text-netflix-red" />
+                    <span className="text-white text-xl font-bold">
                       {profile.averageRating?.toFixed(1) || '0.0'}
                     </span>
                   </div>
-                  <div className="text-gray-300">
+                  <div className="text-white text-white">
                     {profile.totalReviews || 0} review{profile.totalReviews !== 1 ? 's' : ''}
                   </div>
                 </div>

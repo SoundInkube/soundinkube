@@ -41,7 +41,7 @@ import RevenueAnalytics from '@/pages/profile/RevenueAnalytics';
 
 function App() {
   return (
-    <div className="bg-black text-white font-sans min-h-screen">
+    <div className="text-white bg-black text-white font-sans min-h-screen">
       <AuthProvider>
         <Router>
           <Layout>

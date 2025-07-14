@@ -243,11 +243,11 @@ export default function PaymentHistory() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'bg-red-600/20 text-green-400';
-      case 'Processing': return 'bg-yellow-600/20 text-yellow-400';
+      case 'Completed': return 'bg-red-600/20 text-netflix-red';
+      case 'Processing': return 'bg-netflix-red/20 text-netflix-red';
       case 'Failed': return 'bg-red-600/20 text-red-400';
-      case 'Pending': return 'bg-red-600/20 text-blue-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      case 'Pending': return 'bg-red-600/20 text-netflix-red';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
@@ -299,96 +299,96 @@ export default function PaymentHistory() {
   ];
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Payment History</h1>
-            <p className="text-gray-400">Track your spending and manage payment methods</p>
+            <h1 className="text-white text-3xl font-bold text-white mb-2">Payment History</h1>
+            <p className="text-white text-white">Track your spending and manage payment methods</p>
           </div>
-          <div className="flex space-x-3">
-            <Button variant="outline" className="border-gray-700 text-gray-300">
-              <Download className="h-4 w-4 mr-2" />
+          <div className="text-white flex space-x-3">
+            <Button variant="outline" className="text-white border-gray-700 text-white">
+              <Download className="text-white h-4 w-4 mr-2" />
               Export
             </Button>
-            <Button className="netflix-button-primary">
-              <CreditCard className="h-4 w-4 mr-2" />
+            <Button className="text-white netflix-button-primary">
+              <CreditCard className="text-white h-4 w-4 mr-2" />
               Add Payment Method
             </Button>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="text-white grid lg:grid-cols-4 gap-8">
           {/* Stats & Chart */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="text-white lg:col-span-3 space-y-8">
             {/* Stats Overview */}
-            <div className="grid lg:grid-cols-5 gap-4">
-              <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-red-600/20 rounded-lg">
-                      <DollarSign className="h-5 w-5 text-green-400" />
+            <div className="text-white grid lg:grid-cols-5 gap-4">
+              <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                <CardContent className="text-white p-4">
+                  <div className="text-white flex items-center space-x-3">
+                    <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                      <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">${stats.totalSpent}</p>
-                      <p className="text-gray-400 text-sm">Total Spent</p>
+                      <p className="text-white text-white font-semibold">${stats.totalSpent}</p>
+                      <p className="text-white text-white text-sm">Total Spent</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-red-600/20 rounded-lg">
-                      <Receipt className="h-5 w-5 text-blue-400" />
+              <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                <CardContent className="text-white p-4">
+                  <div className="text-white flex items-center space-x-3">
+                    <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                      <Receipt className="text-white h-5 w-5 text-netflix-red" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">{stats.totalTransactions}</p>
-                      <p className="text-gray-400 text-sm">Transactions</p>
+                      <p className="text-white text-white font-semibold">{stats.totalTransactions}</p>
+                      <p className="text-white text-white text-sm">Transactions</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-netflix-red/20 rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-netflix-red" />
+              <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                <CardContent className="text-white p-4">
+                  <div className="text-white flex items-center space-x-3">
+                    <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                      <CheckCircle className="text-white h-5 w-5 text-netflix-red" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">{stats.completedPayments}</p>
-                      <p className="text-gray-400 text-sm">Completed</p>
+                      <p className="text-white text-white font-semibold">{stats.completedPayments}</p>
+                      <p className="text-white text-white text-sm">Completed</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-yellow-600/20 rounded-lg">
-                      <Clock className="h-5 w-5 text-yellow-400" />
+              <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                <CardContent className="text-white p-4">
+                  <div className="text-white flex items-center space-x-3">
+                    <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                      <Clock className="text-white h-5 w-5 text-netflix-red" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">${stats.pendingAmount}</p>
-                      <p className="text-gray-400 text-sm">Pending</p>
+                      <p className="text-white text-white font-semibold">${stats.pendingAmount}</p>
+                      <p className="text-white text-white text-sm">Pending</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-red-600/20 rounded-lg">
-                      <ArrowDownLeft className="h-5 w-5 text-purple-400" />
+              <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+                <CardContent className="text-white p-4">
+                  <div className="text-white flex items-center space-x-3">
+                    <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                      <ArrowDownLeft className="text-white h-5 w-5 text-purple-400" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">{stats.refunds}</p>
-                      <p className="text-gray-400 text-sm">Refunds</p>
+                      <p className="text-white text-white font-semibold">{stats.refunds}</p>
+                      <p className="text-white text-white text-sm">Refunds</p>
                     </div>
                   </div>
                 </CardContent>
@@ -396,34 +396,34 @@ export default function PaymentHistory() {
             </div>
 
             {/* Monthly Spending Chart */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white flex items-center space-x-2">
-                  <BarChart3 className="h-5 w-5 text-netflix-red" />
+                <CardTitle className="text-white text-white flex items-center space-x-2">
+                  <BarChart3 className="text-white h-5 w-5 text-netflix-red" />
                   <span>Monthly Spending</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
+                <div className="text-white space-y-4">
+                  <div className="text-white flex justify-between items-center">
                     <div>
-                      <p className="text-2xl font-bold text-white">$3,850</p>
-                      <p className="text-gray-400 text-sm">June 2024</p>
+                      <p className="text-white text-2xl font-bold text-white">$3,850</p>
+                      <p className="text-white text-white text-sm">June 2024</p>
                     </div>
-                    <Badge className="bg-red-600/20 text-green-400">+20.5%</Badge>
+                    <Badge className="text-white bg-red-600/20 text-netflix-red">+20.5%</Badge>
                   </div>
                   
-                  <div className="space-y-3">
+                  <div className="text-white space-y-3">
                     {monthlySpending.map((data, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <div className="w-8 text-gray-400 text-sm">{data.month}</div>
-                        <div className="flex-1 bg-gray-800 rounded-full h-2">
+                      <div key={index} className="text-white flex items-center space-x-3">
+                        <div className="text-white w-8 text-white text-sm">{data.month}</div>
+                        <div className="text-white flex-1 bg-netflix-dark rounded-full h-2">
                           <div 
-                            className="bg-netflix-red h-2 rounded-full transition-all duration-500"
+                            className="text-white bg-netflix-red h-2 rounded-full transition-all duration-500"
                             style={{ width: `${(data.amount / 4000) * 100}%` }}
                           ></div>
                         </div>
-                        <div className="w-16 text-white text-sm font-medium">${data.amount}</div>
+                        <div className="text-white w-16 text-white text-sm font-medium">${data.amount}</div>
                       </div>
                     ))}
                   </div>
@@ -432,21 +432,21 @@ export default function PaymentHistory() {
             </Card>
 
             {/* Search and Filter */}
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <div className="text-white flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="text-white relative flex-1">
+                <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
                 <Input
                   placeholder="Search transactions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white"
+                  className="text-white pl-10 bg-netflix-dark border-gray-700 text-white"
                 />
               </div>
-              <div className="flex space-x-2">
+              <div className="text-white flex space-x-2">
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
+                  className="text-white bg-netflix-dark border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
                 >
                   <option value="all">All Status</option>
                   <option value="completed">Completed</option>
@@ -456,7 +456,7 @@ export default function PaymentHistory() {
                 <select
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
+                  className="text-white bg-netflix-dark border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
                 >
                   <option value="all">All Types</option>
                   <option value="payment">Payments</option>
@@ -466,31 +466,31 @@ export default function PaymentHistory() {
             </div>
 
             {/* Transactions List */}
-            <div className="space-y-4">
+            <div className="text-white space-y-4">
               {filteredTransactions.map((transaction) => {
                 const StatusIcon = getStatusIcon(transaction.status);
                 const TypeIcon = getTypeIcon(transaction.type);
                 
                 return (
-                  <Card key={transaction.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <div className="flex items-center space-x-2">
-                            <TypeIcon className={`h-5 w-5 ${transaction.type === 'Refund' ? 'text-purple-400' : 'text-green-400'}`} />
-                            <StatusIcon className={`h-4 w-4 ${transaction.status === 'Completed' ? 'text-green-400' : transaction.status === 'Processing' ? 'text-yellow-400' : 'text-red-400'}`} />
+                  <Card key={transaction.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+                    <CardContent className="text-white p-6">
+                      <div className="text-white flex items-center justify-between">
+                        <div className="text-white flex items-center space-x-4">
+                          <div className="text-white flex items-center space-x-2">
+                            <TypeIcon className={`h-5 w-5 ${transaction.type === 'Refund' ? 'text-purple-400' : 'text-netflix-red'}`} />
+                            <StatusIcon className={`h-4 w-4 ${transaction.status === 'Completed' ? 'text-netflix-red' : transaction.status === 'Processing' ? 'text-netflix-red' : 'text-red-400'}`} />
                           </div>
                           
-                          <Avatar className="w-12 h-12">
-                            <AvatarFallback className="bg-netflix-red text-white">
+                          <Avatar className="text-white w-12 h-12">
+                            <AvatarFallback className="text-white bg-netflix-red text-white">
                               {transaction.professional.avatar}
                             </AvatarFallback>
                           </Avatar>
                           
                           <div>
-                            <h3 className="text-white font-semibold">{transaction.description}</h3>
-                            <p className="text-gray-400 text-sm">{transaction.professional.name} • {transaction.professional.specialty}</p>
-                            <div className="flex items-center space-x-4 mt-1 text-xs text-gray-400">
+                            <h3 className="text-white text-white font-semibold">{transaction.description}</h3>
+                            <p className="text-white text-white text-sm">{transaction.professional.name} • {transaction.professional.specialty}</p>
+                            <div className="text-white flex items-center space-x-4 mt-1 text-xs text-white">
                               <span>{transaction.id}</span>
                               <span>•</span>
                               <span>{new Date(transaction.date).toLocaleDateString()}</span>
@@ -500,13 +500,13 @@ export default function PaymentHistory() {
                           </div>
                         </div>
                         
-                        <div className="text-right">
-                          <div className="flex items-center space-x-3">
+                        <div className="text-white text-right">
+                          <div className="text-white flex items-center space-x-3">
                             <div>
                               <p className={`text-lg font-bold ${transaction.amount < 0 ? 'text-purple-400' : 'text-white'}`}>
                                 {transaction.amount < 0 ? '' : '+'}${Math.abs(transaction.amount)}
                               </p>
-                              <p className="text-gray-400 text-sm">{transaction.category}</p>
+                              <p className="text-white text-white text-sm">{transaction.category}</p>
                             </div>
                             <Badge className={getStatusColor(transaction.status)}>
                               {transaction.status}
@@ -516,66 +516,66 @@ export default function PaymentHistory() {
                       </div>
                       
                       {/* Additional Details */}
-                      <div className="mt-4 pt-4 border-t border-gray-800">
-                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                      <div className="text-white mt-4 pt-4 border-t border-gray-800">
+                        <div className="text-white grid md:grid-cols-2 gap-4 text-sm">
                           <div>
                             {transaction.milestonePayment && (
-                              <p className="text-gray-400">
-                                <span className="text-blue-400">Milestone:</span> {transaction.milestone}
+                              <p className="text-white text-white">
+                                <span className="text-white text-netflix-red">Milestone:</span> {transaction.milestone}
                               </p>
                             )}
                             {transaction.isRecurring && (
-                              <p className="text-gray-400">
-                                <span className="text-green-400">Next Payment:</span> {new Date(transaction.nextPayment!).toLocaleDateString()}
+                              <p className="text-white text-white">
+                                <span className="text-white text-netflix-red">Next Payment:</span> {new Date(transaction.nextPayment!).toLocaleDateString()}
                               </p>
                             )}
                             {transaction.refundReason && (
-                              <p className="text-gray-400">
-                                <span className="text-purple-400">Refund Reason:</span> {transaction.refundReason}
+                              <p className="text-white text-white">
+                                <span className="text-white text-purple-400">Refund Reason:</span> {transaction.refundReason}
                               </p>
                             )}
                             {transaction.failureReason && (
-                              <p className="text-gray-400">
-                                <span className="text-red-400">Failure Reason:</span> {transaction.failureReason}
+                              <p className="text-white text-white">
+                                <span className="text-white text-red-400">Failure Reason:</span> {transaction.failureReason}
                               </p>
                             )}
                           </div>
                           
-                          <div className="text-right">
-                            <div className="space-y-1 text-gray-400">
+                          <div className="text-white text-right">
+                            <div className="text-white space-y-1 text-white">
                               <p>Platform Fee: ${transaction.fees.platformFee}</p>
                               <p>Processing Fee: ${transaction.fees.processingFee}</p>
-                              <p className="font-medium">Total Fees: ${transaction.fees.total}</p>
+                              <p className="text-white font-medium">Total Fees: ${transaction.fees.total}</p>
                             </div>
                           </div>
                         </div>
                         
-                        <div className="flex justify-between items-center mt-4">
-                          <div className="flex space-x-2">
-                            <Button size="sm" variant="outline" className="border-gray-700 text-gray-300">
-                              <Receipt className="h-3 w-3 mr-2" />
+                        <div className="text-white flex justify-between items-center mt-4">
+                          <div className="text-white flex space-x-2">
+                            <Button size="sm" variant="outline" className="text-white border-gray-700 text-white">
+                              <Receipt className="text-white h-3 w-3 mr-2" />
                               Invoice
                             </Button>
-                            <Button size="sm" variant="outline" className="border-gray-700 text-gray-300">
-                              <Eye className="h-3 w-3 mr-2" />
+                            <Button size="sm" variant="outline" className="text-white border-gray-700 text-white">
+                              <Eye className="text-white h-3 w-3 mr-2" />
                               Details
                             </Button>
                             {transaction.refundable && transaction.status === "Completed" && (
-                              <Button size="sm" variant="outline" className="border-yellow-700 text-yellow-400">
-                                <ArrowDownLeft className="h-3 w-3 mr-2" />
+                              <Button size="sm" variant="outline" className="text-white border-yellow-700 text-netflix-red">
+                                <ArrowDownLeft className="text-white h-3 w-3 mr-2" />
                                 Request Refund
                               </Button>
                             )}
                           </div>
                           
                           {transaction.rating && (
-                            <div className="flex items-center space-x-1">
-                              <span className="text-gray-400 text-sm">Rated:</span>
-                              <div className="flex items-center space-x-1">
+                            <div className="text-white flex items-center space-x-1">
+                              <span className="text-white text-white text-sm">Rated:</span>
+                              <div className="text-white flex items-center space-x-1">
                                 {[...Array(5)].map((_, i) => (
                                   <div 
                                     key={i} 
-                                    className={`w-3 h-3 rounded-full ${i < transaction.rating! ? 'bg-yellow-400' : 'bg-gray-600'}`}
+                                    className={`w-3 h-3 rounded-full ${i < transaction.rating! ? 'bg-netflix-red' : 'bg-netflix-dark'}`}
                                   />
                                 ))}
                               </div>
@@ -591,77 +591,77 @@ export default function PaymentHistory() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="text-white space-y-6">
             {/* Payment Methods */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Payment Methods</CardTitle>
+                <CardTitle className="text-white text-white">Payment Methods</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <CreditCard className="h-5 w-5 text-blue-400" />
+              <CardContent className="text-white space-y-3">
+                <div className="text-white flex items-center justify-between p-3 bg-netflix-dark/50 rounded-lg">
+                  <div className="text-white flex items-center space-x-3">
+                    <CreditCard className="text-white h-5 w-5 text-netflix-red" />
                     <div>
-                      <p className="text-white text-sm font-medium">•••• 1234</p>
-                      <p className="text-gray-400 text-xs">Expires 12/26</p>
+                      <p className="text-white text-white text-sm font-medium">•••• 1234</p>
+                      <p className="text-white text-white text-xs">Expires 12/26</p>
                     </div>
                   </div>
-                  <Badge className="bg-red-600/20 text-green-400">Primary</Badge>
+                  <Badge className="text-white bg-red-600/20 text-netflix-red">Primary</Badge>
                 </div>
                 
-                <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <Wallet className="h-5 w-5 text-purple-400" />
+                <div className="text-white flex items-center justify-between p-3 bg-netflix-dark/50 rounded-lg">
+                  <div className="text-white flex items-center space-x-3">
+                    <Wallet className="text-white h-5 w-5 text-purple-400" />
                     <div>
-                      <p className="text-white text-sm font-medium">PayPal</p>
-                      <p className="text-gray-400 text-xs">user@email.com</p>
+                      <p className="text-white text-white text-sm font-medium">PayPal</p>
+                      <p className="text-white text-white text-xs">user@email.com</p>
                     </div>
                   </div>
                 </div>
                 
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <CreditCard className="h-3 w-3 mr-2" />
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <CreditCard className="text-white h-3 w-3 mr-2" />
                   Add Payment Method
                 </Button>
               </CardContent>
             </Card>
 
             {/* Quick Actions */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Quick Actions</CardTitle>
+                <CardTitle className="text-white text-white">Quick Actions</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <Download className="h-3 w-3 mr-2" />
+              <CardContent className="text-white space-y-3">
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <Download className="text-white h-3 w-3 mr-2" />
                   Export All Transactions
                 </Button>
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <Receipt className="h-3 w-3 mr-2" />
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <Receipt className="text-white h-3 w-3 mr-2" />
                   Tax Summary
                 </Button>
-                <Button size="sm" variant="outline" className="w-full border-gray-700 text-gray-300">
-                  <BarChart3 className="h-3 w-3 mr-2" />
+                <Button size="sm" variant="outline" className="text-white w-full border-gray-700 text-white">
+                  <BarChart3 className="text-white h-3 w-3 mr-2" />
                   Spending Report
                 </Button>
               </CardContent>
             </Card>
 
             {/* Recent Activity */}
-            <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+            <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
               <CardHeader>
-                <CardTitle className="text-white">Recent Activity</CardTitle>
+                <CardTitle className="text-white text-white">Recent Activity</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="text-white space-y-3">
                   {transactions.slice(0, 3).map((transaction) => (
-                    <div key={transaction.id} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 rounded-full ${transaction.status === 'Completed' ? 'bg-green-400' : transaction.status === 'Processing' ? 'bg-yellow-400' : 'bg-red-400'}`}></div>
-                      <div className="flex-1">
-                        <p className="text-white text-sm">${Math.abs(transaction.amount)}</p>
-                        <p className="text-gray-400 text-xs">{transaction.professional.name}</p>
+                    <div key={transaction.id} className="text-white flex items-center space-x-3">
+                      <div className={`w-2 h-2 rounded-full ${transaction.status === 'Completed' ? 'bg-netflix-red' : transaction.status === 'Processing' ? 'bg-netflix-red' : 'bg-red-400'}`}></div>
+                      <div className="text-white flex-1">
+                        <p className="text-white text-white text-sm">${Math.abs(transaction.amount)}</p>
+                        <p className="text-white text-white text-xs">{transaction.professional.name}</p>
                       </div>
-                      <p className="text-gray-400 text-xs">
+                      <p className="text-white text-white text-xs">
                         {new Date(transaction.date).toLocaleDateString()}
                       </p>
                     </div>
@@ -673,12 +673,12 @@ export default function PaymentHistory() {
         </div>
 
         {filteredTransactions.length === 0 && (
-          <div className="text-center py-12">
-            <Receipt className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">No transactions found</h3>
-            <p className="text-gray-400 mb-6">Your payment history will appear here</p>
-            <Button className="netflix-button-primary">
-              <CreditCard className="h-4 w-4 mr-2" />
+          <div className="text-white text-center py-12">
+            <Receipt className="text-white h-16 w-16 text-white mx-auto mb-4" />
+            <h3 className="text-white text-xl font-semibold text-white mb-2">No transactions found</h3>
+            <p className="text-white text-white mb-6">Your payment history will appear here</p>
+            <Button className="text-white netflix-button-primary">
+              <CreditCard className="text-white h-4 w-4 mr-2" />
               Make Your First Payment
             </Button>
           </div>

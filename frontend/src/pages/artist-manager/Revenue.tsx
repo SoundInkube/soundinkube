@@ -61,8 +61,8 @@ export default function Revenue() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="netflix-loading"></div>
+      <div className="text-white flex items-center justify-center min-h-screen">
+        <div className="text-white netflix-loading"></div>
       </div>
     );
   }
@@ -77,21 +77,21 @@ export default function Revenue() {
   const growth = calculateGrowth();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
+      <div className="text-white max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+        <div className="text-white mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
+            <h1 className="text-white text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
               Revenue Analytics
             </h1>
-            <p className="text-gray-400 text-lg">
+            <p className="text-white text-white text-lg">
               Track earnings, commissions, and financial performance
             </p>
           </div>
-          <div className="flex gap-3 mt-4 sm:mt-0">
+          <div className="text-white flex gap-3 mt-4 sm:mt-0">
             <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
-              <SelectTrigger className="w-40 netflix-input">
+              <SelectTrigger className="text-white w-40 netflix-input">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -100,71 +100,71 @@ export default function Revenue() {
                 <SelectItem value="1year">Last Year</SelectItem>
               </SelectContent>
             </Select>
-            <Button className="netflix-button-primary">
-              <Download className="h-4 w-4 mr-2" />
+            <Button className="text-white netflix-button-primary">
+              <Download className="text-white h-4 w-4 mr-2" />
               Export
             </Button>
           </div>
         </div>
 
         {/* Revenue Overview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-netflix-red" />
+        <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Total Revenue</CardTitle>
+              <DollarSign className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 ${revenueData?.totalRevenue.toLocaleString()}
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-white text-xs text-white">
                 All-time earnings
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Monthly Revenue</CardTitle>
-              <Calendar className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Monthly Revenue</CardTitle>
+              <Calendar className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 ${revenueData?.monthlyRevenue.toLocaleString()}
               </div>
-              <p className={`text-xs flex items-center ${growth >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                {growth >= 0 ? <TrendingUp className="h-3 w-3 mr-1" /> : <TrendingDown className="h-3 w-3 mr-1" />}
+              <p className={`text-xs flex items-center ${growth >= 0 ? 'text-netflix-red' : 'text-red-400'}`}>
+                {growth >= 0 ? <TrendingUp className="text-white h-3 w-3 mr-1" /> : <TrendingDown className="text-white h-3 w-3 mr-1" />}
                 {Math.abs(growth).toFixed(1)}% vs last month
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Commission Rate</CardTitle>
-              <PieChart className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Commission Rate</CardTitle>
+              <PieChart className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 {revenueData?.commissionRate}%
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-white text-xs text-white">
                 Average across artists
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Top Performer</CardTitle>
-              <TrendingUp className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Top Performer</CardTitle>
+              <TrendingUp className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-lg font-bold text-white">
+              <div className="text-white text-lg font-bold text-white">
                 {revenueData?.topEarningArtist}
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-white text-xs text-white">
                 Highest earner this month
               </p>
             </CardContent>
@@ -172,36 +172,36 @@ export default function Revenue() {
         </div>
 
         {/* Revenue Analytics Tabs */}
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="netflix-tabs">
+        <Tabs defaultValue="overview" className="text-white space-y-6">
+          <TabsList className="text-white netflix-tabs">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="artists">By Artist</TabsTrigger>
             <TabsTrigger value="trends">Trends</TabsTrigger>
             <TabsTrigger value="commissions">Commissions</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="overview" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <TabsContent value="overview" className="text-white space-y-6">
+            <div className="text-white grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Monthly Trends Chart */}
-              <Card className="netflix-card">
+              <Card className="text-white netflix-card">
                 <CardHeader>
-                  <CardTitle className="text-white">Revenue Trends</CardTitle>
-                  <CardDescription className="text-gray-400">
+                  <CardTitle className="text-white text-white">Revenue Trends</CardTitle>
+                  <CardDescription className="text-white text-white">
                     Monthly revenue over the last 6 months
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="text-white space-y-4">
                     {revenueData?.monthlyTrends.map((month, index) => (
-                      <div key={month.month} className="flex items-center space-x-4">
-                        <div className="w-12 text-sm text-gray-400">{month.month}</div>
-                        <div className="flex-1">
+                      <div key={month.month} className="text-white flex items-center space-x-4">
+                        <div className="text-white w-12 text-sm text-white">{month.month}</div>
+                        <div className="text-white flex-1">
                           <Progress 
                             value={(month.revenue / 20000) * 100} 
-                            className="h-2"
+                            className="text-white h-2"
                           />
                         </div>
-                        <div className="w-20 text-sm text-white text-right">
+                        <div className="text-white w-20 text-sm text-white text-right">
                           ${month.revenue.toLocaleString()}
                         </div>
                       </div>
@@ -211,37 +211,37 @@ export default function Revenue() {
               </Card>
 
               {/* Top Artists Performance */}
-              <Card className="netflix-card">
+              <Card className="text-white netflix-card">
                 <CardHeader>
-                  <CardTitle className="text-white">Top Performers</CardTitle>
-                  <CardDescription className="text-gray-400">
+                  <CardTitle className="text-white text-white">Top Performers</CardTitle>
+                  <CardDescription className="text-white text-white">
                     Artists generating the most revenue
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="text-white space-y-4">
                     {revenueData?.revenueByArtist
                       .filter(artist => artist.revenue > 0)
                       .sort((a, b) => b.revenue - a.revenue)
                       .slice(0, 5)
                       .map((artist, index) => (
-                      <div key={artist.artistName} className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
+                      <div key={artist.artistName} className="text-white flex items-center justify-between">
+                        <div className="text-white flex items-center space-x-3">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                            index === 0 ? 'bg-yellow-500 text-white' :
-                            index === 1 ? 'bg-gray-400 text-white' :
+                            index === 0 ? 'bg-netflix-red text-white' :
+                            index === 1 ? 'bg-netflix-dark text-white' :
                             index === 2 ? 'bg-orange-500 text-white' :
-                            'bg-gray-600 text-white'
+                            'bg-netflix-dark text-white'
                           }`}>
                             {index + 1}
                           </div>
-                          <span className="text-white font-medium">{artist.artistName}</span>
+                          <span className="text-white text-white font-medium">{artist.artistName}</span>
                         </div>
-                        <div className="text-right">
-                          <div className="text-white font-medium">
+                        <div className="text-white text-right">
+                          <div className="text-white text-white font-medium">
                             ${artist.revenue.toLocaleString()}
                           </div>
-                          <div className="text-xs text-gray-400">
+                          <div className="text-white text-xs text-white">
                             ${artist.commission.toLocaleString()} commission
                           </div>
                         </div>
@@ -254,35 +254,35 @@ export default function Revenue() {
           </TabsContent>
 
           <TabsContent value="artists">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Revenue by Artist</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardTitle className="text-white text-white">Revenue by Artist</CardTitle>
+                <CardDescription className="text-white text-white">
                   Detailed breakdown of earnings per artist
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   {revenueData?.revenueByArtist.map((artist) => (
-                    <div key={artist.artistName} className="flex items-center justify-between p-4 rounded-lg border border-gray-700">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-netflix-red to-red-400 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold">
+                    <div key={artist.artistName} className="text-white flex items-center justify-between p-4 rounded-lg border border-gray-700">
+                      <div className="text-white flex items-center space-x-4">
+                        <div className="text-white w-12 h-12 bg-gradient-to-r from-netflix-red to-red-400 rounded-full flex items-center justify-center">
+                          <span className="text-white text-white font-bold">
                             {artist.artistName.split(' ').map(n => n[0]).join('')}
                           </span>
                         </div>
                         <div>
-                          <h3 className="text-white font-medium">{artist.artistName}</h3>
-                          <p className="text-gray-400 text-sm">
+                          <h3 className="text-white text-white font-medium">{artist.artistName}</h3>
+                          <p className="text-white text-white text-sm">
                             {artist.revenue > 0 ? 'Active performer' : 'Inactive'}
                           </p>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-xl font-bold text-white">
+                      <div className="text-white text-right">
+                        <div className="text-white text-xl font-bold text-white">
                           ${artist.revenue.toLocaleString()}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-white text-sm text-white">
                           Commission: ${artist.commission.toLocaleString()}
                         </div>
                         <Badge className={artist.revenue > 0 ? 'netflix-badge-success' : 'netflix-badge-error'}>
@@ -297,23 +297,23 @@ export default function Revenue() {
           </TabsContent>
 
           <TabsContent value="trends">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Revenue Trends Analysis</CardTitle>
+                <CardTitle className="text-white text-white">Revenue Trends Analysis</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Advanced trend analysis coming soon...</p>
+                <p className="text-white text-white">Advanced trend analysis coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="commissions">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Commission Management</CardTitle>
+                <CardTitle className="text-white text-white">Commission Management</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Commission tracking tools coming soon...</p>
+                <p className="text-white text-white">Commission tracking tools coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>

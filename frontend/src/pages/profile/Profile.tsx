@@ -264,8 +264,8 @@ export default function Profile() {
   if (!user) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-96">
-          <p className="text-lg text-gray-300">Please log in to view your profile.</p>
+        <div className="text-white flex justify-center items-center h-96">
+          <p className="text-white text-lg text-white">Please log in to view your profile.</p>
         </div>
       </MainLayout>
     );
@@ -273,17 +273,17 @@ export default function Profile() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Profile Settings</h1>
-          <p className="mt-2 text-gray-300">Manage your account details and preferences</p>
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-3xl font-bold text-white">Profile Settings</h1>
+          <p className="text-white mt-2 text-white">Manage your account details and preferences</p>
         </div>
 
         {(error || success) && (
-          <Alert variant={error ? "destructive" : "default"} className="mb-6">
+          <Alert variant={error ? "destructive" : "default"} className="text-white mb-6">
             {success && (
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
+              <div className="text-white flex items-center">
+                <CheckCircle className="text-white h-4 w-4 mr-2" />
                 <AlertDescription>{success}</AlertDescription>
               </div>
             )}
@@ -291,30 +291,30 @@ export default function Profile() {
           </Alert>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6">
+        <div className="text-white grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6">
           {/* Profile sidebar */}
-          <div className="space-y-6">
+          <div className="text-white space-y-6">
             <Card>
-              <CardContent className="p-6">
-                <div className="flex flex-col items-center text-center">
-                  <Avatar className="h-24 w-24 mb-4">
+              <CardContent className="text-white p-6">
+                <div className="text-white flex flex-col items-center text-center">
+                  <Avatar className="text-white h-24 w-24 mb-4">
                     {profile.avatarUrl ? (
                       <AvatarImage src={profile.avatarUrl} alt={`${profile.firstName} ${profile.lastName}`} />
                     ) : (
-                      <AvatarFallback className="text-2xl">
+                      <AvatarFallback className="text-white text-2xl">
                         {user.email.charAt(0).toUpperCase()}
                       </AvatarFallback>
                     )}
                   </Avatar>
-                  <h2 className="text-xl font-semibold">
+                  <h2 className="text-white text-xl font-semibold">
                     {profile.firstName ? `${profile.firstName} ${profile.lastName}` : user.email}
                   </h2>
-                  <p className="text-sm text-gray-400 mt-1">{user.role.replace("_", " ")}</p>
+                  <p className="text-white text-sm text-white mt-1">{user.role.replace("_", " ")}</p>
 
-                  <div className="mt-4 w-full">
+                  <div className="text-white mt-4 w-full">
                     <label
                       htmlFor="avatar-upload"
-                      className="cursor-pointer flex justify-center items-center py-2 px-4 text-sm font-medium text-white bg-zinc-900 rounded-md border border-zinc-700 hover:bg-black"
+                      className="text-white cursor-pointer flex justify-center items-center py-2 px-4 text-sm font-medium text-white bg-zinc-900 rounded-md border border-zinc-700 hover:bg-black"
                     >
                       Change Avatar
                     </label>
@@ -323,29 +323,29 @@ export default function Profile() {
                       type="file"
                       accept="image/*"
                       onChange={handleAvatarChange}
-                      className="sr-only"
+                      className="text-white sr-only"
                     />
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-zinc-800">
-                  <h3 className="text-sm font-medium text-white">Account Details</h3>
-                  <dl className="mt-2 space-y-1">
-                    <div className="flex justify-between">
-                      <dt className="text-sm text-gray-400">Email</dt>
-                      <dd className="text-sm font-medium text-white">{user.email}</dd>
+                <div className="text-white mt-6 pt-6 border-t border-zinc-800">
+                  <h3 className="text-white text-sm font-medium text-white">Account Details</h3>
+                  <dl className="text-white mt-2 space-y-1">
+                    <div className="text-white flex justify-between">
+                      <dt className="text-white text-sm text-white">Email</dt>
+                      <dd className="text-white text-sm font-medium text-white">{user.email}</dd>
                     </div>
-                    <div className="flex justify-between">
-                      <dt className="text-sm text-gray-400">Role</dt>
-                      <dd className="text-sm font-medium text-white">{user.role.replace("_", " ")}</dd>
+                    <div className="text-white flex justify-between">
+                      <dt className="text-white text-sm text-white">Role</dt>
+                      <dd className="text-white text-sm font-medium text-white">{user.role.replace("_", " ")}</dd>
                     </div>
-                    <div className="flex justify-between">
-                      <dt className="text-sm text-gray-400">Email verification</dt>
-                      <dd className="text-sm font-medium">
+                    <div className="text-white flex justify-between">
+                      <dt className="text-white text-sm text-white">Email verification</dt>
+                      <dd className="text-white text-sm font-medium">
                         {user.isEmailVerified ? (
-                          <span className="text-red-600">Verified</span>
+                          <span className="text-white text-red-600">Verified</span>
                         ) : (
-                          <span className="text-amber-600">Pending</span>
+                          <span className="text-white text-amber-600">Pending</span>
                         )}
                       </dd>
                     </div>
@@ -358,7 +358,7 @@ export default function Profile() {
           {/* Profile settings */}
           <div>
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList className="mb-6">
+              <TabsList className="text-white mb-6">
                 <TabsTrigger value="personal">Personal Information</TabsTrigger>
                 <TabsTrigger value="contact">Contact Details</TabsTrigger>
                 {user.role === 'MUSIC_PROFESSIONAL' && (
@@ -376,9 +376,9 @@ export default function Profile() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form onSubmit={handlePersonalInfoSubmit} className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
+                    <form onSubmit={handlePersonalInfoSubmit} className="text-white space-y-4">
+                      <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="text-white space-y-2">
                           <Label htmlFor="firstName">First Name</Label>
                           <Input
                             id="firstName"
@@ -389,7 +389,7 @@ export default function Profile() {
                           />
                         </div>
                         
-                        <div className="space-y-2">
+                        <div className="text-white space-y-2">
                           <Label htmlFor="lastName">Last Name</Label>
                           <Input
                             id="lastName"
@@ -401,7 +401,7 @@ export default function Profile() {
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="bio">Bio</Label>
                         <Textarea
                           id="bio"
@@ -430,8 +430,8 @@ export default function Profile() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form onSubmit={handleContactInfoSubmit} className="space-y-4">
-                      <div className="space-y-2">
+                    <form onSubmit={handleContactInfoSubmit} className="text-white space-y-4">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="phoneNumber">Phone Number</Label>
                         <Input
                           id="phoneNumber"
@@ -442,7 +442,7 @@ export default function Profile() {
                         />
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="address">Address</Label>
                         <Input
                           id="address"
@@ -453,8 +453,8 @@ export default function Profile() {
                         />
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
+                      <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="text-white space-y-2">
                           <Label htmlFor="city">City</Label>
                           <Input
                             id="city"
@@ -465,7 +465,7 @@ export default function Profile() {
                           />
                         </div>
                         
-                        <div className="space-y-2">
+                        <div className="text-white space-y-2">
                           <Label htmlFor="postalCode">Postal Code</Label>
                           <Input
                             id="postalCode"
@@ -477,7 +477,7 @@ export default function Profile() {
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="country">Country</Label>
                         <Input
                           id="country"
@@ -511,7 +511,7 @@ export default function Profile() {
                   />
                   
                   {/* Preview of current social media links */}
-                  <div className="mt-6">
+                  <div className="text-white mt-6">
                     <SocialMediaDisplay
                       data={{
                         spotifyUrl: profile.spotifyUrl,
@@ -535,8 +535,8 @@ export default function Profile() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form className="space-y-4">
-                      <div className="space-y-2">
+                    <form className="text-white space-y-4">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="currentPassword">Current Password</Label>
                         <Input
                           id="currentPassword"
@@ -545,7 +545,7 @@ export default function Profile() {
                         />
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="newPassword">New Password</Label>
                         <Input
                           id="newPassword"
@@ -554,7 +554,7 @@ export default function Profile() {
                         />
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="text-white space-y-2">
                         <Label htmlFor="confirmPassword">Confirm Password</Label>
                         <Input
                           id="confirmPassword"

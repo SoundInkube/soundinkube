@@ -182,87 +182,87 @@ export default function AddProduct() {
                      formData.category && formData.condition && formData.location;
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">List Your Equipment</h1>
-          <p className="text-gray-400">Share your music gear with the SoundInkube community</p>
+        <div className="text-white mb-8">
+          <h1 className="text-white text-3xl font-bold text-white mb-2">List Your Equipment</h1>
+          <p className="text-white text-white">Share your music gear with the SoundInkube community</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="text-white space-y-8">
           {/* Basic Information */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <Package className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <Package className="text-white h-5 w-5 text-netflix-red" />
                 <span>Basic Information</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="md:col-span-2">
-                  <Label htmlFor="title" className="text-gray-300">Product Title *</Label>
+            <CardContent className="text-white space-y-6">
+              <div className="text-white grid md:grid-cols-2 gap-6">
+                <div className="text-white md:col-span-2">
+                  <Label htmlFor="title" className="text-white text-white">Product Title *</Label>
                   <Input
                     id="title"
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="e.g., Neumann U87 Studio Condenser Microphone"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                     required
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="brand" className="text-gray-300">Brand</Label>
+                  <Label htmlFor="brand" className="text-white text-white">Brand</Label>
                   <Input
                     id="brand"
                     value={formData.brand}
                     onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
                     placeholder="e.g., Neumann, Shure, Yamaha"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="model" className="text-gray-300">Model</Label>
+                  <Label htmlFor="model" className="text-white text-white">Model</Label>
                   <Input
                     id="model"
                     value={formData.model}
                     onChange={(e) => setFormData({ ...formData, model: e.target.value })}
                     placeholder="e.g., U87, SM57, HS8"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
 
-                <div className="md:col-span-2">
-                  <Label htmlFor="description" className="text-gray-300">Description *</Label>
+                <div className="text-white md:col-span-2">
+                  <Label htmlFor="description" className="text-white text-white">Description *</Label>
                   <Textarea
                     id="description"
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder="Describe your equipment's condition, included accessories, usage history, and any other relevant details..."
-                    className="bg-gray-800 border-gray-700 text-white min-h-[120px]"
+                    className="text-white bg-netflix-dark border-gray-700 text-white min-h-[120px]"
                     required
                   />
-                  <p className="text-gray-400 text-sm mt-1">{formData.description.length}/1000 characters</p>
+                  <p className="text-white text-white text-sm mt-1">{formData.description.length}/1000 characters</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Category & Condition */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <Tag className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <Tag className="text-white h-5 w-5 text-netflix-red" />
                 <span>Category & Condition</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="text-white space-y-6">
               <div>
-                <Label className="text-gray-300 mb-4 block">Category *</Label>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+                <Label className="text-white text-white mb-4 block">Category *</Label>
+                <div className="text-white grid md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {categories.map((category) => {
                     const IconComponent = category.icon;
                     return (
@@ -273,11 +273,11 @@ export default function AddProduct() {
                         className={`p-4 rounded-lg border transition-all duration-200 ${
                           formData.category === category.id
                             ? 'border-netflix-red bg-netflix-red/10 text-netflix-red'
-                            : 'border-gray-700 bg-gray-800/50 text-gray-300 hover:border-gray-600'
+                            : 'border-gray-700 bg-netflix-dark/50 text-white hover:border-gray-600'
                         }`}
                       >
-                        <IconComponent className="h-6 w-6 mx-auto mb-2" />
-                        <p className="text-sm font-medium text-center">{category.name}</p>
+                        <IconComponent className="text-white h-6 w-6 mx-auto mb-2" />
+                        <p className="text-white text-sm font-medium text-center">{category.name}</p>
                       </button>
                     );
                   })}
@@ -286,11 +286,11 @@ export default function AddProduct() {
 
               {selectedCategory && (
                 <div>
-                  <Label className="text-gray-300">Subcategory</Label>
+                  <Label className="text-white text-white">Subcategory</Label>
                   <select
                     value={formData.subcategory}
                     onChange={(e) => setFormData({ ...formData, subcategory: e.target.value })}
-                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 mt-1"
+                    className="text-white w-full bg-netflix-dark border border-gray-700 text-white rounded-md px-3 py-2 mt-1"
                   >
                     <option value="">Select a subcategory</option>
                     {selectedCategory.subcategories.map((sub) => (
@@ -301,8 +301,8 @@ export default function AddProduct() {
               )}
 
               <div>
-                <Label className="text-gray-300 mb-4 block">Condition *</Label>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <Label className="text-white text-white mb-4 block">Condition *</Label>
+                <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {conditions.map((condition) => (
                     <button
                       key={condition.value}
@@ -311,7 +311,7 @@ export default function AddProduct() {
                       className={`p-4 rounded-lg border text-left transition-all duration-200 ${
                         formData.condition === condition.value
                           ? 'border-netflix-red bg-netflix-red/10'
-                          : 'border-gray-700 bg-gray-800/50 hover:border-gray-600'
+                          : 'border-gray-700 bg-netflix-dark/50 hover:border-gray-600'
                       }`}
                     >
                       <p className={`font-medium ${
@@ -319,7 +319,7 @@ export default function AddProduct() {
                       }`}>
                         {condition.label}
                       </p>
-                      <p className="text-gray-400 text-sm mt-1">{condition.description}</p>
+                      <p className="text-white text-white text-sm mt-1">{condition.description}</p>
                     </button>
                   ))}
                 </div>
@@ -328,53 +328,53 @@ export default function AddProduct() {
           </Card>
 
           {/* Pricing */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <DollarSign className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                 <span>Pricing</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <CardContent className="text-white space-y-6">
+              <div className="text-white grid md:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="price" className="text-gray-300">Selling Price (USD) *</Label>
-                  <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <Label htmlFor="price" className="text-white text-white">Selling Price (USD) *</Label>
+                  <div className="text-white relative">
+                    <DollarSign className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
                     <Input
                       id="price"
                       type="number"
                       value={formData.price}
                       onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                       placeholder="0.00"
-                      className="bg-gray-800 border-gray-700 text-white pl-10"
+                      className="text-white bg-netflix-dark border-gray-700 text-white pl-10"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="originalPrice" className="text-gray-300">Original Price (Optional)</Label>
-                  <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <Label htmlFor="originalPrice" className="text-white text-white">Original Price (Optional)</Label>
+                  <div className="text-white relative">
+                    <DollarSign className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
                     <Input
                       id="originalPrice"
                       type="number"
                       value={formData.originalPrice}
                       onChange={(e) => setFormData({ ...formData, originalPrice: e.target.value })}
                       placeholder="0.00"
-                      className="bg-gray-800 border-gray-700 text-white pl-10"
+                      className="text-white bg-netflix-dark border-gray-700 text-white pl-10"
                     />
                   </div>
-                  <p className="text-gray-400 text-sm mt-1">Help buyers see the value</p>
+                  <p className="text-white text-white text-sm mt-1">Help buyers see the value</p>
                 </div>
               </div>
 
               {formData.price && formData.originalPrice && parseFloat(formData.originalPrice) > parseFloat(formData.price) && (
-                <div className="p-4 bg-green-900/20 border border-green-800 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span className="text-green-400 font-medium">
+                <div className="text-white p-4 bg-netflix-red/20 border border-green-800 rounded-lg">
+                  <div className="text-white flex items-center space-x-2">
+                    <CheckCircle className="text-white h-4 w-4 text-netflix-red" />
+                    <span className="text-white text-netflix-red font-medium">
                       {Math.round(((parseFloat(formData.originalPrice) - parseFloat(formData.price)) / parseFloat(formData.originalPrice)) * 100)}% savings
                     </span>
                   </div>
@@ -384,31 +384,31 @@ export default function AddProduct() {
           </Card>
 
           {/* Images */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <Camera className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <Camera className="text-white h-5 w-5 text-netflix-red" />
                 <span>Photos</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <CardContent className="text-white space-y-6">
+              <div className="text-white grid grid-cols-2 md:grid-cols-4 gap-4">
                 {imageUrls.map((url, index) => (
-                  <div key={index} className="relative group">
+                  <div key={index} className="text-white relative group">
                     <img
                       src={url}
                       alt={`Product ${index + 1}`}
-                      className="w-full h-32 object-cover rounded-lg border border-gray-700"
+                      className="text-white w-full h-32 object-cover rounded-lg border border-gray-700"
                     />
                     <button
                       type="button"
                       onClick={() => removeImage(index)}
-                      className="absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="text-white absolute top-2 right-2 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
                     >
-                      <X className="h-3 w-3" />
+                      <X className="text-white h-3 w-3" />
                     </button>
                     {index === 0 && (
-                      <Badge className="absolute bottom-2 left-2 bg-netflix-red text-white">
+                      <Badge className="text-white absolute bottom-2 left-2 bg-netflix-red text-white">
                         Main
                       </Badge>
                     )}
@@ -416,25 +416,25 @@ export default function AddProduct() {
                 ))}
 
                 {formData.images.length < 8 && (
-                  <label className="w-full h-32 border-2 border-dashed border-gray-700 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-gray-600 transition-colors">
-                    <Upload className="h-6 w-6 text-gray-400 mb-2" />
-                    <span className="text-gray-400 text-sm">Add Photo</span>
+                  <label className="text-white w-full h-32 border-2 border-dashed border-gray-700 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-gray-600 transition-colors">
+                    <Upload className="text-white h-6 w-6 text-white mb-2" />
+                    <span className="text-white text-white text-sm">Add Photo</span>
                     <input
                       type="file"
                       multiple
                       accept="image/*"
                       onChange={handleImageUpload}
-                      className="hidden"
+                      className="text-white hidden"
                     />
                   </label>
                 )}
               </div>
               
-              <div className="text-center">
-                <p className="text-gray-400 text-sm">
+              <div className="text-white text-center">
+                <p className="text-white text-white text-sm">
                   Add up to 8 photos. First photo will be the main image.
                 </p>
-                <p className="text-gray-400 text-xs mt-1">
+                <p className="text-white text-white text-xs mt-1">
                   Supported formats: JPG, PNG, WebP (max 5MB each)
                 </p>
               </div>
@@ -442,17 +442,17 @@ export default function AddProduct() {
           </Card>
 
           {/* Specifications */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <FileText className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <FileText className="text-white h-5 w-5 text-netflix-red" />
                 <span>Specifications (Optional)</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <CardContent className="text-white space-y-6">
+              <div className="text-white grid md:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="weight" className="text-gray-300">Weight</Label>
+                  <Label htmlFor="weight" className="text-white text-white">Weight</Label>
                   <Input
                     id="weight"
                     value={formData.specifications.weight}
@@ -461,12 +461,12 @@ export default function AddProduct() {
                       specifications: { ...formData.specifications, weight: e.target.value }
                     })}
                     placeholder="e.g., 2.5 lbs, 1.2 kg"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="dimensions" className="text-gray-300">Dimensions</Label>
+                  <Label htmlFor="dimensions" className="text-white text-white">Dimensions</Label>
                   <Input
                     id="dimensions"
                     value={formData.specifications.dimensions}
@@ -475,12 +475,12 @@ export default function AddProduct() {
                       specifications: { ...formData.specifications, dimensions: e.target.value }
                     })}
                     placeholder="e.g., 8.5 x 6.2 x 2.4 inches"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="power" className="text-gray-300">Power Requirements</Label>
+                  <Label htmlFor="power" className="text-white text-white">Power Requirements</Label>
                   <Input
                     id="power"
                     value={formData.specifications.powerRequirements}
@@ -489,12 +489,12 @@ export default function AddProduct() {
                       specifications: { ...formData.specifications, powerRequirements: e.target.value }
                     })}
                     placeholder="e.g., 48V Phantom Power, AC/DC"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="connectivity" className="text-gray-300">Connectivity</Label>
+                  <Label htmlFor="connectivity" className="text-white text-white">Connectivity</Label>
                   <Input
                     id="connectivity"
                     value={formData.specifications.connectivity}
@@ -503,12 +503,12 @@ export default function AddProduct() {
                       specifications: { ...formData.specifications, connectivity: e.target.value }
                     })}
                     placeholder="e.g., XLR, USB, Bluetooth, 1/4 jack"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
 
-                <div className="md:col-span-2">
-                  <Label htmlFor="warranty" className="text-gray-300">Warranty Information</Label>
+                <div className="text-white md:col-span-2">
+                  <Label htmlFor="warranty" className="text-white text-white">Warranty Information</Label>
                   <Input
                     id="warranty"
                     value={formData.specifications.warranty}
@@ -517,7 +517,7 @@ export default function AddProduct() {
                       specifications: { ...formData.specifications, warranty: e.target.value }
                     })}
                     placeholder="e.g., 2 years remaining, No warranty"
-                    className="bg-gray-800 border-gray-700 text-white"
+                    className="text-white bg-netflix-dark border-gray-700 text-white"
                   />
                 </div>
               </div>
@@ -525,30 +525,30 @@ export default function AddProduct() {
           </Card>
 
           {/* Location & Shipping */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <MapPin className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <MapPin className="text-white h-5 w-5 text-netflix-red" />
                 <span>Location & Shipping</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="text-white space-y-6">
               <div>
-                <Label htmlFor="location" className="text-gray-300">Location *</Label>
+                <Label htmlFor="location" className="text-white text-white">Location *</Label>
                 <Input
                   id="location"
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                   placeholder="e.g., Los Angeles, CA"
-                  className="bg-gray-800 border-gray-700 text-white"
+                  className="text-white bg-netflix-dark border-gray-700 text-white"
                   required
                 />
               </div>
 
-              <div className="space-y-4">
-                <Label className="text-gray-300">Delivery Options</Label>
+              <div className="text-white space-y-4">
+                <Label className="text-white text-white">Delivery Options</Label>
                 
-                <div className="flex items-center space-x-2">
+                <div className="text-white flex items-center space-x-2">
                   <input
                     type="checkbox"
                     id="localPickup"
@@ -557,12 +557,12 @@ export default function AddProduct() {
                       ...formData,
                       shipping: { ...formData.shipping, localPickup: e.target.checked }
                     })}
-                    className="rounded border-gray-700 bg-gray-800 text-netflix-red focus:ring-netflix-red"
+                    className="text-white rounded border-gray-700 bg-netflix-dark text-netflix-red focus:ring-netflix-red"
                   />
-                  <Label htmlFor="localPickup" className="text-gray-300">Local pickup available</Label>
+                  <Label htmlFor="localPickup" className="text-white text-white">Local pickup available</Label>
                 </div>
 
-                <div className="flex items-center space-x-2">
+                <div className="text-white flex items-center space-x-2">
                   <input
                     type="checkbox"
                     id="shipping"
@@ -571,16 +571,16 @@ export default function AddProduct() {
                       ...formData,
                       shipping: { ...formData.shipping, shipping: e.target.checked }
                     })}
-                    className="rounded border-gray-700 bg-gray-800 text-netflix-red focus:ring-netflix-red"
+                    className="text-white rounded border-gray-700 bg-netflix-dark text-netflix-red focus:ring-netflix-red"
                   />
-                  <Label htmlFor="shipping" className="text-gray-300">Willing to ship</Label>
+                  <Label htmlFor="shipping" className="text-white text-white">Willing to ship</Label>
                 </div>
 
                 {formData.shipping.shipping && (
-                  <div className="ml-6">
-                    <Label htmlFor="shippingCost" className="text-gray-300">Shipping Cost</Label>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <div className="text-white ml-6">
+                    <Label htmlFor="shippingCost" className="text-white text-white">Shipping Cost</Label>
+                    <div className="text-white relative">
+                      <DollarSign className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
                       <Input
                         id="shippingCost"
                         type="number"
@@ -590,7 +590,7 @@ export default function AddProduct() {
                           shipping: { ...formData.shipping, shippingCost: e.target.value }
                         })}
                         placeholder="0.00 (leave empty for calculated shipping)"
-                        className="bg-gray-800 border-gray-700 text-white pl-10"
+                        className="text-white bg-netflix-dark border-gray-700 text-white pl-10"
                       />
                     </div>
                   </div>
@@ -600,69 +600,69 @@ export default function AddProduct() {
           </Card>
 
           {/* Tags */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white flex items-center space-x-2">
-                <Tag className="h-5 w-5 text-netflix-red" />
+              <CardTitle className="text-white text-white flex items-center space-x-2">
+                <Tag className="text-white h-5 w-5 text-netflix-red" />
                 <span>Tags (Optional)</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="flex space-x-2">
+            <CardContent className="text-white space-y-6">
+              <div className="text-white flex space-x-2">
                 <Input
                   value={currentTag}
                   onChange={(e) => setCurrentTag(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
                   placeholder="Add tags to help buyers find your item"
-                  className="bg-gray-800 border-gray-700 text-white"
+                  className="text-white bg-netflix-dark border-gray-700 text-white"
                 />
                 <Button
                   type="button"
                   onClick={addTag}
                   variant="outline"
-                  className="border-gray-700 text-gray-300"
+                  className="text-white border-gray-700 text-white"
                 >
-                  <Plus className="h-4 w-4" />
+                  <Plus className="text-white h-4 w-4" />
                 </Button>
               </div>
 
               {formData.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
+                <div className="text-white flex flex-wrap gap-2">
                   {formData.tags.map((tag, index) => (
                     <Badge
                       key={index}
                       variant="secondary"
-                      className="bg-netflix-red/20 text-netflix-red border-netflix-red/30 flex items-center space-x-1"
+                      className="text-white bg-netflix-red/20 text-netflix-red border-netflix-red/30 flex items-center space-x-1"
                     >
                       <span>{tag}</span>
                       <button
                         type="button"
                         onClick={() => removeTag(tag)}
-                        className="ml-1 hover:text-red-300"
+                        className="text-white ml-1 hover:text-red-300"
                       >
-                        <X className="h-3 w-3" />
+                        <X className="text-white h-3 w-3" />
                       </button>
                     </Badge>
                   ))}
                 </div>
               )}
 
-              <div className="text-sm text-gray-400">
+              <div className="text-white text-sm text-white">
                 <p>Suggested tags: vintage, rare, professional, studio-grade, mint-condition</p>
               </div>
             </CardContent>
           </Card>
 
           {/* Form Validation & Submit */}
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-6">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-6">
               {!isFormValid && (
-                <div className="mb-6 p-4 bg-orange-900/20 border border-orange-800 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <AlertCircle className="h-4 w-4 text-orange-400" />
-                    <span className="text-orange-400 font-medium">Please complete all required fields</span>
+                <div className="text-white mb-6 p-4 bg-orange-900/20 border border-orange-800 rounded-lg">
+                  <div className="text-white flex items-center space-x-2">
+                    <AlertCircle className="text-white h-4 w-4 text-orange-400" />
+                    <span className="text-white text-orange-400 font-medium">Please complete all required fields</span>
                   </div>
-                  <ul className="text-orange-300 text-sm mt-2 ml-6 list-disc">
+                  <ul className="text-white text-orange-300 text-sm mt-2 ml-6 list-disc">
                     {!formData.title && <li>Product title is required</li>}
                     {!formData.description && <li>Description is required</li>}
                     {!formData.price && <li>Price is required</li>}
@@ -673,20 +673,20 @@ export default function AddProduct() {
                 </div>
               )}
 
-              <div className="flex space-x-4">
+              <div className="text-white flex space-x-4">
                 <Button
                   type="submit"
                   disabled={!isFormValid || isSubmitting}
-                  className="flex-1 netflix-button-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="text-white flex-1 netflix-button-primary disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      <div className="text-white animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                       Publishing...
                     </>
                   ) : (
                     <>
-                      <CheckCircle className="h-4 w-4 mr-2" />
+                      <CheckCircle className="text-white h-4 w-4 mr-2" />
                       Publish Listing
                     </>
                   )}
@@ -695,14 +695,14 @@ export default function AddProduct() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="border-gray-700 text-gray-300"
+                  className="text-white border-gray-700 text-white"
                   onClick={() => window.history.back()}
                 >
                   Cancel
                 </Button>
               </div>
 
-              <div className="mt-4 text-center text-sm text-gray-400">
+              <div className="text-white mt-4 text-center text-sm text-white">
                 <p>By publishing, you agree to our Terms of Service and Community Guidelines</p>
               </div>
             </CardContent>

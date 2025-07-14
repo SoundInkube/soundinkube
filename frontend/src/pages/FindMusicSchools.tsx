@@ -428,35 +428,35 @@ export default function FindMusicSchools() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+        <div className="text-white text-center mb-12">
+          <h1 className="text-white text-4xl lg:text-6xl font-bold text-white mb-6">
             Find Music
-            <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+            <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
               Schools
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Discover the perfect music school for your learning journey. From classical conservatories 
             to modern production academies, find expert instruction that matches your goals.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
-          <div className="grid lg:grid-cols-4 gap-4">
+        <div className="text-white bg-netflix-dark/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
+          <div className="text-white grid lg:grid-cols-4 gap-4">
             {/* Search Input */}
             <div>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <div className="text-white relative">
+                <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
                 <Input
                   type="text"
                   placeholder="Search schools..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
+                  className="text-white pl-10 bg-netflix-dark border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
                 />
               </div>
             </div>
@@ -466,7 +466,7 @@ export default function FindMusicSchools() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -481,7 +481,7 @@ export default function FindMusicSchools() {
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {locations.map(location => (
                   <option key={location.id} value={location.id}>
@@ -496,7 +496,7 @@ export default function FindMusicSchools() {
               <select
                 value={lessonType}
                 onChange={(e) => setLessonType(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {lessonTypes.map(type => (
                   <option key={type.id} value={type.id}>
@@ -509,80 +509,80 @@ export default function FindMusicSchools() {
         </div>
 
         {/* Results Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-white">
-            <span className="text-lg font-medium">
+        <div className="text-white flex justify-between items-center mb-6">
+          <div className="text-white text-white">
+            <span className="text-white text-lg font-medium">
               {filteredSchools.length} school{filteredSchools.length !== 1 ? 's' : ''} found
             </span>
           </div>
         </div>
 
         {/* Schools Grid */}
-        <div className="grid lg:grid-cols-1 gap-8 mb-12">
+        <div className="text-white grid lg:grid-cols-1 gap-8 mb-12">
           {filteredSchools.map((school) => (
-            <Card key={school.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-0">
-                <div className="grid lg:grid-cols-3 gap-0">
+            <Card key={school.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-0">
+                <div className="text-white grid lg:grid-cols-3 gap-0">
                   {/* School Image/Logo */}
-                  <div className="bg-gradient-to-br from-netflix-red/20 to-gray-800 p-8 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 mx-auto">
+                  <div className="text-white bg-gradient-to-br from-netflix-red/20 to-gray-800 p-8 flex items-center justify-center">
+                    <div className="text-white text-center">
+                      <div className="text-white w-24 h-24 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 mx-auto">
                         {school.logo}
                       </div>
                       {school.featured && (
-                        <Badge className="bg-yellow-600 text-yellow-100 mb-2">Featured</Badge>
+                        <Badge className="text-white bg-netflix-red text-netflix-red mb-2">Featured</Badge>
                       )}
                       {school.verified && (
-                        <Badge className="bg-red-600 text-white text-xs">Verified</Badge>
+                        <Badge className="text-white bg-red-600 text-white text-xs">Verified</Badge>
                       )}
                     </div>
                   </div>
 
                   {/* School Info */}
-                  <div className="lg:col-span-2 p-6 space-y-4">
+                  <div className="text-white lg:col-span-2 p-6 space-y-4">
                     {/* Header */}
-                    <div className="flex items-start justify-between">
+                    <div className="text-white flex items-start justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold text-white mb-1">{school.name}</h3>
-                        <p className="text-netflix-red font-medium mb-2">{school.tagline}</p>
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
-                          <div className="flex items-center space-x-1">
-                            <MapPin className="h-4 w-4" />
+                        <h3 className="text-white text-2xl font-bold text-white mb-1">{school.name}</h3>
+                        <p className="text-white text-netflix-red font-medium mb-2">{school.tagline}</p>
+                        <div className="text-white flex items-center space-x-4 text-sm text-white">
+                          <div className="text-white flex items-center space-x-1">
+                            <MapPin className="text-white h-4 w-4" />
                             <span>{school.location}</span>
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <GraduationCap className="h-4 w-4" />
+                          <div className="text-white flex items-center space-x-1">
+                            <GraduationCap className="text-white h-4 w-4" />
                             <span>Est. {school.established}</span>
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <Users className="h-4 w-4" />
+                          <div className="text-white flex items-center space-x-1">
+                            <Users className="text-white h-4 w-4" />
                             <span>{school.students} students</span>
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="flex items-center space-x-1 text-yellow-400 mb-1">
-                          <Star className="h-4 w-4 fill-current" />
-                          <span className="text-white font-medium">{school.rating}</span>
-                          <span className="text-gray-400 text-sm">({school.reviews})</span>
+                      <div className="text-white text-right">
+                        <div className="text-white flex items-center space-x-1 text-netflix-red mb-1">
+                          <Star className="text-white h-4 w-4 fill-current" />
+                          <span className="text-white text-white font-medium">{school.rating}</span>
+                          <span className="text-white text-white text-sm">({school.reviews})</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-white text-white leading-relaxed">
                       {school.description}
                     </p>
 
                     {/* Programs Preview */}
                     <div>
-                      <h4 className="text-white font-medium mb-2">Featured Programs:</h4>
-                      <div className="grid md:grid-cols-2 gap-3">
+                      <h4 className="text-white text-white font-medium mb-2">Featured Programs:</h4>
+                      <div className="text-white grid md:grid-cols-2 gap-3">
                         {school.programs.slice(0, 2).map((program, index) => (
-                          <div key={index} className="bg-gray-800/50 p-3 rounded-lg">
-                            <h5 className="text-white font-medium mb-1">{program.name}</h5>
-                            <p className="text-gray-400 text-sm mb-1">{program.priceRange}</p>
-                            <p className="text-gray-400 text-xs">{program.duration} • {program.ageRange}</p>
+                          <div key={index} className="text-white bg-netflix-dark/50 p-3 rounded-lg">
+                            <h5 className="text-white text-white font-medium mb-1">{program.name}</h5>
+                            <p className="text-white text-white text-sm mb-1">{program.priceRange}</p>
+                            <p className="text-white text-white text-xs">{program.duration} • {program.ageRange}</p>
                           </div>
                         ))}
                       </div>
@@ -590,9 +590,9 @@ export default function FindMusicSchools() {
 
                     {/* Specialties */}
                     <div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="text-white flex flex-wrap gap-2">
                         {school.specialties.map((specialty, index) => (
-                          <Badge key={index} variant="secondary" className="bg-gray-800 text-gray-300">
+                          <Badge key={index} variant="secondary" className="text-white bg-netflix-dark text-white">
                             {specialty}
                           </Badge>
                         ))}
@@ -600,30 +600,30 @@ export default function FindMusicSchools() {
                     </div>
 
                     {/* Contact & Actions */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-700">
-                      <div className="flex items-center space-x-4 text-sm text-gray-400">
-                        <div className="flex items-center space-x-1">
-                          <Phone className="h-4 w-4" />
+                    <div className="text-white flex items-center justify-between pt-4 border-t border-gray-700">
+                      <div className="text-white flex items-center space-x-4 text-sm text-white">
+                        <div className="text-white flex items-center space-x-1">
+                          <Phone className="text-white h-4 w-4" />
                           <span>{school.contact.phone}</span>
                         </div>
-                        <div className="flex items-center space-x-1">
-                          <Globe className="h-4 w-4" />
+                        <div className="text-white flex items-center space-x-1">
+                          <Globe className="text-white h-4 w-4" />
                           <span>Website</span>
                         </div>
                       </div>
-                      <div className="flex space-x-3">
+                      <div className="text-white flex space-x-3">
                         <Button
                           onClick={() => handleContactSchool(school.id)}
-                          className="netflix-button-primary"
+                          className="text-white netflix-button-primary"
                         >
-                          <MessageCircle className="h-4 w-4 mr-2" />
+                          <MessageCircle className="text-white h-4 w-4 mr-2" />
                           Contact School
                         </Button>
                         <Button
                           variant="outline"
-                          className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                          className="text-white border-gray-700 text-white hover:bg-netflix-dark"
                         >
-                          <BookOpen className="h-4 w-4 mr-2" />
+                          <BookOpen className="text-white h-4 w-4 mr-2" />
                           View Details
                         </Button>
                       </div>
@@ -636,21 +636,21 @@ export default function FindMusicSchools() {
         </div>
 
         {/* Call-to-Action */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Start Your Musical Journey Today
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Whether you're a complete beginner or looking to refine your skills, the right music school 
             can accelerate your progress and unlock your musical potential.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="netflix-button-primary text-lg px-8 py-3">
+          <div className="text-white flex justify-center space-x-4">
+            <Button className="text-white netflix-button-primary text-lg px-8 py-3">
               Browse All Schools
             </Button>
             <Button 
               variant="outline" 
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 text-lg px-8 py-3"
+              className="text-white border-gray-700 text-white hover:bg-netflix-dark text-lg px-8 py-3"
             >
               Get Recommendations
             </Button>

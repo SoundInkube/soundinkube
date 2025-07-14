@@ -82,85 +82,85 @@ export default function Navbar() {
   const profileDropdownItems = getProfileDropdownItems();
 
   return (
-    <nav className="netflix-navbar border-b border-gray-800">
-      <div className="netflix-container">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-netflix-red">
+    <nav className="text-white netflix-navbar border-b border-gray-800">
+      <div className="text-white netflix-container">
+        <div className="text-white flex justify-between h-16">
+          <div className="text-white flex items-center">
+            <Link to="/" className="text-white flex-shrink-0 flex items-center">
+              <span className="text-white text-2xl font-bold text-netflix-red">
                 SoundInkube
               </span>
             </Link>
             
             {/* Desktop Navigation - Role-based navigation items */}
             {isAuthenticated && navigationItems.length > 0 && (
-              <div className="hidden sm:ml-8 sm:flex sm:space-x-8">
+              <div className="text-white hidden sm:ml-8 sm:flex sm:space-x-8">
                 {navigationItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium group relative"
+                    className="text-white text-white hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium group relative"
                     title={item.description}
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-netflix-red transition-all duration-200 group-hover:w-full"></span>
+                    <span className="text-white absolute bottom-0 left-0 w-0 h-0.5 bg-netflix-red transition-all duration-200 group-hover:w-full"></span>
                   </Link>
                 ))}
               </div>
             )}
           </div>
           
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
+          <div className="text-white hidden sm:ml-6 sm:flex sm:items-center">
             {isAuthenticated ? (
-              <div className="flex items-center space-x-4">
+              <div className="text-white flex items-center space-x-4">
                 <Link
                   to="/messages"
-                  className="p-2 rounded-full hover:bg-gray-800 transition-colors duration-200"
+                  className="text-white p-2 rounded-full hover:bg-netflix-dark transition-colors duration-200"
                 >
-                  <span className="sr-only">Messages</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-300 hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span className="text-white sr-only">Messages</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="text-white h-6 w-6 text-white hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                   </svg>
                 </Link>
 
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="relative hover:bg-gray-800">
-                      <span className="sr-only">User menu</span>
-                      <div className="h-8 w-8 rounded-full bg-netflix-red flex items-center justify-center text-sm font-bold text-white">
+                    <Button variant="ghost" size="icon" className="text-white relative hover:bg-netflix-dark">
+                      <span className="text-white sr-only">User menu</span>
+                      <div className="text-white h-8 w-8 rounded-full bg-netflix-red flex items-center justify-center text-sm font-bold text-white">
                         {user?.email.charAt(0).toUpperCase()}
                       </div>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56 bg-gray-900 border-gray-700">
-                    <DropdownMenuLabel className="text-gray-300">
+                  <DropdownMenuContent align="end" className="text-white w-56 bg-netflix-dark border-gray-700">
+                    <DropdownMenuLabel className="text-white text-white">
                       My Account
-                      <div className="text-xs text-gray-400 mt-1 capitalize">
+                      <div className="text-white text-xs text-white mt-1 capitalize">
                         {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
                       </div>
                     </DropdownMenuLabel>
-                    <DropdownMenuSeparator className="bg-gray-700" />
+                    <DropdownMenuSeparator className="text-white bg-netflix-dark" />
                     
                     {/* Role-specific dropdown items */}
                     {profileDropdownItems.map((item) => (
-                      <DropdownMenuItem key={item.name} asChild className="text-gray-300 hover:bg-gray-800 hover:text-white">
+                      <DropdownMenuItem key={item.name} asChild className="text-white text-white hover:bg-netflix-dark hover:text-white">
                         <Link to={item.href}>{item.name}</Link>
                       </DropdownMenuItem>
                     ))}
                     
-                    <DropdownMenuSeparator className="bg-gray-700" />
-                    <DropdownMenuItem onClick={logout} className="text-gray-300 hover:bg-gray-800 hover:text-white">
+                    <DropdownMenuSeparator className="text-white bg-netflix-dark" />
+                    <DropdownMenuItem onClick={logout} className="text-white text-white hover:bg-netflix-dark hover:text-white">
                       Sign out
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             ) : (
-              <div className="flex items-center space-x-4">
-                <Button variant="ghost" asChild className="text-gray-300 hover:text-white hover:bg-gray-800">
+              <div className="text-white flex items-center space-x-4">
+                <Button variant="ghost" asChild className="text-white text-white hover:text-white hover:bg-netflix-dark">
                   <Link to="/login">Login</Link>
                 </Button>
-                <Button asChild className="netflix-button-primary">
+                <Button asChild className="text-white netflix-button-primary">
                   <Link to="/signup">Sign up</Link>
                 </Button>
               </div>
@@ -168,13 +168,13 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="-mr-2 flex items-center sm:hidden">
+          <div className="text-white -mr-2 flex items-center sm:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+              className="text-white inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-netflix-dark transition-colors duration-200"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="text-white sr-only">Open main menu</span>
               <svg
                 className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
                 xmlns="http://www.w3.org/2000/svg"
@@ -201,12 +201,12 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} sm:hidden bg-black border-t border-gray-800`}>
         {isAuthenticated && navigationItems.length > 0 && (
-          <div className="pt-2 pb-3 space-y-1">
+          <div className="text-white pt-2 pb-3 space-y-1">
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="block pl-3 pr-4 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
+                className="text-white block pl-3 pr-4 py-2 text-base font-medium text-white hover:bg-netflix-dark hover:text-white transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
@@ -216,29 +216,29 @@ export default function Navbar() {
         )}
         
         {isAuthenticated ? (
-          <div className="pt-4 pb-3 border-t border-gray-800">
-            <div className="flex items-center px-4">
-              <div className="flex-shrink-0">
-                <div className="h-10 w-10 rounded-full bg-netflix-red flex items-center justify-center text-sm font-bold text-white">
+          <div className="text-white pt-4 pb-3 border-t border-gray-800">
+            <div className="text-white flex items-center px-4">
+              <div className="text-white flex-shrink-0">
+                <div className="text-white h-10 w-10 rounded-full bg-netflix-red flex items-center justify-center text-sm font-bold text-white">
                   {user?.email.charAt(0).toUpperCase()}
                 </div>
               </div>
-              <div className="ml-3">
-                <div className="text-base font-medium text-white">
+              <div className="text-white ml-3">
+                <div className="text-white text-base font-medium text-white">
                   {user?.email}
                 </div>
-                <div className="text-sm font-medium text-gray-400 capitalize">
+                <div className="text-white text-sm font-medium text-white capitalize">
                   {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
                 </div>
               </div>
             </div>
-            <div className="mt-3 space-y-1">
+            <div className="text-white mt-3 space-y-1">
               {/* Role-specific mobile dropdown items */}
               {profileDropdownItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+                  className="text-white block px-4 py-2 text-base font-medium text-white hover:text-white hover:bg-netflix-dark transition-colors duration-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -249,19 +249,19 @@ export default function Navbar() {
                   logout();
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full text-left block px-4 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+                className="text-white w-full text-left block px-4 py-2 text-base font-medium text-white hover:text-white hover:bg-netflix-dark transition-colors duration-200"
               >
                 Sign out
               </button>
             </div>
           </div>
         ) : (
-          <div className="pt-4 pb-3 border-t border-gray-800">
-            <div className="flex flex-col space-y-2 px-4">
-              <Button variant="ghost" asChild className="justify-center text-gray-300 hover:text-white hover:bg-gray-800">
+          <div className="text-white pt-4 pb-3 border-t border-gray-800">
+            <div className="text-white flex flex-col space-y-2 px-4">
+              <Button variant="ghost" asChild className="text-white justify-center text-white hover:text-white hover:bg-netflix-dark">
                 <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
               </Button>
-              <Button asChild className="justify-center netflix-button-primary">
+              <Button asChild className="text-white justify-center netflix-button-primary">
                 <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>Sign up</Link>
               </Button>
             </div>

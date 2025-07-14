@@ -41,74 +41,74 @@ export default function ArtistManagerDashboard() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="netflix-loading"></div>
+      <div className="text-white flex items-center justify-center min-h-screen">
+        <div className="text-white netflix-loading"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
+      <div className="text-white max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
             Artist Manager Dashboard
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-white text-white text-lg">
             Manage your roster, track revenue, and grow your artists' careers
           </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Artists</CardTitle>
-              <Users className="h-4 w-4 text-netflix-red" />
+        <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Total Artists</CardTitle>
+              <Users className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats?.totalArtists}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{stats?.totalArtists}</div>
+              <p className="text-white text-xs text-white">
                 +2 from last month
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Active Contracts</CardTitle>
-              <Award className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Active Contracts</CardTitle>
+              <Award className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats?.activeContracts}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{stats?.activeContracts}</div>
+              <p className="text-white text-xs text-white">
                 3 expiring soon
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Monthly Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Monthly Revenue</CardTitle>
+              <DollarSign className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">${stats?.monthlyRevenue?.toLocaleString()}</div>
-              <p className="text-xs text-green-400">
+              <div className="text-white text-2xl font-bold text-white">${stats?.monthlyRevenue?.toLocaleString()}</div>
+              <p className="text-white text-xs text-netflix-red">
                 +12.5% from last month
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Upcoming Bookings</CardTitle>
-              <Calendar className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Upcoming Bookings</CardTitle>
+              <Calendar className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats?.upcomingBookings}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{stats?.upcomingBookings}</div>
+              <p className="text-white text-xs text-white">
                 Next: Aug 15, MSG
               </p>
             </CardContent>
@@ -116,8 +116,8 @@ export default function ArtistManagerDashboard() {
         </div>
 
         {/* Main Content Tabs */}
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="netflix-tabs">
+        <Tabs defaultValue="overview" className="text-white space-y-6">
+          <TabsList className="text-white netflix-tabs">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="artists">Artist Roster</TabsTrigger>
             <TabsTrigger value="revenue">Revenue</TabsTrigger>
@@ -126,46 +126,46 @@ export default function ArtistManagerDashboard() {
             <TabsTrigger value="campaigns">Campaigns</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="overview" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <TabsContent value="overview" className="text-white space-y-6">
+            <div className="text-white grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Top Performer */}
-              <Card className="netflix-card">
+              <Card className="text-white netflix-card">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
-                    <Star className="h-5 w-5 text-netflix-red" />
+                  <CardTitle className="text-white text-white flex items-center gap-2">
+                    <Star className="text-white h-5 w-5 text-netflix-red" />
                     Top Performer
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-netflix-red to-red-400 rounded-full flex items-center justify-center">
-                      <Music className="h-8 w-8 text-white" />
+                  <div className="text-white flex items-center space-x-4">
+                    <div className="text-white w-16 h-16 bg-gradient-to-r from-netflix-red to-red-400 rounded-full flex items-center justify-center">
+                      <Music className="text-white h-8 w-8 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">{stats?.topPerformer}</h3>
-                      <p className="text-gray-400">Generated $45,200 this month</p>
-                      <Badge className="netflix-badge-success mt-2">15% Commission</Badge>
+                      <h3 className="text-white text-xl font-bold text-white">{stats?.topPerformer}</h3>
+                      <p className="text-white text-white">Generated $45,200 this month</p>
+                      <Badge className="text-white netflix-badge-success mt-2">15% Commission</Badge>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Quick Actions */}
-              <Card className="netflix-card">
+              <Card className="text-white netflix-card">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
-                    <Target className="h-5 w-5 text-netflix-red" />
+                  <CardTitle className="text-white text-white flex items-center gap-2">
+                    <Target className="text-white h-5 w-5 text-netflix-red" />
                     Quick Actions
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <Button className="w-full netflix-button-primary">
+                <CardContent className="text-white space-y-3">
+                  <Button className="text-white w-full netflix-button-primary">
                     Add New Artist
                   </Button>
-                  <Button variant="outline" className="w-full netflix-button-secondary">
+                  <Button variant="outline" className="text-white w-full netflix-button-secondary">
                     Schedule Meeting
                   </Button>
-                  <Button variant="outline" className="w-full netflix-button-secondary">
+                  <Button variant="outline" className="text-white w-full netflix-button-secondary">
                     Generate Report
                   </Button>
                 </CardContent>
@@ -173,34 +173,34 @@ export default function ArtistManagerDashboard() {
             </div>
 
             {/* Recent Activity */}
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Recent Activity</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardTitle className="text-white text-white">Recent Activity</CardTitle>
+                <CardDescription className="text-white text-white">
                   Latest updates from your artist roster
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <div className="flex-1">
-                      <p className="text-white">Sarah Johnson confirmed for Madison Square Garden</p>
-                      <p className="text-xs text-gray-400">2 hours ago</p>
+                <div className="text-white space-y-4">
+                  <div className="text-white flex items-center space-x-4">
+                    <div className="text-white w-2 h-2 bg-red-600 rounded-full"></div>
+                    <div className="text-white flex-1">
+                      <p className="text-white text-white">Sarah Johnson confirmed for Madison Square Garden</p>
+                      <p className="text-white text-xs text-white">2 hours ago</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <div className="flex-1">
-                      <p className="text-white">New contract signed with Emily Chen</p>
-                      <p className="text-xs text-gray-400">1 day ago</p>
+                  <div className="text-white flex items-center space-x-4">
+                    <div className="text-white w-2 h-2 bg-red-600 rounded-full"></div>
+                    <div className="text-white flex-1">
+                      <p className="text-white text-white">New contract signed with Emily Chen</p>
+                      <p className="text-white text-xs text-white">1 day ago</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <div className="flex-1">
-                      <p className="text-white">Mike Davis contract renewal due in 30 days</p>
-                      <p className="text-xs text-gray-400">3 days ago</p>
+                  <div className="text-white flex items-center space-x-4">
+                    <div className="text-white w-2 h-2 bg-netflix-red rounded-full"></div>
+                    <div className="text-white flex-1">
+                      <p className="text-white text-white">Mike Davis contract renewal due in 30 days</p>
+                      <p className="text-white text-xs text-white">3 days ago</p>
                     </div>
                   </div>
                 </div>
@@ -210,56 +210,56 @@ export default function ArtistManagerDashboard() {
 
           {/* Other tab contents will be implemented in separate components */}
           <TabsContent value="artists">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Artist Roster Management</CardTitle>
+                <CardTitle className="text-white text-white">Artist Roster Management</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Artist roster functionality coming soon...</p>
+                <p className="text-white text-white">Artist roster functionality coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="revenue">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Revenue Analytics</CardTitle>
+                <CardTitle className="text-white text-white">Revenue Analytics</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Revenue tracking functionality coming soon...</p>
+                <p className="text-white text-white">Revenue tracking functionality coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="contracts">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Contract Management</CardTitle>
+                <CardTitle className="text-white text-white">Contract Management</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Contract tracking functionality coming soon...</p>
+                <p className="text-white text-white">Contract tracking functionality coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="bookings">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Booking Management</CardTitle>
+                <CardTitle className="text-white text-white">Booking Management</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Booking coordination functionality coming soon...</p>
+                <p className="text-white text-white">Booking coordination functionality coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="campaigns">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Promotional Campaigns</CardTitle>
+                <CardTitle className="text-white text-white">Promotional Campaigns</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Campaign management functionality coming soon...</p>
+                <p className="text-white text-white">Campaign management functionality coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>

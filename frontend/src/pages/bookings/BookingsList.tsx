@@ -321,8 +321,8 @@ export default function BookingsList() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="text-white flex justify-center items-center h-64">
+          <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       </MainLayout>
     );
@@ -331,9 +331,9 @@ export default function BookingsList() {
   if (error) {
     return (
       <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error}</p>
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error}</p>
           </div>
         </div>
       </MainLayout>
@@ -342,39 +342,39 @@ export default function BookingsList() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">My Bookings</h1>
-          <p className="mt-2 text-gray-300">Manage your bookings for jam pads and courses</p>
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-3xl font-bold text-white">My Bookings</h1>
+          <p className="text-white mt-2 text-white">Manage your bookings for jam pads and courses</p>
         </div>
 
-        <Tabs defaultValue="upcoming" className="w-full">
-          <TabsList className="grid grid-cols-3 mb-8">
-            <TabsTrigger value="upcoming" className="relative">
+        <Tabs defaultValue="upcoming" className="text-white w-full">
+          <TabsList className="text-white grid grid-cols-3 mb-8">
+            <TabsTrigger value="upcoming" className="text-white relative">
               Upcoming
               {upcomingBookings.length > 0 && (
-                <Badge className="ml-2 bg-red-600">{upcomingBookings.length}</Badge>
+                <Badge className="text-white ml-2 bg-red-600">{upcomingBookings.length}</Badge>
               )}
             </TabsTrigger>
             <TabsTrigger value="completed">
               Completed
               {completedBookings.length > 0 && (
-                <Badge className="ml-2" variant="outline">{completedBookings.length}</Badge>
+                <Badge className="text-white ml-2" variant="outline">{completedBookings.length}</Badge>
               )}
             </TabsTrigger>
             <TabsTrigger value="canceled">
               Canceled
               {canceledBookings.length > 0 && (
-                <Badge className="ml-2" variant="outline">{canceledBookings.length}</Badge>
+                <Badge className="text-white ml-2" variant="outline">{canceledBookings.length}</Badge>
               )}
             </TabsTrigger>
           </TabsList>
           
           <TabsContent value="upcoming">
             {upcomingBookings.length === 0 ? (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300">You don't have any upcoming bookings.</p>
-                <div className="mt-4 flex justify-center space-x-4">
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white">You don't have any upcoming bookings.</p>
+                <div className="text-white mt-4 flex justify-center space-x-4">
                   <Button asChild variant="outline">
                     <a href="/jampads">Browse Jam Pads</a>
                   </Button>
@@ -384,7 +384,7 @@ export default function BookingsList() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-6">
+              <div className="text-white grid grid-cols-1 gap-6">
                 {upcomingBookings.map((booking) => (
                   <BookingCard 
                     key={booking.id} 
@@ -399,11 +399,11 @@ export default function BookingsList() {
           
           <TabsContent value="completed">
             {completedBookings.length === 0 ? (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300">You don't have any completed bookings.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white">You don't have any completed bookings.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-6">
+              <div className="text-white grid grid-cols-1 gap-6">
                 {completedBookings.map((booking) => (
                   <BookingCard 
                     key={booking.id} 
@@ -418,11 +418,11 @@ export default function BookingsList() {
           
           <TabsContent value="canceled">
             {canceledBookings.length === 0 ? (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300">You don't have any canceled bookings.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white">You don't have any canceled bookings.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-6">
+              <div className="text-white grid grid-cols-1 gap-6">
                 {canceledBookings.map((booking) => (
                   <BookingCard 
                     key={booking.id} 
@@ -439,27 +439,27 @@ export default function BookingsList() {
 
       {/* Cancel Booking Dialog */}
       <Dialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="text-white sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Cancel Booking</DialogTitle>
             <DialogDescription>
               Are you sure you want to cancel this booking? This action cannot be undone.
             </DialogDescription>
           </DialogHeader>
-          <div className="py-4">
+          <div className="text-white py-4">
             {selectedBooking && (
-              <div className="mb-4 p-4 bg-black rounded-lg">
-                <p className="font-medium">
+              <div className="text-white mb-4 p-4 bg-black rounded-lg">
+                <p className="text-white font-medium">
                   {selectedBooking.type === "jampad" 
                     ? selectedBooking.jampad.name 
                     : selectedBooking.course.name}
                 </p>
-                <p className="text-sm text-gray-300">
-                  <CalendarIcon className="h-4 w-4 inline mr-1" />
+                <p className="text-white text-sm text-white">
+                  <CalendarIcon className="text-white h-4 w-4 inline mr-1" />
                   {format(new Date(selectedBooking.date), "PPP")}
                   {selectedBooking.type === "jampad" && (
-                    <span className="ml-2">
-                      <Clock className="h-4 w-4 inline mr-1" />
+                    <span className="text-white ml-2">
+                      <Clock className="text-white h-4 w-4 inline mr-1" />
                       {selectedBooking.startTime} - {selectedBooking.endTime}
                     </span>
                   )}
@@ -485,41 +485,41 @@ export default function BookingsList() {
 
       {/* Review Dialog */}
       <Dialog open={showReviewDialog} onOpenChange={setShowReviewDialog}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="text-white sm:max-w-[500px]">
           <DialogHeader>
             <DialogTitle>Leave a Review</DialogTitle>
             <DialogDescription>
               Share your experience to help others make informed decisions.
             </DialogDescription>
           </DialogHeader>
-          <div className="py-4">
+          <div className="text-white py-4">
             {selectedBooking && (
-              <div className="mb-4">
-                <p className="font-medium">
+              <div className="text-white mb-4">
+                <p className="text-white font-medium">
                   {selectedBooking.type === "jampad" 
                     ? selectedBooking.jampad.name 
                     : selectedBooking.course.name}
                 </p>
-                <p className="text-sm text-gray-300 mb-4">
+                <p className="text-white text-sm text-white mb-4">
                   {selectedBooking.type === "jampad" 
                     ? `${selectedBooking.jampad.city}` 
                     : `${selectedBooking.course.school.name}, ${selectedBooking.course.school.city}`}
                 </p>
               </div>
             )}
-            <div className="mb-4">
-              <p className="mb-2">Rating</p>
-              <div className="flex space-x-1">
+            <div className="text-white mb-4">
+              <p className="text-white mb-2">Rating</p>
+              <div className="text-white flex space-x-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button 
                     key={star}
                     type="button"
                     onClick={() => setReview({ ...review, rating: star })}
-                    className="focus:outline-none"
+                    className="text-white focus:outline-none"
                   >
                     <Star 
                       className={`h-8 w-8 ${
-                        star <= review.rating ? "text-amber-500 fill-amber-500" : "text-gray-300"
+                        star <= review.rating ? "text-amber-500 fill-amber-500" : "text-white"
                       }`}
                     />
                   </button>
@@ -530,7 +530,7 @@ export default function BookingsList() {
               placeholder="Write your review here..."
               value={review.comment}
               onChange={(e) => setReview({ ...review, comment: e.target.value })}
-              className="min-h-32"
+              className="text-white min-h-32"
             />
           </div>
           <DialogFooter>
@@ -587,15 +587,15 @@ function BookingCard({
   
   return (
     <Card>
-      <CardHeader className="pb-2">
-        <div className="flex justify-between">
-          <Badge variant={getBadgeVariant(booking.status)} className="capitalize">
+      <CardHeader className="text-white pb-2">
+        <div className="text-white flex justify-between">
+          <Badge variant={getBadgeVariant(booking.status)} className="text-white capitalize">
             {booking.status}
           </Badge>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                <MoreHorizontal className="h-4 w-4" />
+              <Button variant="ghost" size="sm" className="text-white h-8 w-8 p-0">
+                <MoreHorizontal className="text-white h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -604,7 +604,7 @@ function BookingCard({
                 View Details
               </DropdownMenuItem>
               {booking.status === "upcoming" && (
-                <DropdownMenuItem onClick={onCancel} className="text-red-600">
+                <DropdownMenuItem onClick={onCancel} className="text-white text-red-600">
                   Cancel Booking
                 </DropdownMenuItem>
               )}
@@ -618,25 +618,25 @@ function BookingCard({
         </div>
       </CardHeader>
       
-      <CardContent className="pb-2">
-        <div className="flex space-x-4">
+      <CardContent className="text-white pb-2">
+        <div className="text-white flex space-x-4">
           {/* Image */}
-          <div className="w-24 h-24 rounded-md overflow-hidden flex-shrink-0">
+          <div className="text-white w-24 h-24 rounded-md overflow-hidden flex-shrink-0">
             <img
               src={booking.type === "jampad" ? booking.jampad.imageUrl : booking.course.imageUrl}
               alt={booking.type === "jampad" ? booking.jampad.name : booking.course.name}
-              className="w-full h-full object-cover"
+              className="text-white w-full h-full object-cover"
             />
           </div>
           
           {/* Details */}
-          <div className="flex-1">
-            <h3 className="font-bold text-lg mb-1">
+          <div className="text-white flex-1">
+            <h3 className="text-white font-bold text-lg mb-1">
               {booking.type === "jampad" ? booking.jampad.name : booking.course.name}
             </h3>
             
-            <div className="flex items-center text-sm text-gray-400 mb-1">
-              <MapPin className="h-4 w-4 mr-1" />
+            <div className="text-white flex items-center text-sm text-white mb-1">
+              <MapPin className="text-white h-4 w-4 mr-1" />
               <span>
                 {booking.type === "jampad" 
                   ? `${booking.jampad.address}, ${booking.jampad.city}`
@@ -645,13 +645,13 @@ function BookingCard({
               </span>
             </div>
             
-            <div className="flex items-center text-sm text-gray-400">
-              <Calendar className="h-4 w-4 mr-1" />
+            <div className="text-white flex items-center text-sm text-white">
+              <Calendar className="text-white h-4 w-4 mr-1" />
               <span>{formattedDate}</span>
               
               {booking.type === "jampad" && (
-                <span className="ml-3 flex items-center">
-                  <Clock className="h-4 w-4 mr-1" />
+                <span className="text-white ml-3 flex items-center">
+                  <Clock className="text-white h-4 w-4 mr-1" />
                   {booking.startTime} - {booking.endTime}
                 </span>
               )}
@@ -659,13 +659,13 @@ function BookingCard({
             
             {/* Course-specific details */}
             {booking.type === "course" && (
-              <div className="mt-2 flex items-center">
-                <Avatar className="h-6 w-6 mr-2">
+              <div className="text-white mt-2 flex items-center">
+                <Avatar className="text-white h-6 w-6 mr-2">
                   <AvatarImage src={booking.course.instructor.imageUrl} alt={booking.course.instructor.name} />
                   <AvatarFallback>{booking.course.instructor.name[0]}</AvatarFallback>
                 </Avatar>
-                <span className="text-sm">{booking.course.instructor.name}</span>
-                <Badge variant="outline" className="ml-3 text-xs">
+                <span className="text-white text-sm">{booking.course.instructor.name}</span>
+                <Badge variant="outline" className="text-white ml-3 text-xs">
                   {booking.course.type} • {booking.course.duration}
                 </Badge>
               </div>
@@ -674,13 +674,13 @@ function BookingCard({
         </div>
       </CardContent>
       
-      <CardFooter className="pt-4 border-t flex justify-between items-center">
+      <CardFooter className="text-white pt-4 border-t flex justify-between items-center">
         <div>
-          <p className="text-sm text-gray-400">Total Price</p>
-          <p className="font-bold text-lg">${booking.totalPrice}</p>
+          <p className="text-white text-sm text-white">Total Price</p>
+          <p className="text-white font-bold text-lg">${booking.totalPrice}</p>
         </div>
         
-        <div className="space-x-2">
+        <div className="text-white space-x-2">
           {booking.status === "upcoming" && (
             <Button variant="outline" size="sm" onClick={onCancel}>
               Cancel

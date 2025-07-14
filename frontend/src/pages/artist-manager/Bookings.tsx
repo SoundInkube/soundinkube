@@ -113,23 +113,23 @@ export default function Bookings() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'Confirmed':
-        return <Badge className="netflix-badge-success flex items-center gap-1">
-          <CheckCircle className="h-3 w-3" />
+        return <Badge className="text-white netflix-badge-success flex items-center gap-1">
+          <CheckCircle className="text-white h-3 w-3" />
           {status}
         </Badge>;
       case 'Pending':
-        return <Badge className="netflix-badge-warning flex items-center gap-1">
-          <Clock className="h-3 w-3" />
+        return <Badge className="text-white netflix-badge-warning flex items-center gap-1">
+          <Clock className="text-white h-3 w-3" />
           {status}
         </Badge>;
       case 'Negotiating':
-        return <Badge className="bg-red-600 text-white flex items-center gap-1">
-          <AlertCircle className="h-3 w-3" />
+        return <Badge className="text-white bg-red-600 text-white flex items-center gap-1">
+          <AlertCircle className="text-white h-3 w-3" />
           {status}
         </Badge>;
       case 'Cancelled':
-        return <Badge className="netflix-badge-error flex items-center gap-1">
-          <AlertCircle className="h-3 w-3" />
+        return <Badge className="text-white netflix-badge-error flex items-center gap-1">
+          <AlertCircle className="text-white h-3 w-3" />
           {status}
         </Badge>;
       default:
@@ -164,74 +164,74 @@ export default function Bookings() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="netflix-loading"></div>
+      <div className="text-white flex items-center justify-center min-h-screen">
+        <div className="text-white netflix-loading"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
+      <div className="text-white max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
             Booking Management
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-white text-white text-lg">
             Coordinate shows, manage venues, and track performance fees
           </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Bookings</CardTitle>
-              <Calendar className="h-4 w-4 text-netflix-red" />
+        <div className="text-white grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Total Bookings</CardTitle>
+              <Calendar className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.total}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{stats.total}</div>
+              <p className="text-white text-xs text-white">
                 This quarter
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Confirmed Shows</CardTitle>
-              <CheckCircle className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Confirmed Shows</CardTitle>
+              <CheckCircle className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.confirmed}</div>
-              <p className="text-xs text-green-400">
+              <div className="text-white text-2xl font-bold text-white">{stats.confirmed}</div>
+              <p className="text-white text-xs text-netflix-red">
                 Ready to perform
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Pending Approval</CardTitle>
-              <Clock className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Pending Approval</CardTitle>
+              <Clock className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.pending}</div>
-              <p className="text-xs text-yellow-400">
+              <div className="text-white text-2xl font-bold text-white">{stats.pending}</div>
+              <p className="text-white text-xs text-netflix-red">
                 Awaiting confirmation
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Confirmed Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Confirmed Revenue</CardTitle>
+              <DollarSign className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">${stats.totalRevenue.toLocaleString()}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">${stats.totalRevenue.toLocaleString()}</div>
+              <p className="text-white text-xs text-white">
                 From confirmed shows
               </p>
             </CardContent>
@@ -239,21 +239,21 @@ export default function Bookings() {
         </div>
 
         {/* Filters and Search */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row gap-4 mb-6">
+          <div className="text-white flex-1">
+            <div className="text-white relative">
+              <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
               <Input
                 placeholder="Search bookings by artist, venue, or type..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 netflix-input"
+                className="text-white pl-10 netflix-input"
               />
             </div>
           </div>
-          <div className="flex gap-3">
+          <div className="text-white flex gap-3">
             <Select value={filterStatus} onValueChange={setFilterStatus}>
-              <SelectTrigger className="w-40 netflix-input">
+              <SelectTrigger className="text-white w-40 netflix-input">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -264,16 +264,16 @@ export default function Bookings() {
                 <SelectItem value="cancelled">Cancelled</SelectItem>
               </SelectContent>
             </Select>
-            <Button className="netflix-button-primary">
-              <Plus className="h-4 w-4 mr-2" />
+            <Button className="text-white netflix-button-primary">
+              <Plus className="text-white h-4 w-4 mr-2" />
               New Booking
             </Button>
           </div>
         </div>
 
         {/* Bookings Table */}
-        <Tabs defaultValue="all" className="space-y-6">
-          <TabsList className="netflix-tabs">
+        <Tabs defaultValue="all" className="text-white space-y-6">
+          <TabsList className="text-white netflix-tabs">
             <TabsTrigger value="all">All Bookings</TabsTrigger>
             <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
             <TabsTrigger value="calendar">Calendar View</TabsTrigger>
@@ -281,67 +281,67 @@ export default function Bookings() {
           </TabsList>
 
           <TabsContent value="all">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Booking Schedule</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardTitle className="text-white text-white">Booking Schedule</CardTitle>
+                <CardDescription className="text-white text-white">
                   Complete overview of all artist bookings and performances
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-gray-700">
-                      <TableHead className="text-gray-300">Artist</TableHead>
-                      <TableHead className="text-gray-300">Venue</TableHead>
-                      <TableHead className="text-gray-300">Date & Time</TableHead>
-                      <TableHead className="text-gray-300">Type</TableHead>
-                      <TableHead className="text-gray-300">Status</TableHead>
-                      <TableHead className="text-gray-300">Fee</TableHead>
-                      <TableHead className="text-gray-300">Location</TableHead>
-                      <TableHead className="text-gray-300">Actions</TableHead>
+                    <TableRow className="text-white border-gray-700">
+                      <TableHead className="text-white text-white">Artist</TableHead>
+                      <TableHead className="text-white text-white">Venue</TableHead>
+                      <TableHead className="text-white text-white">Date & Time</TableHead>
+                      <TableHead className="text-white text-white">Type</TableHead>
+                      <TableHead className="text-white text-white">Status</TableHead>
+                      <TableHead className="text-white text-white">Fee</TableHead>
+                      <TableHead className="text-white text-white">Location</TableHead>
+                      <TableHead className="text-white text-white">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {filteredBookings.map((booking) => (
-                      <TableRow key={booking.id} className="border-gray-700 hover:bg-gray-800/50">
-                        <TableCell className="font-medium text-white">
+                      <TableRow key={booking.id} className="text-white border-gray-700 hover:bg-netflix-dark/50">
+                        <TableCell className="text-white font-medium text-white">
                           {booking.artistName}
                         </TableCell>
-                        <TableCell className="text-gray-300">
+                        <TableCell className="text-white text-white">
                           <div>
-                            <div className="font-medium">{booking.venue}</div>
+                            <div className="text-white font-medium">{booking.venue}</div>
                             {booking.capacity && (
-                              <div className="text-xs text-gray-400">
+                              <div className="text-white text-xs text-white">
                                 Capacity: {booking.capacity.toLocaleString()}
                               </div>
                             )}
                           </div>
                         </TableCell>
-                        <TableCell className="text-gray-300">
+                        <TableCell className="text-white text-white">
                           <div>
                             <div>{new Date(booking.date).toLocaleDateString()}</div>
-                            <div className="text-xs text-gray-400">{booking.time}</div>
+                            <div className="text-white text-xs text-white">{booking.time}</div>
                           </div>
                         </TableCell>
-                        <TableCell className="text-gray-300">
+                        <TableCell className="text-white text-white">
                           {booking.type}
                         </TableCell>
                         <TableCell>
                           {getStatusBadge(booking.status)}
                         </TableCell>
-                        <TableCell className="text-green-400 font-medium">
+                        <TableCell className="text-white text-netflix-red font-medium">
                           ${booking.fee.toLocaleString()}
                         </TableCell>
-                        <TableCell className="text-gray-300">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-3 w-3" />
+                        <TableCell className="text-white text-white">
+                          <div className="text-white flex items-center gap-1">
+                            <MapPin className="text-white h-3 w-3" />
                             {booking.location}
                           </div>
                         </TableCell>
                         <TableCell>
-                          <div className="flex space-x-2">
-                            <Button size="sm" variant="outline" className="netflix-button-secondary">
+                          <div className="text-white flex space-x-2">
+                            <Button size="sm" variant="outline" className="text-white netflix-button-secondary">
                               Edit
                             </Button>
                           </div>
@@ -355,28 +355,28 @@ export default function Bookings() {
           </TabsContent>
 
           <TabsContent value="upcoming">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Upcoming Shows</CardTitle>
+                <CardTitle className="text-white text-white">Upcoming Shows</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   {bookings
                     .filter(b => new Date(b.date) > new Date() && b.status === 'Confirmed')
                     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
                     .map((booking) => (
-                    <div key={booking.id} className="p-4 rounded-lg border border-red-600/30 bg-red-600/5">
-                      <div className="flex items-center justify-between">
+                    <div key={booking.id} className="text-white p-4 rounded-lg border border-red-600/30 bg-red-600/5">
+                      <div className="text-white flex items-center justify-between">
                         <div>
-                          <h3 className="text-white font-medium">{booking.artistName}</h3>
-                          <p className="text-gray-400">{booking.venue} - {booking.type}</p>
-                          <p className="text-sm text-gray-400">{booking.location}</p>
+                          <h3 className="text-white text-white font-medium">{booking.artistName}</h3>
+                          <p className="text-white text-white">{booking.venue} - {booking.type}</p>
+                          <p className="text-white text-sm text-white">{booking.location}</p>
                         </div>
-                        <div className="text-right">
-                          <p className="text-white font-medium">
+                        <div className="text-white text-right">
+                          <p className="text-white text-white font-medium">
                             {new Date(booking.date).toLocaleDateString()} at {booking.time}
                           </p>
-                          <p className="text-green-400 font-bold">${booking.fee.toLocaleString()}</p>
+                          <p className="text-white text-netflix-red font-bold">${booking.fee.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>
@@ -387,23 +387,23 @@ export default function Bookings() {
           </TabsContent>
 
           <TabsContent value="calendar">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Calendar View</CardTitle>
+                <CardTitle className="text-white text-white">Calendar View</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Calendar integration coming soon...</p>
+                <p className="text-white text-white">Calendar integration coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="venues">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Venue Management</CardTitle>
+                <CardTitle className="text-white text-white">Venue Management</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Venue database and management tools coming soon...</p>
+                <p className="text-white text-white">Venue database and management tools coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>

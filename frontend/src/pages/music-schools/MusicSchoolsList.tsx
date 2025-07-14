@@ -223,19 +223,19 @@ export default function MusicSchoolsList() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">Music Schools</h1>
-            <p className="mt-2 text-gray-300">Find music lessons and courses to develop your skills</p>
+            <h1 className="text-white text-3xl font-bold text-white">Music Schools</h1>
+            <p className="text-white mt-2 text-white">Find music lessons and courses to develop your skills</p>
           </div>
         </div>
 
         {/* Filters */}
-        <div className="bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="text-white bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
+          <div className="text-white grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="search" className="text-white block text-sm font-medium text-white mb-1">
                 Search
               </label>
               <Input
@@ -247,7 +247,7 @@ export default function MusicSchoolsList() {
             </div>
             
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="city" className="text-white block text-sm font-medium text-white mb-1">
                 City
               </label>
               <Select value={selectedCity} onValueChange={setSelectedCity}>
@@ -266,7 +266,7 @@ export default function MusicSchoolsList() {
             </div>
             
             <div>
-              <label htmlFor="sort" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="sort" className="text-white block text-sm font-medium text-white mb-1">
                 Sort By
               </label>
               <Select value={sortBy} onValueChange={setSortBy}>
@@ -283,13 +283,13 @@ export default function MusicSchoolsList() {
           </div>
 
           {/* Categories */}
-          <div className="mt-4 border-t pt-4">
-            <label className="block text-sm font-medium text-white mb-2">
+          <div className="text-white mt-4 border-t pt-4">
+            <label className="text-white block text-sm font-medium text-white mb-2">
               Filter by Instrument/Category
             </label>
-            <div className="flex flex-wrap gap-2">
+            <div className="text-white flex flex-wrap gap-2">
               {allCategories.map(category => (
-                <div key={category} className="flex items-center space-x-2">
+                <div key={category} className="text-white flex items-center space-x-2">
                   <Checkbox 
                     id={`category-${category}`}
                     checked={selectedCategories.includes(category)}
@@ -297,7 +297,7 @@ export default function MusicSchoolsList() {
                   />
                   <Label 
                     htmlFor={`category-${category}`}
-                    className="text-sm cursor-pointer"
+                    className="text-white text-sm cursor-pointer"
                   >
                     {category}
                   </Label>
@@ -309,24 +309,24 @@ export default function MusicSchoolsList() {
 
         {/* Results */}
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="text-white flex justify-center items-center h-64">
+            <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
           </div>
         ) : error ? (
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error}</p>
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error}</p>
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-white text-sm text-white mb-4">
               {filteredAndSortedSchools.length} {filteredAndSortedSchools.length === 1 ? "school" : "schools"} found
             </p>
             
             {/* Featured Schools */}
             {filteredAndSortedSchools.some(school => school.featured) && (
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Featured Schools</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="text-white mb-8">
+                <h2 className="text-white text-xl font-semibold mb-4">Featured Schools</h2>
+                <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredAndSortedSchools
                     .filter(school => school.featured)
                     .map((school) => (
@@ -337,7 +337,7 @@ export default function MusicSchoolsList() {
             )}
 
             {/* All Schools */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredAndSortedSchools
                 .filter(school => !school.featured || !filteredAndSortedSchools.some(s => s.featured))
                 .map((school) => (
@@ -346,8 +346,8 @@ export default function MusicSchoolsList() {
             </div>
             
             {filteredAndSortedSchools.length === 0 && (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300">No music schools found matching your criteria. Try adjusting your filters.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white">No music schools found matching your criteria. Try adjusting your filters.</p>
               </div>
             )}
           </>
@@ -361,59 +361,59 @@ export default function MusicSchoolsList() {
 function MusicSchoolCard({ school }: { school: MusicSchool }) {
   return (
     <Link to={`/music-schools/${school.id}`}>
-      <Card className="h-full overflow-hidden hover:shadow-md transition-transform hover:-translate-y-1">
-        <div className="h-48 overflow-hidden">
+      <Card className="text-white h-full overflow-hidden hover:shadow-md transition-transform hover:-translate-y-1">
+        <div className="text-white h-48 overflow-hidden">
           <img
             src={school.imageUrl}
             alt={school.name}
-            className="w-full h-full object-cover"
+            className="text-white w-full h-full object-cover"
           />
         </div>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-xl">{school.name}</CardTitle>
-          <div className="flex items-center text-gray-400 text-sm">
-            <MapPin className="h-4 w-4 mr-1" />
+        <CardHeader className="text-white pb-2">
+          <CardTitle className="text-white text-xl">{school.name}</CardTitle>
+          <div className="text-white flex items-center text-white text-sm">
+            <MapPin className="text-white h-4 w-4 mr-1" />
             <span>{school.city}</span>
-            <div className="ml-4 flex items-center">
-              <Star className="h-4 w-4 mr-1 text-amber-500" />
+            <div className="text-white ml-4 flex items-center">
+              <Star className="text-white h-4 w-4 mr-1 text-amber-500" />
               <span>{school.rating} ({school.reviewCount})</span>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="pb-2">
-          <p className="text-gray-300 line-clamp-2 mb-2">{school.description}</p>
+        <CardContent className="text-white pb-2">
+          <p className="text-white text-white line-clamp-2 mb-2">{school.description}</p>
           
-          <div className="mt-2">
-            <div className="flex flex-wrap gap-1">
+          <div className="text-white mt-2">
+            <div className="text-white flex flex-wrap gap-1">
               {school.categories.slice(0, 4).map((category, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">
-                  <Music className="h-3 w-3 mr-1" />
+                <Badge key={index} variant="secondary" className="text-white text-xs">
+                  <Music className="text-white h-3 w-3 mr-1" />
                   {category}
                 </Badge>
               ))}
               {school.categories.length > 4 && (
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="secondary" className="text-white text-xs">
                   +{school.categories.length - 4} more
                 </Badge>
               )}
             </div>
           </div>
         </CardContent>
-        <CardFooter className="pt-2 border-t">
-          <div className="w-full">
-            <h4 className="text-sm font-medium mb-2 flex items-center">
-              <GraduationCap className="h-4 w-4 mr-1 text-gray-400" />
+        <CardFooter className="text-white pt-2 border-t">
+          <div className="text-white w-full">
+            <h4 className="text-white text-sm font-medium mb-2 flex items-center">
+              <GraduationCap className="text-white h-4 w-4 mr-1 text-white" />
               Sample Courses
             </h4>
-            <ul className="text-sm space-y-1">
+            <ul className="text-white text-sm space-y-1">
               {school.courses.slice(0, 2).map(course => (
-                <li key={course.id} className="flex justify-between">
+                <li key={course.id} className="text-white flex justify-between">
                   <span>{course.name} ({course.type})</span>
-                  <span className="font-medium">${course.price}</span>
+                  <span className="text-white font-medium">${course.price}</span>
                 </li>
               ))}
               {school.courses.length > 2 && (
-                <li className="text-red-600 text-xs font-medium">
+                <li className="text-white text-red-600 text-xs font-medium">
                   + {school.courses.length - 2} more courses
                 </li>
               )}

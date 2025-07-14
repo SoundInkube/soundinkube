@@ -107,13 +107,13 @@ export default function Campaigns() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'Active':
-        return <Badge className="netflix-badge-success">{status}</Badge>;
+        return <Badge className="text-white netflix-badge-success">{status}</Badge>;
       case 'Completed':
-        return <Badge className="bg-red-600 text-white">{status}</Badge>;
+        return <Badge className="text-white bg-red-600 text-white">{status}</Badge>;
       case 'Paused':
-        return <Badge className="netflix-badge-warning">{status}</Badge>;
+        return <Badge className="text-white netflix-badge-warning">{status}</Badge>;
       case 'Draft':
-        return <Badge className="bg-gray-600 text-white">{status}</Badge>;
+        return <Badge className="text-white bg-netflix-dark text-white">{status}</Badge>;
       default:
         return <Badge>{status}</Badge>;
     }
@@ -146,76 +146,76 @@ export default function Campaigns() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="netflix-loading"></div>
+      <div className="text-white flex items-center justify-center min-h-screen">
+        <div className="text-white netflix-loading"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-6">
+      <div className="text-white max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
+        <div className="text-white mb-8">
+          <h1 className="text-white text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2">
             Promotional Campaigns
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-white text-white text-lg">
             Manage marketing campaigns, track performance, and grow your artists' reach
           </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Active Campaigns</CardTitle>
-              <Target className="h-4 w-4 text-netflix-red" />
+        <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Active Campaigns</CardTitle>
+              <Target className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.active}</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{stats.active}</div>
+              <p className="text-white text-xs text-white">
                 Out of {stats.total} total
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Reach</CardTitle>
-              <Eye className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Total Reach</CardTitle>
+              <Eye className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.totalReach.toLocaleString()}</div>
-              <p className="text-xs text-green-400">
+              <div className="text-white text-2xl font-bold text-white">{stats.totalReach.toLocaleString()}</div>
+              <p className="text-white text-xs text-netflix-red">
                 Across all platforms
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Budget Utilization</CardTitle>
-              <DollarSign className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Budget Utilization</CardTitle>
+              <DollarSign className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">
+              <div className="text-white text-2xl font-bold text-white">
                 {((stats.totalSpent / stats.totalBudget) * 100).toFixed(0)}%
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-white text-xs text-white">
                 ${stats.totalSpent.toLocaleString()} / ${stats.totalBudget.toLocaleString()}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Avg Engagement</CardTitle>
-              <TrendingUp className="h-4 w-4 text-netflix-red" />
+          <Card className="text-white netflix-card">
+            <CardHeader className="text-white flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-white text-sm font-medium text-white">Avg Engagement</CardTitle>
+              <TrendingUp className="text-white h-4 w-4 text-netflix-red" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.avgEngagement.toFixed(1)}%</div>
-              <p className="text-xs text-gray-400">
+              <div className="text-white text-2xl font-bold text-white">{stats.avgEngagement.toFixed(1)}%</div>
+              <p className="text-white text-xs text-white">
                 Engagement rate
               </p>
             </CardContent>
@@ -223,21 +223,21 @@ export default function Campaigns() {
         </div>
 
         {/* Filters and Search */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row gap-4 mb-6">
+          <div className="text-white flex-1">
+            <div className="text-white relative">
+              <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
               <Input
                 placeholder="Search campaigns by artist, name, or platform..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 netflix-input"
+                className="text-white pl-10 netflix-input"
               />
             </div>
           </div>
-          <div className="flex gap-3">
+          <div className="text-white flex gap-3">
             <Select value={filterStatus} onValueChange={setFilterStatus}>
-              <SelectTrigger className="w-40 netflix-input">
+              <SelectTrigger className="text-white w-40 netflix-input">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -248,16 +248,16 @@ export default function Campaigns() {
                 <SelectItem value="draft">Draft</SelectItem>
               </SelectContent>
             </Select>
-            <Button className="netflix-button-primary">
-              <Plus className="h-4 w-4 mr-2" />
+            <Button className="text-white netflix-button-primary">
+              <Plus className="text-white h-4 w-4 mr-2" />
               New Campaign
             </Button>
           </div>
         </div>
 
         {/* Campaigns Grid */}
-        <Tabs defaultValue="grid" className="space-y-6">
-          <TabsList className="netflix-tabs">
+        <Tabs defaultValue="grid" className="text-white space-y-6">
+          <TabsList className="text-white netflix-tabs">
             <TabsTrigger value="grid">Campaign Grid</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="performance">Performance</TabsTrigger>
@@ -265,55 +265,55 @@ export default function Campaigns() {
           </TabsList>
 
           <TabsContent value="grid">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCampaigns.map((campaign) => (
-                <Card key={campaign.id} className="netflix-card">
+                <Card key={campaign.id} className="text-white netflix-card">
                   <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-white text-lg">{campaign.campaignName}</CardTitle>
+                    <div className="text-white flex items-center justify-between">
+                      <CardTitle className="text-white text-white text-lg">{campaign.campaignName}</CardTitle>
                       {getStatusBadge(campaign.status)}
                     </div>
-                    <CardDescription className="text-gray-400">
+                    <CardDescription className="text-white text-white">
                       {campaign.artistName} • {campaign.platform}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="text-white space-y-4">
                     {/* Budget Progress */}
                     <div>
-                      <div className="flex justify-between text-sm mb-2">
-                        <span className="text-gray-400">Budget Used</span>
-                        <span className="text-white">
+                      <div className="text-white flex justify-between text-sm mb-2">
+                        <span className="text-white text-white">Budget Used</span>
+                        <span className="text-white text-white">
                           ${campaign.spent.toLocaleString()} / ${campaign.budget.toLocaleString()}
                         </span>
                       </div>
-                      <Progress value={(campaign.spent / campaign.budget) * 100} className="h-2" />
+                      <Progress value={(campaign.spent / campaign.budget) * 100} className="text-white h-2" />
                     </div>
 
                     {/* Metrics */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-white">{campaign.reach.toLocaleString()}</div>
-                        <div className="text-xs text-gray-400">Reach</div>
+                    <div className="text-white grid grid-cols-2 gap-4">
+                      <div className="text-white text-center">
+                        <div className="text-white text-xl font-bold text-white">{campaign.reach.toLocaleString()}</div>
+                        <div className="text-white text-xs text-white">Reach</div>
                       </div>
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-white">{campaign.engagement}%</div>
-                        <div className="text-xs text-gray-400">Engagement</div>
+                      <div className="text-white text-center">
+                        <div className="text-white text-xl font-bold text-white">{campaign.engagement}%</div>
+                        <div className="text-white text-xs text-white">Engagement</div>
                       </div>
                     </div>
 
                     {/* Date Range */}
-                    <div className="text-sm text-gray-400">
+                    <div className="text-white text-sm text-white">
                       {new Date(campaign.startDate).toLocaleDateString()} - {new Date(campaign.endDate).toLocaleDateString()}
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex space-x-2">
-                      <Button size="sm" variant="outline" className="flex-1 netflix-button-secondary">
-                        <BarChart3 className="h-4 w-4 mr-1" />
+                    <div className="text-white flex space-x-2">
+                      <Button size="sm" variant="outline" className="text-white flex-1 netflix-button-secondary">
+                        <BarChart3 className="text-white h-4 w-4 mr-1" />
                         Analytics
                       </Button>
-                      <Button size="sm" variant="outline" className="flex-1 netflix-button-secondary">
-                        <Share2 className="h-4 w-4 mr-1" />
+                      <Button size="sm" variant="outline" className="text-white flex-1 netflix-button-secondary">
+                        <Share2 className="text-white h-4 w-4 mr-1" />
                         Share
                       </Button>
                     </div>
@@ -324,37 +324,37 @@ export default function Campaigns() {
           </TabsContent>
 
           <TabsContent value="analytics">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Campaign Analytics</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardTitle className="text-white text-white">Campaign Analytics</CardTitle>
+                <CardDescription className="text-white text-white">
                   Detailed performance metrics and insights
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Advanced analytics dashboard coming soon...</p>
+                <p className="text-white text-white">Advanced analytics dashboard coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="performance">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Performance Metrics</CardTitle>
+                <CardTitle className="text-white text-white">Performance Metrics</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Performance tracking tools coming soon...</p>
+                <p className="text-white text-white">Performance tracking tools coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="calendar">
-            <Card className="netflix-card">
+            <Card className="text-white netflix-card">
               <CardHeader>
-                <CardTitle className="text-white">Campaign Calendar</CardTitle>
+                <CardTitle className="text-white text-white">Campaign Calendar</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400">Campaign scheduling calendar coming soon...</p>
+                <p className="text-white text-white">Campaign scheduling calendar coming soon...</p>
               </CardContent>
             </Card>
           </TabsContent>

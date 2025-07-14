@@ -41,7 +41,7 @@ const platformConfig = {
   appleMusic: {
     name: 'Apple Music',
     icon: Music2,
-    color: 'bg-gray-800',
+    color: 'bg-netflix-dark',
     placeholder: 'https://music.apple.com/artist/your-name/id',
     example: 'https://music.apple.com/us/artist/john-smith/123456789',
     description: 'Your Apple Music artist profile'
@@ -183,8 +183,8 @@ export const SocialMediaEditor: React.FC<SocialMediaEditorProps> = ({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Music className="h-5 w-5" />
+        <CardTitle className="text-white flex items-center gap-2">
+          <Music className="text-white h-5 w-5" />
           Social Media Profiles
         </CardTitle>
         <CardDescription>
@@ -192,7 +192,7 @@ export const SocialMediaEditor: React.FC<SocialMediaEditorProps> = ({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="text-white space-y-6">
           {Object.entries(platformConfig).map(([key, config]) => {
             const Icon = config.icon;
             const fieldKey = `${key}Url` as keyof SocialMediaData;
@@ -201,15 +201,15 @@ export const SocialMediaEditor: React.FC<SocialMediaEditorProps> = ({
             const helpVisible = showHelp[key];
 
             return (
-              <div key={key} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor={key} className="flex items-center gap-2">
+              <div key={key} className="text-white space-y-2">
+                <div className="text-white flex items-center justify-between">
+                  <Label htmlFor={key} className="text-white flex items-center gap-2">
                     <div className={`p-1 rounded ${config.color} text-white`}>
-                      <Icon className="h-4 w-4" />
+                      <Icon className="text-white h-4 w-4" />
                     </div>
                     {config.name}
                     {value && (
-                      <Badge variant="secondary" className="ml-2">
+                      <Badge variant="secondary" className="text-white ml-2">
                         Connected
                       </Badge>
                     )}
@@ -225,11 +225,11 @@ export const SocialMediaEditor: React.FC<SocialMediaEditorProps> = ({
                 </div>
                 
                 {helpVisible && (
-                  <div className="bg-muted p-3 rounded-md text-sm space-y-2">
+                  <div className="text-white bg-muted p-3 rounded-md text-sm space-y-2">
                     <p>{config.description}</p>
                     <p><strong>Example:</strong> {config.example}</p>
                     <p><strong>How to find your URL:</strong></p>
-                    <ul className="list-disc list-inside space-y-1 ml-2">
+                    <ul className="text-white list-disc list-inside space-y-1 ml-2">
                       {key === 'spotify' && (
                         <>
                           <li>Go to your Spotify artist profile</li>
@@ -275,13 +275,13 @@ export const SocialMediaEditor: React.FC<SocialMediaEditorProps> = ({
                 />
                 
                 {error && (
-                  <p className="text-sm text-red-500">{error}</p>
+                  <p className="text-white text-sm text-red-500">{error}</p>
                 )}
               </div>
             );
           })}
 
-          <div className="flex justify-end pt-4">
+          <div className="text-white flex justify-end pt-4">
             <Button type="submit" disabled={isLoading}>
               {isLoading ? 'Saving...' : 'Save Social Media Profiles'}
             </Button>

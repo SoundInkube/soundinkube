@@ -378,17 +378,17 @@ export default function ScoutArtists() {
     });
 
   const getPotentialColor = (score: number) => {
-    if (score >= 8.5) return 'text-green-400 bg-green-400/10';
-    if (score >= 7.0) return 'text-yellow-400 bg-yellow-400/10';
+    if (score >= 8.5) return 'text-netflix-red bg-netflix-red/10';
+    if (score >= 7.0) return 'text-netflix-red bg-netflix-red/10';
     return 'text-orange-400 bg-orange-400/10';
   };
 
   const getRiskColor = (risk: string) => {
     switch (risk) {
-      case 'low': return 'text-green-400 bg-green-400/10';
-      case 'medium': return 'text-yellow-400 bg-yellow-400/10';
+      case 'low': return 'text-netflix-red bg-netflix-red/10';
+      case 'medium': return 'text-netflix-red bg-netflix-red/10';
       case 'high': return 'text-red-400 bg-red-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      default: return 'text-white bg-netflix-dark/10';
     }
   };
 
@@ -418,40 +418,40 @@ export default function ScoutArtists() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+        <div className="text-white text-center mb-12">
+          <h1 className="text-white text-4xl lg:text-6xl font-bold text-white mb-6">
             Scout
-            <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+            <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
               Artists
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Discover emerging talent before they break into the mainstream. Use advanced analytics 
             and trend data to identify the next generation of music stars.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
-          <div className="grid lg:grid-cols-4 gap-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+        <div className="text-white bg-netflix-dark/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
+          <div className="text-white grid lg:grid-cols-4 gap-4">
+            <div className="text-white relative">
+              <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
               <Input
                 type="text"
                 placeholder="Search artists..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
+                className="text-white pl-10 bg-netflix-dark border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
               />
             </div>
 
             <select
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
-              className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+              className="text-white px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
             >
               {genres.map(genre => (
                 <option key={genre.id} value={genre.id}>
@@ -463,7 +463,7 @@ export default function ScoutArtists() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+              className="text-white px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
             >
               {locations.map(location => (
                 <option key={location.id} value={location.id}>
@@ -475,7 +475,7 @@ export default function ScoutArtists() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+              className="text-white px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
             >
               {sortOptions.map(option => (
                 <option key={option.id} value={option.id}>
@@ -487,62 +487,62 @@ export default function ScoutArtists() {
         </div>
 
         {/* Results Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-white">
-            <span className="text-lg font-medium">
+        <div className="text-white flex justify-between items-center mb-6">
+          <div className="text-white text-white">
+            <span className="text-white text-lg font-medium">
               {filteredArtists.length} artist{filteredArtists.length !== 1 ? 's' : ''} found
             </span>
           </div>
-          <div className="flex items-center space-x-2 text-sm text-gray-400">
-            <SortAsc className="h-4 w-4" />
+          <div className="text-white flex items-center space-x-2 text-sm text-white">
+            <SortAsc className="text-white h-4 w-4" />
             <span>Sorted by {sortOptions.find(opt => opt.id === sortBy)?.name}</span>
           </div>
         </div>
 
         {/* Artists Grid */}
-        <div className="grid lg:grid-cols-1 gap-6 mb-12">
+        <div className="text-white grid lg:grid-cols-1 gap-6 mb-12">
           {filteredArtists.map((artist) => (
-            <Card key={artist.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="grid lg:grid-cols-4 gap-6">
+            <Card key={artist.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-6">
+                <div className="text-white grid lg:grid-cols-4 gap-6">
                   {/* Artist Info */}
-                  <div className="lg:col-span-1">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="text-white lg:col-span-1">
+                    <div className="text-white flex items-center space-x-4 mb-4">
+                      <div className="text-white w-16 h-16 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold text-xl">
                         {artist.avatar}
                       </div>
                       <div>
-                        <div className="flex items-center space-x-2">
-                          <h3 className="text-xl font-bold text-white">{artist.stageName}</h3>
+                        <div className="text-white flex items-center space-x-2">
+                          <h3 className="text-white text-xl font-bold text-white">{artist.stageName}</h3>
                           {artist.trending && (
-                            <Badge className="bg-netflix-red/20 text-netflix-red text-xs">
-                              <TrendingUp className="h-3 w-3 mr-1" />
+                            <Badge className="text-white bg-netflix-red/20 text-netflix-red text-xs">
+                              <TrendingUp className="text-white h-3 w-3 mr-1" />
                               TRENDING
                             </Badge>
                           )}
                         </div>
-                        <p className="text-gray-400">{artist.name}</p>
-                        <div className="flex items-center space-x-2 mt-1">
-                          <Badge variant="secondary" className="bg-gray-800 text-gray-300 text-xs">
+                        <p className="text-white text-white">{artist.name}</p>
+                        <div className="text-white flex items-center space-x-2 mt-1">
+                          <Badge variant="secondary" className="text-white bg-netflix-dark text-white text-xs">
                             {artist.genre}
                           </Badge>
-                          <div className="flex items-center space-x-1 text-xs text-gray-400">
-                            <MapPin className="h-3 w-3" />
+                          <div className="text-white flex items-center space-x-1 text-xs text-white">
+                            <MapPin className="text-white h-3 w-3" />
                             <span>{artist.location}</span>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-400">Potential Score</span>
+                    <div className="text-white space-y-2">
+                      <div className="text-white flex items-center justify-between text-sm">
+                        <span className="text-white text-white">Potential Score</span>
                         <Badge className={`text-xs ${getPotentialColor(artist.potentialScore)}`}>
                           {artist.potentialScore}/10
                         </Badge>
                       </div>
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-400">Risk Level</span>
+                      <div className="text-white flex items-center justify-between text-sm">
+                        <span className="text-white text-white">Risk Level</span>
                         <Badge className={`text-xs ${getRiskColor(artist.riskLevel)}`}>
                           {artist.riskLevel.toUpperCase()}
                         </Badge>
@@ -551,109 +551,109 @@ export default function ScoutArtists() {
                   </div>
 
                   {/* Stats */}
-                  <div className="lg:col-span-1">
-                    <h4 className="text-white font-medium mb-3">Performance Metrics</h4>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Monthly Listeners</span>
-                        <span className="text-white font-medium">{formatNumber(artist.stats.monthlyListeners)}</span>
+                  <div className="text-white lg:col-span-1">
+                    <h4 className="text-white text-white font-medium mb-3">Performance Metrics</h4>
+                    <div className="text-white space-y-3">
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Monthly Listeners</span>
+                        <span className="text-white text-white font-medium">{formatNumber(artist.stats.monthlyListeners)}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Growth Rate</span>
-                        <span className="text-green-400 font-medium">+{artist.stats.growthRate}%</span>
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Growth Rate</span>
+                        <span className="text-white text-netflix-red font-medium">+{artist.stats.growthRate}%</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Engagement</span>
-                        <span className="text-white font-medium">{artist.stats.engagement}%</span>
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Engagement</span>
+                        <span className="text-white text-white font-medium">{artist.stats.engagement}%</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Total Streams</span>
-                        <span className="text-white font-medium">{formatNumber(artist.stats.totalStreams)}</span>
+                      <div className="text-white flex justify-between">
+                        <span className="text-white text-white">Total Streams</span>
+                        <span className="text-white text-white font-medium">{formatNumber(artist.stats.totalStreams)}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Recent Tracks */}
-                  <div className="lg:col-span-1">
-                    <h4 className="text-white font-medium mb-3">Recent Tracks</h4>
-                    <div className="space-y-2">
+                  <div className="text-white lg:col-span-1">
+                    <h4 className="text-white text-white font-medium mb-3">Recent Tracks</h4>
+                    <div className="text-white space-y-2">
                       {artist.recentTracks.slice(0, 3).map((track, index) => (
-                        <div key={index} className="flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
+                        <div key={index} className="text-white flex items-center justify-between">
+                          <div className="text-white flex items-center space-x-2">
                             <button
                               onClick={() => toggleAudioPlay(`${artist.id}-${index}`)}
-                              className="w-6 h-6 bg-netflix-red rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                              className="text-white w-6 h-6 bg-netflix-red rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
                             >
                               {isPlaying === `${artist.id}-${index}` ? (
-                                <Pause className="h-3 w-3 text-white" />
+                                <Pause className="text-white h-3 w-3 text-white" />
                               ) : (
-                                <Play className="h-3 w-3 text-white ml-0.5" />
+                                <Play className="text-white h-3 w-3 text-white ml-0.5" />
                               )}
                             </button>
                             <div>
-                              <p className="text-white text-sm font-medium">{track.title}</p>
-                              <p className="text-gray-400 text-xs">{track.releaseDate}</p>
+                              <p className="text-white text-white text-sm font-medium">{track.title}</p>
+                              <p className="text-white text-white text-xs">{track.releaseDate}</p>
                             </div>
                           </div>
-                          <span className="text-gray-400 text-xs">{formatNumber(track.streams)}</span>
+                          <span className="text-white text-white text-xs">{formatNumber(track.streams)}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="lg:col-span-1">
-                    <h4 className="text-white font-medium mb-3">Scout Actions</h4>
-                    <div className="space-y-2">
+                  <div className="text-white lg:col-span-1">
+                    <h4 className="text-white text-white font-medium mb-3">Scout Actions</h4>
+                    <div className="text-white space-y-2">
                       <Button
                         onClick={() => handleContactArtist(artist.id)}
-                        className="w-full netflix-button-primary text-sm"
+                        className="text-white w-full netflix-button-primary text-sm"
                       >
-                        <MessageCircle className="h-4 w-4 mr-2" />
+                        <MessageCircle className="text-white h-4 w-4 mr-2" />
                         Contact Artist
                       </Button>
                       <Button
                         onClick={() => handleAddToWatchlist(artist.id)}
                         variant="outline"
-                        className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm"
+                        className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm"
                       >
-                        <Heart className="h-4 w-4 mr-2" />
+                        <Heart className="text-white h-4 w-4 mr-2" />
                         Add to Watchlist
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm"
+                        className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm"
                       >
-                        <BarChart3 className="h-4 w-4 mr-2" />
+                        <BarChart3 className="text-white h-4 w-4 mr-2" />
                         Full Analytics
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 text-sm"
+                        className="text-white w-full border-gray-700 text-white hover:bg-netflix-dark text-sm"
                       >
-                        <Eye className="h-4 w-4 mr-2" />
+                        <Eye className="text-white h-4 w-4 mr-2" />
                         View Profile
                       </Button>
                     </div>
                     
                     {/* Social Media Quick View */}
-                    <div className="mt-4 pt-4 border-t border-gray-700">
-                      <h5 className="text-white text-sm font-medium mb-2">Social Following</h5>
-                      <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="flex items-center space-x-1 text-gray-400">
-                          <Instagram className="h-3 w-3" />
+                    <div className="text-white mt-4 pt-4 border-t border-gray-700">
+                      <h5 className="text-white text-white text-sm font-medium mb-2">Social Following</h5>
+                      <div className="text-white grid grid-cols-2 gap-2 text-xs">
+                        <div className="text-white flex items-center space-x-1 text-white">
+                          <Instagram className="text-white h-3 w-3" />
                           <span>{formatNumber(artist.socialMedia.instagram)}</span>
                         </div>
-                        <div className="flex items-center space-x-1 text-gray-400">
-                          <Youtube className="h-3 w-3" />
+                        <div className="text-white flex items-center space-x-1 text-white">
+                          <Youtube className="text-white h-3 w-3" />
                           <span>{formatNumber(artist.socialMedia.youtube)}</span>
                         </div>
-                        <div className="flex items-center space-x-1 text-gray-400">
-                          <Music className="h-3 w-3" />
+                        <div className="text-white flex items-center space-x-1 text-white">
+                          <Music className="text-white h-3 w-3" />
                           <span>{formatNumber(artist.socialMedia.tiktok)}</span>
                         </div>
-                        <div className="flex items-center space-x-1 text-gray-400">
-                          <Twitter className="h-3 w-3" />
+                        <div className="text-white flex items-center space-x-1 text-white">
+                          <Twitter className="text-white h-3 w-3" />
                           <span>{formatNumber(artist.socialMedia.twitter)}</span>
                         </div>
                       </div>
@@ -662,18 +662,18 @@ export default function ScoutArtists() {
                 </div>
 
                 {/* Artist Bio & Highlights */}
-                <div className="mt-6 pt-6 border-t border-gray-700">
-                  <div className="grid lg:grid-cols-2 gap-6">
+                <div className="text-white mt-6 pt-6 border-t border-gray-700">
+                  <div className="text-white grid lg:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-white font-medium mb-2">About</h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">{artist.bio}</p>
+                      <h4 className="text-white text-white font-medium mb-2">About</h4>
+                      <p className="text-white text-white text-sm leading-relaxed">{artist.bio}</p>
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-2">Key Highlights</h4>
-                      <ul className="space-y-1">
+                      <h4 className="text-white text-white font-medium mb-2">Key Highlights</h4>
+                      <ul className="text-white space-y-1">
                         {artist.highlights.map((highlight, index) => (
-                          <li key={index} className="flex items-center space-x-2 text-sm text-gray-300">
-                            <Zap className="h-3 w-3 text-netflix-red" />
+                          <li key={index} className="text-white flex items-center space-x-2 text-sm text-white">
+                            <Zap className="text-white h-3 w-3 text-netflix-red" />
                             <span>{highlight}</span>
                           </li>
                         ))}
@@ -687,21 +687,21 @@ export default function ScoutArtists() {
         </div>
 
         {/* Call-to-Action */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Advanced Artist Discovery Tools
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Get deeper insights with our premium scouting tools. Track emerging trends, 
             analyze market potential, and discover artists before your competition.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="netflix-button-primary text-lg px-8 py-3">
+          <div className="text-white flex justify-center space-x-4">
+            <Button className="text-white netflix-button-primary text-lg px-8 py-3">
               Upgrade to Pro Scouting
             </Button>
             <Button 
               variant="outline" 
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 text-lg px-8 py-3"
+              className="text-white border-gray-700 text-white hover:bg-netflix-dark text-lg px-8 py-3"
             >
               View Trending Reports
             </Button>

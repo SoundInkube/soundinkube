@@ -223,8 +223,8 @@ export default function MarketplaceDetail() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="text-white flex justify-center items-center h-64">
+          <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       </MainLayout>
     );
@@ -233,10 +233,10 @@ export default function MarketplaceDetail() {
   if (error || !item) {
     return (
       <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error || "Item not found"}</p>
-            <Button onClick={() => navigate("/marketplace")} className="mt-4">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error || "Item not found"}</p>
+            <Button onClick={() => navigate("/marketplace")} className="text-white mt-4">
               Back to Marketplace
             </Button>
           </div>
@@ -247,80 +247,80 @@ export default function MarketplaceDetail() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Button
           variant="ghost"
           onClick={() => navigate("/marketplace")}
-          className="mb-4"
+          className="text-white mb-4"
         >
-          <ChevronLeft className="h-4 w-4 mr-2" />
+          <ChevronLeft className="text-white h-4 w-4 mr-2" />
           Back to Marketplace
         </Button>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <h1 className="text-3xl font-bold text-white mb-2">{item.title}</h1>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
-              <Badge variant={item.type === "Sale" ? "default" : "secondary"} className="text-sm">
+        <div className="text-white grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="text-white lg:col-span-2">
+            <h1 className="text-white text-3xl font-bold text-white mb-2">{item.title}</h1>
+            <div className="text-white flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
+              <Badge variant={item.type === "Sale" ? "default" : "secondary"} className="text-white text-sm">
                 {item.type}
                 {item.type === "Rent" && item.rentalPeriod && ` (${item.rentalPeriod})`}
               </Badge>
-              <div className="flex items-center text-gray-400">
-                <MapPin className="h-4 w-4 mr-1" />
+              <div className="text-white flex items-center text-white">
+                <MapPin className="text-white h-4 w-4 mr-1" />
                 <span>{item.city}</span>
               </div>
-              <div className="flex items-center text-gray-400">
-                <Calendar className="h-4 w-4 mr-1" />
+              <div className="text-white flex items-center text-white">
+                <Calendar className="text-white h-4 w-4 mr-1" />
                 <span>Posted {new Date(item.createdAt).toLocaleDateString()}</span>
               </div>
-              <div className="flex items-center text-gray-400">
-                <Tag className="h-4 w-4 mr-1" />
+              <div className="text-white flex items-center text-white">
+                <Tag className="text-white h-4 w-4 mr-1" />
                 <span>{item.category} / {item.subcategory}</span>
               </div>
             </div>
             
             {/* Image carousel */}
-            <Carousel className="w-full mb-8">
+            <Carousel className="text-white w-full mb-8">
               <CarouselContent>
                 {item.images.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="h-96 rounded-lg overflow-hidden">
+                    <div className="text-white h-96 rounded-lg overflow-hidden">
                       <img
                         src={image}
                         alt={`${item.title} - Image ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="text-white w-full h-full object-cover"
                       />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious className="text-white left-2" />
+              <CarouselNext className="text-white right-2" />
             </Carousel>
             
-            <Card className="mb-6">
+            <Card className="text-white mb-6">
               <CardHeader>
                 <CardTitle>Description</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-white whitespace-pre-line">{item.description}</p>
+                <p className="text-white text-white whitespace-pre-line">{item.description}</p>
               </CardContent>
             </Card>
             
-            <Card className="mb-6">
+            <Card className="text-white mb-6">
               <CardHeader>
                 <CardTitle>Specifications</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-center justify-between py-2 border-b">
-                    <span className="font-medium">Condition</span>
+                <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="text-white flex items-center justify-between py-2 border-b">
+                    <span className="text-white font-medium">Condition</span>
                     <span>{item.condition}</span>
                   </div>
                   
                   {Object.entries(item.specifications).map(([key, value], index) => (
-                    <div key={index} className="flex items-center justify-between py-2 border-b">
-                      <span className="font-medium">{key}</span>
+                    <div key={index} className="text-white flex items-center justify-between py-2 border-b">
+                      <span className="text-white font-medium">{key}</span>
                       <span>{value}</span>
                     </div>
                   ))}
@@ -334,23 +334,23 @@ export default function MarketplaceDetail() {
                 <CardTitle>Similar Items</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="text-white grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {item.similarItems.map((similar) => (
-                    <div key={similar.id} className="rounded-lg overflow-hidden border hover:shadow-md transition-all">
-                      <div className="h-32 overflow-hidden">
+                    <div key={similar.id} className="text-white rounded-lg overflow-hidden border hover:shadow-md transition-all">
+                      <div className="text-white h-32 overflow-hidden">
                         <img
                           src={similar.imageUrl}
                           alt={similar.title}
-                          className="w-full h-full object-cover"
+                          className="text-white w-full h-full object-cover"
                         />
                       </div>
-                      <div className="p-3">
-                        <h3 className="font-medium text-sm line-clamp-1">{similar.title}</h3>
-                        <div className="flex justify-between items-center mt-1">
-                          <Badge variant="outline" className="text-xs">
+                      <div className="text-white p-3">
+                        <h3 className="text-white font-medium text-sm line-clamp-1">{similar.title}</h3>
+                        <div className="text-white flex justify-between items-center mt-1">
+                          <Badge variant="outline" className="text-white text-xs">
                             {similar.type}
                           </Badge>
-                          <span className="font-bold">${similar.price}</span>
+                          <span className="text-white font-bold">${similar.price}</span>
                         </div>
                       </div>
                     </div>
@@ -363,46 +363,46 @@ export default function MarketplaceDetail() {
           {/* Sidebar */}
           <div>
             {/* Price card */}
-            <Card className="mb-6">
+            <Card className="text-white mb-6">
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center">
-                  <DollarSign className="h-6 w-6 mr-1" />
+                <CardTitle className="text-white text-2xl flex items-center">
+                  <DollarSign className="text-white h-6 w-6 mr-1" />
                   {item.price}
                   {item.type === "Rent" && item.rentalPeriod && (
-                    <span className="text-base font-normal text-gray-400 ml-1">
+                    <span className="text-white text-base font-normal text-white ml-1">
                       /{item.rentalPeriod.split(' ')[1]}
                     </span>
                   )}
                 </CardTitle>
                 <CardDescription>
-                  <div className="flex items-center">
-                    <Package className="h-4 w-4 mr-1 text-gray-400" />
+                  <div className="text-white flex items-center">
+                    <Package className="text-white h-4 w-4 mr-1 text-white" />
                     <span>Condition: {item.condition}</span>
                   </div>
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="text-white space-y-4">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="w-full">Contact Seller</Button>
+                    <Button className="text-white w-full">Contact Seller</Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[500px]">
+                  <DialogContent className="text-white sm:max-w-[500px]">
                     <DialogHeader>
                       <DialogTitle>Contact Seller</DialogTitle>
                       <DialogDescription>
                         Send a message to {item.seller.name} about this item
                       </DialogDescription>
                     </DialogHeader>
-                    <div className="py-4">
-                      <div className="mb-4">
-                        <p className="font-medium mb-1">Item</p>
-                        <p className="text-sm text-gray-300">{item.title}</p>
+                    <div className="text-white py-4">
+                      <div className="text-white mb-4">
+                        <p className="text-white font-medium mb-1">Item</p>
+                        <p className="text-white text-sm text-white">{item.title}</p>
                       </div>
                       <Textarea
                         placeholder="Write your message here..."
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="min-h-32"
+                        className="text-white min-h-32"
                       />
                     </div>
                     <DialogFooter>
@@ -413,24 +413,24 @@ export default function MarketplaceDetail() {
                   </DialogContent>
                 </Dialog>
 
-                <div className="flex space-x-2">
-                  <Button variant="outline" className="flex-1" onClick={handleToggleSave}>
+                <div className="text-white flex space-x-2">
+                  <Button variant="outline" className="text-white flex-1" onClick={handleToggleSave}>
                     <Heart className={`h-4 w-4 mr-2 ${isSaved ? "fill-red-500 text-red-500" : ""}`} />
                     {isSaved ? "Saved" : "Save"}
                   </Button>
-                  <Button variant="outline" className="flex-1">
-                    <Share2 className="h-4 w-4 mr-2" />
+                  <Button variant="outline" className="text-white flex-1">
+                    <Share2 className="text-white h-4 w-4 mr-2" />
                     Share
                   </Button>
                 </div>
                 
-                <Button variant="ghost" size="sm" className="w-full text-gray-400">
-                  <Flag className="h-4 w-4 mr-2" />
+                <Button variant="ghost" size="sm" className="text-white w-full text-white">
+                  <Flag className="text-white h-4 w-4 mr-2" />
                   Report Item
                 </Button>
                 
-                <div className="text-center text-sm text-gray-400">
-                  <Clock className="h-4 w-4 inline mr-1" />
+                <div className="text-white text-center text-sm text-white">
+                  <Clock className="text-white h-4 w-4 inline mr-1" />
                   <span>{item.viewCount} people have viewed this item</span>
                 </div>
               </CardContent>
@@ -439,42 +439,42 @@ export default function MarketplaceDetail() {
             {/* Seller card */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Seller Information</CardTitle>
+                <CardTitle className="text-white text-lg">Seller Information</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center mb-4">
-                  <Avatar className="h-12 w-12 mr-4">
+                <div className="text-white flex items-center mb-4">
+                  <Avatar className="text-white h-12 w-12 mr-4">
                     <AvatarImage src={item.seller.imageUrl} alt={item.seller.name} />
                     <AvatarFallback>{item.seller.name[0]}</AvatarFallback>
                   </Avatar>
                   <div>
-                    <h3 className="font-medium flex items-center">
+                    <h3 className="text-white font-medium flex items-center">
                       {item.seller.name}
                       {item.seller.verified && (
-                        <Badge variant="secondary" className="ml-2 text-xs">Verified</Badge>
+                        <Badge variant="secondary" className="text-white ml-2 text-xs">Verified</Badge>
                       )}
                     </h3>
-                    <div className="flex items-center text-sm text-gray-400">
-                      <Star className="h-3 w-3 mr-1 text-amber-500" />
+                    <div className="text-white flex items-center text-sm text-white">
+                      <Star className="text-white h-3 w-3 mr-1 text-amber-500" />
                       <span>{item.seller.rating} ({item.seller.reviewCount} reviews)</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Member since</span>
+                <div className="text-white space-y-2 text-sm">
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">Member since</span>
                     <span>{item.seller.memberSince}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Response rate</span>
+                  <div className="text-white flex justify-between">
+                    <span className="text-white text-white">Response rate</span>
                     <span>{item.seller.responseRate}%</span>
                   </div>
                 </div>
                 
-                <div className="mt-4">
-                  <Button variant="outline" className="w-full">
-                    <User className="h-4 w-4 mr-2" />
+                <div className="text-white mt-4">
+                  <Button variant="outline" className="text-white w-full">
+                    <User className="text-white h-4 w-4 mr-2" />
                     View Profile
                   </Button>
                 </div>

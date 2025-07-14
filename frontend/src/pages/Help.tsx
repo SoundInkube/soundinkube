@@ -11,13 +11,13 @@ export default function Help() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
-    { id: "all", name: "All Topics", icon: <Book className="h-4 w-4" /> },
-    { id: "getting-started", name: "Getting Started", icon: <Users className="h-4 w-4" /> },
-    { id: "collaboration", name: "Collaboration", icon: <Music className="h-4 w-4" /> },
-    { id: "booking", name: "Booking & Scheduling", icon: <Calendar className="h-4 w-4" /> },
-    { id: "payments", name: "Payments & Billing", icon: <CreditCard className="h-4 w-4" /> },
-    { id: "account", name: "Account & Settings", icon: <Settings className="h-4 w-4" /> },
-    { id: "security", name: "Security & Privacy", icon: <Shield className="h-4 w-4" /> }
+    { id: "all", name: "All Topics", icon: <Book className="text-white h-4 w-4" /> },
+    { id: "getting-started", name: "Getting Started", icon: <Users className="text-white h-4 w-4" /> },
+    { id: "collaboration", name: "Collaboration", icon: <Music className="text-white h-4 w-4" /> },
+    { id: "booking", name: "Booking & Scheduling", icon: <Calendar className="text-white h-4 w-4" /> },
+    { id: "payments", name: "Payments & Billing", icon: <CreditCard className="text-white h-4 w-4" /> },
+    { id: "account", name: "Account & Settings", icon: <Settings className="text-white h-4 w-4" /> },
+    { id: "security", name: "Security & Privacy", icon: <Shield className="text-white h-4 w-4" /> }
   ];
 
   const faqs = [
@@ -72,25 +72,25 @@ export default function Help() {
 
   const resources = [
     {
-      icon: <Video className="h-8 w-8 text-netflix-red" />,
+      icon: <Video className="text-white h-8 w-8 text-netflix-red" />,
       title: "Video Tutorials",
       description: "Step-by-step video guides for all platform features",
       link: "#"
     },
     {
-      icon: <Book className="h-8 w-8 text-netflix-red" />,
+      icon: <Book className="text-white h-8 w-8 text-netflix-red" />,
       title: "User Manual",
       description: "Comprehensive documentation and best practices",
       link: "#"
     },
     {
-      icon: <Download className="h-8 w-8 text-netflix-red" />,
+      icon: <Download className="text-white h-8 w-8 text-netflix-red" />,
       title: "Quick Start Guide",
       description: "PDF guide to get you started in 10 minutes",
       link: "#"
     },
     {
-      icon: <MessageCircle className="h-8 w-8 text-netflix-red" />,
+      icon: <MessageCircle className="text-white h-8 w-8 text-netflix-red" />,
       title: "Community Forum",
       description: "Connect with other users and share tips",
       link: "#"
@@ -98,18 +98,18 @@ export default function Help() {
   ];
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-20">
+    <div className="text-white min-h-screen bg-netflix-black pt-20">
       {/* Header */}
-      <div className="bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+      <div className="text-white bg-gradient-to-r from-netflix-red/10 via-black to-netflix-red/10 py-16">
+        <div className="text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-white text-center">
+            <h1 className="text-white text-4xl lg:text-5xl font-bold text-white mb-6">
               Help &
-              <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+              <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
                 Support Center
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-white text-xl text-white max-w-3xl mx-auto">
               Find answers to common questions, learn how to use SoundInkube features, 
               and get the help you need to succeed.
             </p>
@@ -118,29 +118,29 @@ export default function Help() {
       </div>
 
       {/* Search */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="relative">
-          <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400" />
+      <div className="text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white relative">
+          <Search className="text-white absolute left-4 top-4 h-5 w-5 text-white" />
           <Input
             placeholder="Search for help articles, tutorials, or FAQs..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="netflix-input pl-12 text-lg py-6"
+            className="text-white netflix-input pl-12 text-lg py-6"
           />
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="text-white grid lg:grid-cols-4 gap-8">
           {/* Categories Sidebar */}
-          <div className="lg:col-span-1">
-            <Card className="netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+          <div className="text-white lg:col-span-1">
+            <Card className="text-white netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-white">Browse by Category</CardTitle>
+                <CardTitle className="text-white text-white">Browse by Category</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2">
+                <div className="text-white space-y-2">
                   {categories.map((category) => (
                     <Button
                       key={category.id}
@@ -148,12 +148,12 @@ export default function Help() {
                       className={`w-full justify-start ${
                         activeCategory === category.id
                           ? "netflix-button-primary"
-                          : "text-gray-400 hover:text-white hover:bg-gray-700"
+                          : "text-white hover:text-white hover:bg-netflix-dark"
                       }`}
                       onClick={() => setActiveCategory(category.id)}
                     >
                       {category.icon}
-                      <span className="ml-2">{category.name}</span>
+                      <span className="text-white ml-2">{category.name}</span>
                     </Button>
                   ))}
                 </div>
@@ -161,22 +161,22 @@ export default function Help() {
             </Card>
 
             {/* Quick Resources */}
-            <Card className="netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm mt-6">
+            <Card className="text-white netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm mt-6">
               <CardHeader>
-                <CardTitle className="text-white">Quick Resources</CardTitle>
+                <CardTitle className="text-white text-white">Quick Resources</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="text-white space-y-4">
                   {resources.map((resource, index) => (
                     <a
                       key={index}
                       href={resource.link}
-                      className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-700/50 transition-colors"
+                      className="text-white flex items-start space-x-3 p-3 rounded-lg hover:bg-netflix-dark/50 transition-colors"
                     >
                       {resource.icon}
                       <div>
-                        <h4 className="text-white font-medium text-sm">{resource.title}</h4>
-                        <p className="text-gray-400 text-xs">{resource.description}</p>
+                        <h4 className="text-white text-white font-medium text-sm">{resource.title}</h4>
+                        <p className="text-white text-white text-xs">{resource.description}</p>
                       </div>
                     </a>
                   ))}
@@ -186,41 +186,41 @@ export default function Help() {
           </div>
 
           {/* FAQ Content */}
-          <div className="lg:col-span-3">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2">
+          <div className="text-white lg:col-span-3">
+            <div className="text-white mb-6">
+              <h2 className="text-white text-2xl font-bold text-white mb-2">
                 {activeCategory === "all" ? "Frequently Asked Questions" : 
                  categories.find(c => c.id === activeCategory)?.name + " FAQ"}
               </h2>
-              <p className="text-gray-400">
+              <p className="text-white text-white">
                 {filteredFaqs.length} article{filteredFaqs.length !== 1 ? 's' : ''} found
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="text-white space-y-4">
               {filteredFaqs.map((faq, index) => (
                 <Collapsible key={index}>
-                  <Card className="netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+                  <Card className="text-white netflix-card netflix-hover-scale bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
                     <CollapsibleTrigger asChild>
-                      <CardHeader className="cursor-pointer hover:bg-gray-700/20 transition-colors">
-                        <div className="flex items-center justify-between">
-                          <CardTitle className="text-white text-lg font-medium">
+                      <CardHeader className="text-white cursor-pointer hover:bg-netflix-dark/20 transition-colors">
+                        <div className="text-white flex items-center justify-between">
+                          <CardTitle className="text-white text-white text-lg font-medium">
                             {faq.question}
                           </CardTitle>
-                          <ChevronDown className="h-5 w-5 text-gray-400" />
+                          <ChevronDown className="text-white h-5 w-5 text-white" />
                         </div>
                       </CardHeader>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
-                      <CardContent className="pt-0">
-                        <div className="text-gray-300 whitespace-pre-line leading-relaxed">
+                      <CardContent className="text-white pt-0">
+                        <div className="text-white text-white whitespace-pre-line leading-relaxed">
                           {faq.answer}
                         </div>
-                        <div className="mt-4 pt-4 border-t border-gray-700">
-                          <Badge className="bg-netflix-red/20 text-netflix-red border-netflix-red/30 mr-2">
+                        <div className="text-white mt-4 pt-4 border-t border-gray-700">
+                          <Badge className="text-white bg-netflix-red/20 text-netflix-red border-netflix-red/30 mr-2">
                             {categories.find(c => c.id === faq.category)?.name}
                           </Badge>
-                          <span className="text-xs text-gray-400">
+                          <span className="text-white text-xs text-white">
                             Was this helpful?
                           </span>
                         </div>
@@ -232,11 +232,11 @@ export default function Help() {
             </div>
 
             {filteredFaqs.length === 0 && (
-              <Card className="netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
-                <CardContent className="text-center py-12">
-                  <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-white mb-2">No articles found</h3>
-                  <p className="text-gray-400 mb-6">
+              <Card className="text-white netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
+                <CardContent className="text-white text-center py-12">
+                  <Search className="text-white h-16 w-16 text-white mx-auto mb-4" />
+                  <h3 className="text-white text-xl font-semibold text-white mb-2">No articles found</h3>
+                  <p className="text-white text-white mb-6">
                     Try adjusting your search terms or browse different categories
                   </p>
                   <Button
@@ -244,7 +244,7 @@ export default function Help() {
                       setSearchTerm("");
                       setActiveCategory("all");
                     }}
-                    className="netflix-button-primary"
+                    className="text-white netflix-button-primary"
                   >
                     Clear Search
                   </Button>
@@ -255,27 +255,27 @@ export default function Help() {
         </div>
 
         {/* Contact Support Section */}
-        <Card className="netflix-card bg-gradient-to-br from-netflix-red/10 to-gray-900/50 backdrop-blur-sm mt-12 border-netflix-red/30">
-          <CardContent className="text-center py-12">
-            <MessageCircle className="h-16 w-16 text-netflix-red mx-auto mb-6" />
-            <h3 className="text-2xl font-bold text-white mb-4">Still need help?</h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+        <Card className="text-white netflix-card bg-gradient-to-br from-netflix-red/10 to-gray-900/50 backdrop-blur-sm mt-12 border-netflix-red/30">
+          <CardContent className="text-white text-center py-12">
+            <MessageCircle className="text-white h-16 w-16 text-netflix-red mx-auto mb-6" />
+            <h3 className="text-white text-2xl font-bold text-white mb-4">Still need help?</h3>
+            <p className="text-white text-white mb-8 max-w-2xl mx-auto">
               Can't find what you're looking for? Our support team is here to help you 
               get the most out of SoundInkube.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="text-white flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => window.location.href = "/contact"}
-                className="netflix-button-primary"
+                className="text-white netflix-button-primary"
               >
-                <MessageCircle className="h-4 w-4 mr-2" />
+                <MessageCircle className="text-white h-4 w-4 mr-2" />
                 Contact Support
               </Button>
               <Button
                 variant="outline"
-                className="netflix-button-secondary"
+                className="text-white netflix-button-secondary"
               >
-                <Video className="h-4 w-4 mr-2" />
+                <Video className="text-white h-4 w-4 mr-2" />
                 Schedule a Demo
               </Button>
             </div>

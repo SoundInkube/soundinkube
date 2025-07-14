@@ -285,13 +285,13 @@ export default function MarketplaceList() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-white flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">Marketplace</h1>
-            <p className="mt-2 text-gray-300">Buy, sell, or rent music equipment and spaces</p>
+            <h1 className="text-white text-3xl font-bold text-white">Marketplace</h1>
+            <p className="text-white mt-2 text-white">Buy, sell, or rent music equipment and spaces</p>
           </div>
-          <div className="mt-4 md:mt-0 flex gap-2">
+          <div className="text-white mt-4 md:mt-0 flex gap-2">
             <Button asChild variant="outline">
               <Link to="/marketplace/map">View on Map</Link>
             </Button>
@@ -302,8 +302,8 @@ export default function MarketplaceList() {
         </div>
 
         {/* Type Tabs */}
-        <Tabs defaultValue="all" value={selectedType} onValueChange={setSelectedType} className="mb-6">
-          <TabsList className="grid w-full grid-cols-3 mb-4">
+        <Tabs defaultValue="all" value={selectedType} onValueChange={setSelectedType} className="text-white mb-6">
+          <TabsList className="text-white grid w-full grid-cols-3 mb-4">
             <TabsTrigger value="all">All Items</TabsTrigger>
             <TabsTrigger value="sale">For Sale</TabsTrigger>
             <TabsTrigger value="rent">For Rent</TabsTrigger>
@@ -311,10 +311,10 @@ export default function MarketplaceList() {
         </Tabs>
 
         {/* Filters */}
-        <div className="bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="text-white bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
+          <div className="text-white grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="search" className="text-white block text-sm font-medium text-white mb-1">
                 Search
               </label>
               <Input
@@ -326,7 +326,7 @@ export default function MarketplaceList() {
             </div>
             
             <div>
-              <label htmlFor="category" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="category" className="text-white block text-sm font-medium text-white mb-1">
                 Category
               </label>
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
@@ -345,7 +345,7 @@ export default function MarketplaceList() {
             </div>
             
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-white mb-1">
+              <label htmlFor="city" className="text-white block text-sm font-medium text-white mb-1">
                 Location
               </label>
               <Select value={selectedCity} onValueChange={setSelectedCity}>
@@ -364,7 +364,7 @@ export default function MarketplaceList() {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="text-white block text-sm font-medium text-white mb-1">
                 Price Range: ${priceRange[0]} - ${priceRange[1]}
               </label>
               <Slider
@@ -373,19 +373,19 @@ export default function MarketplaceList() {
                 max={2000}
                 step={50}
                 onValueChange={(value) => setPriceRange(value as number[])}
-                className="mt-2"
+                className="text-white mt-2"
               />
             </div>
           </div>
 
           {/* Condition Filters */}
-          <div className="mt-4 pt-4 border-t">
-            <label className="block text-sm font-medium text-white mb-2">
+          <div className="text-white mt-4 pt-4 border-t">
+            <label className="text-white block text-sm font-medium text-white mb-2">
               Condition
             </label>
-            <div className="flex flex-wrap gap-4">
+            <div className="text-white flex flex-wrap gap-4">
               {conditions.map(condition => (
-                <div key={condition} className="flex items-center space-x-2">
+                <div key={condition} className="text-white flex items-center space-x-2">
                   <Checkbox 
                     id={`condition-${condition}`}
                     checked={selectedCondition.includes(condition)}
@@ -393,7 +393,7 @@ export default function MarketplaceList() {
                   />
                   <Label 
                     htmlFor={`condition-${condition}`}
-                    className="text-sm cursor-pointer"
+                    className="text-white text-sm cursor-pointer"
                   >
                     {condition}
                   </Label>
@@ -405,24 +405,24 @@ export default function MarketplaceList() {
 
         {/* Results */}
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="text-white flex justify-center items-center h-64">
+            <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
           </div>
         ) : error ? (
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error}</p>
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error}</p>
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-white text-sm text-white mb-4">
               {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"} found
             </p>
             
             {/* Featured Items */}
             {sortedItems.some(item => item.featured) && (
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Featured Items</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-white mb-8">
+                <h2 className="text-white text-xl font-semibold mb-4">Featured Items</h2>
+                <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {sortedItems
                     .filter(item => item.featured)
                     .map((item) => (
@@ -433,7 +433,7 @@ export default function MarketplaceList() {
             )}
 
             {/* All Items */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {sortedItems
                 .filter(item => !item.featured || !sortedItems.some(i => i.featured))
                 .map((item) => (
@@ -442,8 +442,8 @@ export default function MarketplaceList() {
             </div>
             
             {sortedItems.length === 0 && (
-              <div className="bg-black p-8 rounded-lg border text-center">
-                <p className="text-gray-300">No items found matching your criteria. Try adjusting your filters.</p>
+              <div className="text-white bg-black p-8 rounded-lg border text-center">
+                <p className="text-white text-white">No items found matching your criteria. Try adjusting your filters.</p>
               </div>
             )}
           </>
@@ -457,68 +457,68 @@ export default function MarketplaceList() {
 function MarketplaceCard({ item }: { item: MarketplaceItem }) {
   return (
     <Link to={`/marketplace/${item.id}`}>
-      <Card className="h-full overflow-hidden hover:shadow-md transition-transform hover:-translate-y-1">
-        <div className="h-48 overflow-hidden">
+      <Card className="text-white h-full overflow-hidden hover:shadow-md transition-transform hover:-translate-y-1">
+        <div className="text-white h-48 overflow-hidden">
           <img
             src={item.imageUrl}
             alt={item.title}
-            className="w-full h-full object-cover"
+            className="text-white w-full h-full object-cover"
           />
           {item.featured && (
-            <div className="absolute top-2 right-2">
-              <Badge className="bg-yellow-500 hover:bg-yellow-600">Featured</Badge>
+            <div className="text-white absolute top-2 right-2">
+              <Badge className="text-white bg-netflix-red hover:bg-netflix-red">Featured</Badge>
             </div>
           )}
         </div>
-        <CardHeader className="pb-2">
-          <div className="flex justify-between items-start">
-            <CardTitle className="text-lg line-clamp-1">{item.title}</CardTitle>
+        <CardHeader className="text-white pb-2">
+          <div className="text-white flex justify-between items-start">
+            <CardTitle className="text-white text-lg line-clamp-1">{item.title}</CardTitle>
           </div>
-          <CardDescription className="flex items-center text-xs">
+          <CardDescription className="text-white flex items-center text-xs">
             <Badge variant={item.type === "Sale" ? "default" : "secondary"}>
               {item.type}
             </Badge>
             {item.type === "Rent" && (
-              <span className="ml-2 text-gray-400">{item.rentalPeriod}</span>
+              <span className="text-white ml-2 text-white">{item.rentalPeriod}</span>
             )}
           </CardDescription>
         </CardHeader>
-        <CardContent className="pb-2">
-          <p className="text-white text-sm line-clamp-2 mb-2">{item.description}</p>
+        <CardContent className="text-white pb-2">
+          <p className="text-white text-white text-sm line-clamp-2 mb-2">{item.description}</p>
           
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center text-gray-400 text-xs">
-              <MapPin className="h-3 w-3 mr-1" />
+          <div className="text-white flex items-center justify-between mb-2">
+            <div className="text-white flex items-center text-white text-xs">
+              <MapPin className="text-white h-3 w-3 mr-1" />
               <span>{item.city}</span>
             </div>
-            <div className="flex items-center text-gray-400 text-xs">
-              <Package className="h-3 w-3 mr-1" />
+            <div className="text-white flex items-center text-white text-xs">
+              <Package className="text-white h-3 w-3 mr-1" />
               <span>{item.condition}</span>
             </div>
           </div>
           
-          <div className="flex items-center text-xs text-gray-400 mb-2">
-            <Tag className="h-3 w-3 mr-1" />
+          <div className="text-white flex items-center text-xs text-white mb-2">
+            <Tag className="text-white h-3 w-3 mr-1" />
             <span>{item.category} - {item.subcategory}</span>
           </div>
           
-          <div className="flex items-center text-xs text-gray-400">
-            <Clock className="h-3 w-3 mr-1" />
+          <div className="text-white flex items-center text-xs text-white">
+            <Clock className="text-white h-3 w-3 mr-1" />
             <span>Posted: {new Date(item.createdAt).toLocaleDateString()}</span>
           </div>
         </CardContent>
-        <CardFooter className="pt-2 flex items-center justify-between border-t">
-          <div className="flex items-center">
-            <div className="text-xs flex items-center">
-              <Star className="h-3 w-3 mr-1 text-amber-500" />
+        <CardFooter className="text-white pt-2 flex items-center justify-between border-t">
+          <div className="text-white flex items-center">
+            <div className="text-white text-xs flex items-center">
+              <Star className="text-white h-3 w-3 mr-1 text-amber-500" />
               <span>{item.sellerRating}</span>
             </div>
           </div>
-          <div className="font-bold text-lg flex items-center">
-            <DollarSign className="h-4 w-4" />
+          <div className="text-white font-bold text-lg flex items-center">
+            <DollarSign className="text-white h-4 w-4" />
             <span>{item.price}</span>
             {item.type === "Rent" && (
-              <span className="text-xs font-normal text-gray-400 ml-1">
+              <span className="text-white text-xs font-normal text-white ml-1">
                 /{item.rentalPeriod?.split(' ')[1]}
               </span>
             )}

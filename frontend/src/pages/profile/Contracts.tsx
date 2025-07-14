@@ -198,20 +198,20 @@ export default function Contracts() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Active': return 'bg-red-600/20 text-green-400';
-      case 'Pending': return 'bg-yellow-600/20 text-yellow-400';
+      case 'Active': return 'bg-red-600/20 text-netflix-red';
+      case 'Pending': return 'bg-netflix-red/20 text-netflix-red';
       case 'On Hold': return 'bg-orange-600/20 text-orange-400';
       case 'Expired': return 'bg-red-600/20 text-red-400';
-      default: return 'bg-gray-600/20 text-gray-400';
+      default: return 'bg-netflix-dark/20 text-white';
     }
   };
 
   const getMilestoneStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'text-green-400';
-      case 'In Progress': return 'text-blue-400';
-      case 'Pending': return 'text-gray-400';
-      default: return 'text-gray-400';
+      case 'Completed': return 'text-netflix-red';
+      case 'In Progress': return 'text-netflix-red';
+      case 'Pending': return 'text-white';
+      default: return 'text-white';
     }
   };
 
@@ -233,73 +233,73 @@ export default function Contracts() {
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-white min-h-screen bg-netflix-black">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="text-white flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Contracts</h1>
-            <p className="text-gray-400">Manage artist contracts and legal agreements</p>
+            <h1 className="text-white text-3xl font-bold text-white mb-2">Contracts</h1>
+            <p className="text-white text-white">Manage artist contracts and legal agreements</p>
           </div>
-          <Button className="netflix-button-primary">
-            <Plus className="h-4 w-4 mr-2" />
+          <Button className="text-white netflix-button-primary">
+            <Plus className="text-white h-4 w-4 mr-2" />
             New Contract
           </Button>
         </div>
 
         {/* Stats Overview */}
-        <div className="grid lg:grid-cols-4 gap-4 mb-8">
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <FileText className="h-5 w-5 text-blue-400" />
+        <div className="text-white grid lg:grid-cols-4 gap-4 mb-8">
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <FileText className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.totalContracts}</p>
-                  <p className="text-gray-400 text-sm">Total Contracts</p>
+                  <p className="text-white text-white font-semibold">{stats.totalContracts}</p>
+                  <p className="text-white text-white text-sm">Total Contracts</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-red-600/20 rounded-lg">
-                  <CheckCircle className="h-5 w-5 text-green-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-red-600/20 rounded-lg">
+                  <CheckCircle className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{stats.activeContracts}</p>
-                  <p className="text-gray-400 text-sm">Active</p>
+                  <p className="text-white text-white font-semibold">{stats.activeContracts}</p>
+                  <p className="text-white text-white text-sm">Active</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-netflix-red/20 rounded-lg">
-                  <DollarSign className="h-5 w-5 text-netflix-red" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <DollarSign className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${(stats.totalValue / 1000).toFixed(0)}K</p>
-                  <p className="text-gray-400 text-sm">Total Value</p>
+                  <p className="text-white text-white font-semibold">${(stats.totalValue / 1000).toFixed(0)}K</p>
+                  <p className="text-white text-white text-sm">Total Value</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-yellow-600/20 rounded-lg">
-                  <Briefcase className="h-5 w-5 text-yellow-400" />
+          <Card className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800">
+            <CardContent className="text-white p-4">
+              <div className="text-white flex items-center space-x-3">
+                <div className="text-white p-2 bg-netflix-red/20 rounded-lg">
+                  <Briefcase className="text-white h-5 w-5 text-netflix-red" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">${(stats.totalAdvances / 1000).toFixed(0)}K</p>
-                  <p className="text-gray-400 text-sm">Total Advances</p>
+                  <p className="text-white text-white font-semibold">${(stats.totalAdvances / 1000).toFixed(0)}K</p>
+                  <p className="text-white text-white text-sm">Total Advances</p>
                 </div>
               </div>
             </CardContent>
@@ -307,21 +307,21 @@ export default function Contracts() {
         </div>
 
         {/* Search and Filter */}
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+        <div className="text-white flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+          <div className="text-white relative flex-1">
+            <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 text-white h-4 w-4" />
             <Input
               placeholder="Search contracts..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-gray-800 border-gray-700 text-white"
+              className="text-white pl-10 bg-netflix-dark border-gray-700 text-white"
             />
           </div>
-          <div className="flex space-x-2">
+          <div className="text-white flex space-x-2">
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="bg-gray-800 border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
+              className="text-white bg-netflix-dark border border-gray-700 text-white rounded-md px-3 py-2 text-sm"
             >
               <option value="all">All Status</option>
               <option value="active">Active</option>
@@ -332,25 +332,25 @@ export default function Contracts() {
         </div>
 
         {/* Contracts List */}
-        <div className="space-y-6">
+        <div className="text-white space-y-6">
           {filteredContracts.map((contract) => (
-            <Card key={contract.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="grid lg:grid-cols-3 gap-6">
+            <Card key={contract.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardContent className="text-white p-6">
+                <div className="text-white grid lg:grid-cols-3 gap-6">
                   {/* Main Info */}
-                  <div className="lg:col-span-2">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-4">
-                        <Avatar className="w-16 h-16">
-                          <AvatarFallback className="bg-netflix-red text-white text-lg">
+                  <div className="text-white lg:col-span-2">
+                    <div className="text-white flex items-center justify-between mb-4">
+                      <div className="text-white flex items-center space-x-4">
+                        <Avatar className="text-white w-16 h-16">
+                          <AvatarFallback className="text-white bg-netflix-red text-white text-lg">
                             {contract.artist.avatar}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <h3 className="text-xl font-bold text-white">{contract.title}</h3>
-                          <p className="text-gray-400">{contract.artist.stageName} ({contract.artist.name})</p>
-                          <div className="flex items-center space-x-3 mt-1">
-                            <Badge variant="secondary" className="bg-gray-800 text-gray-300">
+                          <h3 className="text-white text-xl font-bold text-white">{contract.title}</h3>
+                          <p className="text-white text-white">{contract.artist.stageName} ({contract.artist.name})</p>
+                          <div className="text-white flex items-center space-x-3 mt-1">
+                            <Badge variant="secondary" className="text-white bg-netflix-dark text-white">
                               {contract.type}
                             </Badge>
                             <Badge className={getStatusColor(contract.status)}>
@@ -359,68 +359,68 @@ export default function Contracts() {
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <p className="text-2xl font-bold text-white">${(contract.value / 1000).toFixed(0)}K</p>
-                        <p className="text-gray-400 text-sm">Contract Value</p>
+                      <div className="text-white text-right">
+                        <p className="text-white text-2xl font-bold text-white">${(contract.value / 1000).toFixed(0)}K</p>
+                        <p className="text-white text-white text-sm">Contract Value</p>
                       </div>
                     </div>
 
                     {/* Contract Terms */}
-                    <div className="mb-6">
-                      <h4 className="text-white font-medium mb-3">Contract Terms</h4>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Duration:</span>
-                            <span className="text-white">{contract.terms.duration}</span>
+                    <div className="text-white mb-6">
+                      <h4 className="text-white text-white font-medium mb-3">Contract Terms</h4>
+                      <div className="text-white grid md:grid-cols-2 gap-4">
+                        <div className="text-white space-y-2">
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Duration:</span>
+                            <span className="text-white text-white">{contract.terms.duration}</span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Album Commitment:</span>
-                            <span className="text-white">{contract.terms.albumCommitment}</span>
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Album Commitment:</span>
+                            <span className="text-white text-white">{contract.terms.albumCommitment}</span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Royalty Rate:</span>
-                            <span className="text-white">{contract.terms.royaltyRate}%</span>
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Royalty Rate:</span>
+                            <span className="text-white text-white">{contract.terms.royaltyRate}%</span>
                           </div>
                         </div>
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Advance Amount:</span>
-                            <span className="text-white">${contract.terms.advanceAmount.toLocaleString()}</span>
+                        <div className="text-white space-y-2">
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Advance Amount:</span>
+                            <span className="text-white text-white">${contract.terms.advanceAmount.toLocaleString()}</span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Recoupment:</span>
-                            <span className={`${contract.terms.recoupmentStatus === 'Fully Recouped' ? 'text-green-400' : contract.terms.recoupmentStatus === 'Partially Recouped' ? 'text-yellow-400' : 'text-red-400'}`}>
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Recoupment:</span>
+                            <span className={`${contract.terms.recoupmentStatus === 'Fully Recouped' ? 'text-netflix-red' : contract.terms.recoupmentStatus === 'Partially Recouped' ? 'text-netflix-red' : 'text-red-400'}`}>
                               {contract.terms.recoupmentStatus}
                             </span>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Outstanding:</span>
-                            <span className="text-white">${contract.performance.outstandingAdvance.toLocaleString()}</span>
+                          <div className="text-white flex justify-between">
+                            <span className="text-white text-white">Outstanding:</span>
+                            <span className="text-white text-white">${contract.performance.outstandingAdvance.toLocaleString()}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Documents */}
-                    <div className="mb-4">
-                      <h4 className="text-white font-medium mb-3">Contract Documents</h4>
-                      <div className="space-y-2">
+                    <div className="text-white mb-4">
+                      <h4 className="text-white text-white font-medium mb-3">Contract Documents</h4>
+                      <div className="text-white space-y-2">
                         {contract.documents.slice(0, 2).map((doc, index) => (
-                          <div key={index} className="flex items-center justify-between p-2 bg-gray-800/30 rounded">
-                            <div className="flex items-center space-x-3">
-                              <FileText className="h-4 w-4 text-gray-400" />
+                          <div key={index} className="text-white flex items-center justify-between p-2 bg-netflix-dark/30 rounded">
+                            <div className="text-white flex items-center space-x-3">
+                              <FileText className="text-white h-4 w-4 text-white" />
                               <div>
-                                <p className="text-white text-sm font-medium">{doc.name}</p>
-                                <p className="text-gray-400 text-xs">{doc.size}</p>
+                                <p className="text-white text-white text-sm font-medium">{doc.name}</p>
+                                <p className="text-white text-white text-xs">{doc.size}</p>
                               </div>
                             </div>
-                            <div className="flex space-x-2">
-                              <Button size="sm" variant="ghost" className="text-gray-400 hover:text-white">
-                                <Eye className="h-3 w-3" />
+                            <div className="text-white flex space-x-2">
+                              <Button size="sm" variant="ghost" className="text-white text-white hover:text-white">
+                                <Eye className="text-white h-3 w-3" />
                               </Button>
-                              <Button size="sm" variant="ghost" className="text-gray-400 hover:text-white">
-                                <Download className="h-3 w-3" />
+                              <Button size="sm" variant="ghost" className="text-white text-white hover:text-white">
+                                <Download className="text-white h-3 w-3" />
                               </Button>
                             </div>
                           </div>
@@ -430,58 +430,58 @@ export default function Contracts() {
                   </div>
 
                   {/* Sidebar Info */}
-                  <div className="space-y-4">
+                  <div className="text-white space-y-4">
                     {/* Contract Details */}
-                    <div className="bg-gray-800/50 rounded-lg p-4">
-                      <h4 className="text-white font-medium mb-3">Contract Details</h4>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Signed:</span>
-                          <span className="text-white">{new Date(contract.signedDate).toLocaleDateString()}</span>
+                    <div className="text-white bg-netflix-dark/50 rounded-lg p-4">
+                      <h4 className="text-white text-white font-medium mb-3">Contract Details</h4>
+                      <div className="text-white space-y-2 text-sm">
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Signed:</span>
+                          <span className="text-white text-white">{new Date(contract.signedDate).toLocaleDateString()}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Expires:</span>
-                          <span className="text-white">{new Date(contract.expiryDate).toLocaleDateString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Expires:</span>
+                          <span className="text-white text-white">{new Date(contract.expiryDate).toLocaleDateString()}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Next Review:</span>
-                          <span className="text-white">{new Date(contract.nextReview).toLocaleDateString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Next Review:</span>
+                          <span className="text-white text-white">{new Date(contract.nextReview).toLocaleDateString()}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Performance */}
-                    <div className="bg-gray-800/50 rounded-lg p-4">
-                      <h4 className="text-white font-medium mb-3">Performance</h4>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Albums Delivered:</span>
-                          <span className="text-white">{contract.performance.albumsDelivered}</span>
+                    <div className="text-white bg-netflix-dark/50 rounded-lg p-4">
+                      <h4 className="text-white text-white font-medium mb-3">Performance</h4>
+                      <div className="text-white space-y-2 text-sm">
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Albums Delivered:</span>
+                          <span className="text-white text-white">{contract.performance.albumsDelivered}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Total Earnings:</span>
-                          <span className="text-green-400">${contract.performance.totalEarnings.toLocaleString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Total Earnings:</span>
+                          <span className="text-white text-netflix-red">${contract.performance.totalEarnings.toLocaleString()}</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-400">Recouped:</span>
-                          <span className="text-white">${contract.performance.recoupedAmount.toLocaleString()}</span>
+                        <div className="text-white flex justify-between">
+                          <span className="text-white text-white">Recouped:</span>
+                          <span className="text-white text-white">${contract.performance.recoupedAmount.toLocaleString()}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Actions */}
-                    <div className="space-y-2">
-                      <Button size="sm" className="w-full netflix-button-primary">
-                        <Eye className="h-3 w-3 mr-2" />
+                    <div className="text-white space-y-2">
+                      <Button size="sm" className="text-white w-full netflix-button-primary">
+                        <Eye className="text-white h-3 w-3 mr-2" />
                         View Details
                       </Button>
-                      <div className="flex space-x-2">
-                        <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                          <Edit className="h-3 w-3 mr-1" />
+                      <div className="text-white flex space-x-2">
+                        <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                          <Edit className="text-white h-3 w-3 mr-1" />
                           Edit
                         </Button>
-                        <Button size="sm" variant="outline" className="flex-1 border-gray-700 text-gray-300">
-                          <Download className="h-3 w-3 mr-1" />
+                        <Button size="sm" variant="outline" className="text-white flex-1 border-gray-700 text-white">
+                          <Download className="text-white h-3 w-3 mr-1" />
                           Export
                         </Button>
                       </div>

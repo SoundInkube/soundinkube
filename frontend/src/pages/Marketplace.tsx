@@ -221,12 +221,12 @@ export default function Marketplace() {
   ];
 
   const categories = [
-    { id: "all", name: "All Equipment", icon: <Music className="h-4 w-4" /> },
-    { id: "guitars", name: "Guitars & Bass", icon: <Guitar className="h-4 w-4" /> },
-    { id: "keyboards", name: "Keyboards & Piano", icon: <Piano className="h-4 w-4" /> },
-    { id: "drums", name: "Drums & Percussion", icon: <Drum className="h-4 w-4" /> },
-    { id: "microphones", name: "Microphones", icon: <Mic className="h-4 w-4" /> },
-    { id: "audio-gear", name: "Audio Gear", icon: <Headphones className="h-4 w-4" /> },
+    { id: "all", name: "All Equipment", icon: <Music className="text-white h-4 w-4" /> },
+    { id: "guitars", name: "Guitars & Bass", icon: <Guitar className="text-white h-4 w-4" /> },
+    { id: "keyboards", name: "Keyboards & Piano", icon: <Piano className="text-white h-4 w-4" /> },
+    { id: "drums", name: "Drums & Percussion", icon: <Drum className="text-white h-4 w-4" /> },
+    { id: "microphones", name: "Microphones", icon: <Mic className="text-white h-4 w-4" /> },
+    { id: "audio-gear", name: "Audio Gear", icon: <Headphones className="text-white h-4 w-4" /> },
   ];
 
   const locations = [
@@ -282,44 +282,44 @@ export default function Marketplace() {
 
   const getConditionColor = (condition: string) => {
     switch (condition) {
-      case 'like-new': return 'text-green-400 bg-green-400/10';
-      case 'excellent': return 'text-blue-400 bg-blue-400/10';
-      case 'good': return 'text-yellow-400 bg-yellow-400/10';
+      case 'like-new': return 'text-netflix-red bg-netflix-red/10';
+      case 'excellent': return 'text-netflix-red bg-netflix-red/10';
+      case 'good': return 'text-netflix-red bg-netflix-red/10';
       case 'fair': return 'text-orange-400 bg-orange-400/10';
-      default: return 'text-gray-400 bg-gray-400/10';
+      default: return 'text-white bg-netflix-dark/10';
     }
   };
 
   return (
-    <div className="min-h-screen bg-netflix-black pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-white min-h-screen bg-netflix-black pt-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+        <div className="text-white text-center mb-12">
+          <h1 className="text-white text-4xl lg:text-6xl font-bold text-white mb-6">
             Equipment
-            <span className="block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
+            <span className="text-white block bg-gradient-to-r from-netflix-red to-red-400 bg-clip-text text-transparent">
               Marketplace
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Buy and sell quality musical equipment. From guitars and keyboards to microphones and studio gear - 
             find great deals from verified sellers.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
-          <div className="grid lg:grid-cols-5 gap-4">
+        <div className="text-white bg-netflix-dark/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-800">
+          <div className="text-white grid lg:grid-cols-5 gap-4">
             {/* Search Input */}
-            <div className="lg:col-span-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <div className="text-white lg:col-span-1">
+              <div className="text-white relative">
+                <Search className="text-white absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white" />
                 <Input
                   type="text"
                   placeholder="Search equipment..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
+                  className="text-white pl-10 bg-netflix-dark border-gray-700 text-white placeholder-gray-400 focus:border-netflix-red"
                 />
               </div>
             </div>
@@ -329,7 +329,7 @@ export default function Marketplace() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -344,7 +344,7 @@ export default function Marketplace() {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {priceRanges.map(range => (
                   <option key={range.id} value={range.id}>
@@ -359,7 +359,7 @@ export default function Marketplace() {
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {conditions.map(cond => (
                   <option key={cond.id} value={cond.id}>
@@ -374,7 +374,7 @@ export default function Marketplace() {
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
+                className="text-white w-full px-3 py-2 bg-netflix-dark border border-gray-700 rounded-md text-white focus:border-netflix-red focus:outline-none"
               >
                 {locations.map(location => (
                   <option key={location.id} value={location.id}>
@@ -387,16 +387,16 @@ export default function Marketplace() {
         </div>
 
         {/* Results Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-white">
-            <span className="text-lg font-medium">
+        <div className="text-white flex justify-between items-center mb-6">
+          <div className="text-white text-white">
+            <span className="text-white text-lg font-medium">
               {filteredEquipment.length} item{filteredEquipment.length !== 1 ? 's' : ''} available
             </span>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="text-white flex items-center space-x-4">
             {isAuthenticated && (
-              <Button className="netflix-button-primary">
-                <Plus className="h-4 w-4 mr-2" />
+              <Button className="text-white netflix-button-primary">
+                <Plus className="text-white h-4 w-4 mr-2" />
                 Sell Equipment
               </Button>
             )}
@@ -404,28 +404,28 @@ export default function Marketplace() {
         </div>
 
         {/* Equipment Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+        <div className="text-white grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
           {filteredEquipment.map((item) => (
-            <Card key={item.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <CardTitle className="text-white text-lg mb-2">
+            <Card key={item.id} className="text-white netflix-card bg-netflix-dark/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
+              <CardHeader className="text-white pb-4">
+                <div className="text-white flex items-start justify-between mb-4">
+                  <div className="text-white flex-1">
+                    <CardTitle className="text-white text-white text-lg mb-2">
                       {item.title}
                     </CardTitle>
-                    <div className="flex items-center space-x-2 mb-2">
+                    <div className="text-white flex items-center space-x-2 mb-2">
                       <Badge className={`text-xs ${getConditionColor(item.condition)}`}>
                         {item.condition.replace('-', ' ').toUpperCase()}
                       </Badge>
-                      <span className="text-gray-400 text-sm">{item.postedDate}</span>
+                      <span className="text-white text-white text-sm">{item.postedDate}</span>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-netflix-red">
+                  <div className="text-white text-right">
+                    <div className="text-white text-2xl font-bold text-netflix-red">
                       ${item.price}
                     </div>
                     {item.originalPrice > item.price && (
-                      <div className="text-sm text-gray-400 line-through">
+                      <div className="text-white text-sm text-white line-through">
                         ${item.originalPrice}
                       </div>
                     )}
@@ -433,27 +433,27 @@ export default function Marketplace() {
                 </div>
 
                 {/* Equipment Image Placeholder */}
-                <div className="w-full h-48 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
-                  <div className="text-center">
+                <div className="text-white w-full h-48 bg-netflix-dark rounded-lg flex items-center justify-center mb-4">
+                  <div className="text-white text-center">
                     {categories.find(cat => cat.id === item.category)?.icon}
-                    <div className="text-gray-400 text-sm mt-2">Equipment Photo</div>
+                    <div className="text-white text-white text-sm mt-2">Equipment Photo</div>
                   </div>
                 </div>
               </CardHeader>
               
-              <CardContent className="space-y-4">
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <CardContent className="text-white space-y-4">
+                <p className="text-white text-white text-sm leading-relaxed">
                   {item.description}
                 </p>
 
                 {/* Specifications */}
-                <div className="bg-gray-800/50 rounded-lg p-3">
-                  <h4 className="text-white font-medium mb-2">Specifications</h4>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="text-white bg-netflix-dark/50 rounded-lg p-3">
+                  <h4 className="text-white text-white font-medium mb-2">Specifications</h4>
+                  <div className="text-white grid grid-cols-2 gap-2 text-sm">
                     {Object.entries(item.specifications).map(([key, value]) => (
-                      <div key={key} className="flex justify-between">
-                        <span className="text-gray-400 capitalize">{key}:</span>
-                        <span className="text-gray-300">{value}</span>
+                      <div key={key} className="text-white flex justify-between">
+                        <span className="text-white text-white capitalize">{key}:</span>
+                        <span className="text-white text-white">{value}</span>
                       </div>
                     ))}
                   </div>
@@ -461,9 +461,9 @@ export default function Marketplace() {
 
                 {/* Features */}
                 <div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="text-white flex flex-wrap gap-2">
                     {item.features.map((feature, index) => (
-                      <Badge key={index} variant="secondary" className="bg-gray-800 text-gray-300">
+                      <Badge key={index} variant="secondary" className="text-white bg-netflix-dark text-white">
                         {feature}
                       </Badge>
                     ))}
@@ -471,66 +471,66 @@ export default function Marketplace() {
                 </div>
 
                 {/* Seller Info */}
-                <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold">
+                <div className="text-white flex items-center justify-between p-3 bg-netflix-dark/50 rounded-lg">
+                  <div className="text-white flex items-center space-x-3">
+                    <div className="text-white w-10 h-10 bg-netflix-red rounded-full flex items-center justify-center text-white font-bold">
                       {item.seller.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-white font-medium">{item.seller.name}</span>
+                      <div className="text-white flex items-center space-x-2">
+                        <span className="text-white text-white font-medium">{item.seller.name}</span>
                         {item.seller.verified && (
-                          <Badge className="bg-red-600 text-white text-xs">
+                          <Badge className="text-white bg-red-600 text-white text-xs">
                             Verified
                           </Badge>
                         )}
                       </div>
-                      <div className="flex items-center space-x-1 text-xs text-gray-400">
-                        <Star className="h-3 w-3 fill-current text-yellow-400" />
+                      <div className="text-white flex items-center space-x-1 text-xs text-white">
+                        <Star className="text-white h-3 w-3 fill-current text-netflix-red" />
                         <span>{item.seller.rating} ({item.seller.reviews})</span>
                       </div>
                     </div>
                   </div>
-                  <div className="text-right text-xs text-gray-400">
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-3 w-3" />
+                  <div className="text-white text-right text-xs text-white">
+                    <div className="text-white flex items-center space-x-1">
+                      <Clock className="text-white h-3 w-3" />
                       <span>{item.seller.responseTime}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Stats */}
-                <div className="flex items-center justify-between text-sm text-gray-400">
-                  <div className="flex items-center space-x-4">
+                <div className="text-white flex items-center justify-between text-sm text-white">
+                  <div className="text-white flex items-center space-x-4">
                     <span>{item.views} views</span>
                     <span>{item.likes} likes</span>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Truck className="h-4 w-4" />
+                  <div className="text-white flex items-center space-x-1">
+                    <Truck className="text-white h-4 w-4" />
                     <span>{item.shipping}</span>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-3 pt-4">
+                <div className="text-white flex space-x-3 pt-4">
                   <Button
                     onClick={() => handleContactSeller(item.id)}
-                    className="flex-1 netflix-button-primary"
+                    className="text-white flex-1 netflix-button-primary"
                   >
-                    <MessageCircle className="h-4 w-4 mr-2" />
+                    <MessageCircle className="text-white h-4 w-4 mr-2" />
                     Contact Seller
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                    className="text-white border-gray-700 text-white hover:bg-netflix-dark"
                   >
-                    <Heart className="h-4 w-4" />
+                    <Heart className="text-white h-4 w-4" />
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                    className="text-white border-gray-700 text-white hover:bg-netflix-dark"
                   >
-                    <Share2 className="h-4 w-4" />
+                    <Share2 className="text-white h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
@@ -539,21 +539,21 @@ export default function Marketplace() {
         </div>
 
         {/* Call-to-Action for Sellers */}
-        <div className="bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
-          <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-white bg-gradient-to-r from-netflix-red/10 via-gray-900/50 to-netflix-red/10 backdrop-blur-sm rounded-xl p-8 text-center border border-gray-800">
+          <h3 className="text-white text-2xl font-bold text-white mb-4">
             Got equipment to sell?
           </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          <p className="text-white text-white mb-6 max-w-2xl mx-auto">
             Join our marketplace to sell your musical equipment to a community of musicians. 
             Get fair prices and connect with serious buyers.
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="netflix-button-primary text-lg px-8 py-3">
+          <div className="text-white flex justify-center space-x-4">
+            <Button className="text-white netflix-button-primary text-lg px-8 py-3">
               Start Selling
             </Button>
             <Button 
               variant="outline" 
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 text-lg px-8 py-3"
+              className="text-white border-gray-700 text-white hover:bg-netflix-dark text-lg px-8 py-3"
             >
               Learn More
             </Button>

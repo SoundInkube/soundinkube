@@ -343,8 +343,8 @@ export default function MusicSchoolDetail() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="text-white flex justify-center items-center h-64">
+          <div className="text-white animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       </MainLayout>
     );
@@ -353,10 +353,10 @@ export default function MusicSchoolDetail() {
   if (error || !musicSchool) {
     return (
       <MainLayout>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
-            <p className="text-red-600">{error || "Music school not found"}</p>
-            <Button onClick={() => navigate("/music-schools")} className="mt-4">
+        <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-white bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <p className="text-white text-red-600">{error || "Music school not found"}</p>
+            <Button onClick={() => navigate("/music-schools")} className="text-white mt-4">
               Back to Music Schools
             </Button>
           </div>
@@ -367,31 +367,31 @@ export default function MusicSchoolDetail() {
 
   return (
     <MainLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Button
           variant="ghost"
           onClick={() => navigate("/music-schools")}
-          className="mb-4"
+          className="text-white mb-4"
         >
-          <ChevronLeft className="h-4 w-4 mr-2" />
+          <ChevronLeft className="text-white h-4 w-4 mr-2" />
           Back to Music Schools
         </Button>
         
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">{musicSchool.name}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-gray-400 mb-4">
-            <div className="flex items-center">
-              <MapPin className="h-4 w-4 mr-1" />
+        <div className="text-white mb-8">
+          <h1 className="text-white text-3xl font-bold text-white mb-2">{musicSchool.name}</h1>
+          <div className="text-white flex flex-wrap items-center gap-4 text-white mb-4">
+            <div className="text-white flex items-center">
+              <MapPin className="text-white h-4 w-4 mr-1" />
               <span>{musicSchool.location}, {musicSchool.city}</span>
             </div>
-            <div className="flex items-center">
-              <Star className="h-4 w-4 mr-1 text-amber-500" />
+            <div className="text-white flex items-center">
+              <Star className="text-white h-4 w-4 mr-1 text-amber-500" />
               <span>{musicSchool.rating} ({musicSchool.reviewCount} reviews)</span>
             </div>
           </div>
           
           {/* Gallery */}
-          <div className="grid grid-cols-4 gap-4">
+          <div className="text-white grid grid-cols-4 gap-4">
             {musicSchool.images.map((image, index) => (
               <div 
                 key={index} 
@@ -402,7 +402,7 @@ export default function MusicSchoolDetail() {
                 <img
                   src={image}
                   alt={`${musicSchool.name} - Image ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="text-white w-full h-full object-cover"
                   style={{ height: index === 0 ? '400px' : '200px' }}
                 />
               </div>
@@ -410,10 +410,10 @@ export default function MusicSchoolDetail() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <Tabs defaultValue="about" className="mb-8">
-              <TabsList className="mb-4">
+        <div className="text-white grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="text-white lg:col-span-2">
+            <Tabs defaultValue="about" className="text-white mb-8">
+              <TabsList className="text-white mb-4">
                 <TabsTrigger value="about">About</TabsTrigger>
                 <TabsTrigger value="courses">Courses</TabsTrigger>
                 <TabsTrigger value="instructors">Instructors</TabsTrigger>
@@ -426,36 +426,36 @@ export default function MusicSchoolDetail() {
                     <CardTitle>About {musicSchool.name}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-white mb-6">{musicSchool.longDescription}</p>
+                    <p className="text-white text-white mb-6">{musicSchool.longDescription}</p>
                     
-                    <h3 className="text-lg font-medium mb-3">Categories & Specialties</h3>
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <h3 className="text-white text-lg font-medium mb-3">Categories & Specialties</h3>
+                    <div className="text-white flex flex-wrap gap-2 mb-6">
                       {musicSchool.categories.map((category, index) => (
                         <Badge key={index} variant="secondary">
-                          <Music className="h-3 w-3 mr-1" />
+                          <Music className="text-white h-3 w-3 mr-1" />
                           {category}
                         </Badge>
                       ))}
                     </div>
                     
-                    <h3 className="text-lg font-medium mb-3">Facilities</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 mb-6">
+                    <h3 className="text-white text-lg font-medium mb-3">Facilities</h3>
+                    <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-y-2 mb-6">
                       {musicSchool.facilities.map((facility, index) => (
-                        <div key={index} className="flex items-center">
-                          <div className="h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center mr-2">
-                            <span className="text-red-600">✓</span>
+                        <div key={index} className="text-white flex items-center">
+                          <div className="text-white h-4 w-4 rounded-full bg-netflix-red flex items-center justify-center mr-2">
+                            <span className="text-white text-red-600">✓</span>
                           </div>
                           <span>{facility}</span>
                         </div>
                       ))}
                     </div>
                     
-                    <h3 className="text-lg font-medium mb-3">Opening Hours</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2">
+                    <h3 className="text-white text-lg font-medium mb-3">Opening Hours</h3>
+                    <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-y-2">
                       {musicSchool.openingHours.map((item, index) => (
-                        <div key={index} className="flex items-center">
-                          <Clock className="h-4 w-4 mr-2 text-gray-400" />
-                          <span className="font-medium mr-2">{item.day}:</span>
+                        <div key={index} className="text-white flex items-center">
+                          <Clock className="text-white h-4 w-4 mr-2 text-white" />
+                          <span className="text-white font-medium mr-2">{item.day}:</span>
                           <span>{item.hours}</span>
                         </div>
                       ))}
@@ -465,39 +465,39 @@ export default function MusicSchoolDetail() {
               </TabsContent>
               
               <TabsContent value="courses">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-4">
                   {musicSchool.courses.map((course) => (
-                    <Card key={course.id} className="overflow-hidden">
-                      <CardHeader className="pb-2">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-lg">{course.name}</CardTitle>
+                    <Card key={course.id} className="text-white overflow-hidden">
+                      <CardHeader className="text-white pb-2">
+                        <div className="text-white flex justify-between items-start">
+                          <CardTitle className="text-white text-lg">{course.name}</CardTitle>
                           <Badge variant={course.type === "Private" ? "default" : "secondary"}>
                             {course.type}
                           </Badge>
                         </div>
-                        <CardDescription className="flex items-center">
-                          <Clock className="h-3 w-3 mr-1" />
-                          {course.duration} • <User className="h-3 w-3 mx-1" /> Max {course.capacity}
+                        <CardDescription className="text-white flex items-center">
+                          <Clock className="text-white h-3 w-3 mr-1" />
+                          {course.duration} • <User className="text-white h-3 w-3 mx-1" /> Max {course.capacity}
                         </CardDescription>
                       </CardHeader>
-                      <CardContent className="pb-2">
-                        <p className="text-white text-sm mb-3">{course.description}</p>
+                      <CardContent className="text-white pb-2">
+                        <p className="text-white text-white text-sm mb-3">{course.description}</p>
                         
-                        <div className="flex items-center text-sm mb-2">
-                          <GraduationCap className="h-4 w-4 mr-1 text-gray-400" />
+                        <div className="text-white flex items-center text-sm mb-2">
+                          <GraduationCap className="text-white h-4 w-4 mr-1 text-white" />
                           <span>{course.instructor.name}</span>
                         </div>
                         
-                        <div className="flex items-center text-sm mb-3">
-                          <CalendarIcon className="h-4 w-4 mr-1 text-gray-400" />
+                        <div className="text-white flex items-center text-sm mb-3">
+                          <CalendarIcon className="text-white h-4 w-4 mr-1 text-white" />
                           <span>{course.schedule}</span>
                         </div>
                         
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center text-lg font-bold">
-                            <DollarSign className="h-4 w-4" />
+                        <div className="text-white flex items-center justify-between">
+                          <div className="text-white flex items-center text-lg font-bold">
+                            <DollarSign className="text-white h-4 w-4" />
                             {course.price}
-                            <span className="text-sm font-normal text-gray-400 ml-1">/ session</span>
+                            <span className="text-white text-sm font-normal text-white ml-1">/ session</span>
                           </div>
                           <Button size="sm" onClick={() => handleBookCourse(course)}>
                             Book Now
@@ -510,28 +510,28 @@ export default function MusicSchoolDetail() {
               </TabsContent>
               
               <TabsContent value="instructors">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-6">
                   {musicSchool.instructors.map((instructor) => (
-                    <Card key={instructor.id} className="overflow-hidden">
-                      <CardContent className="p-6">
-                        <div className="flex space-x-4">
-                          <Avatar className="h-20 w-20">
+                    <Card key={instructor.id} className="text-white overflow-hidden">
+                      <CardContent className="text-white p-6">
+                        <div className="text-white flex space-x-4">
+                          <Avatar className="text-white h-20 w-20">
                             <AvatarImage src={instructor.imageUrl} alt={instructor.name} />
                             <AvatarFallback>{instructor.name[0]}</AvatarFallback>
                           </Avatar>
                           <div>
-                            <h3 className="font-bold text-lg">{instructor.name}</h3>
-                            <p className="text-sm text-gray-400 mb-2">{instructor.experience} experience</p>
-                            <div className="flex flex-wrap gap-1 mb-2">
+                            <h3 className="text-white font-bold text-lg">{instructor.name}</h3>
+                            <p className="text-white text-sm text-white mb-2">{instructor.experience} experience</p>
+                            <div className="text-white flex flex-wrap gap-1 mb-2">
                               {instructor.specialties.map((specialty, index) => (
-                                <Badge key={index} variant="outline" className="text-xs">
+                                <Badge key={index} variant="outline" className="text-white text-xs">
                                   {specialty}
                                 </Badge>
                               ))}
                             </div>
                           </div>
                         </div>
-                        <p className="mt-3 text-sm text-white">{instructor.bio}</p>
+                        <p className="text-white mt-3 text-sm text-white">{instructor.bio}</p>
                       </CardContent>
                     </Card>
                   ))}
@@ -547,33 +547,33 @@ export default function MusicSchoolDetail() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-6">
+                    <div className="text-white space-y-6">
                       {musicSchool.reviews.map((review) => (
-                        <div key={review.id} className="pb-6 border-b border-zinc-800 last:border-b-0 last:pb-0">
-                          <div className="flex items-center mb-2">
-                            <Avatar className="h-10 w-10 mr-3">
+                        <div key={review.id} className="text-white pb-6 border-b border-zinc-800 last:border-b-0 last:pb-0">
+                          <div className="text-white flex items-center mb-2">
+                            <Avatar className="text-white h-10 w-10 mr-3">
                               <AvatarImage src={review.userImage} alt={review.user} />
                               <AvatarFallback>{review.user[0]}</AvatarFallback>
                             </Avatar>
                             <div>
-                              <p className="font-medium">{review.user}</p>
-                              <p className="text-xs text-gray-400">{review.date}</p>
+                              <p className="text-white font-medium">{review.user}</p>
+                              <p className="text-white text-xs text-white">{review.date}</p>
                               {review.course && (
-                                <p className="text-xs text-gray-400">Course: {review.course}</p>
+                                <p className="text-white text-xs text-white">Course: {review.course}</p>
                               )}
                             </div>
-                            <div className="ml-auto flex items-center">
-                              <Star className="h-4 w-4 text-amber-500" />
-                              <span className="ml-1">{review.rating}</span>
+                            <div className="text-white ml-auto flex items-center">
+                              <Star className="text-white h-4 w-4 text-amber-500" />
+                              <span className="text-white ml-1">{review.rating}</span>
                             </div>
                           </div>
-                          <p className="text-white text-sm">{review.comment}</p>
+                          <p className="text-white text-white text-sm">{review.comment}</p>
                         </div>
                       ))}
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full" disabled={!isAuthenticated}>
+                    <Button variant="outline" className="text-white w-full" disabled={!isAuthenticated}>
                       {isAuthenticated ? "Write a Review" : "Login to Write a Review"}
                     </Button>
                   </CardFooter>
@@ -583,37 +583,37 @@ export default function MusicSchoolDetail() {
           </div>
           
           {/* Contact Information */}
-          <div className="space-y-6">
+          <div className="text-white space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <Phone className="h-5 w-5 mr-3 text-gray-400" />
+                <div className="text-white space-y-3">
+                  <div className="text-white flex items-center">
+                    <Phone className="text-white h-5 w-5 mr-3 text-white" />
                     <span>{musicSchool.phone}</span>
                   </div>
-                  <div className="flex items-center">
-                    <Mail className="h-5 w-5 mr-3 text-gray-400" />
-                    <a href={`mailto:${musicSchool.email}`} className="text-red-600 hover:underline">
+                  <div className="text-white flex items-center">
+                    <Mail className="text-white h-5 w-5 mr-3 text-white" />
+                    <a href={`mailto:${musicSchool.email}`} className="text-white text-red-600 hover:underline">
                       {musicSchool.email}
                     </a>
                   </div>
-                  <div className="flex items-center">
-                    <Globe className="h-5 w-5 mr-3 text-gray-400" />
-                    <a href={`https://${musicSchool.website}`} target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline">
+                  <div className="text-white flex items-center">
+                    <Globe className="text-white h-5 w-5 mr-3 text-white" />
+                    <a href={`https://${musicSchool.website}`} target="_blank" rel="noopener noreferrer" className="text-white text-red-600 hover:underline">
                       {musicSchool.website}
                     </a>
                   </div>
-                  <div className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-3 text-gray-400" />
+                  <div className="text-white flex items-center">
+                    <MapPin className="text-white h-5 w-5 mr-3 text-white" />
                     <span>{musicSchool.location}, {musicSchool.city}</span>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="text-white w-full">
                   Get Directions
                 </Button>
               </CardFooter>
@@ -627,7 +627,7 @@ export default function MusicSchoolDetail() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full">
+                <Button className="text-white w-full">
                   Request Information
                 </Button>
               </CardContent>
@@ -646,46 +646,46 @@ export default function MusicSchoolDetail() {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-4 py-4">
-            <div className="flex items-center justify-between">
+          <div className="text-white space-y-4 py-4">
+            <div className="text-white flex items-center justify-between">
               <div>
-                <p className="font-medium">{selectedCourse?.name}</p>
-                <p className="text-sm text-gray-400">{selectedCourse?.type} • {selectedCourse?.duration}</p>
+                <p className="text-white font-medium">{selectedCourse?.name}</p>
+                <p className="text-white text-sm text-white">{selectedCourse?.type} • {selectedCourse?.duration}</p>
               </div>
-              <div className="text-right">
-                <p className="font-bold">${selectedCourse?.price}</p>
-                <p className="text-sm text-gray-400">per session</p>
+              <div className="text-white text-right">
+                <p className="text-white font-bold">${selectedCourse?.price}</p>
+                <p className="text-white text-sm text-white">per session</p>
               </div>
             </div>
             
-            <div className="border-t border-b py-4">
-              <label className="block text-sm font-medium mb-2">
+            <div className="text-white border-t border-b py-4">
+              <label className="text-white block text-sm font-medium mb-2">
                 Select Start Date
               </label>
-              <div className="flex justify-center">
+              <div className="text-white flex justify-center">
                 <Calendar
                   mode="single"
                   selected={selectedDate}
                   onSelect={setSelectedDate}
-                  className="rounded-md border"
+                  className="text-white rounded-md border"
                   disabled={(date) => date < new Date()}
                 />
               </div>
             </div>
             
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-red-600" />
-                <span className="text-sm">Instructor: {selectedCourse?.instructor.name}</span>
+            <div className="text-white space-y-2">
+              <div className="text-white flex items-center">
+                <CheckCircle className="text-white h-4 w-4 mr-2 text-red-600" />
+                <span className="text-white text-sm">Instructor: {selectedCourse?.instructor.name}</span>
               </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-red-600" />
-                <span className="text-sm">Location: {musicSchool.name}, {musicSchool.city}</span>
+              <div className="text-white flex items-center">
+                <CheckCircle className="text-white h-4 w-4 mr-2 text-red-600" />
+                <span className="text-white text-sm">Location: {musicSchool.name}, {musicSchool.city}</span>
               </div>
               {selectedDate && (
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-red-600" />
-                  <span className="text-sm">Starting: {format(selectedDate, "PPP")}</span>
+                <div className="text-white flex items-center">
+                  <CheckCircle className="text-white h-4 w-4 mr-2 text-red-600" />
+                  <span className="text-white text-sm">Starting: {format(selectedDate, "PPP")}</span>
                 </div>
               )}
             </div>
