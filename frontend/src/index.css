@@ -100,8 +100,9 @@
 }
 
 .category-card {
-  @apply group relative overflow-hidden rounded-xl bg-gradient-to-br p-8 text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer;
+  @apply relative overflow-hidden rounded-xl bg-gradient-to-br p-8 text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer;
 }
+
 
 .category-card:hover {
   @apply scale-105;
