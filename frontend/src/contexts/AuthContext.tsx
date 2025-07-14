@@ -117,12 +117,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         throw new Error("Password must be at least 6 characters long");
       }
       
-      // Determine role based on email domain or default to CLIENT
+      // CRITICAL FIX: Check if user already has a stored profile with role
+      const storedUserData = localStorage.getItem(`soundinkube_user_${email}`);
       let role: UserRole = "CLIENT";
-      if (email.includes('professional') || email.includes('musician')) {
-        role = "MUSIC_PROFESSIONAL";
-      } else if (email.includes('manager') || email.includes('label')) {
-        role = "ARTIST_MANAGER_LABEL";
+      
+      if (storedUserData) {
+        // User exists - use their stored role
+        const userData = JSON.parse(storedUserData);
+        role = userData.role;
+        console.log("Found existing user with role:", role);
+      } else {
+        // New user - determine role based on email domain (fallback only)
+        if (email.includes('professional') || email.includes('musician')) {
+          role = "MUSIC_PROFESSIONAL";
+        } else if (email.includes('manager') || email.includes('label')) {
+          role = "ARTIST_MANAGER_LABEL";
+        }
       }
       
       const mockToken = createMockToken(email, role);
@@ -171,6 +181,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       if (!role) {
         throw new Error("Please select an account type");
       }
+      
+      // CRITICAL FIX: Store user profile data persistently
+      const userData = {
+        email,
+        role,
+        createdAt: new Date().toISOString()
+      };
+      localStorage.setItem(`soundinkube_user_${email}`, JSON.stringify(userData));
+      console.log("Stored user data:", userData);
       
       const mockToken = createMockToken(email, role);
       localStorage.setItem("soundinkube_token", mockToken);

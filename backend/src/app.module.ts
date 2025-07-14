@@ -1,19 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { PrismaModule } from './prisma/prisma.module';
+import { PrismaModule } from './modules/prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
-import { ProfilesModule } from './modules/profiles/profiles.module';
+import { AdminModule } from './modules/admin/admin.module';
 import { BookingsModule } from './modules/bookings/bookings.module';
-import { StudiosModule } from './modules/studios/studios.module';
-import { MessagesModule } from './modules/messages/messages.module';
 import { MarketplaceModule } from './modules/marketplace/marketplace.module';
-import { CollabsModule } from './modules/collabs/collabs.module';
-import { JamPadsModule } from './modules/jampads/jampads.module';
-import { MusicSchoolsModule } from './modules/music-schools/music-schools.module';
-import { PaymentsModule } from './modules/payments/payments.module';
-import { ReviewsModule } from './modules/reviews/reviews.module';
-import { BusinessProfilesModule } from './modules/business-profiles/business-profiles.module';
+import { JampadsModule } from './modules/jampads/jampads.module';
 import { ArtistManagementModule } from './modules/artist-management/artist-management.module';
 
 @Module({
@@ -24,17 +17,10 @@ import { ArtistManagementModule } from './modules/artist-management/artist-manag
     PrismaModule,
     AuthModule,
     UsersModule,
-    ProfilesModule,
+    AdminModule,
     BookingsModule,
-    StudiosModule,
-    MessagesModule,
     MarketplaceModule,
-    CollabsModule,
-    JamPadsModule,
-    MusicSchoolsModule,
-    PaymentsModule,
-    ReviewsModule,
-    BusinessProfilesModule,
+    JampadsModule,
     ArtistManagementModule,
   ],
 })
