@@ -6,49 +6,46 @@
   :root {
     --background: 0 0 0;
     --foreground: 250 250 250;
-    --card: 23 23 23;
+    --card: 30 41 59;
     --card-foreground: 250 250 250;
-    --popover: 23 23 23;
+    --popover: 30 41 59;
     --popover-foreground: 250 250 250;
-    --primary: 229 9 20;
-    --primary-foreground: 250 250 250;
-    --secondary: 39 39 42;
+    --primary: 34 197 94;
+    --primary-foreground: 255 255 255;
+    --secondary: 51 65 85;
     --secondary-foreground: 250 250 250;
-    --muted: 39 39 42;
-    --muted-foreground: 161 161 170;
-    --accent: 39 39 42;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    --accent: 51 65 85;
     --accent-foreground: 250 250 250;
     --destructive: 239 68 68;
     --destructive-foreground: 250 250 250;
-    --border: 39 39 42;
-    --input: 39 39 42;
-    --ring: 229 9 20;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 34 197 94;
     --radius: 0.5rem;
-    --netflix-red: 229 9 20;
-    --netflix-dark: 20 20 20;
-    --netflix-gray: 64 64 64;
   }
 
   .dark {
     --background: 0 0 0;
     --foreground: 250 250 250;
-    --card: 23 23 23;
+    --card: 30 41 59;
     --card-foreground: 250 250 250;
-    --popover: 23 23 23;
+    --popover: 30 41 59;
     --popover-foreground: 250 250 250;
-    --primary: 229 9 20;
-    --primary-foreground: 250 250 250;
-    --secondary: 39 39 42;
+    --primary: 34 197 94;
+    --primary-foreground: 255 255 255;
+    --secondary: 51 65 85;
     --secondary-foreground: 250 250 250;
-    --muted: 39 39 42;
-    --muted-foreground: 161 161 170;
-    --accent: 39 39 42;
-    --accent-foreground: 250 250 250;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    --accent: 51 65 85;
+    --accent-foreground: 250 250 -250;
     --destructive: 239 68 68;
     --destructive-foreground: 250 250 250;
-    --border: 39 39 42;
-    --input: 39 39 42;
-    --ring: 229 9 20;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 34 197 94;
   }
 }
 
@@ -62,223 +59,227 @@
   }
 }
 
-/* Netflix Style Components */
-.netflix-card {
-  @apply bg-zinc-900 rounded-lg border border-zinc-800 shadow-2xl p-6 hover:shadow-red-900/20 hover:shadow-2xl transition-all duration-300;
+/* Modern Design System */
+.card {
+  @apply bg-slate-800 border-slate-700 text-white rounded-lg shadow-lg;
 }
 
-.netflix-card:hover {
-  @apply border-red-600/50 transform scale-105;
+.card-header {
+  @apply p-6 pb-4;
 }
 
-.netflix-button-primary {
-  @apply inline-flex items-center justify-center rounded-md bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black transition-all duration-200;
+.card-title {
+  @apply text-xl font-semibold text-white;
 }
 
-.netflix-button-secondary {
-  @apply inline-flex items-center justify-center rounded-md border border-zinc-700 bg-zinc-800 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 hover:border-zinc-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black transition-all duration-200;
+.card-description {
+  @apply text-slate-400 mt-1;
 }
 
-.netflix-input {
-  @apply block w-full rounded-md border border-zinc-700 bg-zinc-900 px-4 py-3 text-white placeholder-zinc-400 focus:border-red-500 focus:ring-red-500 focus:outline-none transition-colors duration-200;
+.card-content {
+  @apply p-6 pt-0;
 }
 
-.netflix-tabs {
-  @apply flex space-x-8 border-b border-zinc-800;
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
 }
 
-.netflix-tabs button {
-  @apply border-b-2 border-transparent px-1 py-4 text-sm font-medium text-zinc-400 hover:text-white hover:border-red-500 transition-all duration-200;
+.btn-primary {
+  @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 focus:ring-offset-slate-900;
 }
 
-.netflix-tabs button.active {
-  @apply border-red-600 text-white;
+.btn-secondary {
+  @apply bg-slate-700 text-white hover:bg-slate-600 focus:ring-slate-500 focus:ring-offset-slate-900 border border-slate-600;
 }
 
-.netflix-badge-success {
-  @apply inline-flex items-center rounded-full bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-400 ring-1 ring-green-500/30;
+.btn-outline {
+  @apply border border-green-600 text-green-600 hover:bg-green-600 hover:text-white focus:ring-green-500 focus:ring-offset-slate-900;
 }
 
-.netflix-badge-warning {
-  @apply inline-flex items-center rounded-full bg-yellow-900/50 px-2.5 py-0.5 text-xs font-medium text-yellow-400 ring-1 ring-yellow-500/30;
+.input {
+  @apply flex h-10 w-full rounded-md border border-slate-600 bg-slate-700 px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-white;
 }
 
-.netflix-badge-error {
-  @apply inline-flex items-center rounded-full bg-red-900/50 px-2.5 py-0.5 text-xs font-medium text-red-400 ring-1 ring-red-500/30;
+.textarea {
+  @apply flex min-h-[80px] w-full rounded-md border border-slate-600 bg-slate-700 px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-white;
 }
 
-.netflix-alert {
-  @apply rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-white shadow-lg;
+.select {
+  @apply flex h-10 w-full items-center justify-between rounded-md border border-slate-600 bg-slate-700 px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-white;
 }
 
-.netflix-form {
-  @apply space-y-6 bg-zinc-900 p-8 rounded-lg border border-zinc-800 shadow-2xl;
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
 }
 
-.netflix-fade-in {
-  @apply animate-in fade-in-0 duration-700;
+.badge-primary {
+  @apply bg-green-600 text-white;
 }
 
-.netflix-hover-glow:hover {
-  @apply shadow-lg shadow-red-600/25;
+.badge-secondary {
+  @apply bg-slate-700 text-slate-200;
 }
 
-.netflix-hover-scale:hover {
-  @apply transform scale-105 transition-transform duration-300;
+.badge-outline {
+  @apply border border-slate-600 text-slate-300;
 }
 
-.netflix-loading {
-  @apply inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-red-600 border-r-transparent;
+/* Navigation */
+.nav-item {
+  @apply flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-slate-700 hover:text-white transition-colors;
 }
 
-.netflix-label {
-  @apply block text-sm font-medium leading-6 text-zinc-300;
+.nav-item.active {
+  @apply bg-green-700 text-white;
 }
 
-/* Marketplace card styles adapted for Netflix theme */
-.marketplace-card {
-  @apply bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl hover:shadow-red-900/20 transition-all duration-300 p-6;
+/* Tables */
+.table {
+  @apply w-full caption-bottom text-sm;
 }
 
-.marketplace-card:hover {
-  @apply -translate-y-1 shadow-2xl border-red-600/50;
+.table-header {
+  @apply border-b border-slate-700;
 }
 
-.service-card {
-  @apply bg-zinc-900 rounded-lg border border-zinc-800 overflow-hidden hover:shadow-lg hover:shadow-red-900/20 transition-all duration-300;
+.table-row {
+  @apply border-b border-slate-800 transition-colors hover:bg-slate-700/50;
 }
 
-.service-card:hover {
-  @apply shadow-xl -translate-y-1 border-red-600/50;
+.table-head {
+  @apply h-12 px-4 text-left align-middle font-medium text-slate-400;
 }
 
-.pro-badge {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r from-red-600 to-red-700 text-white;
+.table-cell {
+  @apply p-4 align-middle text-slate-200;
 }
 
-.top-rated-badge {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-600 to-orange-600 text-white;
+/* Forms */
+.form-group {
+  @apply space-y-2;
 }
 
-.marketplace-button-primary {
-  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-red-600 to-red-700 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black transition-all duration-200;
+.form-label {
+  @apply text-sm font-medium leading-none text-slate-200 peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
 }
 
-.marketplace-button-secondary {
-  @apply inline-flex items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 px-6 py-3 text-sm font-semibold text-zinc-300 shadow-sm hover:bg-zinc-700 hover:border-zinc-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black transition-all duration-200;
+.form-control {
+  @apply relative;
 }
 
-.marketplace-input {
-  @apply block w-full rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-3 text-white placeholder-zinc-400 focus:border-red-500 focus:ring-red-500 focus:outline-none transition-colors duration-200;
+.form-description {
+  @apply text-sm text-slate-400;
 }
 
-.category-card {
-  @apply relative overflow-hidden rounded-xl bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 text-white shadow-lg hover:shadow-xl hover:shadow-red-900/20 transition-all duration-300 cursor-pointer border border-zinc-800;
+.form-message {
+  @apply text-sm font-medium text-red-400;
 }
 
-.category-card:hover {
-  @apply scale-105 border-red-600/50;
+/* Hero Section */
+.hero {
+  @apply relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-6 text-center;
 }
 
-.breadcrumb {
-  @apply flex items-center space-x-2 text-sm text-zinc-400 mb-6;
+.hero-title {
+  @apply text-4xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent;
 }
 
-.breadcrumb a {
-  @apply hover:text-red-400 transition-colors duration-200;
+.hero-subtitle {
+  @apply text-xl text-slate-300 mb-8 max-w-2xl mx-auto;
 }
 
-.star-rating {
-  @apply flex items-center space-x-1;
+/* Grid Layouts */
+.grid-1 {
+  @apply grid grid-cols-1;
 }
 
-.star-filled {
-  @apply text-yellow-400;
+.grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2;
 }
 
-.star-empty {
-  @apply text-zinc-600;
+.grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 }
 
-.profile-avatar {
-  @apply relative inline-block;
+.grid-4 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
 }
 
-.profile-avatar::after {
-  @apply absolute bottom-0 right-0 block h-4 w-4 rounded-full bg-green-400 ring-2 ring-zinc-900 content-[''];
-}
-
-.marketplace-navbar {
-  @apply sticky top-0 z-50 w-full border-b border-zinc-800 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60;
-}
-
-.hero-section {
-  @apply relative overflow-hidden bg-gradient-to-br from-black via-zinc-900 to-zinc-800 py-16 sm:py-24;
-}
-
-.testimonial-card {
-  @apply rounded-2xl bg-zinc-900 p-8 shadow-lg ring-1 ring-zinc-800 border border-zinc-800;
-}
-
-.pricing-card {
-  @apply relative rounded-2xl border border-zinc-800 bg-zinc-900 p-8 shadow-sm hover:shadow-lg hover:shadow-red-900/20 transition-shadow duration-300;
-}
-
-.pricing-card.featured {
-  @apply border-red-600 ring-2 ring-red-600 ring-opacity-20;
+/* Feature Cards */
+.feature-card {
+  @apply bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-green-500 transition-colors;
 }
 
 .feature-icon {
-  @apply inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-red-700 text-white;
+  @apply w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white mb-4;
 }
 
-/* Music Industry Specific Styles */
-.music-genre-tag {
-  @apply inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 text-xs font-medium text-white;
+.feature-title {
+  @apply text-lg font-semibold text-white mb-2;
 }
 
-.instrument-tag {
-  @apply inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 text-xs font-medium text-white;
+.feature-description {
+  @apply text-slate-400;
 }
 
-.skill-level-tag {
-  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+/* Stats */
+.stat-card {
+  @apply bg-slate-800 border border-slate-700 rounded-lg p-6 text-center;
 }
 
-.skill-level-tag.beginner {
-  @apply bg-green-900/50 text-green-400 ring-1 ring-green-500/30;
+.stat-number {
+  @apply text-3xl font-bold text-green-400 mb-1;
 }
 
-.skill-level-tag.intermediate {
-  @apply bg-yellow-900/50 text-yellow-400 ring-1 ring-yellow-500/30;
+.stat-label {
+  @apply text-slate-400 text-sm;
 }
 
-.skill-level-tag.expert {
-  @apply bg-red-900/50 text-red-400 ring-1 ring-red-500/30;
+/* Pricing Cards */
+.pricing-card {
+  @apply bg-slate-800 border border-slate-700 rounded-lg p-8 relative;
 }
 
-/* Search and Filter Styles */
-.search-bar {
-  @apply relative flex-1 max-w-2xl;
+.pricing-card.featured {
+  @apply border-green-500 bg-slate-700;
 }
 
-.search-input {
-  @apply w-full rounded-full border border-zinc-700 bg-zinc-900 pl-12 pr-4 py-4 text-white placeholder-zinc-400 focus:border-red-500 focus:ring-red-500 focus:outline-none shadow-sm;
+.pricing-badge {
+  @apply absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-medium;
 }
 
-.filter-dropdown {
-  @apply absolute top-full left-0 mt-2 w-full rounded-lg border border-zinc-800 bg-zinc-900 shadow-lg z-10;
+.pricing-amount {
+  @apply text-4xl font-bold text-white mb-1;
 }
 
-.filter-option {
-  @apply block w-full px-4 py-3 text-left text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors duration-150;
+.pricing-period {
+  @apply text-slate-400 mb-6;
 }
 
-/* Loading and Animation Styles */
-.loading-spinner {
-  @apply inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-red-600 border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite];
+.pricing-feature {
+  @apply flex items-center text-slate-300 mb-3;
 }
 
+.pricing-feature-check {
+  @apply w-5 h-5 text-green-500 mr-3;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-3xl;
+  }
+  
+  .hero-subtitle {
+    @apply text-lg;
+  }
+  
+  .hero {
+    @apply py-16 px-4;
+  }
+}
+
+/* Animation Classes */
 .fade-in {
   @apply animate-in fade-in-0 duration-500;
 }
@@ -287,17 +288,217 @@
   @apply animate-in slide-in-from-bottom-4 duration-500;
 }
 
-/* Mobile Responsive Adjustments */
-@media (max-width: 640px) {
-  .marketplace-card {
-    @apply p-4;
-  }
-  
-  .category-card {
-    @apply p-6;
-  }
-  
-  .hero-section {
-    @apply py-12;
-  }
+.scale-in {
+  @apply animate-in zoom-in-95 duration-300;
+}
+
+/* Loading States */
+.loading {
+  @apply inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-green-600 border-r-transparent;
+}
+
+.skeleton {
+  @apply animate-pulse bg-slate-700 rounded;
+}
+
+/* Toast/Alert Messages */
+.alert {
+  @apply p-4 rounded-lg border;
+}
+
+.alert-success {
+  @apply bg-green-900/20 border-green-700 text-green-300;
+}
+
+.alert-error {
+  @apply bg-red-900/20 border-red-700 text-red-300;
+}
+
+.alert-warning {
+  @apply bg-yellow-900/20 border-yellow-700 text-yellow-300;
+}
+
+.alert-info {
+  @apply bg-blue-900/20 border-blue-700 text-blue-300;
+}
+
+/* Avatar */
+.avatar {
+  @apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
+}
+
+.avatar-image {
+  @apply aspect-square h-full w-full;
+}
+
+.avatar-fallback {
+  @apply flex h-full w-full items-center justify-center rounded-full bg-slate-700 text-slate-200;
+}
+
+/* Progress */
+.progress {
+  @apply relative h-4 w-full overflow-hidden rounded-full bg-slate-700;
+}
+
+.progress-indicator {
+  @apply h-full w-full flex-1 bg-green-600 transition-all;
+}
+
+/* Separator */
+.separator {
+  @apply shrink-0 bg-slate-700 h-[1px] w-full;
+}
+
+/* Tabs */
+.tabs-list {
+  @apply inline-flex h-10 items-center justify-center rounded-md bg-slate-800 p-1 text-slate-400;
+}
+
+.tabs-trigger {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-slate-900 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-slate-700 data-[state=active]:text-white data-[state=active]:shadow-sm;
+}
+
+.tabs-content {
+  @apply mt-2 ring-offset-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2;
+}
+
+/* Dialog/Modal */
+.dialog-overlay {
+  @apply fixed inset-0 z-50 bg-black/80;
+}
+
+.dialog-content {
+  @apply fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-slate-700 bg-slate-800 p-6 shadow-lg duration-200 rounded-lg;
+}
+
+.dialog-header {
+  @apply flex flex-col space-y-1.5 text-center sm:text-left;
+}
+
+.dialog-title {
+  @apply text-lg font-semibold leading-none tracking-tight text-white;
+}
+
+.dialog-description {
+  @apply text-sm text-slate-400;
+}
+
+.dialog-footer {
+  @apply flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+  @apply z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-700 bg-slate-800 p-1 text-slate-200 shadow-md;
+}
+
+.dropdown-item {
+  @apply relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-slate-700 focus:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+
+.dropdown-separator {
+  @apply -mx-1 my-1 h-px bg-slate-700;
+}
+
+/* Tooltip */
+.tooltip-content {
+  @apply z-50 overflow-hidden rounded-md border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-slate-200 shadow-md;
+}
+
+/* Hover Card */
+.hover-card-content {
+  @apply z-50 w-64 rounded-md border border-slate-700 bg-slate-800 p-4 text-slate-200 shadow-md outline-none;
+}
+
+/* Music Industry Specific Styles */
+.genre-tag {
+  @apply inline-flex items-center rounded-full bg-purple-600 px-2.5 py-0.5 text-xs font-medium text-white;
+}
+
+.instrument-tag {
+  @apply inline-flex items-center rounded-full bg-blue-600 px-2.5 py-0.5 text-xs font-medium text-white;
+}
+
+.skill-tag {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+.skill-beginner {
+  @apply bg-green-600 text-white;
+}
+
+.skill-intermediate {
+  @apply bg-yellow-600 text-white;
+}
+
+.skill-advanced {
+  @apply bg-red-600 text-white;
+}
+
+/* Rating Stars */
+.rating {
+  @apply flex items-center space-x-1;
+}
+
+.star {
+  @apply w-4 h-4;
+}
+
+.star-filled {
+  @apply text-yellow-400;
+}
+
+.star-empty {
+  @apply text-slate-600;
+}
+
+/* Professional Profile Cards */
+.profile-card {
+  @apply bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-green-500 transition-all duration-200 hover:shadow-lg;
+}
+
+.profile-avatar {
+  @apply w-16 h-16 rounded-full bg-slate-600 flex items-center justify-center text-white font-semibold text-xl;
+}
+
+.profile-name {
+  @apply text-lg font-semibold text-white mt-3;
+}
+
+.profile-title {
+  @apply text-slate-400 text-sm;
+}
+
+.profile-location {
+  @apply text-slate-500 text-sm flex items-center mt-1;
+}
+
+/* Equipment Cards */
+.equipment-card {
+  @apply bg-slate-800 border border-slate-700 rounded-lg p-4 hover:border-green-500 transition-colors;
+}
+
+.equipment-image {
+  @apply w-full h-48 bg-slate-700 rounded-md mb-4 flex items-center justify-center text-slate-400;
+}
+
+.equipment-title {
+  @apply font-semibold text-white mb-2;
+}
+
+.equipment-price {
+  @apply text-green-400 font-bold text-lg;
+}
+
+.equipment-condition {
+  @apply text-slate-400 text-sm;
+}
+
+/* Social Media Links */
+.social-links {
+  @apply flex space-x-3 mt-4;
+}
+
+.social-link {
+  @apply w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors text-slate-400 hover:text-white;
 }
