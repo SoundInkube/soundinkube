@@ -592,7 +592,7 @@ export default function ScoutArtists() {
                             </button>
                             <div>
                               <p className="text-white text-sm font-medium">{track.title}</p>
-                              <p className="text-gray-500 text-xs">{track.releaseDate}</p>
+                              <p className="text-gray-400 text-xs">{track.releaseDate}</p>
                             </div>
                           </div>
                           <span className="text-gray-400 text-xs">{formatNumber(track.streams)}</span>

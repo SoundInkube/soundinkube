@@ -259,21 +259,21 @@ export default function MarketplaceDetail() {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{item.title}</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{item.title}</h1>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
               <Badge variant={item.type === "Sale" ? "default" : "secondary"} className="text-sm">
                 {item.type}
                 {item.type === "Rent" && item.rentalPeriod && ` (${item.rentalPeriod})`}
               </Badge>
-              <div className="flex items-center text-gray-500">
+              <div className="flex items-center text-gray-400">
                 <MapPin className="h-4 w-4 mr-1" />
                 <span>{item.city}</span>
               </div>
-              <div className="flex items-center text-gray-500">
+              <div className="flex items-center text-gray-400">
                 <Calendar className="h-4 w-4 mr-1" />
                 <span>Posted {new Date(item.createdAt).toLocaleDateString()}</span>
               </div>
-              <div className="flex items-center text-gray-500">
+              <div className="flex items-center text-gray-400">
                 <Tag className="h-4 w-4 mr-1" />
                 <span>{item.category} / {item.subcategory}</span>
               </div>
@@ -303,7 +303,7 @@ export default function MarketplaceDetail() {
                 <CardTitle>Description</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 whitespace-pre-line">{item.description}</p>
+                <p className="text-white whitespace-pre-line">{item.description}</p>
               </CardContent>
             </Card>
             
@@ -369,14 +369,14 @@ export default function MarketplaceDetail() {
                   <DollarSign className="h-6 w-6 mr-1" />
                   {item.price}
                   {item.type === "Rent" && item.rentalPeriod && (
-                    <span className="text-base font-normal text-gray-500 ml-1">
+                    <span className="text-base font-normal text-gray-400 ml-1">
                       /{item.rentalPeriod.split(' ')[1]}
                     </span>
                   )}
                 </CardTitle>
                 <CardDescription>
                   <div className="flex items-center">
-                    <Package className="h-4 w-4 mr-1 text-gray-500" />
+                    <Package className="h-4 w-4 mr-1 text-gray-400" />
                     <span>Condition: {item.condition}</span>
                   </div>
                 </CardDescription>
@@ -396,7 +396,7 @@ export default function MarketplaceDetail() {
                     <div className="py-4">
                       <div className="mb-4">
                         <p className="font-medium mb-1">Item</p>
-                        <p className="text-sm text-gray-600">{item.title}</p>
+                        <p className="text-sm text-gray-300">{item.title}</p>
                       </div>
                       <Textarea
                         placeholder="Write your message here..."
@@ -424,12 +424,12 @@ export default function MarketplaceDetail() {
                   </Button>
                 </div>
                 
-                <Button variant="ghost" size="sm" className="w-full text-gray-500">
+                <Button variant="ghost" size="sm" className="w-full text-gray-400">
                   <Flag className="h-4 w-4 mr-2" />
                   Report Item
                 </Button>
                 
-                <div className="text-center text-sm text-gray-500">
+                <div className="text-center text-sm text-gray-400">
                   <Clock className="h-4 w-4 inline mr-1" />
                   <span>{item.viewCount} people have viewed this item</span>
                 </div>
@@ -454,7 +454,7 @@ export default function MarketplaceDetail() {
                         <Badge variant="secondary" className="ml-2 text-xs">Verified</Badge>
                       )}
                     </h3>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-400">
                       <Star className="h-3 w-3 mr-1 text-amber-500" />
                       <span>{item.seller.rating} ({item.seller.reviewCount} reviews)</span>
                     </div>
@@ -463,11 +463,11 @@ export default function MarketplaceDetail() {
                 
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Member since</span>
+                    <span className="text-gray-400">Member since</span>
                     <span>{item.seller.memberSince}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Response rate</span>
+                    <span className="text-gray-400">Response rate</span>
                     <span>{item.seller.responseRate}%</span>
                   </div>
                 </div>

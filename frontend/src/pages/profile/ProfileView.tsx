@@ -99,8 +99,8 @@ export default function ProfileView() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl font-bold text-gray-900">Profile not found</h1>
-          <p className="text-gray-600 mt-2">The profile you're looking for doesn't exist.</p>
+          <h1 className="text-2xl font-bold text-white">Profile not found</h1>
+          <p className="text-gray-300 mt-2">The profile you're looking for doesn't exist.</p>
         </div>
       </div>
     );
@@ -124,7 +124,7 @@ export default function ProfileView() {
               <div className="flex-1 text-center sm:text-left">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                   <div>
-                    <h1 className="text-3xl font-bold text-gray-900">{displayName}</h1>
+                    <h1 className="text-3xl font-bold text-white">{displayName}</h1>
                     {profile.user?.role === 'MUSIC_PROFESSIONAL' && (
                       <Badge variant="secondary" className="mt-1">
                         Music Professional
@@ -148,10 +148,10 @@ export default function ProfileView() {
                 </div>
 
                 {profile.bio && (
-                  <p className="text-gray-700 mb-4">{profile.bio}</p>
+                  <p className="text-white mb-4">{profile.bio}</p>
                 )}
 
-                <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                <div className="flex flex-wrap gap-4 text-sm text-gray-300">
                   {profile.city && profile.state && (
                     <div className="flex items-center gap-1">
                       <MapPin className="h-4 w-4" />
@@ -166,7 +166,7 @@ export default function ProfileView() {
                         href={profile.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
+                        className="text-red-600 hover:underline"
                       >
                         Website
                       </a>
@@ -217,14 +217,14 @@ export default function ProfileView() {
                 {profile.yearsExperience && (
                   <div>
                     <h4 className="font-medium mb-1">Experience</h4>
-                    <p className="text-gray-600">{profile.yearsExperience} years</p>
+                    <p className="text-gray-300">{profile.yearsExperience} years</p>
                   </div>
                 )}
 
                 {profile.hourlyRate && (
                   <div>
                     <h4 className="font-medium mb-1">Hourly Rate</h4>
-                    <p className="text-gray-600">${profile.hourlyRate}/hour</p>
+                    <p className="text-gray-300">${profile.hourlyRate}/hour</p>
                   </div>
                 )}
               </CardContent>
@@ -243,7 +243,7 @@ export default function ProfileView() {
                       {profile.averageRating?.toFixed(1) || '0.0'}
                     </span>
                   </div>
-                  <div className="text-gray-600">
+                  <div className="text-gray-300">
                     {profile.totalReviews || 0} review{profile.totalReviews !== 1 ? 's' : ''}
                   </div>
                 </div>

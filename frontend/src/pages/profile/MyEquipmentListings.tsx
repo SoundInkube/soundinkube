@@ -128,8 +128,8 @@ export default function MyEquipmentListings() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Active': return 'bg-green-600/20 text-green-400';
-      case 'Sold': return 'bg-blue-600/20 text-blue-400';
+      case 'Active': return 'bg-red-600/20 text-green-400';
+      case 'Sold': return 'bg-red-600/20 text-blue-400';
       case 'Pending': return 'bg-yellow-600/20 text-yellow-400';
       default: return 'bg-gray-600/20 text-gray-400';
     }
@@ -137,10 +137,10 @@ export default function MyEquipmentListings() {
 
   const getConditionColor = (condition: string) => {
     switch (condition) {
-      case 'Excellent': return 'bg-green-600/20 text-green-400';
-      case 'Very Good': return 'bg-blue-600/20 text-blue-400';
+      case 'Excellent': return 'bg-red-600/20 text-green-400';
+      case 'Very Good': return 'bg-red-600/20 text-blue-400';
       case 'Good': return 'bg-yellow-600/20 text-yellow-400';
-      case 'Like New': return 'bg-purple-600/20 text-purple-400';
+      case 'Like New': return 'bg-red-600/20 text-purple-400';
       default: return 'bg-gray-600/20 text-gray-400';
     }
   };
@@ -170,7 +170,7 @@ export default function MyEquipmentListings() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Package className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -184,7 +184,7 @@ export default function MyEquipmentListings() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <TrendingUp className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
@@ -198,7 +198,7 @@ export default function MyEquipmentListings() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Star className="h-5 w-5 text-purple-400" />
                 </div>
                 <div>
@@ -275,7 +275,7 @@ export default function MyEquipmentListings() {
             <Card key={item.id} className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800 hover:border-netflix-red/50 transition-all duration-300">
               <div className="relative">
                 <div className="h-48 bg-gray-800 rounded-t-lg flex items-center justify-center">
-                  <Package className="h-16 w-16 text-gray-600" />
+                  <Package className="h-16 w-16 text-gray-300" />
                 </div>
                 <Badge 
                   className={`absolute top-3 left-3 ${getStatusColor(item.status)}`}
@@ -298,7 +298,7 @@ export default function MyEquipmentListings() {
                     <div className="flex items-center space-x-2">
                       <span className="text-2xl font-bold text-white">${item.price}</span>
                       {item.originalPrice > item.price && (
-                        <span className="text-gray-500 line-through">${item.originalPrice}</span>
+                        <span className="text-gray-400 line-through">${item.originalPrice}</span>
                       )}
                     </div>
                     <Badge variant="secondary" className="bg-gray-800 text-gray-300">
@@ -351,7 +351,7 @@ export default function MyEquipmentListings() {
 
         {filteredListings.length === 0 && (
           <div className="text-center py-12">
-            <Package className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <Package className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No listings found</h3>
             <p className="text-gray-400 mb-6">Try adjusting your search terms or add a new listing</p>
             <Button className="netflix-button-primary">

@@ -183,14 +183,14 @@ export default function ArtistManagerDashboard() {
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                     <div className="flex-1">
                       <p className="text-white">Sarah Johnson confirmed for Madison Square Garden</p>
                       <p className="text-xs text-gray-400">2 hours ago</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                     <div className="flex-1">
                       <p className="text-white">New contract signed with Emily Chen</p>
                       <p className="text-xs text-gray-400">1 day ago</p>

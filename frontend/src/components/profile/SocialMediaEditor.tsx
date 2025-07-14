@@ -25,7 +25,7 @@ const platformConfig = {
   spotify: {
     name: 'Spotify',
     icon: Music,
-    color: 'bg-green-500',
+    color: 'bg-red-600',
     placeholder: 'https://open.spotify.com/artist/your-artist-id',
     example: 'https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb',
     description: 'Your Spotify artist or user profile'
@@ -57,7 +57,7 @@ const platformConfig = {
   facebook: {
     name: 'Facebook',
     icon: Facebook,
-    color: 'bg-blue-600',
+    color: 'bg-red-600',
     placeholder: 'https://facebook.com/your-page-or-profile',
     example: 'https://facebook.com/johnsmithmusic',
     description: 'Your Facebook page or profile'

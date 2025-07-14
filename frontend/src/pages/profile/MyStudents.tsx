@@ -197,7 +197,7 @@ export default function MyStudents() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Beginner': return 'bg-green-600/20 text-green-400';
+      case 'Beginner': return 'bg-red-600/20 text-green-400';
       case 'Intermediate': return 'bg-yellow-600/20 text-yellow-400';
       case 'Advanced': return 'bg-red-600/20 text-red-400';
       default: return 'bg-gray-600/20 text-gray-400';
@@ -205,7 +205,7 @@ export default function MyStudents() {
   };
 
   const getSkillColor = (score: number) => {
-    if (score >= 80) return 'bg-green-600';
+    if (score >= 80) return 'bg-red-600';
     if (score >= 60) return 'bg-yellow-600';
     return 'bg-red-600';
   };
@@ -252,7 +252,7 @@ export default function MyStudents() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Users className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -266,7 +266,7 @@ export default function MyStudents() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <BookOpen className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
@@ -308,7 +308,7 @@ export default function MyStudents() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Calendar className="h-5 w-5 text-purple-400" />
                 </div>
                 <div>
@@ -572,7 +572,7 @@ export default function MyStudents() {
 
         {filteredStudents.length === 0 && (
           <div className="text-center py-12">
-            <GraduationCap className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <GraduationCap className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No students found</h3>
             <p className="text-gray-400 mb-6">Start building your student roster</p>
             <Button className="netflix-button-primary">

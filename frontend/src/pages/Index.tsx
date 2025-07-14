@@ -29,21 +29,21 @@ export default function HomePage() {
       title: 'Music Production',
       description: 'Beat making, mixing, mastering',
       icon: Headphones,
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-red-500 to-red-500',
       count: '2.5k+ services'
     },
     {
       title: 'Vocals & Singing',
       description: 'Lead vocals, backing vocals, voice-over',
       icon: Mic,
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-red-500 to-cyan-500',
       count: '1.8k+ services'
     },
     {
       title: 'Songwriting',
       description: 'Lyrics, melodies, song arrangement',
       icon: Music,
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'from-red-500 to-emerald-500',
       count: '1.2k+ services'
     },
     {
@@ -132,30 +132,30 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-zinc-900">
       {/* Navigation */}
       <nav className="marketplace-navbar">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center space-x-8">
               <Link to="/" className="flex items-center space-x-2">
-                <Music className="h-8 w-8 text-green-600" />
-                <span className="text-xl font-bold text-gray-900">SoundInkube</span>
+                <Music className="h-8 w-8 text-red-600" />
+                <span className="text-xl font-bold text-white">SoundInkube</span>
               </Link>
               <div className="hidden md:flex items-center space-x-6">
-                <Link to="/browse" className="text-gray-700 hover:text-green-600 font-medium">
+                <Link to="/browse" className="text-white hover:text-red-600 font-medium">
                   Browse Services
                 </Link>
-                <Link to="/how-it-works" className="text-gray-700 hover:text-green-600 font-medium">
+                <Link to="/how-it-works" className="text-white hover:text-red-600 font-medium">
                   How It Works
                 </Link>
-                <Link to="/become-seller" className="text-gray-700 hover:text-green-600 font-medium">
+                <Link to="/become-seller" className="text-white hover:text-red-600 font-medium">
                   Become a Seller
                 </Link>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link to="/login" className="text-gray-700 hover:text-green-600 font-medium">
+              <Link to="/login" className="text-white hover:text-red-600 font-medium">
                 Sign In
               </Link>
               <Link to="/signup">
@@ -172,13 +172,13 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Find the Perfect
-              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 to-emerald-600 bg-clip-text text-transparent">
                 {' '}Music Professional
               </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 max-w-3xl mx-auto">
+            <p className="mt-6 text-lg leading-8 text-gray-300 max-w-3xl mx-auto">
               Connect with talented musicians, producers, and audio engineers from around the world. 
               Get your music project done professionally, on time, and on budget.
             </p>
@@ -204,11 +204,11 @@ export default function HomePage() {
 
             {/* Popular Searches */}
             <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <span className="text-sm text-gray-500">Popular:</span>
+              <span className="text-sm text-gray-400">Popular:</span>
               {['Beat Making', 'Vocal Recording', 'Mixing & Mastering', 'Songwriting'].map((term) => (
                 <button
                   key={term}
-                  className="text-sm text-green-600 hover:text-green-700 font-medium underline-offset-4 hover:underline"
+                  className="text-sm text-red-600 hover:text-red-600 font-medium underline-offset-4 hover:underline"
                 >
                   {term}
                 </button>
@@ -219,13 +219,13 @@ export default function HomePage() {
       </section>
 
       {/* Music Categories */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-black">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">
               Explore Music Services
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-300">
               Find the perfect professional for your music project
             </p>
           </div>
@@ -252,13 +252,13 @@ export default function HomePage() {
       </section>
 
       {/* Featured Services */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">
               Featured Services
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-300">
               Hand-picked services from our top-rated professionals
             </p>
           </div>
@@ -284,17 +284,17 @@ export default function HomePage() {
                         {service.avatar}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="text-sm font-medium text-gray-700">{service.artist}</span>
+                    <span className="text-sm font-medium text-white">{service.artist}</span>
                   </div>
                   
-                  <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
+                  <h3 className="font-semibold text-white mb-2 line-clamp-2">
                     {service.title}
                   </h3>
                   
                   <div className="flex items-center space-x-1 mb-3">
                     <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                    <span className="text-sm font-medium text-gray-900">{service.rating}</span>
-                    <span className="text-sm text-gray-500">({service.reviews})</span>
+                    <span className="text-sm font-medium text-white">{service.rating}</span>
+                    <span className="text-sm text-gray-400">({service.reviews})</span>
                   </div>
                   
                   <div className="flex flex-wrap gap-1 mb-3">
@@ -307,8 +307,8 @@ export default function HomePage() {
                   
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-sm font-bold text-gray-900">From ${service.price}</span>
-                      <p className="text-xs text-gray-500">{service.deliveryTime} delivery</p>
+                      <span className="text-sm font-bold text-white">From ${service.price}</span>
+                      <p className="text-xs text-gray-400">{service.deliveryTime} delivery</p>
                     </div>
                     <Button size="sm" className="marketplace-button-primary text-xs">
                       View Details
@@ -329,32 +329,32 @@ export default function HomePage() {
               <div className="feature-icon mx-auto mb-4">
                 <Users className="h-6 w-6" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">10,000+</div>
-              <div className="text-gray-600">Music Professionals</div>
+              <div className="text-3xl font-bold text-white mb-2">10,000+</div>
+              <div className="text-gray-300">Music Professionals</div>
             </div>
             <div>
               <div className="feature-icon mx-auto mb-4">
                 <Award className="h-6 w-6" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">50,000+</div>
-              <div className="text-gray-600">Projects Completed</div>
+              <div className="text-3xl font-bold text-white mb-2">50,000+</div>
+              <div className="text-gray-300">Projects Completed</div>
             </div>
             <div>
               <div className="feature-icon mx-auto mb-4">
                 <TrendingUp className="h-6 w-6" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
-              <div className="text-gray-600">Average Rating</div>
+              <div className="text-3xl font-bold text-white mb-2">4.9/5</div>
+              <div className="text-gray-300">Average Rating</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-zinc-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">
               What Our Users Say
             </h2>
           </div>
@@ -367,10 +367,10 @@ export default function HomePage() {
                     <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4">"{testimonial.content}"</p>
+                <p className="text-white mb-4">"{testimonial.content}"</p>
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-500">{testimonial.role}</div>
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-400">{testimonial.role}</div>
                 </div>
               </div>
             ))}
@@ -379,7 +379,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-emerald-600">
+      <section className="py-16 bg-gradient-to-r from-red-600 to-emerald-600">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl mb-4">
             Ready to Start Your Music Project?
@@ -389,12 +389,12 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">
-              <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold">
+              <Button className="bg-zinc-900 text-red-600 hover:bg-zinc-900 px-8 py-3 text-lg font-semibold">
                 Get Started for Free
               </Button>
             </Link>
             <Link to="/browse">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 text-lg font-semibold">
+              <Button variant="outline" className="border-white text-white hover:bg-zinc-900 hover:text-red-600 px-8 py-3 text-lg font-semibold">
                 Browse Services
               </Button>
             </Link>
@@ -408,7 +408,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Music className="h-6 w-6 text-green-500" />
+                <Music className="h-6 w-6 text-red-600" />
                 <span className="text-xl font-bold">SoundInkube</span>
               </div>
               <p className="text-gray-400">

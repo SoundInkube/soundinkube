@@ -198,7 +198,7 @@ export default function Contracts() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Active': return 'bg-green-600/20 text-green-400';
+      case 'Active': return 'bg-red-600/20 text-green-400';
       case 'Pending': return 'bg-yellow-600/20 text-yellow-400';
       case 'On Hold': return 'bg-orange-600/20 text-orange-400';
       case 'Expired': return 'bg-red-600/20 text-red-400';
@@ -252,7 +252,7 @@ export default function Contracts() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <FileText className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -266,7 +266,7 @@ export default function Contracts() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <CheckCircle className="h-5 w-5 text-green-400" />
                 </div>
                 <div>

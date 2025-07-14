@@ -336,7 +336,7 @@ export default function HireProfessionals() {
                           </Link>
                         </CardTitle>
                         {professional.verified && (
-                          <Badge className="bg-green-600 text-white text-xs">
+                          <Badge className="bg-red-600 text-white text-xs">
                             Verified
                           </Badge>
                         )}
@@ -402,7 +402,7 @@ export default function HireProfessionals() {
                       <div key={index} className="flex justify-between items-center text-sm">
                         <div>
                           <span className="text-gray-300">"{work.title}"</span>
-                          <span className="text-gray-500 ml-2">by {work.artist}</span>
+                          <span className="text-gray-400 ml-2">by {work.artist}</span>
                         </div>
                         <span className="text-gray-400">{work.plays} plays</span>
                       </div>

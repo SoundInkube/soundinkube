@@ -85,7 +85,7 @@ export default function ContractManagement() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'bg-green-600';
+      case 'active': return 'bg-red-600';
       case 'pending': return 'bg-yellow-600';
       case 'expired': return 'bg-red-600';
       case 'terminated': return 'bg-gray-600';
@@ -126,7 +126,7 @@ export default function ContractManagement() {
         </div>
         <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-purple-600 hover:bg-purple-700">
+            <Button className="bg-red-600 hover:bg-purple-700">
               <Plus className="h-4 w-4 mr-2" />
               New Contract
             </Button>
@@ -183,7 +183,7 @@ export default function ContractManagement() {
               <Button variant="outline" onClick={() => setIsCreateModalOpen(false)} className="border-gray-600 text-white">
                 Cancel
               </Button>
-              <Button className="bg-purple-600 hover:bg-purple-700">
+              <Button className="bg-red-600 hover:bg-purple-700">
                 Create Contract
               </Button>
             </div>
@@ -314,7 +314,7 @@ export default function ContractManagement() {
       {filteredContracts.length === 0 && (
         <Card className="bg-gray-900 border-gray-700">
           <CardContent className="text-center py-8">
-            <FileText className="h-12 w-12 text-gray-600 mx-auto mb-4" />
+            <FileText className="h-12 w-12 text-gray-300 mx-auto mb-4" />
             <p className="text-gray-400">No contracts found matching your filters</p>
           </CardContent>
         </Card>

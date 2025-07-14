@@ -454,7 +454,7 @@ export default function Gigs() {
                             <div className="flex items-center space-x-2">
                               <h4 className="text-white font-medium">{gig.client.name}</h4>
                               {gig.client.verified && (
-                                <Badge className="bg-green-600/20 text-green-400 text-xs">
+                                <Badge className="bg-red-600/20 text-green-400 text-xs">
                                   Verified
                                 </Badge>
                               )}

@@ -243,10 +243,10 @@ export default function PaymentHistory() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'bg-green-600/20 text-green-400';
+      case 'Completed': return 'bg-red-600/20 text-green-400';
       case 'Processing': return 'bg-yellow-600/20 text-yellow-400';
       case 'Failed': return 'bg-red-600/20 text-red-400';
-      case 'Pending': return 'bg-blue-600/20 text-blue-400';
+      case 'Pending': return 'bg-red-600/20 text-blue-400';
       default: return 'bg-gray-600/20 text-gray-400';
     }
   };
@@ -327,7 +327,7 @@ export default function PaymentHistory() {
               <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-green-600/20 rounded-lg">
+                    <div className="p-2 bg-red-600/20 rounded-lg">
                       <DollarSign className="h-5 w-5 text-green-400" />
                     </div>
                     <div>
@@ -341,7 +341,7 @@ export default function PaymentHistory() {
               <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-blue-600/20 rounded-lg">
+                    <div className="p-2 bg-red-600/20 rounded-lg">
                       <Receipt className="h-5 w-5 text-blue-400" />
                     </div>
                     <div>
@@ -383,7 +383,7 @@ export default function PaymentHistory() {
               <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-purple-600/20 rounded-lg">
+                    <div className="p-2 bg-red-600/20 rounded-lg">
                       <ArrowDownLeft className="h-5 w-5 text-purple-400" />
                     </div>
                     <div>
@@ -410,7 +410,7 @@ export default function PaymentHistory() {
                       <p className="text-2xl font-bold text-white">$3,850</p>
                       <p className="text-gray-400 text-sm">June 2024</p>
                     </div>
-                    <Badge className="bg-green-600/20 text-green-400">+20.5%</Badge>
+                    <Badge className="bg-red-600/20 text-green-400">+20.5%</Badge>
                   </div>
                   
                   <div className="space-y-3">
@@ -490,7 +490,7 @@ export default function PaymentHistory() {
                           <div>
                             <h3 className="text-white font-semibold">{transaction.description}</h3>
                             <p className="text-gray-400 text-sm">{transaction.professional.name} • {transaction.professional.specialty}</p>
-                            <div className="flex items-center space-x-4 mt-1 text-xs text-gray-500">
+                            <div className="flex items-center space-x-4 mt-1 text-xs text-gray-400">
                               <span>{transaction.id}</span>
                               <span>•</span>
                               <span>{new Date(transaction.date).toLocaleDateString()}</span>
@@ -606,7 +606,7 @@ export default function PaymentHistory() {
                       <p className="text-gray-400 text-xs">Expires 12/26</p>
                     </div>
                   </div>
-                  <Badge className="bg-green-600/20 text-green-400">Primary</Badge>
+                  <Badge className="bg-red-600/20 text-green-400">Primary</Badge>
                 </div>
                 
                 <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg">
@@ -674,7 +674,7 @@ export default function PaymentHistory() {
 
         {filteredTransactions.length === 0 && (
           <div className="text-center py-12">
-            <Receipt className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <Receipt className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No transactions found</h3>
             <p className="text-gray-400 mb-6">Your payment history will appear here</p>
             <Button className="netflix-button-primary">

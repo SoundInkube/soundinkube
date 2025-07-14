@@ -184,8 +184,8 @@ export default function JamPadsList() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Jam Pads</h1>
-            <p className="mt-2 text-gray-600">Find and book the perfect rehearsal space for your music</p>
+            <h1 className="text-3xl font-bold text-white">Jam Pads</h1>
+            <p className="mt-2 text-gray-300">Find and book the perfect rehearsal space for your music</p>
           </div>
           <div className="mt-4 md:mt-0">
             <Button asChild>
@@ -195,10 +195,10 @@ export default function JamPadsList() {
         </div>
 
         {/* Filters */}
-        <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
+        <div className="bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="search" className="block text-sm font-medium text-white mb-1">
                 Search
               </label>
               <Input
@@ -210,7 +210,7 @@ export default function JamPadsList() {
             </div>
             
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="city" className="block text-sm font-medium text-white mb-1">
                 City
               </label>
               <Select value={selectedCity} onValueChange={setSelectedCity}>
@@ -231,7 +231,7 @@ export default function JamPadsList() {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-white mb-1">
                 Price Range: ${priceRange[0]} - ${priceRange[1]}
               </label>
               <Slider
@@ -267,7 +267,7 @@ export default function JamPadsList() {
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-500 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               {filteredJamPads.length} {filteredJamPads.length === 1 ? "jam pad" : "jam pads"} found
             </p>
             
@@ -293,17 +293,17 @@ export default function JamPadsList() {
                           {jamPad.availableNow ? "Available Now" : "Book Ahead"}
                         </Badge>
                       </div>
-                      <div className="flex items-center text-gray-500 text-sm">
+                      <div className="flex items-center text-gray-400 text-sm">
                         <MapPin className="h-4 w-4 mr-1" />
                         <span>{jamPad.city}</span>
                       </div>
                     </CardHeader>
                     <CardContent className="pb-2">
-                      <p className="text-gray-600 line-clamp-2">{jamPad.description}</p>
+                      <p className="text-gray-300 line-clamp-2">{jamPad.description}</p>
                       
                       <div className="flex items-center mt-2 space-x-4">
                         <div className="flex items-center">
-                          <Users className="h-4 w-4 mr-1 text-gray-500" />
+                          <Users className="h-4 w-4 mr-1 text-gray-400" />
                           <span className="text-sm">{jamPad.capacity}</span>
                         </div>
                         <div className="flex items-center">
@@ -330,11 +330,11 @@ export default function JamPadsList() {
                     </CardContent>
                     <CardFooter className="pt-2 flex justify-between">
                       <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1 text-gray-500" />
+                        <Calendar className="h-4 w-4 mr-1 text-gray-400" />
                         <span className="text-sm">Book now</span>
                       </div>
                       <div className="font-semibold text-lg">
-                        ${jamPad.hourlyRate}<span className="text-sm font-normal text-gray-500">/hour</span>
+                        ${jamPad.hourlyRate}<span className="text-sm font-normal text-gray-400">/hour</span>
                       </div>
                     </CardFooter>
                   </Card>
@@ -343,8 +343,8 @@ export default function JamPadsList() {
             </div>
             
             {filteredJamPads.length === 0 && (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600">No jam pads found matching your criteria. Try adjusting your filters.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300">No jam pads found matching your criteria. Try adjusting your filters.</p>
               </div>
             )}
           </>

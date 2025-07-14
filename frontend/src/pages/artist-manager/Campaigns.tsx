@@ -109,7 +109,7 @@ export default function Campaigns() {
       case 'Active':
         return <Badge className="netflix-badge-success">{status}</Badge>;
       case 'Completed':
-        return <Badge className="bg-blue-600 text-white">{status}</Badge>;
+        return <Badge className="bg-red-600 text-white">{status}</Badge>;
       case 'Paused':
         return <Badge className="netflix-badge-warning">{status}</Badge>;
       case 'Draft':

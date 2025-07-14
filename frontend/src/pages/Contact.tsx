@@ -203,7 +203,7 @@ export default function Contact() {
                           <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
                           <p className="text-gray-400 text-sm mb-2">{info.description}</p>
                           <p className="text-netflix-red font-medium mb-1">{info.contact}</p>
-                          <p className="text-xs text-gray-500">{info.responseTime}</p>
+                          <p className="text-xs text-gray-400">{info.responseTime}</p>
                         </div>
                       </div>
                     </CardContent>

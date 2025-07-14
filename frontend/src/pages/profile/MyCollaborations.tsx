@@ -141,20 +141,20 @@ export default function MyCollaborations() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'bg-green-600/20 text-green-400';
-      case 'In Progress': return 'bg-blue-600/20 text-blue-400';
+      case 'Completed': return 'bg-red-600/20 text-green-400';
+      case 'In Progress': return 'bg-red-600/20 text-blue-400';
       case 'Review': return 'bg-yellow-600/20 text-yellow-400';
-      case 'Planning': return 'bg-purple-600/20 text-purple-400';
+      case 'Planning': return 'bg-red-600/20 text-purple-400';
       default: return 'bg-gray-600/20 text-gray-400';
     }
   };
 
   const getTrackStatusColor = (status: string) => {
     switch (status) {
-      case 'Mastered': return 'bg-green-600/20 text-green-400';
-      case 'Mixed': return 'bg-blue-600/20 text-blue-400';
+      case 'Mastered': return 'bg-red-600/20 text-green-400';
+      case 'Mixed': return 'bg-red-600/20 text-blue-400';
       case 'Recording': return 'bg-yellow-600/20 text-yellow-400';
-      case 'Demo': return 'bg-purple-600/20 text-purple-400';
+      case 'Demo': return 'bg-red-600/20 text-purple-400';
       default: return 'bg-gray-600/20 text-gray-400';
     }
   };
@@ -197,7 +197,7 @@ export default function MyCollaborations() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Music className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -225,7 +225,7 @@ export default function MyCollaborations() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Star className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
@@ -253,7 +253,7 @@ export default function MyCollaborations() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Clock className="h-5 w-5 text-purple-400" />
                 </div>
                 <div>
@@ -343,7 +343,7 @@ export default function MyCollaborations() {
                         {collab.collaborators.map((collaborator, index) => (
                           <div key={index} className="flex items-center space-x-2">
                             <Avatar className="w-8 h-8">
-                              <AvatarFallback className="bg-blue-600 text-white text-xs">
+                              <AvatarFallback className="bg-red-600 text-white text-xs">
                                 {collaborator.avatar}
                               </AvatarFallback>
                             </Avatar>
@@ -423,7 +423,7 @@ export default function MyCollaborations() {
                     <div className="bg-gray-800/50 rounded-lg p-4">
                       <div className="flex items-center justify-between mb-2">
                         <h4 className="text-white font-medium">Messages</h4>
-                        <Badge variant="secondary" className="bg-blue-600/20 text-blue-400">
+                        <Badge variant="secondary" className="bg-red-600/20 text-blue-400">
                           {collab.messages}
                         </Badge>
                       </div>
@@ -471,7 +471,7 @@ export default function MyCollaborations() {
 
         {filteredCollaborations.length === 0 && (
           <div className="text-center py-12">
-            <Music className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <Music className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No collaborations found</h3>
             <p className="text-gray-400 mb-6">Start your first collaboration project</p>
             <Button className="netflix-button-primary">

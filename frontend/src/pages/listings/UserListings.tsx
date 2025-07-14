@@ -169,9 +169,9 @@ export default function UserListings() {
       case "sold":
         return "bg-blue-100 text-blue-800";
       case "draft":
-        return "bg-gray-100 text-gray-800";
+        return "bg-zinc-900 text-white";
       default:
-        return "bg-gray-100 text-gray-800";
+        return "bg-zinc-900 text-white";
     }
   };
 
@@ -209,8 +209,8 @@ export default function UserListings() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">My Listings</h1>
-            <p className="mt-2 text-gray-600">Manage your marketplace items and jam pads</p>
+            <h1 className="text-3xl font-bold text-white">My Listings</h1>
+            <p className="mt-2 text-gray-300">Manage your marketplace items and jam pads</p>
           </div>
           <Button onClick={() => handleCreateNew("marketplace")}>
             <Plus className="h-4 w-4 mr-2" />
@@ -227,8 +227,8 @@ export default function UserListings() {
           {/* Marketplace Tab */}
           <TabsContent value="marketplace">
             {marketplaceListings.length === 0 ? (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600 mb-4">You don't have any marketplace listings yet.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300 mb-4">You don't have any marketplace listings yet.</p>
                 <Button onClick={() => handleCreateNew("marketplace")}>
                   <Plus className="h-4 w-4 mr-2" />
                   Create Marketplace Listing
@@ -242,7 +242,7 @@ export default function UserListings() {
                       <CardTitle className="text-lg">Active</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-green-700">{activeMarketplace}</p>
+                      <p className="text-3xl font-bold text-red-600">{activeMarketplace}</p>
                     </CardContent>
                   </Card>
                   
@@ -255,12 +255,12 @@ export default function UserListings() {
                     </CardContent>
                   </Card>
                   
-                  <Card className="bg-gray-50 border-gray-100">
+                  <Card className="bg-black border-gray-100">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-lg">Drafts</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-gray-700">{draftMarketplace}</p>
+                      <p className="text-3xl font-bold text-white">{draftMarketplace}</p>
                     </CardContent>
                   </Card>
                   
@@ -276,7 +276,7 @@ export default function UserListings() {
                 
                 <div className="space-y-4">
                   {marketplaceListings.map((listing) => (
-                    <div key={listing.id} className="bg-white p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div key={listing.id} className="bg-zinc-900 p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
                       <div className="h-20 w-20 rounded overflow-hidden flex-shrink-0">
                         <img
                           src={listing.imageUrl}
@@ -310,7 +310,7 @@ export default function UserListings() {
                           {listing.status}
                         </span>
                         
-                        <div className="text-sm text-gray-500 flex items-center gap-2">
+                        <div className="text-sm text-gray-400 flex items-center gap-2">
                           <span className="flex items-center">
                             <Eye className="h-3 w-3 mr-1" />
                             {listing.views}
@@ -335,8 +335,8 @@ export default function UserListings() {
           {/* Jam Pads Tab */}
           <TabsContent value="jampads">
             {jampadListings.length === 0 ? (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600 mb-4">You don't have any jam pads listed yet.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300 mb-4">You don't have any jam pads listed yet.</p>
                 <Button onClick={() => handleCreateNew("jampad")}>
                   <Plus className="h-4 w-4 mr-2" />
                   List a Jam Pad
@@ -350,7 +350,7 @@ export default function UserListings() {
                       <CardTitle className="text-lg">Active Venues</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-3xl font-bold text-green-700">{activeJampads}</p>
+                      <p className="text-3xl font-bold text-red-600">{activeJampads}</p>
                     </CardContent>
                   </Card>
                   
@@ -375,7 +375,7 @@ export default function UserListings() {
                 
                 <div className="space-y-4">
                   {jampadListings.map((listing) => (
-                    <div key={listing.id} className="bg-white p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div key={listing.id} className="bg-zinc-900 p-4 rounded-lg border flex flex-col sm:flex-row items-start sm:items-center gap-4">
                       <div className="h-20 w-20 rounded overflow-hidden flex-shrink-0">
                         <img
                           src={listing.imageUrl}
@@ -386,7 +386,7 @@ export default function UserListings() {
                       
                       <div className="flex-grow">
                         <h3 className="font-medium text-lg">{listing.name}</h3>
-                        <div className="flex items-center text-sm text-gray-500 mt-1">
+                        <div className="flex items-center text-sm text-gray-400 mt-1">
                           <MapPin className="h-4 w-4 mr-1" />
                           {listing.city}
                         </div>
@@ -396,14 +396,14 @@ export default function UserListings() {
                         <div className="flex items-center text-lg font-semibold">
                           <DollarSign className="h-4 w-4 text-gray-400" />
                           {listing.hourlyRate}
-                          <span className="text-sm text-gray-500 ml-1">/hour</span>
+                          <span className="text-sm text-gray-400 ml-1">/hour</span>
                         </div>
                         
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(listing.status)} capitalize`}>
                           {listing.status}
                         </span>
                         
-                        <div className="text-sm text-gray-500 flex items-center gap-2">
+                        <div className="text-sm text-gray-400 flex items-center gap-2">
                           <span className="flex items-center">
                             <Music className="h-3 w-3 mr-1" />
                             {listing.bookings} bookings

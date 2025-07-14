@@ -93,7 +93,7 @@ export default function Terms() {
               These terms govern your use of SoundInkube and define the rights and 
               responsibilities of all community members.
             </p>
-            <div className="mt-6 text-sm text-gray-500">
+            <div className="mt-6 text-sm text-gray-400">
               Last updated: January 25, 2024
             </div>
           </div>

@@ -38,19 +38,19 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Music className="h-8 w-8 text-green-600" />
-            <span className="text-2xl font-bold text-gray-900">SoundInkube</span>
+            <Music className="h-8 w-8 text-red-600" />
+            <span className="text-2xl font-bold text-white">SoundInkube</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className="text-3xl font-bold text-white">
             Welcome Back
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-gray-300">
             Don't have an account?{" "}
-            <Link to="/signup" className="font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+            <Link to="/signup" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
               Sign up now
             </Link>
           </p>
@@ -60,8 +60,8 @@ export default function Login() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <Card className="marketplace-card">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-gray-900">Sign In</CardTitle>
-            <CardDescription className="text-gray-600">
+            <CardTitle className="text-2xl font-bold text-white">Sign In</CardTitle>
+            <CardDescription className="text-gray-300">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
@@ -75,7 +75,7 @@ export default function Login() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="email" className="block text-sm font-medium text-white">
                   Email address
                 </Label>
                 <Input
@@ -92,10 +92,10 @@ export default function Login() {
 
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <Label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <Label htmlFor="password" className="block text-sm font-medium text-white">
                     Password
                   </Label>
-                  <Link to="/forgot-password" className="text-sm font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+                  <Link to="/forgot-password" className="text-sm font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                     Forgot password?
                   </Link>
                 </div>
@@ -130,10 +130,10 @@ export default function Login() {
             <div className="mt-8">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300"></div>
+                  <div className="w-full border-t border-zinc-700"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-gray-500">
+                  <span className="px-4 bg-zinc-900 text-gray-400">
                     Or continue with
                   </span>
                 </div>
@@ -160,13 +160,13 @@ export default function Login() {
           </CardContent>
 
           <CardFooter className="text-center">
-            <p className="text-sm text-gray-500 w-full">
+            <p className="text-sm text-gray-400 w-full">
               By signing in, you agree to our{" "}
-              <Link to="/terms" className="font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+              <Link to="/terms" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link to="/privacy" className="font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+              <Link to="/privacy" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                 Privacy Policy
               </Link>
             </p>

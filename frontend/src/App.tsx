@@ -41,61 +41,63 @@ import RevenueAnalytics from '@/pages/profile/RevenueAnalytics';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            
-            {/* Client Routes */}
-            <Route path="/hire-professionals" element={<HireProfessionals />} />
-            <Route path="/find-music-schools" element={<FindMusicSchools />} />
-            
-            {/* Music Professional Routes */}
-            <Route path="/collaboration" element={<Collaboration />} />
-            <Route path="/marketplace" element={<Marketplace />} />
-            <Route path="/add-product" element={<AddProduct />} />
-            <Route path="/jampads" element={<JamPads />} />
-            <Route path="/gigs" element={<Gigs />} />
-            <Route path="/music-schools" element={<MusicSchools />} />
-            
-            {/* Artist Manager Routes */}
-            <Route path="/manage-talent" element={<ManageTalent />} />
-            <Route path="/scout-artists" element={<ScoutArtists />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            
-            {/* Shared Profile Routes */}
-            <Route path="/profile" element={<ProfileSettings />} />
-            
-            {/* Music Professional Profile Routes */}
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/my-listings" element={<MyEquipmentListings />} />
-            <Route path="/my-collaborations" element={<MyCollaborations />} />
-            <Route path="/my-students" element={<MyStudents />} />
-            
-            {/* Client Profile Routes */}
-            <Route path="/my-bookings" element={<MyBookings />} />
-            <Route path="/saved-professionals" element={<SavedProfessionals />} />
-            <Route path="/payment-history" element={<PaymentHistory />} />
-            
-            {/* Artist Manager Profile Routes */}
-            <Route path="/manage-artists" element={<ManageArtists />} />
-            <Route path="/contracts" element={<Contracts />} />
-            <Route path="/revenue-analytics" element={<RevenueAnalytics />} />
-            
-            {/* Shared Routes */}
-            <Route path="/professional/:id" element={<ProfessionalProfile />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/help" element={<Help />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </AuthProvider>
+    <div className="bg-black text-white font-sans min-h-screen">
+      <AuthProvider>
+        <Router>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              
+              {/* Client Routes */}
+              <Route path="/hire-professionals" element={<HireProfessionals />} />
+              <Route path="/find-music-schools" element={<FindMusicSchools />} />
+              
+              {/* Music Professional Routes */}
+              <Route path="/collaboration" element={<Collaboration />} />
+              <Route path="/marketplace" element={<Marketplace />} />
+              <Route path="/add-product" element={<AddProduct />} />
+              <Route path="/jampads" element={<JamPads />} />
+              <Route path="/gigs" element={<Gigs />} />
+              <Route path="/music-schools" element={<MusicSchools />} />
+              
+              {/* Artist Manager Routes */}
+              <Route path="/manage-talent" element={<ManageTalent />} />
+              <Route path="/scout-artists" element={<ScoutArtists />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              
+              {/* Shared Profile Routes */}
+              <Route path="/profile" element={<ProfileSettings />} />
+              
+              {/* Music Professional Profile Routes */}
+              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/my-listings" element={<MyEquipmentListings />} />
+              <Route path="/my-collaborations" element={<MyCollaborations />} />
+              <Route path="/my-students" element={<MyStudents />} />
+              
+              {/* Client Profile Routes */}
+              <Route path="/my-bookings" element={<MyBookings />} />
+              <Route path="/saved-professionals" element={<SavedProfessionals />} />
+              <Route path="/payment-history" element={<PaymentHistory />} />
+              
+              {/* Artist Manager Profile Routes */}
+              <Route path="/manage-artists" element={<ManageArtists />} />
+              <Route path="/contracts" element={<Contracts />} />
+              <Route path="/revenue-analytics" element={<RevenueAnalytics />} />
+              
+              {/* Shared Routes */}
+              <Route path="/professional/:id" element={<ProfessionalProfile />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/help" element={<Help />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </AuthProvider>
+    </div>
   );
 }
 

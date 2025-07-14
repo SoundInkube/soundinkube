@@ -158,7 +158,7 @@ export default function ProfileSettings() {
                     className="bg-gray-800 border-gray-700 text-white min-h-[120px]"
                     placeholder="Tell potential clients about your experience, style, and what makes you unique..."
                   />
-                  <p className="text-gray-500 text-sm mt-1">{profileData.bio.length}/500 characters</p>
+                  <p className="text-gray-400 text-sm mt-1">{profileData.bio.length}/500 characters</p>
                 </div>
 
                 <div>
@@ -265,7 +265,7 @@ export default function ProfileSettings() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-300">New Bookings</p>
-                        <p className="text-gray-500 text-sm">Get notified when clients book your services</p>
+                        <p className="text-gray-400 text-sm">Get notified when clients book your services</p>
                       </div>
                       <Switch
                         checked={notifications.emailBookings}
@@ -275,7 +275,7 @@ export default function ProfileSettings() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-300">New Messages</p>
-                        <p className="text-gray-500 text-sm">Receive email alerts for new messages</p>
+                        <p className="text-gray-400 text-sm">Receive email alerts for new messages</p>
                       </div>
                       <Switch
                         checked={notifications.emailMessages}
@@ -285,7 +285,7 @@ export default function ProfileSettings() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-300">Promotions & Tips</p>
-                        <p className="text-gray-500 text-sm">Weekly updates and platform news</p>
+                        <p className="text-gray-400 text-sm">Weekly updates and platform news</p>
                       </div>
                       <Switch
                         checked={notifications.emailPromotions}
@@ -303,7 +303,7 @@ export default function ProfileSettings() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-300">New Bookings</p>
-                        <p className="text-gray-500 text-sm">Instant notifications for bookings</p>
+                        <p className="text-gray-400 text-sm">Instant notifications for bookings</p>
                       </div>
                       <Switch
                         checked={notifications.pushBookings}
@@ -313,7 +313,7 @@ export default function ProfileSettings() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-300">New Messages</p>
-                        <p className="text-gray-500 text-sm">Real-time message alerts</p>
+                        <p className="text-gray-400 text-sm">Real-time message alerts</p>
                       </div>
                       <Switch
                         checked={notifications.pushMessages}

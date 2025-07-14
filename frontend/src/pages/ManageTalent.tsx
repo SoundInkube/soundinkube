@@ -317,7 +317,7 @@ export default function ManageTalent() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-green-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <DollarSign className="h-6 w-6 text-green-400" />
                 </div>
                 <div>
@@ -331,7 +331,7 @@ export default function ManageTalent() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <Activity className="h-6 w-6 text-blue-400" />
                 </div>
                 <div>
@@ -461,7 +461,7 @@ export default function ManageTalent() {
                       {artist.recentActivity.slice(0, 3).map((activity, index) => (
                         <div key={index} className="text-sm">
                           <p className="text-gray-300">{activity.description}</p>
-                          <p className="text-gray-500 text-xs">{activity.date}</p>
+                          <p className="text-gray-400 text-xs">{activity.date}</p>
                         </div>
                       ))}
                     </div>

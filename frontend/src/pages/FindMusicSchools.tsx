@@ -533,7 +533,7 @@ export default function FindMusicSchools() {
                         <Badge className="bg-yellow-600 text-yellow-100 mb-2">Featured</Badge>
                       )}
                       {school.verified && (
-                        <Badge className="bg-green-600 text-white text-xs">Verified</Badge>
+                        <Badge className="bg-red-600 text-white text-xs">Verified</Badge>
                       )}
                     </div>
                   </div>
@@ -582,7 +582,7 @@ export default function FindMusicSchools() {
                           <div key={index} className="bg-gray-800/50 p-3 rounded-lg">
                             <h5 className="text-white font-medium mb-1">{program.name}</h5>
                             <p className="text-gray-400 text-sm mb-1">{program.priceRange}</p>
-                            <p className="text-gray-500 text-xs">{program.duration} • {program.ageRange}</p>
+                            <p className="text-gray-400 text-xs">{program.duration} • {program.ageRange}</p>
                           </div>
                         ))}
                       </div>

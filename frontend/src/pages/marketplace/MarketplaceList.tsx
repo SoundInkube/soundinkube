@@ -288,8 +288,8 @@ export default function MarketplaceList() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Marketplace</h1>
-            <p className="mt-2 text-gray-600">Buy, sell, or rent music equipment and spaces</p>
+            <h1 className="text-3xl font-bold text-white">Marketplace</h1>
+            <p className="mt-2 text-gray-300">Buy, sell, or rent music equipment and spaces</p>
           </div>
           <div className="mt-4 md:mt-0 flex gap-2">
             <Button asChild variant="outline">
@@ -311,10 +311,10 @@ export default function MarketplaceList() {
         </Tabs>
 
         {/* Filters */}
-        <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
+        <div className="bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="search" className="block text-sm font-medium text-white mb-1">
                 Search
               </label>
               <Input
@@ -326,7 +326,7 @@ export default function MarketplaceList() {
             </div>
             
             <div>
-              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="category" className="block text-sm font-medium text-white mb-1">
                 Category
               </label>
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
@@ -345,7 +345,7 @@ export default function MarketplaceList() {
             </div>
             
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="city" className="block text-sm font-medium text-white mb-1">
                 Location
               </label>
               <Select value={selectedCity} onValueChange={setSelectedCity}>
@@ -364,7 +364,7 @@ export default function MarketplaceList() {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-white mb-1">
                 Price Range: ${priceRange[0]} - ${priceRange[1]}
               </label>
               <Slider
@@ -380,7 +380,7 @@ export default function MarketplaceList() {
 
           {/* Condition Filters */}
           <div className="mt-4 pt-4 border-t">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-white mb-2">
               Condition
             </label>
             <div className="flex flex-wrap gap-4">
@@ -414,7 +414,7 @@ export default function MarketplaceList() {
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-500 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"} found
             </p>
             
@@ -442,8 +442,8 @@ export default function MarketplaceList() {
             </div>
             
             {sortedItems.length === 0 && (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600">No items found matching your criteria. Try adjusting your filters.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300">No items found matching your criteria. Try adjusting your filters.</p>
               </div>
             )}
           </>
@@ -479,30 +479,30 @@ function MarketplaceCard({ item }: { item: MarketplaceItem }) {
               {item.type}
             </Badge>
             {item.type === "Rent" && (
-              <span className="ml-2 text-gray-500">{item.rentalPeriod}</span>
+              <span className="ml-2 text-gray-400">{item.rentalPeriod}</span>
             )}
           </CardDescription>
         </CardHeader>
         <CardContent className="pb-2">
-          <p className="text-gray-700 text-sm line-clamp-2 mb-2">{item.description}</p>
+          <p className="text-white text-sm line-clamp-2 mb-2">{item.description}</p>
           
           <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center text-gray-500 text-xs">
+            <div className="flex items-center text-gray-400 text-xs">
               <MapPin className="h-3 w-3 mr-1" />
               <span>{item.city}</span>
             </div>
-            <div className="flex items-center text-gray-500 text-xs">
+            <div className="flex items-center text-gray-400 text-xs">
               <Package className="h-3 w-3 mr-1" />
               <span>{item.condition}</span>
             </div>
           </div>
           
-          <div className="flex items-center text-xs text-gray-500 mb-2">
+          <div className="flex items-center text-xs text-gray-400 mb-2">
             <Tag className="h-3 w-3 mr-1" />
             <span>{item.category} - {item.subcategory}</span>
           </div>
           
-          <div className="flex items-center text-xs text-gray-500">
+          <div className="flex items-center text-xs text-gray-400">
             <Clock className="h-3 w-3 mr-1" />
             <span>Posted: {new Date(item.createdAt).toLocaleDateString()}</span>
           </div>
@@ -518,7 +518,7 @@ function MarketplaceCard({ item }: { item: MarketplaceItem }) {
             <DollarSign className="h-4 w-4" />
             <span>{item.price}</span>
             {item.type === "Rent" && (
-              <span className="text-xs font-normal text-gray-500 ml-1">
+              <span className="text-xs font-normal text-gray-400 ml-1">
                 /{item.rentalPeriod?.split(' ')[1]}
               </span>
             )}

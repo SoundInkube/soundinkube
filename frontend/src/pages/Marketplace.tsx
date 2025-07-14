@@ -425,7 +425,7 @@ export default function Marketplace() {
                       ${item.price}
                     </div>
                     {item.originalPrice > item.price && (
-                      <div className="text-sm text-gray-500 line-through">
+                      <div className="text-sm text-gray-400 line-through">
                         ${item.originalPrice}
                       </div>
                     )}
@@ -480,7 +480,7 @@ export default function Marketplace() {
                       <div className="flex items-center space-x-2">
                         <span className="text-white font-medium">{item.seller.name}</span>
                         {item.seller.verified && (
-                          <Badge className="bg-green-600 text-white text-xs">
+                          <Badge className="bg-red-600 text-white text-xs">
                             Verified
                           </Badge>
                         )}

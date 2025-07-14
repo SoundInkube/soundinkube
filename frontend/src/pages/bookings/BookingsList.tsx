@@ -344,8 +344,8 @@ export default function BookingsList() {
     <MainLayout>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Bookings</h1>
-          <p className="mt-2 text-gray-600">Manage your bookings for jam pads and courses</p>
+          <h1 className="text-3xl font-bold text-white">My Bookings</h1>
+          <p className="mt-2 text-gray-300">Manage your bookings for jam pads and courses</p>
         </div>
 
         <Tabs defaultValue="upcoming" className="w-full">
@@ -353,7 +353,7 @@ export default function BookingsList() {
             <TabsTrigger value="upcoming" className="relative">
               Upcoming
               {upcomingBookings.length > 0 && (
-                <Badge className="ml-2 bg-blue-500">{upcomingBookings.length}</Badge>
+                <Badge className="ml-2 bg-red-600">{upcomingBookings.length}</Badge>
               )}
             </TabsTrigger>
             <TabsTrigger value="completed">
@@ -372,8 +372,8 @@ export default function BookingsList() {
           
           <TabsContent value="upcoming">
             {upcomingBookings.length === 0 ? (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600">You don't have any upcoming bookings.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300">You don't have any upcoming bookings.</p>
                 <div className="mt-4 flex justify-center space-x-4">
                   <Button asChild variant="outline">
                     <a href="/jampads">Browse Jam Pads</a>
@@ -399,8 +399,8 @@ export default function BookingsList() {
           
           <TabsContent value="completed">
             {completedBookings.length === 0 ? (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600">You don't have any completed bookings.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300">You don't have any completed bookings.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-6">
@@ -418,8 +418,8 @@ export default function BookingsList() {
           
           <TabsContent value="canceled">
             {canceledBookings.length === 0 ? (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600">You don't have any canceled bookings.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300">You don't have any canceled bookings.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-6">
@@ -448,13 +448,13 @@ export default function BookingsList() {
           </DialogHeader>
           <div className="py-4">
             {selectedBooking && (
-              <div className="mb-4 p-4 bg-gray-50 rounded-lg">
+              <div className="mb-4 p-4 bg-black rounded-lg">
                 <p className="font-medium">
                   {selectedBooking.type === "jampad" 
                     ? selectedBooking.jampad.name 
                     : selectedBooking.course.name}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-300">
                   <CalendarIcon className="h-4 w-4 inline mr-1" />
                   {format(new Date(selectedBooking.date), "PPP")}
                   {selectedBooking.type === "jampad" && (
@@ -500,7 +500,7 @@ export default function BookingsList() {
                     ? selectedBooking.jampad.name 
                     : selectedBooking.course.name}
                 </p>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-300 mb-4">
                   {selectedBooking.type === "jampad" 
                     ? `${selectedBooking.jampad.city}` 
                     : `${selectedBooking.course.school.name}, ${selectedBooking.course.school.city}`}
@@ -635,7 +635,7 @@ function BookingCard({
               {booking.type === "jampad" ? booking.jampad.name : booking.course.name}
             </h3>
             
-            <div className="flex items-center text-sm text-gray-500 mb-1">
+            <div className="flex items-center text-sm text-gray-400 mb-1">
               <MapPin className="h-4 w-4 mr-1" />
               <span>
                 {booking.type === "jampad" 
@@ -645,7 +645,7 @@ function BookingCard({
               </span>
             </div>
             
-            <div className="flex items-center text-sm text-gray-500">
+            <div className="flex items-center text-sm text-gray-400">
               <Calendar className="h-4 w-4 mr-1" />
               <span>{formattedDate}</span>
               
@@ -676,7 +676,7 @@ function BookingCard({
       
       <CardFooter className="pt-4 border-t flex justify-between items-center">
         <div>
-          <p className="text-sm text-gray-500">Total Price</p>
+          <p className="text-sm text-gray-400">Total Price</p>
           <p className="font-bold text-lg">${booking.totalPrice}</p>
         </div>
         

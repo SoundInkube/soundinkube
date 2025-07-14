@@ -265,7 +265,7 @@ export default function Profile() {
     return (
       <MainLayout>
         <div className="flex justify-center items-center h-96">
-          <p className="text-lg text-gray-600">Please log in to view your profile.</p>
+          <p className="text-lg text-gray-300">Please log in to view your profile.</p>
         </div>
       </MainLayout>
     );
@@ -275,8 +275,8 @@ export default function Profile() {
     <MainLayout>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Profile Settings</h1>
-          <p className="mt-2 text-gray-600">Manage your account details and preferences</p>
+          <h1 className="text-3xl font-bold text-white">Profile Settings</h1>
+          <p className="mt-2 text-gray-300">Manage your account details and preferences</p>
         </div>
 
         {(error || success) && (
@@ -309,12 +309,12 @@ export default function Profile() {
                   <h2 className="text-xl font-semibold">
                     {profile.firstName ? `${profile.firstName} ${profile.lastName}` : user.email}
                   </h2>
-                  <p className="text-sm text-gray-500 mt-1">{user.role.replace("_", " ")}</p>
+                  <p className="text-sm text-gray-400 mt-1">{user.role.replace("_", " ")}</p>
 
                   <div className="mt-4 w-full">
                     <label
                       htmlFor="avatar-upload"
-                      className="cursor-pointer flex justify-center items-center py-2 px-4 text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50"
+                      className="cursor-pointer flex justify-center items-center py-2 px-4 text-sm font-medium text-white bg-zinc-900 rounded-md border border-zinc-700 hover:bg-black"
                     >
                       Change Avatar
                     </label>
@@ -328,22 +328,22 @@ export default function Profile() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h3 className="text-sm font-medium text-gray-900">Account Details</h3>
+                <div className="mt-6 pt-6 border-t border-zinc-800">
+                  <h3 className="text-sm font-medium text-white">Account Details</h3>
                   <dl className="mt-2 space-y-1">
                     <div className="flex justify-between">
-                      <dt className="text-sm text-gray-500">Email</dt>
-                      <dd className="text-sm font-medium text-gray-900">{user.email}</dd>
+                      <dt className="text-sm text-gray-400">Email</dt>
+                      <dd className="text-sm font-medium text-white">{user.email}</dd>
                     </div>
                     <div className="flex justify-between">
-                      <dt className="text-sm text-gray-500">Role</dt>
-                      <dd className="text-sm font-medium text-gray-900">{user.role.replace("_", " ")}</dd>
+                      <dt className="text-sm text-gray-400">Role</dt>
+                      <dd className="text-sm font-medium text-white">{user.role.replace("_", " ")}</dd>
                     </div>
                     <div className="flex justify-between">
-                      <dt className="text-sm text-gray-500">Email verification</dt>
+                      <dt className="text-sm text-gray-400">Email verification</dt>
                       <dd className="text-sm font-medium">
                         {user.isEmailVerified ? (
-                          <span className="text-green-600">Verified</span>
+                          <span className="text-red-600">Verified</span>
                         ) : (
                           <span className="text-amber-600">Pending</span>
                         )}

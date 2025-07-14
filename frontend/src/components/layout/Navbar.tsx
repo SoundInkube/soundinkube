@@ -135,7 +135,7 @@ export default function Navbar() {
                   <DropdownMenuContent align="end" className="w-56 bg-gray-900 border-gray-700">
                     <DropdownMenuLabel className="text-gray-300">
                       My Account
-                      <div className="text-xs text-gray-500 mt-1 capitalize">
+                      <div className="text-xs text-gray-400 mt-1 capitalize">
                         {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
                       </div>
                     </DropdownMenuLabel>

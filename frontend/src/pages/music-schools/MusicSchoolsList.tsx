@@ -226,16 +226,16 @@ export default function MusicSchoolsList() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Music Schools</h1>
-            <p className="mt-2 text-gray-600">Find music lessons and courses to develop your skills</p>
+            <h1 className="text-3xl font-bold text-white">Music Schools</h1>
+            <p className="mt-2 text-gray-300">Find music lessons and courses to develop your skills</p>
           </div>
         </div>
 
         {/* Filters */}
-        <div className="bg-white p-4 rounded-lg shadow-sm border mb-6">
+        <div className="bg-zinc-900 p-4 rounded-lg shadow-sm border mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="search" className="block text-sm font-medium text-white mb-1">
                 Search
               </label>
               <Input
@@ -247,7 +247,7 @@ export default function MusicSchoolsList() {
             </div>
             
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="city" className="block text-sm font-medium text-white mb-1">
                 City
               </label>
               <Select value={selectedCity} onValueChange={setSelectedCity}>
@@ -266,7 +266,7 @@ export default function MusicSchoolsList() {
             </div>
             
             <div>
-              <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="sort" className="block text-sm font-medium text-white mb-1">
                 Sort By
               </label>
               <Select value={sortBy} onValueChange={setSortBy}>
@@ -284,7 +284,7 @@ export default function MusicSchoolsList() {
 
           {/* Categories */}
           <div className="mt-4 border-t pt-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-white mb-2">
               Filter by Instrument/Category
             </label>
             <div className="flex flex-wrap gap-2">
@@ -318,7 +318,7 @@ export default function MusicSchoolsList() {
           </div>
         ) : (
           <>
-            <p className="text-sm text-gray-500 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               {filteredAndSortedSchools.length} {filteredAndSortedSchools.length === 1 ? "school" : "schools"} found
             </p>
             
@@ -346,8 +346,8 @@ export default function MusicSchoolsList() {
             </div>
             
             {filteredAndSortedSchools.length === 0 && (
-              <div className="bg-gray-50 p-8 rounded-lg border text-center">
-                <p className="text-gray-600">No music schools found matching your criteria. Try adjusting your filters.</p>
+              <div className="bg-black p-8 rounded-lg border text-center">
+                <p className="text-gray-300">No music schools found matching your criteria. Try adjusting your filters.</p>
               </div>
             )}
           </>
@@ -371,7 +371,7 @@ function MusicSchoolCard({ school }: { school: MusicSchool }) {
         </div>
         <CardHeader className="pb-2">
           <CardTitle className="text-xl">{school.name}</CardTitle>
-          <div className="flex items-center text-gray-500 text-sm">
+          <div className="flex items-center text-gray-400 text-sm">
             <MapPin className="h-4 w-4 mr-1" />
             <span>{school.city}</span>
             <div className="ml-4 flex items-center">
@@ -381,7 +381,7 @@ function MusicSchoolCard({ school }: { school: MusicSchool }) {
           </div>
         </CardHeader>
         <CardContent className="pb-2">
-          <p className="text-gray-600 line-clamp-2 mb-2">{school.description}</p>
+          <p className="text-gray-300 line-clamp-2 mb-2">{school.description}</p>
           
           <div className="mt-2">
             <div className="flex flex-wrap gap-1">
@@ -402,7 +402,7 @@ function MusicSchoolCard({ school }: { school: MusicSchool }) {
         <CardFooter className="pt-2 border-t">
           <div className="w-full">
             <h4 className="text-sm font-medium mb-2 flex items-center">
-              <GraduationCap className="h-4 w-4 mr-1 text-gray-500" />
+              <GraduationCap className="h-4 w-4 mr-1 text-gray-400" />
               Sample Courses
             </h4>
             <ul className="text-sm space-y-1">
@@ -413,7 +413,7 @@ function MusicSchoolCard({ school }: { school: MusicSchool }) {
                 </li>
               ))}
               {school.courses.length > 2 && (
-                <li className="text-blue-600 text-xs font-medium">
+                <li className="text-red-600 text-xs font-medium">
                   + {school.courses.length - 2} more courses
                 </li>
               )}

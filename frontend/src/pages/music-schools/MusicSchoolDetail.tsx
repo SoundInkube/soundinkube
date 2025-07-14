@@ -378,8 +378,8 @@ export default function MusicSchoolDetail() {
         </Button>
         
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{musicSchool.name}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-gray-500 mb-4">
+          <h1 className="text-3xl font-bold text-white mb-2">{musicSchool.name}</h1>
+          <div className="flex flex-wrap items-center gap-4 text-gray-400 mb-4">
             <div className="flex items-center">
               <MapPin className="h-4 w-4 mr-1" />
               <span>{musicSchool.location}, {musicSchool.city}</span>
@@ -426,7 +426,7 @@ export default function MusicSchoolDetail() {
                     <CardTitle>About {musicSchool.name}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 mb-6">{musicSchool.longDescription}</p>
+                    <p className="text-white mb-6">{musicSchool.longDescription}</p>
                     
                     <h3 className="text-lg font-medium mb-3">Categories & Specialties</h3>
                     <div className="flex flex-wrap gap-2 mb-6">
@@ -443,7 +443,7 @@ export default function MusicSchoolDetail() {
                       {musicSchool.facilities.map((facility, index) => (
                         <div key={index} className="flex items-center">
                           <div className="h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center mr-2">
-                            <span className="text-blue-600">✓</span>
+                            <span className="text-red-600">✓</span>
                           </div>
                           <span>{facility}</span>
                         </div>
@@ -454,7 +454,7 @@ export default function MusicSchoolDetail() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2">
                       {musicSchool.openingHours.map((item, index) => (
                         <div key={index} className="flex items-center">
-                          <Clock className="h-4 w-4 mr-2 text-gray-500" />
+                          <Clock className="h-4 w-4 mr-2 text-gray-400" />
                           <span className="font-medium mr-2">{item.day}:</span>
                           <span>{item.hours}</span>
                         </div>
@@ -481,15 +481,15 @@ export default function MusicSchoolDetail() {
                         </CardDescription>
                       </CardHeader>
                       <CardContent className="pb-2">
-                        <p className="text-gray-700 text-sm mb-3">{course.description}</p>
+                        <p className="text-white text-sm mb-3">{course.description}</p>
                         
                         <div className="flex items-center text-sm mb-2">
-                          <GraduationCap className="h-4 w-4 mr-1 text-gray-500" />
+                          <GraduationCap className="h-4 w-4 mr-1 text-gray-400" />
                           <span>{course.instructor.name}</span>
                         </div>
                         
                         <div className="flex items-center text-sm mb-3">
-                          <CalendarIcon className="h-4 w-4 mr-1 text-gray-500" />
+                          <CalendarIcon className="h-4 w-4 mr-1 text-gray-400" />
                           <span>{course.schedule}</span>
                         </div>
                         
@@ -497,7 +497,7 @@ export default function MusicSchoolDetail() {
                           <div className="flex items-center text-lg font-bold">
                             <DollarSign className="h-4 w-4" />
                             {course.price}
-                            <span className="text-sm font-normal text-gray-500 ml-1">/ session</span>
+                            <span className="text-sm font-normal text-gray-400 ml-1">/ session</span>
                           </div>
                           <Button size="sm" onClick={() => handleBookCourse(course)}>
                             Book Now
@@ -521,7 +521,7 @@ export default function MusicSchoolDetail() {
                           </Avatar>
                           <div>
                             <h3 className="font-bold text-lg">{instructor.name}</h3>
-                            <p className="text-sm text-gray-500 mb-2">{instructor.experience} experience</p>
+                            <p className="text-sm text-gray-400 mb-2">{instructor.experience} experience</p>
                             <div className="flex flex-wrap gap-1 mb-2">
                               {instructor.specialties.map((specialty, index) => (
                                 <Badge key={index} variant="outline" className="text-xs">
@@ -531,7 +531,7 @@ export default function MusicSchoolDetail() {
                             </div>
                           </div>
                         </div>
-                        <p className="mt-3 text-sm text-gray-700">{instructor.bio}</p>
+                        <p className="mt-3 text-sm text-white">{instructor.bio}</p>
                       </CardContent>
                     </Card>
                   ))}
@@ -549,7 +549,7 @@ export default function MusicSchoolDetail() {
                   <CardContent>
                     <div className="space-y-6">
                       {musicSchool.reviews.map((review) => (
-                        <div key={review.id} className="pb-6 border-b border-gray-200 last:border-b-0 last:pb-0">
+                        <div key={review.id} className="pb-6 border-b border-zinc-800 last:border-b-0 last:pb-0">
                           <div className="flex items-center mb-2">
                             <Avatar className="h-10 w-10 mr-3">
                               <AvatarImage src={review.userImage} alt={review.user} />
@@ -557,9 +557,9 @@ export default function MusicSchoolDetail() {
                             </Avatar>
                             <div>
                               <p className="font-medium">{review.user}</p>
-                              <p className="text-xs text-gray-500">{review.date}</p>
+                              <p className="text-xs text-gray-400">{review.date}</p>
                               {review.course && (
-                                <p className="text-xs text-gray-500">Course: {review.course}</p>
+                                <p className="text-xs text-gray-400">Course: {review.course}</p>
                               )}
                             </div>
                             <div className="ml-auto flex items-center">
@@ -567,7 +567,7 @@ export default function MusicSchoolDetail() {
                               <span className="ml-1">{review.rating}</span>
                             </div>
                           </div>
-                          <p className="text-gray-700 text-sm">{review.comment}</p>
+                          <p className="text-white text-sm">{review.comment}</p>
                         </div>
                       ))}
                     </div>
@@ -591,23 +591,23 @@ export default function MusicSchoolDetail() {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 mr-3 text-gray-500" />
+                    <Phone className="h-5 w-5 mr-3 text-gray-400" />
                     <span>{musicSchool.phone}</span>
                   </div>
                   <div className="flex items-center">
-                    <Mail className="h-5 w-5 mr-3 text-gray-500" />
-                    <a href={`mailto:${musicSchool.email}`} className="text-blue-600 hover:underline">
+                    <Mail className="h-5 w-5 mr-3 text-gray-400" />
+                    <a href={`mailto:${musicSchool.email}`} className="text-red-600 hover:underline">
                       {musicSchool.email}
                     </a>
                   </div>
                   <div className="flex items-center">
-                    <Globe className="h-5 w-5 mr-3 text-gray-500" />
-                    <a href={`https://${musicSchool.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    <Globe className="h-5 w-5 mr-3 text-gray-400" />
+                    <a href={`https://${musicSchool.website}`} target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline">
                       {musicSchool.website}
                     </a>
                   </div>
                   <div className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-3 text-gray-500" />
+                    <MapPin className="h-5 w-5 mr-3 text-gray-400" />
                     <span>{musicSchool.location}, {musicSchool.city}</span>
                   </div>
                 </div>
@@ -650,11 +650,11 @@ export default function MusicSchoolDetail() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="font-medium">{selectedCourse?.name}</p>
-                <p className="text-sm text-gray-500">{selectedCourse?.type} • {selectedCourse?.duration}</p>
+                <p className="text-sm text-gray-400">{selectedCourse?.type} • {selectedCourse?.duration}</p>
               </div>
               <div className="text-right">
                 <p className="font-bold">${selectedCourse?.price}</p>
-                <p className="text-sm text-gray-500">per session</p>
+                <p className="text-sm text-gray-400">per session</p>
               </div>
             </div>
             
@@ -675,16 +675,16 @@ export default function MusicSchoolDetail() {
             
             <div className="space-y-2">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                <CheckCircle className="h-4 w-4 mr-2 text-red-600" />
                 <span className="text-sm">Instructor: {selectedCourse?.instructor.name}</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                <CheckCircle className="h-4 w-4 mr-2 text-red-600" />
                 <span className="text-sm">Location: {musicSchool.name}, {musicSchool.city}</span>
               </div>
               {selectedDate && (
                 <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-red-600" />
                   <span className="text-sm">Starting: {format(selectedDate, "PPP")}</span>
                 </div>
               )}

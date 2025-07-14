@@ -228,8 +228,8 @@ export default function Revenue() {
                       <div key={artist.artistName} className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                            index === 0 ? 'bg-yellow-500 text-black' :
-                            index === 1 ? 'bg-gray-400 text-black' :
+                            index === 0 ? 'bg-yellow-500 text-white' :
+                            index === 1 ? 'bg-gray-400 text-white' :
                             index === 2 ? 'bg-orange-500 text-white' :
                             'bg-gray-600 text-white'
                           }`}>

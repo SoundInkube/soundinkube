@@ -312,8 +312,8 @@ export default function ManageArtists() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Active': return 'bg-green-600/20 text-green-400';
-      case 'Development': return 'bg-blue-600/20 text-blue-400';
+      case 'Active': return 'bg-red-600/20 text-green-400';
+      case 'Development': return 'bg-red-600/20 text-blue-400';
       case 'On Hold': return 'bg-yellow-600/20 text-yellow-400';
       case 'Inactive': return 'bg-red-600/20 text-red-400';
       default: return 'bg-gray-600/20 text-gray-400';
@@ -322,9 +322,9 @@ export default function ManageArtists() {
 
   const getProjectStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'bg-green-600/20 text-green-400';
-      case 'Recording': return 'bg-blue-600/20 text-blue-400';
-      case 'Mixed': return 'bg-purple-600/20 text-purple-400';
+      case 'Completed': return 'bg-red-600/20 text-green-400';
+      case 'Recording': return 'bg-red-600/20 text-blue-400';
+      case 'Mixed': return 'bg-red-600/20 text-purple-400';
       case 'Mastering': return 'bg-orange-600/20 text-orange-400';
       case 'Production': return 'bg-yellow-600/20 text-yellow-400';
       case 'Planning': return 'bg-gray-600/20 text-gray-400';
@@ -371,7 +371,7 @@ export default function ManageArtists() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Users className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -385,7 +385,7 @@ export default function ManageArtists() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Activity className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
@@ -399,7 +399,7 @@ export default function ManageArtists() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Play className="h-5 w-5 text-purple-400" />
                 </div>
                 <div>
@@ -650,7 +650,7 @@ export default function ManageArtists() {
 
         {filteredArtists.length === 0 && (
           <div className="text-center py-12">
-            <Users className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <Users className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No artists found</h3>
             <p className="text-gray-400 mb-6">Start building your artist roster</p>
             <Button className="netflix-button-primary">

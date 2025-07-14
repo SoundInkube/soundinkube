@@ -341,7 +341,7 @@ export default function JamPads() {
                         <div className="flex items-center space-x-2 mb-2">
                           <CardTitle className="text-white text-lg">{pad.name}</CardTitle>
                           {pad.isActive && pad.type === "virtual" && (
-                            <Badge className="bg-green-600/20 text-green-400 border-green-600/30 animate-pulse">
+                            <Badge className="bg-red-600/20 text-green-400 border-red-600/30 animate-pulse">
                               LIVE
                             </Badge>
                           )}
@@ -353,8 +353,8 @@ export default function JamPads() {
                         <div className="flex items-center space-x-4 text-sm text-gray-400">
                           <Badge variant="secondary" className={
                             pad.type === "virtual" 
-                              ? "bg-blue-600/20 text-blue-400 border-blue-600/30"
-                              : "bg-green-600/20 text-green-400 border-green-600/30"
+                              ? "bg-red-600/20 text-blue-400 border-blue-600/30"
+                              : "bg-red-600/20 text-green-400 border-red-600/30"
                           }>
                             {pad.type === "virtual" ? <Globe className="h-3 w-3 mr-1" /> : <MapPin className="h-3 w-3 mr-1" />}
                             {pad.type === "virtual" ? "Virtual" : "Physical"}
@@ -369,7 +369,7 @@ export default function JamPads() {
                           <Star className="h-4 w-4 fill-current mr-1" />
                           <span className="text-sm font-medium">{pad.rating}</span>
                         </div>
-                        <p className="text-xs text-gray-500">({pad.reviewCount})</p>
+                        <p className="text-xs text-gray-400">({pad.reviewCount})</p>
                       </div>
                     </div>
                   </CardHeader>
@@ -464,7 +464,7 @@ export default function JamPads() {
 
             {filteredJamPads.length === 0 && (
               <div className="text-center py-12">
-                <Music className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <Music className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">No jam pads found</h3>
                 <p className="text-gray-400 mb-6">Try adjusting your search criteria or explore different genres</p>
                 <Button
@@ -485,7 +485,7 @@ export default function JamPads() {
           <TabsContent value="bookings" className="space-y-6">
             {!isAuthenticated ? (
               <div className="text-center py-12">
-                <Calendar className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <Calendar className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">Sign in to view bookings</h3>
                 <p className="text-gray-400 mb-6">Track your jam pad reservations and upcoming sessions</p>
                 <Button
@@ -523,8 +523,8 @@ export default function JamPads() {
                           </div>
                         </div>
                         <Badge className={
-                          booking.status === "upcoming" ? "bg-green-600/20 text-green-400 border-green-600/30" :
-                          booking.status === "active" ? "bg-blue-600/20 text-blue-400 border-blue-600/30" :
+                          booking.status === "upcoming" ? "bg-red-600/20 text-green-400 border-red-600/30" :
+                          booking.status === "active" ? "bg-red-600/20 text-blue-400 border-blue-600/30" :
                           booking.status === "completed" ? "bg-gray-600/20 text-gray-400 border-gray-600/30" :
                           "bg-red-600/20 text-red-400 border-red-600/30"
                         }>
@@ -569,7 +569,7 @@ export default function JamPads() {
 
                 {bookings.length === 0 && (
                   <div className="text-center py-12">
-                    <Calendar className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                    <Calendar className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">No bookings yet</h3>
                     <p className="text-gray-400 mb-6">Book your first jam pad to start making music</p>
                     <Button
@@ -639,7 +639,7 @@ export default function JamPads() {
 
             {jamPads.filter(pad => pad.isActive && pad.type === "virtual").length === 0 && (
               <div className="text-center py-12">
-                <Zap className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <Zap className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">No live sessions active</h3>
                 <p className="text-gray-400 mb-6">Check back later or browse available jam pads to book a session</p>
                 <Button

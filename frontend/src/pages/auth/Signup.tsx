@@ -84,19 +84,19 @@ export default function Signup() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Music className="h-8 w-8 text-green-600" />
-            <span className="text-2xl font-bold text-gray-900">SoundInkube</span>
+            <Music className="h-8 w-8 text-red-600" />
+            <span className="text-2xl font-bold text-white">SoundInkube</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className="text-3xl font-bold text-white">
             Join the Community
           </h2>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-gray-300">
             Already have an account?{" "}
-            <Link to="/login" className="font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+            <Link to="/login" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
               Sign in here
             </Link>
           </p>
@@ -106,8 +106,8 @@ export default function Signup() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <Card className="marketplace-card">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-gray-900">Create Account</CardTitle>
-            <CardDescription className="text-gray-600">
+            <CardTitle className="text-2xl font-bold text-white">Create Account</CardTitle>
+            <CardDescription className="text-gray-300">
               Start your musical journey with SoundInkube
             </CardDescription>
           </CardHeader>
@@ -121,7 +121,7 @@ export default function Signup() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="email" className="block text-sm font-medium text-white">
                   Email address
                 </Label>
                 <Input
@@ -137,7 +137,7 @@ export default function Signup() {
               </div>
 
               <div>
-                <Label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="password" className="block text-sm font-medium text-white">
                   Password
                 </Label>
                 <Input
@@ -153,7 +153,7 @@ export default function Signup() {
               </div>
 
               <div>
-                <Label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="confirmPassword" className="block text-sm font-medium text-white">
                   Confirm Password
                 </Label>
                 <Input
@@ -169,7 +169,7 @@ export default function Signup() {
               </div>
 
               <div>
-                <Label className="block text-sm font-medium text-gray-700 mb-3">Account Type</Label>
+                <Label className="block text-sm font-medium text-white mb-3">Account Type</Label>
                 <RadioGroup 
                   value={role} 
                   onValueChange={(value) => setRole(value as UserRole)}
@@ -178,17 +178,17 @@ export default function Signup() {
                   {roleOptions.map((option) => {
                     const IconComponent = option.icon;
                     return (
-                      <div key={option.value} className="flex items-start space-x-3 p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50/50 transition-all duration-200 cursor-pointer">
-                        <RadioGroupItem value={option.value} id={option.value} className="border-gray-400 text-green-600 mt-1" />
+                      <div key={option.value} className="flex items-start space-x-3 p-4 rounded-lg border border-zinc-800 hover:border-green-300 hover:bg-green-50/50 transition-all duration-200 cursor-pointer">
+                        <RadioGroupItem value={option.value} id={option.value} className="border-gray-400 text-red-600 mt-1" />
                         <div className="flex items-start space-x-3 flex-1">
                           <div className="p-2 rounded-lg bg-green-100">
-                            <IconComponent className="h-5 w-5 text-green-600" />
+                            <IconComponent className="h-5 w-5 text-red-600" />
                           </div>
                           <div className="flex-1">
-                            <Label htmlFor={option.value} className="cursor-pointer text-gray-900 font-medium">
+                            <Label htmlFor={option.value} className="cursor-pointer text-white font-medium">
                               {option.title}
                             </Label>
-                            <p className="text-sm text-gray-600 mt-1">{option.description}</p>
+                            <p className="text-sm text-gray-300 mt-1">{option.description}</p>
                           </div>
                         </div>
                       </div>
@@ -216,10 +216,10 @@ export default function Signup() {
             <div className="mt-8">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300"></div>
+                  <div className="w-full border-t border-zinc-700"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-gray-500">
+                  <span className="px-4 bg-zinc-900 text-gray-400">
                     Or continue with
                   </span>
                 </div>
@@ -246,13 +246,13 @@ export default function Signup() {
           </CardContent>
 
           <CardFooter className="text-center">
-            <p className="text-sm text-gray-500 w-full">
+            <p className="text-sm text-gray-400 w-full">
               By signing up, you agree to our{" "}
-              <Link to="/terms" className="font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+              <Link to="/terms" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link to="/privacy" className="font-medium text-green-600 hover:text-green-500 transition-colors duration-200">
+              <Link to="/privacy" className="font-medium text-red-600 hover:text-red-600 transition-colors duration-200">
                 Privacy Policy
               </Link>
             </p>

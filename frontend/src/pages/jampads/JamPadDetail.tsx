@@ -263,8 +263,8 @@ export default function JamPadDetail() {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{jamPad.name}</h1>
-            <div className="flex items-center text-gray-500 mb-4">
+            <h1 className="text-3xl font-bold text-white mb-2">{jamPad.name}</h1>
+            <div className="flex items-center text-gray-400 mb-4">
               <MapPin className="h-4 w-4 mr-1" />
               <span>{jamPad.address}, {jamPad.city}</span>
               <div className="ml-4 flex items-center">
@@ -304,20 +304,20 @@ export default function JamPadDetail() {
                     <CardTitle>About this space</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 mb-6">{jamPad.description}</p>
+                    <p className="text-white mb-6">{jamPad.description}</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       <div>
                         <h3 className="text-lg font-medium mb-2">Capacity & Size</h3>
                         <div className="flex items-center">
-                          <Users className="h-5 w-5 mr-2 text-gray-500" />
+                          <Users className="h-5 w-5 mr-2 text-gray-400" />
                           <span>Up to {jamPad.capacity} people</span>
                         </div>
                       </div>
                       <div>
                         <h3 className="text-lg font-medium mb-2">Rate</h3>
                         <div className="flex items-center">
-                          <DollarSign className="h-5 w-5 mr-2 text-gray-500" />
+                          <DollarSign className="h-5 w-5 mr-2 text-gray-400" />
                           <span>${jamPad.hourlyRate}/hour</span>
                         </div>
                       </div>
@@ -328,7 +328,7 @@ export default function JamPadDetail() {
                       {jamPad.amenities.map((amenity, index) => (
                         <div key={index} className="flex items-center">
                           <div className="h-4 w-4 rounded-full bg-blue-100 flex items-center justify-center mr-2">
-                            <span className="text-blue-600">✓</span>
+                            <span className="text-red-600">✓</span>
                           </div>
                           <span>{amenity}</span>
                         </div>
@@ -350,7 +350,7 @@ export default function JamPadDetail() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {jamPad.equipment.map((item, index) => (
                         <div key={index} className="flex items-center">
-                          <Music className="h-5 w-5 mr-2 text-gray-500" />
+                          <Music className="h-5 w-5 mr-2 text-gray-400" />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -370,7 +370,7 @@ export default function JamPadDetail() {
                   <CardContent>
                     <div className="space-y-6">
                       {jamPad.reviews.map((review) => (
-                        <div key={review.id} className="pb-6 border-b border-gray-200 last:border-b-0 last:pb-0">
+                        <div key={review.id} className="pb-6 border-b border-zinc-800 last:border-b-0 last:pb-0">
                           <div className="flex items-center mb-2">
                             <div className="h-10 w-10 rounded-full overflow-hidden mr-3">
                               <img
@@ -381,14 +381,14 @@ export default function JamPadDetail() {
                             </div>
                             <div>
                               <p className="font-medium">{review.user}</p>
-                              <p className="text-sm text-gray-500">{review.date}</p>
+                              <p className="text-sm text-gray-400">{review.date}</p>
                             </div>
                             <div className="ml-auto flex items-center">
                               <Star className="h-4 w-4 text-amber-500" />
                               <span className="ml-1">{review.rating}</span>
                             </div>
                           </div>
-                          <p className="text-gray-700">{review.comment}</p>
+                          <p className="text-white">{review.comment}</p>
                         </div>
                       ))}
                     </div>
@@ -407,7 +407,7 @@ export default function JamPadDetail() {
           <div>
             <Card className="sticky top-4">
               <CardHeader>
-                <CardTitle>${jamPad.hourlyRate} <span className="text-base font-normal text-gray-500">/hour</span></CardTitle>
+                <CardTitle>${jamPad.hourlyRate} <span className="text-base font-normal text-gray-400">/hour</span></CardTitle>
                 <CardDescription>
                   <div className="flex items-center">
                     <Star className="h-4 w-4 mr-1 text-amber-500" />
@@ -503,7 +503,7 @@ export default function JamPadDetail() {
                     </div>
                   )}
 
-                  <div className="pt-4 space-y-2 border-t border-gray-200">
+                  <div className="pt-4 space-y-2 border-t border-zinc-800">
                     <div className="flex justify-between">
                       <span>${jamPad.hourlyRate} × {duration} hours</span>
                       <span>${jamPad.hourlyRate * duration}</span>
@@ -541,7 +541,7 @@ export default function JamPadDetail() {
                   </div>
                   <div>
                     <h3 className="font-medium">{jamPad.host.name}</h3>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-400">
                       <Star className="h-3 w-3 mr-1 text-amber-500" />
                       <span>{jamPad.host.rating} • {jamPad.host.responseRate}% response rate</span>
                     </div>

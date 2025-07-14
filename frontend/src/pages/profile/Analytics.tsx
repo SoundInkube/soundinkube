@@ -77,7 +77,7 @@ export default function Analytics() {
                     <span className="text-green-400 text-xs">+18% from last month</span>
                   </div>
                 </div>
-                <div className="p-3 bg-green-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <DollarSign className="h-6 w-6 text-green-400" />
                 </div>
               </div>
@@ -95,7 +95,7 @@ export default function Analytics() {
                     <span className="text-blue-400 text-xs">3 new this week</span>
                   </div>
                 </div>
-                <div className="p-3 bg-blue-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <Activity className="h-6 w-6 text-blue-400" />
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function Analytics() {
                     <span className="text-purple-400 text-xs">+12% this week</span>
                   </div>
                 </div>
-                <div className="p-3 bg-purple-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <Eye className="h-6 w-6 text-purple-400" />
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function Analytics() {
                       <p className="text-2xl font-bold text-white">$4,800</p>
                       <p className="text-gray-400 text-sm">June 2024</p>
                     </div>
-                    <Badge className="bg-green-600/20 text-green-400">+8.5%</Badge>
+                    <Badge className="bg-red-600/20 text-green-400">+8.5%</Badge>
                   </div>
                   
                   {/* Simple Bar Chart */}
@@ -198,7 +198,7 @@ export default function Analytics() {
                       <div className="flex items-center space-x-4">
                         <Badge 
                           variant={project.status === 'Completed' ? 'default' : 'secondary'}
-                          className={project.status === 'Completed' ? 'bg-green-600/20 text-green-400' : 'bg-yellow-600/20 text-yellow-400'}
+                          className={project.status === 'Completed' ? 'bg-red-600/20 text-green-400' : 'bg-yellow-600/20 text-yellow-400'}
                         >
                           {project.status}
                         </Badge>

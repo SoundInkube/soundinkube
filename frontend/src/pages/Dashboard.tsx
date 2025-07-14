@@ -218,7 +218,7 @@ export default function Dashboard() {
                     <span className="text-green-400">+{dashboardData.overview.revenueGrowth}%</span>
                   </div>
                 </div>
-                <div className="p-3 bg-green-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <DollarSign className="h-6 w-6 text-green-400" />
                 </div>
               </div>
@@ -231,9 +231,9 @@ export default function Dashboard() {
                 <div>
                   <p className="text-gray-400 text-sm">Active Artists</p>
                   <p className="text-2xl font-bold text-white">{dashboardData.overview.activeArtists}</p>
-                  <p className="text-gray-500 text-sm">of {dashboardData.overview.totalArtists} total</p>
+                  <p className="text-gray-400 text-sm">of {dashboardData.overview.totalArtists} total</p>
                 </div>
-                <div className="p-3 bg-blue-600/20 rounded-lg">
+                <div className="p-3 bg-red-600/20 rounded-lg">
                   <Users className="h-6 w-6 text-blue-400" />
                 </div>
               </div>
@@ -264,7 +264,7 @@ export default function Dashboard() {
                 <div>
                   <p className="text-gray-400 text-sm">Avg. Engagement</p>
                   <p className="text-2xl font-bold text-white">{dashboardData.overview.averageEngagement}%</p>
-                  <p className="text-gray-500 text-sm">Across all artists</p>
+                  <p className="text-gray-400 text-sm">Across all artists</p>
                 </div>
                 <div className="p-3 bg-yellow-600/20 rounded-lg">
                   <Target className="h-6 w-6 text-yellow-400" />
@@ -293,7 +293,7 @@ export default function Dashboard() {
                     <div className="flex-1">
                       <p className="text-gray-300 text-sm">{activity.description}</p>
                       <div className="flex items-center space-x-2 mt-1">
-                        <span className="text-gray-500 text-xs">{activity.date}</span>
+                        <span className="text-gray-400 text-xs">{activity.date}</span>
                         {getStatusIcon(activity.status)}
                       </div>
                     </div>

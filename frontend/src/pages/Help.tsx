@@ -220,7 +220,7 @@ export default function Help() {
                           <Badge className="bg-netflix-red/20 text-netflix-red border-netflix-red/30 mr-2">
                             {categories.find(c => c.id === faq.category)?.name}
                           </Badge>
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-400">
                             Was this helpful?
                           </span>
                         </div>
@@ -234,7 +234,7 @@ export default function Help() {
             {filteredFaqs.length === 0 && (
               <Card className="netflix-card bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm">
                 <CardContent className="text-center py-12">
-                  <Search className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                  <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-white mb-2">No articles found</h3>
                   <p className="text-gray-400 mb-6">
                     Try adjusting your search terms or browse different categories

@@ -245,7 +245,7 @@ export default function AddProduct() {
                     className="bg-gray-800 border-gray-700 text-white min-h-[120px]"
                     required
                   />
-                  <p className="text-gray-500 text-sm mt-1">{formData.description.length}/1000 characters</p>
+                  <p className="text-gray-400 text-sm mt-1">{formData.description.length}/1000 characters</p>
                 </div>
               </div>
             </CardContent>
@@ -366,7 +366,7 @@ export default function AddProduct() {
                       className="bg-gray-800 border-gray-700 text-white pl-10"
                     />
                   </div>
-                  <p className="text-gray-500 text-sm mt-1">Help buyers see the value</p>
+                  <p className="text-gray-400 text-sm mt-1">Help buyers see the value</p>
                 </div>
               </div>
 
@@ -434,7 +434,7 @@ export default function AddProduct() {
                 <p className="text-gray-400 text-sm">
                   Add up to 8 photos. First photo will be the main image.
                 </p>
-                <p className="text-gray-500 text-xs mt-1">
+                <p className="text-gray-400 text-xs mt-1">
                   Supported formats: JPG, PNG, WebP (max 5MB each)
                 </p>
               </div>

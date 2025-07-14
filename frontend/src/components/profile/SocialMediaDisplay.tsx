@@ -22,8 +22,8 @@ const platformConfig = {
   spotify: {
     name: 'Spotify',
     icon: Music,
-    color: 'bg-green-500 hover:bg-green-600',
-    textColor: 'text-green-600'
+    color: 'bg-red-600 hover:bg-red-600',
+    textColor: 'text-red-600'
   },
   youtube: {
     name: 'YouTube',
@@ -35,7 +35,7 @@ const platformConfig = {
     name: 'Apple Music',
     icon: Music2,
     color: 'bg-gray-800 hover:bg-gray-900',
-    textColor: 'text-gray-800'
+    textColor: 'text-white'
   },
   soundcloud: {
     name: 'SoundCloud',
@@ -46,8 +46,8 @@ const platformConfig = {
   facebook: {
     name: 'Facebook',
     icon: Facebook,
-    color: 'bg-blue-600 hover:bg-blue-700',
-    textColor: 'text-blue-600'
+    color: 'bg-red-600 hover:bg-blue-700',
+    textColor: 'text-red-600'
   }
 };
 

@@ -84,7 +84,7 @@ export default function AnalyticsDashboard() {
             <option value="90d">Last 3 months</option>
             <option value="1y">Last year</option>
           </select>
-          <Button className="bg-purple-600 hover:bg-purple-700">
+          <Button className="bg-red-600 hover:bg-purple-700">
             Export Report
           </Button>
         </div>
@@ -179,7 +179,7 @@ export default function AnalyticsDashboard() {
                       </div>
                       <Badge 
                         variant={artist.monthlyGrowth > 0 ? "default" : "destructive"}
-                        className={artist.monthlyGrowth > 0 ? "bg-green-600" : "bg-red-600"}
+                        className={artist.monthlyGrowth > 0 ? "bg-red-600" : "bg-red-600"}
                       >
                         {artist.monthlyGrowth > 0 ? '+' : ''}{artist.monthlyGrowth}%
                       </Badge>

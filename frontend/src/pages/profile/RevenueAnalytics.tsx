@@ -113,7 +113,7 @@ export default function RevenueAnalytics() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <DollarSign className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
@@ -127,7 +127,7 @@ export default function RevenueAnalytics() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Calendar className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -155,7 +155,7 @@ export default function RevenueAnalytics() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-purple-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Target className="h-5 w-5 text-purple-400" />
                 </div>
                 <div>
@@ -199,7 +199,7 @@ export default function RevenueAnalytics() {
                       <p className="text-2xl font-bold text-white">${(revenueData.monthlyRevenue / 1000).toFixed(0)}K</p>
                       <p className="text-gray-400 text-sm">June 2024</p>
                     </div>
-                    <Badge className="bg-green-600/20 text-green-400">+{revenueData.growthRate}%</Badge>
+                    <Badge className="bg-red-600/20 text-green-400">+{revenueData.growthRate}%</Badge>
                   </div>
                   
                   <div className="space-y-3">
@@ -297,7 +297,7 @@ export default function RevenueAnalytics() {
                           style={{ width: `${stream.percentage}%` }}
                         ></div>
                       </div>
-                      <div className="flex justify-between text-xs text-gray-500">
+                      <div className="flex justify-between text-xs text-gray-400">
                         <span>{stream.percentage}% of total</span>
                       </div>
                     </div>
@@ -356,7 +356,7 @@ export default function RevenueAnalytics() {
                       <div className="flex justify-between items-center">
                         <span className="text-gray-300 font-medium">{quarter.quarter}</span>
                         {quarter.actual > 0 && (
-                          <Badge className={quarter.percentage >= 100 ? "bg-green-600/20 text-green-400" : "bg-yellow-600/20 text-yellow-400"}>
+                          <Badge className={quarter.percentage >= 100 ? "bg-red-600/20 text-green-400" : "bg-yellow-600/20 text-yellow-400"}>
                             {quarter.percentage.toFixed(0)}%
                           </Badge>
                         )}
@@ -375,7 +375,7 @@ export default function RevenueAnalytics() {
                       </div>
                       <div className="w-full bg-gray-800 rounded-full h-2">
                         <div 
-                          className={`h-2 rounded-full transition-all duration-500 ${quarter.actual > 0 ? (quarter.percentage >= 100 ? 'bg-green-600' : 'bg-yellow-600') : 'bg-gray-700'}`}
+                          className={`h-2 rounded-full transition-all duration-500 ${quarter.actual > 0 ? (quarter.percentage >= 100 ? 'bg-red-600' : 'bg-yellow-600') : 'bg-gray-700'}`}
                           style={{ width: `${Math.min(quarter.percentage || 0, 100)}%` }}
                         ></div>
                       </div>

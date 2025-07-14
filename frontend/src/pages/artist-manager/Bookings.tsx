@@ -123,7 +123,7 @@ export default function Bookings() {
           {status}
         </Badge>;
       case 'Negotiating':
-        return <Badge className="bg-blue-600 text-white flex items-center gap-1">
+        return <Badge className="bg-red-600 text-white flex items-center gap-1">
           <AlertCircle className="h-3 w-3" />
           {status}
         </Badge>;
@@ -365,12 +365,12 @@ export default function Bookings() {
                     .filter(b => new Date(b.date) > new Date() && b.status === 'Confirmed')
                     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
                     .map((booking) => (
-                    <div key={booking.id} className="p-4 rounded-lg border border-green-500/30 bg-green-500/5">
+                    <div key={booking.id} className="p-4 rounded-lg border border-red-600/30 bg-red-600/5">
                       <div className="flex items-center justify-between">
                         <div>
                           <h3 className="text-white font-medium">{booking.artistName}</h3>
                           <p className="text-gray-400">{booking.venue} - {booking.type}</p>
-                          <p className="text-sm text-gray-500">{booking.location}</p>
+                          <p className="text-sm text-gray-400">{booking.location}</p>
                         </div>
                         <div className="text-right">
                           <p className="text-white font-medium">

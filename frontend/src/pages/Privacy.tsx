@@ -94,7 +94,7 @@ export default function Privacy() {
               Your privacy is fundamental to us. This policy explains how we collect, use, 
               and protect your personal information on SoundInkube.
             </p>
-            <div className="mt-6 text-sm text-gray-500">
+            <div className="mt-6 text-sm text-gray-400">
               Last updated: January 25, 2024
             </div>
           </div>

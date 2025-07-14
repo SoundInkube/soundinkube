@@ -93,10 +93,10 @@ export default function BookingCalendar() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'confirmed': return 'bg-green-600';
+      case 'confirmed': return 'bg-red-600';
       case 'pending': return 'bg-yellow-600';
       case 'cancelled': return 'bg-red-600';
-      case 'completed': return 'bg-blue-600';
+      case 'completed': return 'bg-red-600';
       default: return 'bg-gray-600';
     }
   };
@@ -148,7 +148,7 @@ export default function BookingCalendar() {
           </div>
           <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-green-600 hover:bg-green-700">
+              <Button className="bg-red-600 hover:bg-red-700">
                 <Plus className="h-4 w-4 mr-2" />
                 New Booking
               </Button>
@@ -238,7 +238,7 @@ export default function BookingCalendar() {
                 <Button variant="outline" onClick={() => setIsCreateModalOpen(false)}>
                   Cancel
                 </Button>
-                <Button className="bg-green-600 hover:bg-green-700">
+                <Button className="bg-red-600 hover:bg-red-700">
                   Create Booking
                 </Button>
               </div>
@@ -378,7 +378,7 @@ export default function BookingCalendar() {
                     </Badge>
                     
                     {!booking.contractSigned && (
-                      <Badge variant="outline" className="border-yellow-500 text-yellow-600">
+                      <Badge variant="outline" className="border-yellow-500 text-white">
                         Contract Pending
                       </Badge>
                     )}
@@ -402,7 +402,7 @@ export default function BookingCalendar() {
               <CardContent className="text-center py-8">
                 <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-muted-foreground">No upcoming bookings scheduled</p>
-                <Button className="mt-4 bg-green-600 hover:bg-green-700" onClick={() => setIsCreateModalOpen(true)}>
+                <Button className="mt-4 bg-red-600 hover:bg-red-700" onClick={() => setIsCreateModalOpen(true)}>
                   Schedule First Booking
                 </Button>
               </CardContent>

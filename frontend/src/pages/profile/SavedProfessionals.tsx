@@ -281,7 +281,7 @@ export default function SavedProfessionals() {
 
   const getAvailabilityColor = (availability: string) => {
     switch (availability) {
-      case 'Available': return 'bg-green-600/20 text-green-400';
+      case 'Available': return 'bg-red-600/20 text-green-400';
       case 'Busy': return 'bg-yellow-600/20 text-yellow-400';
       case 'Unavailable': return 'bg-red-600/20 text-red-400';
       default: return 'bg-gray-600/20 text-gray-400';
@@ -339,7 +339,7 @@ export default function SavedProfessionals() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <Users className="h-5 w-5 text-green-400" />
                 </div>
                 <div>
@@ -367,7 +367,7 @@ export default function SavedProfessionals() {
           <Card className="netflix-card bg-gray-900/80 backdrop-blur-sm border-gray-800">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-blue-600/20 rounded-lg">
+                <div className="p-2 bg-red-600/20 rounded-lg">
                   <DollarSign className="h-5 w-5 text-blue-400" />
                 </div>
                 <div>
@@ -505,7 +505,7 @@ export default function SavedProfessionals() {
                 </div>
 
                 {/* Last Activity */}
-                <div className="mb-4 text-xs text-gray-500">
+                <div className="mb-4 text-xs text-gray-400">
                   <p>Saved on {new Date(professional.savedDate).toLocaleDateString()}</p>
                   <p>Last active: {new Date(professional.lastActive).toLocaleDateString()}</p>
                 </div>
@@ -537,7 +537,7 @@ export default function SavedProfessionals() {
 
         {filteredProfessionals.length === 0 && (
           <div className="text-center py-12">
-            <Heart className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <Heart className="h-16 w-16 text-gray-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-white mb-2">No saved professionals found</h3>
             <p className="text-gray-400 mb-6">Start saving your favorite music professionals</p>
             <Button className="netflix-button-primary">

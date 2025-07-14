@@ -191,8 +191,8 @@ export default function Collaboration() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "active": return "bg-green-600/20 text-green-400 border-green-600/30";
-      case "completed": return "bg-blue-600/20 text-blue-400 border-blue-600/30";
+      case "active": return "bg-red-600/20 text-green-400 border-red-600/30";
+      case "completed": return "bg-red-600/20 text-blue-400 border-blue-600/30";
       case "pending": return "bg-yellow-600/20 text-yellow-400 border-yellow-600/30";
       case "review": return "bg-orange-600/20 text-orange-400 border-orange-600/30";
       default: return "bg-gray-600/20 text-gray-400 border-gray-600/30";
@@ -383,7 +383,7 @@ export default function Collaboration() {
 
             {filteredProjects.length === 0 && (
               <div className="text-center py-12">
-                <Music className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <Music className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">No projects found</h3>
                 <p className="text-gray-400 mb-6">Start collaborating by creating your first project</p>
                 <Button onClick={handleCreateProject} className="netflix-button-primary">
@@ -464,7 +464,7 @@ export default function Collaboration() {
           {/* Discover Tab */}
           <TabsContent value="discover" className="space-y-6">
             <div className="text-center py-12">
-              <Search className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+              <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Discover New Collaborations</h3>
               <p className="text-gray-400 mb-6">Find open projects, join collaborations, and meet new musicians</p>
               <Button className="netflix-button-primary">

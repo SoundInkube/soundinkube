@@ -224,7 +224,7 @@ export default function MusicSchools() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case "beginner": return "bg-green-600/20 text-green-400 border-green-600/30";
+      case "beginner": return "bg-red-600/20 text-green-400 border-red-600/30";
       case "intermediate": return "bg-yellow-600/20 text-yellow-400 border-yellow-600/30";
       case "advanced": return "bg-red-600/20 text-red-400 border-red-600/30";
       default: return "bg-gray-600/20 text-gray-400 border-gray-600/30";
@@ -355,7 +355,7 @@ export default function MusicSchools() {
                           <Star className="h-4 w-4 fill-current mr-1" />
                           <span className="text-sm font-medium">{course.rating}</span>
                         </div>
-                        <p className="text-xs text-gray-500">({course.reviewCount})</p>
+                        <p className="text-xs text-gray-400">({course.reviewCount})</p>
                       </div>
                     </div>
                   </CardHeader>
@@ -448,7 +448,7 @@ export default function MusicSchools() {
 
             {filteredCourses.length === 0 && (
               <div className="text-center py-12">
-                <GraduationCap className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <GraduationCap className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">No courses found</h3>
                 <p className="text-gray-400 mb-6">Try adjusting your search criteria or explore different categories</p>
                 <Button
@@ -469,7 +469,7 @@ export default function MusicSchools() {
           <TabsContent value="enrolled" className="space-y-6">
             {!isAuthenticated ? (
               <div className="text-center py-12">
-                <BookOpen className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <BookOpen className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">Sign in to view your courses</h3>
                 <p className="text-gray-400 mb-6">Track your progress and continue learning</p>
                 <Button
@@ -545,7 +545,7 @@ export default function MusicSchools() {
 
                 {enrollments.length === 0 && (
                   <div className="text-center py-12">
-                    <BookOpen className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                    <BookOpen className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-white mb-2">No enrolled courses</h3>
                     <p className="text-gray-400 mb-6">Start learning by enrolling in your first course</p>
                     <Button
@@ -625,7 +625,7 @@ export default function MusicSchools() {
 
             {courses.filter(course => course.isLive).length === 0 && (
               <div className="text-center py-12">
-                <Video className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                <Video className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">No live sessions scheduled</h3>
                 <p className="text-gray-400 mb-6">Check back later or browse available courses</p>
                 <Button

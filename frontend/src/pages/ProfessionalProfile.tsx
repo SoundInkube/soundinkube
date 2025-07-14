@@ -222,7 +222,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
   };
 
   const socialMediaLinks = [
-    { name: "Instagram", url: professional.socialMedia.instagram, icon: <Instagram className="h-5 w-5" />, color: "hover:text-pink-500" },
+    { name: "Instagram", url: professional.socialMedia.instagram, icon: <Instagram className="h-5 w-5" />, color: "hover:text-red-600" },
     { name: "Twitter", url: professional.socialMedia.twitter, icon: <Twitter className="h-5 w-5" />, color: "hover:text-blue-400" },
     { name: "YouTube", url: professional.socialMedia.youtube, icon: <Youtube className="h-5 w-5" />, color: "hover:text-red-500" },
     { name: "Website", url: professional.website, icon: <Globe className="h-5 w-5" />, color: "hover:text-green-400" }
@@ -243,7 +243,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
                   {professional.avatar}
                 </div>
                 {professional.verified && (
-                  <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-2">
+                  <div className="absolute -bottom-2 -right-2 bg-red-600 rounded-full p-2">
                     <CheckCircle className="h-6 w-6 text-white" />
                   </div>
                 )}
@@ -424,7 +424,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
                           <div className="flex-1">
                             <h4 className="text-lg font-semibold text-white">"{track.title}"</h4>
                             <p className="text-gray-400">by {track.artist} • {track.genre} • {track.year}</p>
-                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
+                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-400">
                               <span>{track.plays} plays</span>
                               <div className="flex flex-wrap gap-2">
                                 {track.achievements.map((achievement, index) => (
@@ -468,7 +468,7 @@ I specialize in bringing artists' visions to life through meticulous attention t
                             <div className="flex items-center space-x-2 mb-2">
                               <h4 className="font-semibold text-white">{review.client}</h4>
                               {review.verified && (
-                                <Badge className="bg-green-600/20 text-green-400 text-xs">Verified</Badge>
+                                <Badge className="bg-red-600/20 text-green-400 text-xs">Verified</Badge>
                               )}
                             </div>
                             <div className="flex items-center space-x-2 mb-2">
@@ -477,14 +477,14 @@ I specialize in bringing artists' visions to life through meticulous attention t
                                   <Star
                                     key={i}
                                     className={`h-4 w-4 ${
-                                      i < review.rating ? "fill-current text-yellow-400" : "text-gray-600"
+                                      i < review.rating ? "fill-current text-yellow-400" : "text-gray-300"
                                     }`}
                                   />
                                 ))}
                               </div>
                               <span className="text-sm text-gray-400">{review.date}</span>
                             </div>
-                            <p className="text-sm text-gray-500 mb-2">{review.project}</p>
+                            <p className="text-sm text-gray-400 mb-2">{review.project}</p>
                             <p className="text-gray-300 leading-relaxed">{review.review}</p>
                           </div>
                         </div>
