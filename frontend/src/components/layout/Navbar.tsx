@@ -21,10 +21,24 @@ const Navbar = () => {
     navigate('/');
   };
 
+  // Role-based home page navigation
+  const getHomePage = () => {
+    if (!user) return '/';
+    
+    switch (user.role) {
+      case 'record_label':
+      case 'artist_manager':
+      case 'music_professional':
+      case 'client':
+        return '/dashboard';
+      default:
+        return '/';
+    }
+  };
+
   // Role-based navigation items
   const getNavigationItems = () => {
     if (!user) {
-      // UPDATED: Not signed in - show ONLY these 3 items
       return [
         { name: 'Hire Pros', path: '/hire-professionals' },
         { name: 'JamPads', path: '/jam-pads' },
@@ -32,7 +46,6 @@ const Navbar = () => {
       ];
     }
 
-    // Role-specific navigation (unchanged)
     switch (user.role) {
       case 'record_label':
       case 'artist_manager':
@@ -67,7 +80,6 @@ const Navbar = () => {
     }
   };
 
-  // Role-specific dropdown items (unchanged)
   const getDropdownItems = () => {
     if (!user) return [];
 
@@ -134,9 +146,13 @@ const Navbar = () => {
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black' : 'bg-gradient-to-b from-black to-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo - Clicking goes to home */}
-          <Link to="/" className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-[#E50914]">SoundInkube</h1>
+          {/* Logo - Clicking goes to role-specific home */}
+          <Link to={getHomePage()} className="flex-shrink-0">
+            <img 
+              src="/logo.png" 
+              alt="SoundInkube" 
+              className="h-10 w-auto hover:opacity-80 transition-opacity"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -274,7 +290,7 @@ const Navbar = () => {
                   ))}
                   
                   <button
-                    onClick={handleLogout}
+                    onclick={handleLogout}
                     className="flex items-center w-full text-left px-3 py-2 text-sm text-gray-300 hover:text-white transition-colors"
                   >
                     <LogOut size={16} />
