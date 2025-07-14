@@ -1,44 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* NETFLIX THEME BASICS */
-body {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-}
-
+/* Netflix-inspired custom styles */
 @layer components {
-  .netflix-card {
-    @apply bg-[#141414] border border-gray-800 rounded-md p-4 hover:border-red-500 transition-all duration-300;
-  }
-  
   .netflix-btn-primary {
-    @apply bg-[#E50914] hover:bg-[#b8070f] text-white px-4 py-2 rounded transition-colors;
+    @apply bg-[#E50914] text-white px-6 py-2 rounded font-medium hover:bg-[#b8070f] transition-colors;
   }
   
   .netflix-btn-secondary {
-    @apply bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded border border-gray-700 transition-colors;
+    @apply bg-gray-800 text-white px-6 py-2 rounded font-medium hover:bg-gray-700 transition-colors;
   }
   
-  /* Animations */
+  .netflix-card {
+    @apply bg-[#141414] p-6 rounded-lg border border-gray-800 hover:border-gray-700 transition-all duration-300;
+  }
+  
+  .netflix-input {
+    @apply w-full px-4 py-3 bg-black border border-gray-700 rounded text-white placeholder-gray-400 focus:outline-none focus:border-[#E50914] transition-colors;
+  }
+  
   .fade-in {
-    animation: fadeIn 0.5s ease-in;
-  }
-  
-  .slide-up {
-    animation: slideUp 0.5s ease-out;
+    animation: fadeIn 0.2s ease-in-out;
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+/* Global Netflix theme */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Proper header sizing and spacing */
+h1 {
+  font-size: 2rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 1rem !important;
+}
+
+.hero-title {
+  font-size: 2.5rem !important;
+  line-height: 1.1 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem !important;
+  }
+}
+
+/* Perfect section spacing */
+section {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.hero-section {
+  padding-top: 5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Service card icons - FORCE WHITE COLOR */
+.service-icon,
+.service-card svg {
+  color: white !important;
+  fill: white !important;
+}
+
+/* Form input fixes - white text on black backgrounds */
+input, select, textarea {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+input::placeholder {
+  color: #9CA3AF !important;
+}
+
+/* Button styling consistency */
+button[type="submit"] {
+  background-color: #E50914 !important;
+  color: white !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+button[type="submit"]:hover {
+  background-color: #b8070f !important;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  background-color: #141414 !important;
+  border: 1px solid #374151 !important;
+  color: white !important;
+}
+
+/* Card hover effects */
+.netflix-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: #E50914 !important;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .netflix-card {
+    padding: 1rem !important;
+  }
 }
