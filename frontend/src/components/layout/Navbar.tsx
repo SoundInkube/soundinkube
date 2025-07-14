@@ -1,273 +1,356 @@
-import { Link } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { Button } from "@/components/ui/button";
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-import { useState } from "react";
+  Menu, 
+  X, 
+  User, 
+  Search, 
+  Bell, 
+  Settings,
+  LogOut,
+  BarChart3,
+  Music,
+  Users,
+  Calendar,
+  CreditCard,
+  ChevronDown
+} from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
 
-export default function Navbar() {
-  const { user, isAuthenticated, logout } = useAuth();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+interface NavbarProps {
+  isScrolled?: boolean;
+}
 
-  // Exact navigation items based on user role as specified
-  const getNavigationItems = () => {
-    if (!isAuthenticated || !user) {
-      return [];
+const Navbar: React.FC<NavbarProps> = ({ isScrolled = false }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const profileRef = useRef<HTMLDivElement>(null);
+
+  const isActivePath = (path: string) => location.pathname === path;
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setIsProfileOpen(false);
+      navigate('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
     }
-
-    if (user.role === "CLIENT") {
-      return [
-        { name: "Hire Music Professionals", href: "/hire-professionals", description: "Find music talent" },
-        { name: "Find Music Schools", href: "/find-music-schools", description: "Discover music education" }
-      ];
-    } else if (user.role === "MUSIC_PROFESSIONAL") {
-      return [
-        { name: "Collaboration", href: "/collaboration", description: "Work together" },
-        { name: "Marketplace", href: "/marketplace", description: "Buy/sell equipment" },
-        { name: "Jampads", href: "/jampads", description: "Book studio spaces" },
-        { name: "Gigs", href: "/gigs", description: "Find work opportunities" },
-        { name: "Music Schools", href: "/music-schools", description: "Learn & teach" }
-      ];
-    } else if (user.role === "ARTIST_MANAGER") {
-      return [
-        { name: "Manage Talent", href: "/manage-talent", description: "Artist management" },
-        { name: "Scout Artists", href: "/scout-artists", description: "Discover new talent" },
-        { name: "Dashboard", href: "/dashboard", description: "Business operations" }
-      ];
-    }
-
-    return [];
   };
 
-  // Get role-specific profile dropdown items
-  const getProfileDropdownItems = () => {
-    if (!isAuthenticated || !user) {
-      return [];
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
-
-    if (user.role === "CLIENT") {
-      return [
-        { name: "Profile Settings", href: "/profile" },
-        { name: "My Bookings", href: "/my-bookings" },
-        { name: "Saved Professionals", href: "/saved-professionals" },
-        { name: "Payment History", href: "/payment-history" }
-      ];
-    } else if (user.role === "MUSIC_PROFESSIONAL") {
-      return [
-        { name: "Profile Settings", href: "/profile" },
-        { name: "My Equipment Listings", href: "/my-listings" },
-        { name: "My Collaborations", href: "/my-collaborations" },
-        { name: "My Students", href: "/my-students" },
-        { name: "Analytics", href: "/analytics" }
-      ];
-    } else if (user.role === "ARTIST_MANAGER") {
-      return [
-        { name: "Profile Settings", href: "/profile" },
-        { name: "Manage Artists", href: "/manage-artists" },
-        { name: "Contracts", href: "/contracts" },
-        { name: "Revenue Analytics", href: "/revenue-analytics" }
-      ];
-    }
-
-    return [];
   };
 
-  const navigationItems = getNavigationItems();
-  const profileDropdownItems = getProfileDropdownItems();
+  const getProfileLinks = () => {
+    const baseLinks = [
+      { icon: User, label: 'Profile Settings', path: '/profile' },
+      { icon: Settings, label: 'Account Settings', path: '/settings' },
+    ];
+
+    if (user?.role === 'music_professional') {
+      return [
+        ...baseLinks,
+        { icon: BarChart3, label: 'Analytics', path: '/analytics' },
+        { icon: Music, label: 'My Listings', path: '/my-listings' },
+        { icon: Users, label: 'Collaborations', path: '/my-collaborations' },
+        { icon: Calendar, label: 'My Students', path: '/my-students' },
+      ];
+    }
+
+    if (user?.role === 'client') {
+      return [
+        ...baseLinks,
+        { icon: Calendar, label: 'My Bookings', path: '/my-bookings' },
+        { icon: Users, label: 'Saved Professionals', path: '/saved-professionals' },
+        { icon: CreditCard, label: 'Payment History', path: '/payment-history' },
+      ];
+    }
+
+    if (user?.role === 'artist_manager' || user?.role === 'record_label') {
+      return [
+        ...baseLinks,
+        { icon: Users, label: 'Manage Artists', path: '/manage-artists' },
+        { icon: CreditCard, label: 'Contracts', path: '/contracts' },
+        { icon: BarChart3, label: 'Revenue Analytics', path: '/revenue-analytics' },
+      ];
+    }
+
+    return baseLinks;
+  };
 
   return (
-    <nav className="text-white netflix-navbar border-b border-gray-800">
-      <div className="text-white netflix-container">
-        <div className="text-white flex justify-between h-16">
-          <div className="text-white flex items-center">
-            <Link to="/" className="text-white flex-shrink-0 flex items-center">
-              <span className="text-white text-2xl font-bold text-netflix-red">
+    <nav className={`netflix-navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center group">
+              <span className="netflix-h3 text-red-600 group-hover:text-red-500 transition-colors">
                 SoundInkube
               </span>
             </Link>
-            
-            {/* Desktop Navigation - Role-based navigation items */}
-            {isAuthenticated && navigationItems.length > 0 && (
-              <div className="text-white hidden sm:ml-8 sm:flex sm:space-x-8">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="text-white text-white hover:text-white transition-colors duration-200 px-3 py-2 text-sm font-medium group relative"
-                    title={item.description}
-                  >
-                    {item.name}
-                    <span className="text-white absolute bottom-0 left-0 w-0 h-0.5 bg-netflix-red transition-all duration-200 group-hover:w-full"></span>
-                  </Link>
-                ))}
-              </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
+            <Link
+              to="/"
+              className={`netflix-nav-link ${isActivePath('/') ? 'active' : ''}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/hire-professionals"
+              className={`netflix-nav-link ${isActivePath('/hire-professionals') ? 'active' : ''}`}
+            >
+              Find Talent
+            </Link>
+            <Link
+              to="/marketplace"
+              className={`netflix-nav-link ${isActivePath('/marketplace') ? 'active' : ''}`}
+            >
+              Marketplace
+            </Link>
+            <Link
+              to="/collaboration"
+              className={`netflix-nav-link ${isActivePath('/collaboration') ? 'active' : ''}`}
+            >
+              Collaborate
+            </Link>
+            {(user?.role === 'artist_manager' || user?.role === 'record_label') && (
+              <Link
+                to="/dashboard"
+                className={`netflix-nav-link ${isActivePath('/dashboard') ? 'active' : ''}`}
+              >
+                Dashboard
+              </Link>
             )}
           </div>
-          
-          <div className="text-white hidden sm:ml-6 sm:flex sm:items-center">
-            {isAuthenticated ? (
-              <div className="text-white flex items-center space-x-4">
-                <Link
-                  to="/messages"
-                  className="text-white p-2 rounded-full hover:bg-netflix-dark transition-colors duration-200"
-                >
-                  <span className="text-white sr-only">Messages</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="text-white h-6 w-6 text-white hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                </Link>
 
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="text-white relative hover:bg-netflix-dark">
-                      <span className="text-white sr-only">User menu</span>
-                      <div className="text-white h-8 w-8 rounded-full bg-netflix-red flex items-center justify-center text-sm font-bold text-white">
-                        {user?.email.charAt(0).toUpperCase()}
-                      </div>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="text-white w-56 bg-netflix-dark border-gray-700">
-                    <DropdownMenuLabel className="text-white text-white">
-                      My Account
-                      <div className="text-white text-xs text-white mt-1 capitalize">
-                        {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
-                      </div>
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator className="text-white bg-netflix-dark" />
-                    
-                    {/* Role-specific dropdown items */}
-                    {profileDropdownItems.map((item) => (
-                      <DropdownMenuItem key={item.name} asChild className="text-white text-white hover:bg-netflix-dark hover:text-white">
-                        <Link to={item.href}>{item.name}</Link>
-                      </DropdownMenuItem>
-                    ))}
-                    
-                    <DropdownMenuSeparator className="text-white bg-netflix-dark" />
-                    <DropdownMenuItem onClick={logout} className="text-white text-white hover:bg-netflix-dark hover:text-white">
-                      Sign out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+          {/* Search Bar */}
+          <div className="hidden md:flex flex-1 max-w-md mx-8">
+            <form onSubmit={handleSearch} className="relative w-full">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="netflix-input pl-10 pr-4 py-2.5 rounded-full border-2 focus:ring-0"
+                placeholder="Search for music services, artists..."
+              />
+            </form>
+          </div>
+
+          {/* User Menu */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button className="p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-gray-800">
+              <Bell className="h-5 w-5" />
+            </button>
+            
+            {user ? (
+              <div className="relative" ref={profileRef}>
+                <button
+                  onClick={() => setIsProfileOpen(!isProfileOpen)}
+                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transition-colors group"
+                >
+                  <div className="h-8 w-8 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
+                    <User className="h-5 w-5 text-white" />
+                  </div>
+                  <span className="text-sm font-medium text-white group-hover:text-gray-300">
+                    {user.username}
+                  </span>
+                  <ChevronDown className="h-4 w-4 text-gray-400 group-hover:text-white transition-transform group-hover:rotate-180" />
+                </button>
+
+                {isProfileOpen && (
+                  <div className="absolute right-0 mt-2 profile-dropdown fade-in">
+                    <div className="py-1">
+                      {getProfileLinks().map((link) => {
+                        const Icon = link.icon;
+                        return (
+                          <Link
+                            key={link.path}
+                            to={link.path}
+                            className="profile-dropdown-item flex items-center space-x-3"
+                            onClick={() => setIsProfileOpen(false)}
+                          >
+                            <Icon className="h-4 w-4" />
+                            <span>{link.label}</span>
+                          </Link>
+                        );
+                      })}
+                      <hr className="my-2 border-gray-700" />
+                      <button
+                        onClick={handleLogout}
+                        className="profile-dropdown-item flex items-center space-x-3 w-full text-left text-red-400 hover:text-red-300"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        <span>Sign Out</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
-              <div className="text-white flex items-center space-x-4">
-                <Button variant="ghost" asChild className="text-white text-white hover:text-white hover:bg-netflix-dark">
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button asChild className="text-white netflix-button-primary">
-                  <Link to="/signup">Sign up</Link>
-                </Button>
+              <div className="flex items-center space-x-3">
+                <Link
+                  to="/login"
+                  className="netflix-btn-secondary px-4 py-2 text-sm"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/signup"
+                  className="netflix-btn-primary px-4 py-2 text-sm"
+                >
+                  Get Started
+                </Link>
               </div>
             )}
           </div>
 
           {/* Mobile menu button */}
-          <div className="text-white -mr-2 flex items-center sm:hidden">
+          <div className="md:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              type="button"
-              className="text-white inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-netflix-dark transition-colors duration-200"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
             >
-              <span className="text-white sr-only">Open main menu</span>
-              <svg
-                className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <svg
-                className={`${isMobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile menu */}
-      <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} sm:hidden bg-black border-t border-gray-800`}>
-        {isAuthenticated && navigationItems.length > 0 && (
-          <div className="text-white pt-2 pb-3 space-y-1">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-white block pl-3 pr-4 py-2 text-base font-medium text-white hover:bg-netflix-dark hover:text-white transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        )}
-        
-        {isAuthenticated ? (
-          <div className="text-white pt-4 pb-3 border-t border-gray-800">
-            <div className="text-white flex items-center px-4">
-              <div className="text-white flex-shrink-0">
-                <div className="text-white h-10 w-10 rounded-full bg-netflix-red flex items-center justify-center text-sm font-bold text-white">
-                  {user?.email.charAt(0).toUpperCase()}
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-gray-800 bg-black bg-opacity-95 backdrop-blur-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {/* Mobile Search */}
+            <div className="px-3 py-2">
+              <form onSubmit={handleSearch} className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400" />
                 </div>
-              </div>
-              <div className="text-white ml-3">
-                <div className="text-white text-base font-medium text-white">
-                  {user?.email}
-                </div>
-                <div className="text-white text-sm font-medium text-white capitalize">
-                  {user?.role === "ARTIST_MANAGER" ? "Artist Manager" : user?.role.replace('_', ' ').toLowerCase()}
-                </div>
-              </div>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="netflix-input pl-10 pr-4 py-2.5 rounded-full text-sm"
+                  placeholder="Search..."
+                />
+              </form>
             </div>
-            <div className="text-white mt-3 space-y-1">
-              {/* Role-specific mobile dropdown items */}
-              {profileDropdownItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-white block px-4 py-2 text-base font-medium text-white hover:text-white hover:bg-netflix-dark transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
+
+            {/* Mobile Navigation Links */}
+            <Link
+              to="/"
+              className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                isActivePath('/') ? 'text-white bg-red-600' : 'text-gray-300 hover:text-white hover:bg-gray-800'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/hire-professionals"
+              className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                isActivePath('/hire-professionals') ? 'text-white bg-red-600' : 'text-gray-300 hover:text-white hover:bg-gray-800'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Find Talent
+            </Link>
+            <Link
+              to="/marketplace"
+              className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                isActivePath('/marketplace') ? 'text-white bg-red-600' : 'text-gray-300 hover:text-white hover:bg-gray-800'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Marketplace
+            </Link>
+
+            {/* Mobile User Menu */}
+            {user ? (
+              <div className="pt-4 border-t border-gray-800">
+                <div className="flex items-center px-3 py-2">
+                  <div className="h-10 w-10 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
+                    <User className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="ml-3">
+                    <div className="text-base font-medium text-white">{user.username}</div>
+                    <div className="text-sm text-gray-400">{user.email}</div>
+                  </div>
+                </div>
+                {getProfileLinks().map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="flex items-center space-x-3 px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span>{link.label}</span>
+                    </Link>
+                  );
+                })}
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setIsMenuOpen(false);
+                  }}
+                  className="flex items-center space-x-3 px-3 py-2 text-base font-medium text-red-400 hover:text-red-300 hover:bg-gray-800 transition-colors w-full text-left"
                 >
-                  {item.name}
+                  <LogOut className="h-5 w-5" />
+                  <span>Sign Out</span>
+                </button>
+              </div>
+            ) : (
+              <div className="pt-4 border-t border-gray-800 space-y-2 px-3">
+                <Link
+                  to="/login"
+                  className="block w-full text-center netflix-btn-secondary py-2 text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Sign In
                 </Link>
-              ))}
-              <button
-                onClick={() => {
-                  logout();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="text-white w-full text-left block px-4 py-2 text-base font-medium text-white hover:text-white hover:bg-netflix-dark transition-colors duration-200"
-              >
-                Sign out
-              </button>
-            </div>
+                <Link
+                  to="/signup"
+                  className="block w-full text-center netflix-btn-primary py-2 text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started
+                </Link>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="text-white pt-4 pb-3 border-t border-gray-800">
-            <div className="text-white flex flex-col space-y-2 px-4">
-              <Button variant="ghost" asChild className="text-white justify-center text-white hover:text-white hover:bg-netflix-dark">
-                <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
-              </Button>
-              <Button asChild className="text-white justify-center netflix-button-primary">
-                <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>Sign up</Link>
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
-}
+};
+
+export default Navbar;
